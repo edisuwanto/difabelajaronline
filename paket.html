@@ -162,10 +162,144 @@
       color: #888;
       margin-top: 0.5rem;
     }
+    /* ========== DARK MODE ========== */
+    body.darkmode {
+      background: #1a2233 !important;
+      color: #e0e6ed !important;
+    }
+    body.darkmode header,
+    body.darkmode footer {
+      background: #232b3e !important;
+      color: #e0e6ed !important;
+      box-shadow: none;
+      border-top: 1px solid #2d3650;
+    }
+    body.darkmode header h1 {
+      color: #90cdf4 !important;
+    }
+    body.darkmode .paket-card {
+      background: #232b3e !important;
+      color: #e0e6ed !important;
+      box-shadow: 0 2px 12px 0 #101624;
+    }
+    body.darkmode .paket-title {
+      color: #90cdf4 !important;
+    }
+    body.darkmode .paket-harga {
+      color: #38e38e !important;
+    }
+    body.darkmode .paket-materi {
+      color: #b3c2d6 !important;
+    }
+    body.darkmode .paket-btn {
+      background: #2563eb !important;
+      color: #fff !important;
+      box-shadow: 0 2px 8px 0 #1e293b;
+    }
+    body.darkmode .paket-btn:focus,
+    body.darkmode .paket-btn:hover {
+      background: #1d4ed8 !important;
+      box-shadow: 0 4px 16px 0 #334155;
+    }
+    body.darkmode .back-link {
+      color: #90cdf4 !important;
+    }
+    body.darkmode .back-link:focus,
+    body.darkmode .back-link:hover {
+      color: #38bdf8 !important;
+    }
+    body.darkmode .footer-social a {
+      background: #334155 !important;
+    }
+    body.darkmode .footer-social a:focus,
+    body.darkmode .footer-social a:hover {
+      background: #2563eb !important;
+    }
+    body.darkmode .footer-copyright {
+      color: #b3c2d6 !important;
+    }
+
+    /* Tombol dark mode */
+    #toggle-darkmode {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #e0e7ff;
+      color: #1d4ed8;
+      border: none;
+      padding: 0.6em 1.2em;
+      border-radius: 2em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 #e0e7eb;
+      z-index: 10;
+      transition: background .2s, color .2s;
+    }
+    #toggle-darkmode:focus, #toggle-darkmode:hover {
+      background: #c7d2fe;
+      outline: none;
+    }
+    body.darkmode #toggle-darkmode {
+      background: #232b3e;
+      color: #90cdf4;
+      box-shadow: 0 2px 8px 0 #101624;
+    }
+    body.darkmode #toggle-darkmode:focus, body.darkmode #toggle-darkmode:hover {
+      background: #334155;
+    }
+    @media (max-width: 600px) {
+      #toggle-darkmode {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5em 1em;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
+<button id="toggle-darkmode" aria-pressed="false" aria-label="Aktifkan Mode Gelap" tabindex="0">
+  🌙 Mode Gelap
+</button>
+
+<script>
+  const btn = document.getElementById('toggle-darkmode');
+  const body = document.body;
+
+  // Fungsi untuk update tampilan tombol dan aria-pressed
+  function updateDarkModeButton(isDark) {
+    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    btn.textContent = isDark ? '☀️ Mode Normal' : '🌙 Mode Gelap';
+  }
+
+  // Cek preferensi sebelumnya
+  let isDark = localStorage.getItem('darkmode') === 'true';
+  if (isDark) {
+    body.classList.add('darkmode');
+  }
+  updateDarkModeButton(isDark);
+
+  // Toggle dark mode
+  function toggleDarkMode() {
+    isDark = !isDark;
+    body.classList.toggle('darkmode', isDark);
+    localStorage.setItem('darkmode', isDark);
+    updateDarkModeButton(isDark);
+  }
+
+  // Klik mouse
+  btn.addEventListener('click', toggleDarkMode);
+
+  // Keyboard: Enter/Spasi
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleDarkMode();
+    }
+  });
+</script>
+
     <div style="display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap;">
       <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo" style="height:56px;width:56px;object-fit:contain;border-radius:12px;background:#f3f4f6;">
       <span style="font-size:1.6rem;font-weight:700;color:#1d4ed8;">Difabelajar</span>
@@ -252,13 +386,13 @@
   <footer>
     <div class="footer-social" aria-label="Media Sosial Difabelajar">
       <a href="https://instagram.com/difabelajar" target="_blank" aria-label="Instagram">
-        <img src="assets/instagram.png" alt="Instagram">
+        <img src="assets/logoinstagram.png" alt="Instagram">
       </a>
       <a href="https://tiktok.com/@difabelajar" target="_blank" aria-label="TikTok">
-        <img src="assets/tiktok.png" alt="TikTok">
+        <img src="assets/logotiktok.jpeg" alt="TikTok">
       </a>
       <a href="https://youtube.com/difabelajar" target="_blank" aria-label="YouTube">
-        <img src="assets/youtube.png" alt="YouTube">
+        <img src="assets/logoyoutube.png" alt="YouTube">
       </a>
     </div>
     <div class="footer-copyright">
