@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Topik 2 - Digital Marketing | Difabelajar</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo {
+      width: 150px;
+    }
+    h1 {
+      color: #347eda;
+    }
+    h2 {
+      color: #333;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .link-container {
+      margin: 20px 0;
+    }
+    .link-item {
+      display: block;
+      background-color: #347eda;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+    .link-item:hover {
+      background-color: #255aa7;
+    }
+    .btn-group {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    .next-btn:focus, .back-btn:focus {
+      outline: 3px solid #f0f4f8;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px #347eda;
+    }
+    .next-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #49c3e6 0%, #347eda 100%);
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(52,126,218,0.12);
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.5px;
+      min-width: 250px;
+      text-align: center;
+    }
+    .next-btn:hover, .next-btn:focus {
+      background: linear-gradient(90deg, #347eda 0%, #49c3e6 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .back-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #e74c3c 0%, #e17055 100%);
+      color: white;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 25px;
+      border: none;
+      margin-top: 0;
+      font-size: 1em;
+      box-shadow: 0 4px 16px rgba(231,76,60,0.07);
+      transition: background 0.2s, transform 0.13s;
+      cursor: pointer;
+      min-width: 250px;
+      text-align: center;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #c0392b 0%, #f37362 100%);
+      transform: translateY(-1px) scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html"><img src="../assets/logo.png" alt="Logo Difabelajar" class="logo" /></a>
+    <h1>Digital Marketing - Topik 2</h1>
+  </header>
+  <main>
+    <h2>Pengenalan Digital Marketing</h2>
+    <p>
+      Digital marketing adalah strategi pemasaran menggunakan media digital seperti website, media sosial, email, dan lainnya untuk menjangkau konsumen secara lebih luas dan efektif.
+    </p>
+    
+    <div class="link-container">
+      <a href="materi/topic1.html" target="_blank" rel="noopener" class="link-item">Materi Lengkap Topik 1</a><br>
+      <a href="https://zoom.us/j/123456789" target="_blank" rel="noopener" class="link-item">Link Zoom Live Session</a><br>
+      <a href="https://forms.gle/xxxxxxx" target="_blank" rel="noopener" class="link-item">Kuis Online </a><br>
+      <a href="https://youtu.be/xxxxxxx" target="_blank" rel="noopener" class="link-item">Rekaman YouTube</a>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Navigasi materi">
+      <button onclick="window.location.href='topic1.html'" class="prev-btn" aria-label='Materi Sebelumnya' tabindex="0">Materi Sebelumnya: Topik 1</button>
+      <button onclick="window.location.href='../dashboard.html'" class="back-btn" aria-label="Selesai" tabindex="0">Kembali ke Dashboard</button>
+    </div>
+  </main>
+</body>
+</html>

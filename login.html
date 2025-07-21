@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Difabelajar</title>
+  <style>
+    #loginError { color: red; display: none; margin-bottom: 10px; }
+    .login-form { 
+      max-width: 340px; 
+      margin: 50px auto; 
+      background: #f6faff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 32px 24px;
+    }
+    .login-form input { width: 100%; margin-bottom: 10px; padding: 10px; border:1.5px solid #b7d2f7; border-radius:4px;}
+    .login-form button { width: 100%; padding: 10px; background: #347eda; color: #fff; font-weight: bold; cursor:pointer; border-radius: 4px; border: none; transition: background 0.2s;}
+    .login-form button:hover, .login-form button:focus { background: #255aa7; }
+  </style>
+</head>
+<body>
+  <form id="loginForm" class="login-form" autocomplete="on">
+    <h2 style="text-align: center; color: #347eda; margin-bottom: 18px;">FORM LOGIN</h2>
+    <p style="text-align:center; color:#647394; margin-bottom:16px; font-size:15px;">
+      Jika anda belum mempunyai akun, silakan hubungi admin Difabelajar
+    </p>
+    <div id="loginError" role="alert" aria-live="assertive"></div>
+    <label for="username" accesskey="u" style="font-weight: bold;">Username:</label><br>
+    <input type="text" id="username" name="username" autocomplete="username" required aria-required="true" aria-label="Masukkan username anda" tabindex="1"><br><br>
+    <label for="password" accesskey="p" style="font-weight: bold;">Password:</label><br>
+    <input type="password" id="password" name="password" autocomplete="current-password" required aria-required="true" aria-label="Masukkan password anda" tabindex="2"><br><br>
+    <button type="submit" tabindex="3">Login</button>
+  </form>
+  <div style="text-align:center; margin-top:18px;">
+    <a href="index.html" style="color: #347eda; background: #e6efff; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 1px 4px rgba(52,126,218,0.07); transition: background 0.15s;">
+      &larr; Kembali ke Beranda
+    </a>
+  </div>
+
+  <script>
+    
+    const users = [];
+    for (let i = 1; i <= 25; i++) {
+      users.push({ username: "user" + i, password: "difabelajar2025" });
+    }
+
+    const loginError = document.getElementById('loginError');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const uname = usernameInput.value.trim();
+      const pwd = passwordInput.value.trim();
+      const found = users.find(u => u.username === uname && u.password === pwd);
+      if (found) {
+        localStorage.setItem('difabelajar_login', JSON.stringify({ username: uname }));
+        // Inisialisasi progres jika belum ada
+        if (!localStorage.getItem('difabelajar_progress_' + uname)) {
+          localStorage.setItem('difabelajar_progress_' + uname, JSON.stringify([]));
+        }
+        window.location.href = "dashboard.html";
+      } else {
+        loginError.textContent = "Username atau password salah.";
+        loginError.style.display = "block";
+        loginError.focus();
+      }
+    });
+
+    // Reset error saat user mengetik ulang
+    usernameInput.addEventListener('input', () => { loginError.style.display = "none"; });
+    passwordInput.addEventListener('input', () => { loginError.style.display = "none"; });
+  </script>
+</body>
+</html>

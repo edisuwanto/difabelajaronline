@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Difabelajar - E-Learning Aksesibel</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+      background: #fff;
+      color: #000;
+    }
+    .skip-link:focus {
+      left: 0;
+      top: 0;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      padding: 0.5em 0.8em;
+      border-radius: 4px;
+    }
+    nav a:focus, nav a:hover {
+      background: #e0e7ff;
+      color: #1d4ed8;
+      outline: none;
+    }
+    .material-card:focus {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .footer-social a img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff;
+      object-fit: cover;
+    }
+    .contact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contact-list li {
+      margin-bottom: 0.5em;
+    }
+    .info-terbaru {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .info-terbaru article {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .info-terbaru img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #e5e7eb;
+    }
+    @media (max-width: 600px) {
+      nav ul { flex-direction: column; gap: 0.5rem; }
+      .info-terbaru article { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+  <header>
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo" />
+    <h1>Difabelajar</h1>
+    <nav aria-label="Menu Navigasi Utama">
+      <ul>
+        <li><a href="#beranda" aria-current="page">Beranda</a></li>
+        <li><a href="paket.html">Paket Pelatihan</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <!-- Beranda -->
+    <section id="beranda" class="mb-12">
+      <div class="flex flex-col lg:flex-row items-center gap-8">
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-3">Selamat Datang di Difabelajar</h2>
+          <p class="mb-5">Platform e-learning aksesibel untuk semua. Temukan materi pelatihan yang dirancang khusus untuk kebutuhan beragam, baik untuk pengembangan karir maupun pembelajaran mandiri.</p>
+          <a href="paket.html" class="inline-block bg-blue-600 text-white py-2 px-6 rounded shadow hover:bg-blue-700 transition focus-visible:ring-2 focus-visible:ring-blue-400">Lihat Paket Pelatihan</a>
+        </div>
+        <div class="flex-1 max-w-[400px] w-full">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/717b60cf-f7e6-4274-93c3-8a6f11de2796.png" 
+               alt="Ilustrasi belajar online inklusif siswa berkebutuhan khusus" 
+               class="w-full max-h-[270px] h-auto object-cover rounded-lg shadow bg-gray-200"
+               onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </section>
+    <section id="paket-pelatihan">
+      <h2>Materi Populer</h2>
+      <section class="materials" aria-label="Daftar Materi">
+        <article class="material-card" tabindex="0">
+          <img src="assets/digital-marketing.jpg" alt="Ilustrasi Digital Marketing">
+          <h3>Digital Marketing</h3>
+          <p>Pelajari strategi pemasaran digital, sosial media, dan optimasi bisnis online.</p>
+          <span style="font-size:12px;color:#1d4ed8;">Kelas tersedia</span>
+          <a href="login.html" style="font-size:12px;color:#1d4ed8;text-decoration:underline;display:block;margin-top:4px;">Login untuk mengakses</a>
+        </article>
+        <article class="material-card" tabindex="0">
+          <img src="assets/programming.jpg" alt="Ilustrasi Programming">
+          <h3>Programming</h3>
+          <p>Dasar-dasar pemrograman untuk pemula, dari logika hingga membuat aplikasi.</p>
+        </article>
+        <article class="material-card" tabindex="0">
+          <img src="assets/ms-office.jpg" alt="Ilustrasi Microsoft Office">
+          <h3>Microsoft Office</h3>
+          <p>Kuasi Word, Excel, dan PowerPoint untuk kebutuhan kerja dan belajar.</p>
+        </article>
+        <article class="material-card" tabindex="0">
+          <img src="assets/english.jpg" alt="Ilustrasi Bahasa Inggris">
+          <h3>Bahasa Inggris</h3>
+          <p>Belajar bahasa Inggris praktis untuk komunikasi sehari-hari dan profesional.</p>
+        </article>
+        <article class="material-card" tabindex="0">
+          <img src="assets/arabic.jpg" alt="Ilustrasi Bahasa Arab">
+          <h3>Bahasa Arab</h3>
+          <p>Pelajari bahasa Arab dari percakapan dasar secara interaktif dan menyenangkan.</p>
+        </article>
+        <article class="material-card" tabindex="0">
+          <img src="assets/barista.jpg" alt="Ilustrasi Barista">
+          <h3>Barista</h3>
+          <p>Pelajari teknik meracik kopi dari dasar hingga menjadi barista profesional, terbuka untuk semua.</p>
+        </article>
+      </section>
+      <a href="login.html" class="btn" style="margin-top:2rem;" aria-label="Login ke Difabelajar">Login</a>
+    </section>
+
+    <!-- Info Terbaru setelah Materi Populer -->
+    <section class="info-terbaru" aria-label="Info Terbaru">
+      <h2>Info Terbaru</h2>
+      <article>
+        <img src="assets/webinar.jpg" alt="Thumbnail webinar difabelajar terbaru teknologi aksesibel">
+        <div>
+          <h3>Webinar: Teknologi Aksesibel Terbaru</h3>
+          <p>Ikuti webinar gratis kami tentang inovasi teknologi aksesibel untuk membantu pembelajaran semua kalangan.</p>
+          <span style="font-size:12px;color:#555;">Dipublikasikan: 3 Juni 2025</span>
+        </div>
+      </article>
+      <article>
+        <img src="assets/barista-workshop.jpg" alt="Gambar workshop pelatihan barista difabel suasana inklusif">
+        <div>
+          <h3>Pelatihan Barista Untuk Semua</h3>
+          <p>Difabelajar membuka kelas barista inklusif, bisa diikuti siapa saja tanpa syarat khusus.</p>
+          <span style="font-size:12px;color:#555;">Dipublikasikan: 29 Mei 2025</span>
+        </div>
+      </article>
+      <article>
+        <img src="assets/kabar-terbaru.jpg" alt="Gambar illustrasi info terbaru difabelajar kabar terkini">
+        <div>
+          <h3>Kabar Terbaru: Kolaborasi Baru Difabelajar</h3>
+          <p>Difabelajar mengumumkan kerjasama strategis dengan komunitas pendidikan inklusif nasional untuk memperluas akses pelatihan digital.</p>
+          <span style="font-size:12px;color:#555;">Dipublikasikan: 20 Mei 2025</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" aria-label="Kontak" style="margin-bottom:2rem;">
+      <h2>Kontak</h2>
+      <ul class="contact-list">
+        <li><strong>Alamat:</strong> Villa Resik Regency Jl. Batusari B 17 Buahbatu, Bojongsoang, Bandung</li>
+        <li><strong>Email:</strong> <a href="mailto:info@difabelajar.id">info@difabelajar.id</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/6281510600081" target="_blank" rel="noopener">+62 815-1060-0081</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Difabelajar</p>
+    <div class="footer-social">
+      <a href="https://instagram.com/difabelajar" target="_blank" aria-label="Instagram">
+        <img src="assets/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://tiktok.com/@difabelajar" target="_blank" aria-label="TikTok">
+        <img src="assets/tiktok.png" alt="TikTok">
+      </a>
+      <a href="https://youtube.com/difabelajar" target="_blank" aria-label="YouTube">
+        <img src="assets/youtube.png" alt="YouTube">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
