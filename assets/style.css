@@ -8,8 +8,8 @@
 
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--secondary);
-  color: var(--text);
+  background: #b3e0ff; /* biru muda ramah low vision */
+color: #0a2540;
   margin: 0;
   padding: 0;
   line-height: 1.6;
