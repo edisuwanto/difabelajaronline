@@ -1,406 +1,145 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pilih Paket Kursus Sesuai Kebutuhanmu</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6fa;
-      color: #222;
-      margin: 0;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
-    header {
-      text-align: center;
-      padding: 2.5rem 1rem 1.5rem 1rem;
-      background: #fff;
-      box-shadow: 0 2px 8px 0 #e5e7eb;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem 0;
-      color: #1d4ed8;
-      letter-spacing: -1px;
-    }
-    .paket-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    @media (min-width: 700px) {
-      .paket-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .paket-card {
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 2px 12px 0 #e5e7eb;
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      min-height: 420px;
-      position: relative;
-      transition: box-shadow .2s;
-    }
-    .paket-card:hover, .paket-card:focus-within {
-      box-shadow: 0 4px 24px 0 #c7d2fe;
-    }
-    .paket-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-    }
-    .paket-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem 0;
-      color: #1d4ed8;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .paket-harga {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #059669;
-      margin-bottom: 0.7rem;
-    }
-    .paket-fasilitas {
-      margin: 0 0 0.7rem 0;
-      padding-left: 1.2em;
-      font-size: 1.05rem;
-    }
-    .paket-fasilitas li {
-      margin-bottom: 0.3em;
-    }
-    .paket-materi {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 1.1rem;
-    }
-    .paket-btn {
-      display: inline-block;
-      background: #25d366;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 2em;
-      padding: 0.7em 1.6em;
-      margin-top: auto;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 2px 8px 0 #d1fae5;
-      transition: background .2s, box-shadow .2s;
-      cursor: pointer;
-    }
-    .paket-btn:focus, .paket-btn:hover {
-      background: #128c7e;
-      box-shadow: 0 4px 16px 0 #a7f3d0;
-      outline: none;
-    }
-    .paket-card .paket-btn {
-      margin-top: 1.2rem;
-    }
-    .back-link {
-      display: inline-block;
-      margin: 2.5rem 0 0.5rem 0;
-      font-size: 1rem;
-      color: #1d4ed8;
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .back-link:focus, .back-link:hover {
-      color: #2563eb;
-      text-decoration: underline;
-      outline: none;
-    }
-    footer {
-      background: #fff;
-      margin-top: 2.5rem;
-      padding: 2rem 1rem 1.2rem 1rem;
-      text-align: center;
-      border-top: 1px solid #e5e7eb;
-    }
-    .footer-social {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin: 1rem 0 0.5rem 0;
-    }
-    .footer-social a {
-      display: inline-block;
-      border-radius: 50%;
-      background: #f3f4f6;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      transition: background .2s;
-    }
-    .footer-social a:focus, .footer-social a:hover {
-      background: #e0e7ff;
-      outline: none;
-    }
-    .footer-social img {
-      width: 28px;
-      height: 28px;
-      vertical-align: middle;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .footer-copyright {
-      font-size: 1rem;
-      color: #888;
-      margin-top: 0.5rem;
-    }
-    /* ========== DARK MODE ========== */
-    body.darkmode {
-      background: #1a2233 !important;
-      color: #e0e6ed !important;
-    }
-    body.darkmode header,
-    body.darkmode footer {
-      background: #232b3e !important;
-      color: #e0e6ed !important;
-      box-shadow: none;
-      border-top: 1px solid #2d3650;
-    }
-    body.darkmode header h1 {
-      color: #90cdf4 !important;
-    }
-    body.darkmode .paket-card {
-      background: #232b3e !important;
-      color: #e0e6ed !important;
-      box-shadow: 0 2px 12px 0 #101624;
-    }
-    body.darkmode .paket-title {
-      color: #90cdf4 !important;
-    }
-    body.darkmode .paket-harga {
-      color: #38e38e !important;
-    }
-    body.darkmode .paket-materi {
-      color: #b3c2d6 !important;
-    }
-    body.darkmode .paket-btn {
-      background: #2563eb !important;
-      color: #fff !important;
-      box-shadow: 0 2px 8px 0 #1e293b;
-    }
-    body.darkmode .paket-btn:focus,
-    body.darkmode .paket-btn:hover {
-      background: #1d4ed8 !important;
-      box-shadow: 0 4px 16px 0 #334155;
-    }
-    body.darkmode .back-link {
-      color: #90cdf4 !important;
-    }
-    body.darkmode .back-link:focus,
-    body.darkmode .back-link:hover {
-      color: #38bdf8 !important;
-    }
-    body.darkmode .footer-social a {
-      background: #334155 !important;
-    }
-    body.darkmode .footer-social a:focus,
-    body.darkmode .footer-social a:hover {
-      background: #2563eb !important;
-    }
-    body.darkmode .footer-copyright {
-      color: #b3c2d6 !important;
-    }
-
-    /* Tombol dark mode */
-    #toggle-darkmode {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: #e0e7ff;
-      color: #1d4ed8;
-      border: none;
-      padding: 0.6em 1.2em;
-      border-radius: 2em;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 8px 0 #e0e7eb;
-      z-index: 10;
-      transition: background .2s, color .2s;
-    }
-    #toggle-darkmode:focus, #toggle-darkmode:hover {
-      background: #c7d2fe;
-      outline: none;
-    }
-    body.darkmode #toggle-darkmode {
-      background: #232b3e;
-      color: #90cdf4;
-      box-shadow: 0 2px 8px 0 #101624;
-    }
-    body.darkmode #toggle-darkmode:focus, body.darkmode #toggle-darkmode:hover {
-      background: #334155;
-    }
-    @media (max-width: 600px) {
-      #toggle-darkmode {
-        top: 1rem;
-        right: 1rem;
-        padding: 0.5em 1em;
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <title>Paket Pelatihan - Difabelajar</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-<button id="toggle-darkmode" aria-pressed="false" aria-label="Aktifkan Mode Gelap" tabindex="0">
-  🌙 Mode Gelap
-</button>
+<body class="bg-dark text-light">
 
-<script>
-  const btn = document.getElementById('toggle-darkmode');
-  const body = document.body;
-
-  // Fungsi untuk update tampilan tombol dan aria-pressed
-  function updateDarkModeButton(isDark) {
-    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-    btn.textContent = isDark ? '☀️ Mode Normal' : '🌙 Mode Gelap';
-  }
-
-  // Cek preferensi sebelumnya
-  let isDark = localStorage.getItem('darkmode') === 'true';
-  if (isDark) {
-    body.classList.add('darkmode');
-  }
-  updateDarkModeButton(isDark);
-
-  // Toggle dark mode
-  function toggleDarkMode() {
-    isDark = !isDark;
-    body.classList.toggle('darkmode', isDark);
-    localStorage.setItem('darkmode', isDark);
-    updateDarkModeButton(isDark);
-  }
-
-  // Klik mouse
-  btn.addEventListener('click', toggleDarkMode);
-
-  // Keyboard: Enter/Spasi
-  btn.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleDarkMode();
-    }
-  });
-</script>
-
-    <div style="display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:1rem;flex-wrap:wrap;">
-      <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo" style="height:56px;width:56px;object-fit:contain;border-radius:12px;background:#f3f4f6;">
-      <span style="font-size:1.6rem;font-weight:700;color:#1d4ed8;">Difabelajar</span>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" style="height:40px;" class="me-2 rounded">
+        <span class="fw-bold">Difabelajar</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="paket.html">Paket Pelatihan</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
     </div>
-    <nav aria-label="Menu Navigasi Utama" style="margin-bottom:1.2rem;">
-      <ul style="display:flex;justify-content:center;flex-wrap:wrap;list-style:none;gap:1.5rem;margin:0;padding:0;">
-        <li><a href="index.html" style="text-decoration:none;color:#222;font-weight:500;padding:0.5em 1em;border-radius:4px;display:inline-block;" onfocus="this.style.background='#e0e7ff'" onblur="this.style.background=''" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background=''">Beranda</a></li>
-        <li><a href="paket.html" style="text-decoration:none;color:#222;font-weight:500;padding:0.5em 1em;border-radius:4px;display:inline-block;" onfocus="this.style.background='#e0e7ff'" onblur="this.style.background=''" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background=''">Paket Pelatihan</a></li>
-        <li><a href="kontak.html" style="text-decoration:none;color:#222;font-weight:500;padding:0.5em 1em;border-radius:4px;display:inline-block;" onfocus="this.style.background='#e0e7ff'" onblur="this.style.background=''" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background=''">Kontak</a></li>
-      </ul>
-    </nav>
-    <h1>Pilih Paket Kursus Sesuai Kebutuhanmu</h1>
-    <p style="font-size:1.15rem;max-width:600px;margin:0 auto;color:#444;">
-      Pilih paket pelatihan online & offline yang sesuai dengan kebutuhan dan gaya belajarmu. Semua kursus didesain inklusif, aksesibel, dan bisa diikuti siapa saja!
-    </p>
-  </header>
-  <main>
-    <section class="paket-grid" aria-label="Daftar Paket Kursus">
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center py-5 bg-dark text-light">
+    <div class="container">
+      <h1 class="fw-bold">Pilih Paket Kursus Sesuai Kebutuhanmu</h1>
+      <p class="lead text-secondary">
+        Pilih paket pelatihan online & offline yang sesuai dengan kebutuhan dan gaya belajarmu.  
+        Semua kursus didesain inklusif, aksesibel, dan bisa diikuti siapa saja!
+      </p>
+    </div>
+  </section>
+
+  <!-- Paket Cards -->
+  <main class="container my-5">
+    <div class="row g-4">
+
       <!-- Paket Basic -->
-      <div class="paket-card" tabindex="0" aria-label="Paket Basic Online Only">
-        <span class="paket-icon" aria-hidden="true">📦</span>
-        <div class="paket-title">PAKET BASIC <span style="font-size:0.9em;color:#888;">(Online Only)</span></div>
-        <div class="paket-harga">Rp 350.000 <span style="color:#888;font-weight:400;">/ materi</span></div>
-        <ul class="paket-fasilitas">
-          <li>✅ Video pembelajaran</li>
-          <li>✅ Modul PDF</li>
-          <li>✅ Forum diskusi</li>
-          <li>✅ Ujian & Sertifikat Digital</li>
-        </ul>
-        <div class="paket-materi">
-          <strong>Materi Tersedia:</strong> Digital Marketing, Programming, Microsoft Office, Bahasa Inggris, Bahasa Arab, Barista
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-secondary text-light shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">PAKET BASIC <small class="text-warning">(Online Only)</small></h5>
+            <p class="text-success fw-semibold">Rp 350.000 / materi</p>
+            <ul class="list-unstyled small flex-grow-1">
+              <li>✅ Video pembelajaran</li>
+              <li>✅ Modul PDF</li>
+              <li>✅ Forum diskusi</li>
+              <li>✅ Ujian & Sertifikat Digital</li>
+              <li class="mt-2"><strong>Materi Tersedia:</strong> Digital Marketing, Programming, Microsoft Office, Bahasa Inggris, Bahasa Arab</li>
+            </ul>
+            <a href="https://wa.me/6281510600081" class="btn btn-outline-light mt-auto">Ambil Paket Basic via WhatsApp</a>
+          </div>
         </div>
-        <a class="paket-btn" href="https://wa.me/6281510600081?text=Halo%20saya%20ingin%20ambil%20PAKET%20BASIC" target="_blank" rel="noopener" aria-label="Ambil Paket Basic via WhatsApp">Ambil Paket</a>
       </div>
+
       <!-- Paket Intermediate -->
-      <div class="paket-card" tabindex="0" aria-label="Paket Intermediate Online dan Live Zoom">
-        <span class="paket-icon" aria-hidden="true">💻</span>
-        <div class="paket-title">PAKET INTERMEDIATE <span style="font-size:0.9em;color:#888;">(Online + Live Zoom Class)</span></div>
-        <div class="paket-harga">Rp 650.000 <span style="color:#888;font-weight:400;">/ materi</span></div>
-        <ul class="paket-fasilitas">
-          <li>✅ Semua dari Paket Basic</li>
-          <li>✅ Live Zoom mingguan (4x)</li>
-          <li>✅ Sesi tanya jawab</li>
-          <li>✅ Tugas mingguan & evaluasi</li>
-        </ul>
-        <a class="paket-btn" href="https://wa.me/6281510600081?text=Halo%20saya%20ingin%20ambil%20PAKET%20INTERMEDIATE" target="_blank" rel="noopener" aria-label="Ambil Paket Intermediate via WhatsApp">Ambil Paket</a>
-      </div>
-      <!-- Paket Professional -->
-      <div class="paket-card" tabindex="0" aria-label="Paket Professional Offline dan Online">
-        <span class="paket-icon" aria-hidden="true">🏫</span>
-        <div class="paket-title">PAKET PROFESSIONAL <span style="font-size:0.9em;color:#888;">(Offline + Online)</span></div>
-        <div class="paket-harga">
-          Rp 950.000 <span style="color:#888;font-weight:400;">/ materi</span><br>
-          <span style="font-size:0.98em;">Barista: <b>Rp 1.250.000</b></span>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-secondary text-light shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">PAKET INTERMEDIATE <small class="text-warning">(Online + Live Zoom Class)</small></h5>
+            <p class="text-success fw-semibold">Rp 650.000 / materi</p>
+            <ul class="list-unstyled small flex-grow-1">
+              <li>✅ Semua dari Paket Basic</li>
+              <li>✅ Live Zoom mingguan (4x)</li>
+              <li>✅ Sesi tanya jawab</li>
+              <li>✅ Tugas mingguan & evaluasi</li>
+            </ul>
+            <a href="https://wa.me/6281510600081" class="btn btn-outline-light mt-auto">Ambil Paket Intermediate via WhatsApp</a>
+          </div>
         </div>
-        <ul class="paket-fasilitas">
-          <li>✅ Semua dari Paket Intermediate</li>
-          <li>✅ Kelas tatap muka (2 hari)</li>
-          <li>✅ Praktik langsung (khusus Office, Programming & Barista)</li>
-          <li>✅ Sertifikat cetak + digital</li>
-          <li>✅ Makan & snack</li>
-        </ul>
-        <a class="paket-btn" href="https://wa.me/6281510600081?text=Halo%20saya%20ingin%20ambil%20PAKET%20PROFESSIONAL" target="_blank" rel="noopener" aria-label="Ambil Paket Professional via WhatsApp">Ambil Paket</a>
       </div>
+
+      <!-- Paket Professional -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-secondary text-light shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">PAKET PROFESSIONAL <small class="text-warning">(Offline + Online)</small></h5>
+            <p class="text-success fw-semibold">
+              Rp 950.000 / materi <br>
+              <span class="text-danger">Barista: Rp 1.250.000</span>
+            </p>
+            <ul class="list-unstyled small flex-grow-1">
+              <li>✅ Semua dari Paket Intermediate</li>
+              <li>✅ Kelas tatap muka (2 hari)</li>
+              <li>✅ Praktik langsung (khusus Office, Programming & Barista)</li>
+              <li>✅ Sertifikat cetak + digital</li>
+              <li>✅ Makan & snack</li>
+            </ul>
+            <a href="https://wa.me/6281510600081" class="btn btn-outline-light mt-auto">Ambil Paket Professional via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Paket Masterclass -->
-      <div class="paket-card" tabindex="0" aria-label="Paket Masterclass Khusus Lembaga">
-        <span class="paket-icon" aria-hidden="true">👥</span>
-        <div class="paket-title">PAKET MASTERCLASS <span style="font-size:0.9em;color:#888;">(Khusus Lembaga)</span></div>
-        <div class="paket-harga">Mulai Rp 6.500.000 <span style="color:#888;font-weight:400;">/ 10 peserta / 1 materi</span></div>
-        <ul class="paket-fasilitas">
-          <li>✅ Materi custom</li>
-          <li>✅ Trainer ke lokasi</li>
-          <li>✅ Modul cetak</li>
-          <li>✅ Pre-test & post-test</li>
-          <li>✅ Sertifikat kolektif + laporan</li>
-        </ul>
-        <a class="paket-btn" href="https://wa.me/6281510600081?text=Halo%20saya%20ingin%20ambil%20PAKET%20MASTERCLASS" target="_blank" rel="noopener" aria-label="Ambil Paket Masterclass via WhatsApp">Ambil Paket</a>
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 bg-secondary text-light shadow-sm border-0">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">PAKET MASTERCLASS <small class="text-warning">(Khusus Lembaga)</small></h5>
+            <p class="text-success fw-semibold">Mulai Rp 6.500.000 / 10 peserta / 1 materi</p>
+            <ul class="list-unstyled small flex-grow-1">
+              <li>✅ Materi custom</li>
+              <li>✅ Trainer ke lokasi / Zoom Meeting</li>
+              <li>✅ Modul PDF</li>
+              <li>✅ Pre-test & post-test</li>
+              <li>✅ Sertifikat kolektif + laporan</li>
+            </ul>
+            <a href="https://wa.me/6281510600081" class="btn btn-outline-light mt-auto">Ambil Paket Masterclass via WhatsApp</a>
+          </div>
+        </div>
       </div>
-    </section>
-    <div style="text-align:center;">
-      <a href="index.html" class="back-link" aria-label="Kembali ke Beranda">&larr; Kembali ke Beranda</a>
+
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-5">
+      <a href="index.html" class="btn btn-outline-light">⬅ Kembali ke Beranda</a>
     </div>
   </main>
-  <footer>
-    <div class="footer-social" aria-label="Media Sosial Difabelajar">
-      <a href="https://instagram.com/difabelajar" target="_blank" aria-label="Instagram">
-        <img src="assets/logoinstagram.png" alt="Instagram">
-      </a>
-      <a href="https://tiktok.com/@difabelajar" target="_blank" aria-label="TikTok">
-        <img src="assets/logotiktok.jpeg" alt="TikTok">
-      </a>
-      <a href="https://youtube.com/difabelajar" target="_blank" aria-label="YouTube">
-        <img src="assets/logoyoutube.png" alt="YouTube">
-      </a>
-    </div>
-    <div class="footer-copyright">
-      &copy; 2025 Difabelajar. All rights reserved.
-    </div>
-    <div>
-      
+
+  <!-- Footer -->
+  <footer class="bg-black text-center text-secondary py-4 mt-5">
+    <div class="container">
+      <div class="mb-2">
+        <a href="https://www.instagram.com" class="text-light me-3">Instagram</a>
+        <a href="https://www.tiktok.com" class="text-light me-3">TikTok</a>
+        <a href="https://www.youtube.com" class="text-light">YouTube</a>
+      </div>
+      <small>© 2025 Difabelajar. All rights reserved.</small>
     </div>
   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
