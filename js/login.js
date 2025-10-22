@@ -1,7 +1,7 @@
     // Membuat 25 akun user1 - user25 dengan password sama
     const users = [];
-    for (let i = 1; i <= 25; i++) {
-      users.push({ username: "user" + i, password: "difabelajar2025" });
+    for (let i = 1; i <= 30; i++) {
+      users.push({ username: "akun" + i, password: "sdfdifabelajar" });
     }
 
     document.getElementById('loginForm').addEventListener('submit', function(e) {
