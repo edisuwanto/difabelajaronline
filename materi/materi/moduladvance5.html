@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modul 5 Digital Marketing Basic</title>
+  <meta name="description" content="Modul lengkap Digital Marketing Basic di Difabelajar. Pelajari dasar-dasar pemasaran digital dengan materi terstruktur dan aksesibel.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      Digital Marketing Basic<br>
+      <span style="font-size:1.1rem;font-weight:400;">Modul Lengkap</span>
+    </h1>
+
+    <section aria-labelledby="modul5-title">
+      <h2 id="modul5-title">Modul 5: Pengenalan SEO (Search Engine Optimization) Basic</h2>
+        <p>
+Search Engine Optimization (SEO) adalah proses mengoptimalkan situs web agar mendapatkan peringkat lebih tinggi di mesin pencari seperti Google. Tujuannya adalah untuk meningkatkan jumlah traffic organik—pengunjung yang datang tanpa iklan berbayar. SEO merupakan bagian penting dari strategi digital marketing karena dapat memberikan hasil jangka panjang dengan biaya yang relatif rendah.
+</p>
+<p>
+Secara umum, SEO terbagi menjadi tiga pilar utama: On-Page SEO, Off-Page SEO, dan Technical SEO.
+</p>
+<p>
+<strong>1. On-Page SEO</strong><br>
+Meliputi optimasi di dalam halaman website seperti riset keyword, kualitas konten, dan elemen HTML (title tag, meta description, heading, struktur URL). Konten harus relevan, informatif, mudah dipahami, dan dioptimalkan dengan internal linking.
+</p>
+<p>
+<strong>2. Off-Page SEO</strong><br>
+Berfokus pada aktivitas di luar website seperti membangun backlink dari situs terpercaya. Tekniknya mencakup guest blogging, shareable content, dan relasi media.
+</p>
+<p>
+<strong>3. Technical SEO</strong><br>
+Menangani aspek teknis website seperti kecepatan loading, mobile-friendly, struktur data, penggunaan HTTPS, dan sitemap. Tools seperti PageSpeed Insights dan GTmetrix sangat membantu di tahap ini.
+</p>
+<p>
+<strong>4. Keyword: Short-Tail vs Long-Tail</strong><br>
+Short-tail keyword (misal: “kamera digital”) bersifat umum dan kompetitif. Long-tail keyword (misal: “kamera digital murah untuk pemula”) lebih spesifik dan punya konversi tinggi. Long-tail sangat disarankan untuk website baru dan cocok untuk voice search.
+</p>
+<p>
+<strong>5. Tools Pendukung SEO</strong><br>
+Gunakan alat seperti Google Trends untuk menganalisis tren pencarian. Tools lain seperti Google Keyword Planner, Ahrefs, SEMrush, dan Ubersuggest dapat digunakan untuk riset keyword, analisis pesaing, dan evaluasi performa SEO.
+</p>
+<p>
+Kesimpulannya, penguasaan teknik On-Page, Off-Page, dan Technical SEO serta pemanfaatan keyword dan tools analisis yang tepat adalah kunci membangun strategi SEO yang efektif dan berkelanjutan.
+</p>
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1W6Y25nlkBJx2_ls9LnmjWVb5-musrouW/view?usp=drivesdk"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic5.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>

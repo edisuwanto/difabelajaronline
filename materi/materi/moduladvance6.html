@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modul 6 Digital Marketing Basic</title>
+  <meta name="description" content="Modul lengkap Digital Marketing Basic di Difabelajar. Pelajari dasar-dasar pemasaran digital dengan materi terstruktur dan aksesibel.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      Digital Marketing Basic<br>
+      <span style="font-size:1.1rem;font-weight:400;">Modul Lengkap</span>
+    </h1>
+
+    <section aria-labelledby="modul6-title">
+      <h2 id="modul6-title">Modul 6: Pemasaran Media Sosial (Social Media Marketing)</h2>
+        <p>
+Pemasaran media sosial atau Social Media Marketing (SMM) adalah salah satu cabang pemasaran digital yang menggunakan platform media sosial sebagai alat untuk membangun merek, menarik perhatian konsumen, meningkatkan traffic ke situs web, dan pada akhirnya mendorong konversi atau penjualan. SMM menjadi sangat penting di era digital karena jumlah pengguna media sosial yang terus meningkat setiap tahun.
+</p>
+<p>
+Beberapa platform utama yang sering digunakan dalam strategi social media marketing antara lain Instagram, TikTok, Facebook, LinkedIn, dan X (sebelumnya Twitter). Masing-masing platform memiliki karakteristik dan audiens yang berbeda. Misalnya, Instagram sangat visual dan cocok untuk konten produk fashion, makanan, dan gaya hidup. TikTok efektif untuk menjangkau Gen Z melalui konten video pendek yang kreatif. Sementara itu, LinkedIn lebih tepat digunakan untuk keperluan profesional dan bisnis ke bisnis (B2B).
+</p>
+<p>
+Strategi yang efektif dalam pemasaran media sosial mencakup beberapa elemen utama. Pertama adalah konsistensi. Brand perlu memiliki jadwal konten yang teratur agar tetap relevan dan terlihat aktif oleh audiens. Kedua adalah interaksi. Media sosial bersifat dua arah, artinya penting untuk menjawab komentar, pesan, dan berpartisipasi dalam diskusi yang relevan. Interaksi ini akan membangun hubungan dan meningkatkan loyalitas pelanggan.
+</p>
+<p>
+Selain itu, pendekatan konten 80/20 sangat dianjurkan dalam dunia social media marketing. Artinya, 80% konten yang dibagikan sebaiknya bersifat edukatif, informatif, atau menghibur, sementara 20% sisanya adalah konten promosi atau penjualan langsung. Pendekatan ini membantu membangun kepercayaan dan nilai di mata audiens, bukan sekadar melakukan penjualan.
+</p>
+<p>
+Untuk menunjang strategi yang efektif, banyak tools yang dapat digunakan dalam pemasaran media sosial. Beberapa di antaranya adalah Hootsuite, Buffer, dan Later untuk menjadwalkan konten; Canva untuk desain visual; serta platform analitik bawaan seperti Instagram Insights dan Facebook Analytics untuk melacak performa konten. Data dari analitik sangat berguna untuk mengevaluasi konten mana yang paling efektif dan memperbaiki strategi di masa mendatang.
+</p>
+<p>
+Peran influencer marketing juga tidak bisa diabaikan dalam pemasaran media sosial. Bekerja sama dengan kreator atau tokoh yang memiliki pengaruh besar di platform tertentu dapat mempercepat pertumbuhan brand dan meningkatkan kepercayaan konsumen. Namun, penting untuk memilih influencer yang sesuai dengan nilai dan target audiens dari bisnis itu sendiri.
+</p>
+<p>
+Akhirnya, keberhasilan social media marketing bergantung pada pemahaman mendalam tentang audiens, kemampuan dalam membuat konten yang menarik, serta konsistensi dalam membangun hubungan. Dengan strategi yang tepat, media sosial bukan hanya menjadi alat komunikasi, tetapi juga sarana pertumbuhan bisnis yang sangat efektif.
+</p>
+<p>
+Salah satu pendekatan yang semakin populer dalam social media marketing adalah pemanfaatan User-Generated Content (UGC). UGC adalah konten yang dibuat oleh pengguna atau pelanggan, seperti ulasan, testimoni, atau postingan yang menyebut merek tertentu. Konten ini dinilai lebih autentik dan dipercaya oleh calon pelanggan dibandingkan konten promosi yang dibuat brand itu sendiri. Strategi ini tidak hanya memperkuat keterlibatan, tetapi juga menciptakan rasa komunitas di sekitar brand.
+</p>
+<p>
+Selain itu, tren penggunaan konten video pendek telah mengubah cara brand berinteraksi dengan audiens. Platform seperti TikTok, Instagram Reels, dan YouTube Shorts menawarkan potensi viral yang besar jika konten disajikan secara menarik, relevan, dan mudah dipahami dalam hitungan detik. Format video pendek memaksa brand untuk menyampaikan pesan secara ringkas dan padat, sekaligus tetap menarik secara visual. Hal ini menuntut kreativitas tinggi dari tim konten.
+</p>
+<p>
+Algoritma media sosial juga memainkan peran penting dalam kesuksesan kampanye pemasaran. Algoritma menentukan konten apa yang muncul di feed pengguna berdasarkan interaksi, minat, dan perilaku sebelumnya. Oleh karena itu, pemasar perlu memahami bagaimana algoritma bekerja agar konten mereka mendapat jangkauan maksimal. Misalnya, algoritma Instagram cenderung memprioritaskan konten dengan engagement tinggi seperti komentar dan share dalam waktu singkat setelah dipublikasikan.
+</p>
+<p>
+Tak kalah penting, keamanan brand dan etika digital harus menjadi perhatian dalam setiap kampanye. Konten yang menyesatkan, sensitif, atau clickbait dapat merusak reputasi dan menurunkan kepercayaan audiens. Oleh karena itu, kejujuran, transparansi, dan penggunaan data secara etis perlu dijunjung tinggi dalam setiap strategi pemasaran digital, termasuk di media sosial.
+</p>
+<p>
+Secara keseluruhan, social media marketing bukan hanya tentang memposting konten secara rutin, tetapi juga merancang pengalaman digital yang membangun hubungan jangka panjang. Dengan pendekatan berbasis data, pemahaman platform, serta kreativitas dalam menyampaikan pesan, bisnis dapat memanfaatkan kekuatan media sosial untuk memperluas jangkauan, membangun kepercayaan, dan meningkatkan konversi secara signifikan.
+</p>
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1A2VhC5ZTMAGdbEAuXSc-GBPutbQtDt1A/view?usp=drivesdk"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic6.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>
