@@ -1,155 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Halaman Belum Tersedia | Difabelajar</title>
-
-  <meta name="description" content="Halaman ini belum dapat diakses dan akan tersedia pada 15 Januari 2026." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Topik 9 - Digital Marketing | Difabelajar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      text-align: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
-
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
     .logo {
-      max-width: 160px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 1.5rem;
+      width: 150px;
+      border-radius: 12px;
     }
-
-    .info-box {
-      background-color: #ffffff;
-      border-left: 6px solid #0d6efd;
-      padding: 1.8rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .btn-dashboard {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.4rem;
-      background-color: #0d6efd;
-      color: #ffffff;
+    .link-item {
+      display: block;
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
+      font-weight: 500;
+      transition: 0.3s;
     }
-
-    .btn-dashboard:focus,
-    .btn-dashboard:hover {
-      background-color: #0b5ed7;
-      outline: 3px solid #000;
-      outline-offset: 2px;
-    }
-
-    button {
-      margin-top: 1.2rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: none;
-      background-color: #198754;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    button:focus {
-      outline: 3px solid #000;
-      outline-offset: 2px;
+    .link-item:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
   </style>
 </head>
-
-<body>
-  <main>
-    <!-- Logo -->
-    <img
-      src="../assets/logodifabelajar.jpeg"
-      alt="Logo Difabelajar"
-      class="logo"
-    />
-
-    <section class="info-box" aria-live="polite">
-      <h1>Halaman Belum Dapat Diakses</h1>
-
-      <p>Mohon maaf, halaman ini belum bisa diakses.</p>
-
-      <p>
-        Halaman ini baru dapat diakses pada 5 Februari 2026
-      </p>
-
-      <p>Silakan kembali ke dashboard.</p>
-
-      <a
-        href="../dashboard.html"
-        class="btn-dashboard"
-        aria-label="Kembali ke halaman dashboard Difabelajar"
-      >
-        Kembali ke Dashboard
+<body class="bg-body-secondary">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo me-2" width="50">
+        Difabelajar
       </a>
+      <button class="btn btn-outline-light" id="darkModeToggle">🌙 Mode Gelap</button>
+    </div>
+  </nav>
 
-      <div>
-        <button id="toggleMusic" aria-label="Kontrol musik latar">
-          🔊 Matikan Musik
-        </button>
-      </div>
-    </section>
+  <!-- Header -->
+  <header class="text-center my-4">
+    <img src="../assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo mb-3">
+    <h1 class="text-primary fw-bold">Digital Marketing - Topik 9</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mb-5">
+    <div class="card shadow-sm p-4 mb-4">
+      <h2 class="fw-semibold">Membuat Video AI dari Teks untuk Konten, Promosi, dan Edukasi</h2>
+      <p>
+Membuat Video AI dari Teks untuk Konten, Promosi, dan Edukasi membahas cara mengubah ide dan deskripsi teks menjadi video visual yang realistis menggunakan teknologi AI. Pendekatan ini membantu kreator, pelaku usaha, dan pendidik menghasilkan konten menarik tanpa kamera atau proses produksi yang rumit. Dengan strategi prompt yang tepat, video dapat digunakan untuk promosi produk, storytelling, hingga penyampaian materi edukasi secara efektif.
+      </p>
+    </div>
+
+    <!-- Link Container -->
+    <div class="card shadow-sm p-4 mb-4">
+      <h5 class="fw-bold mb-3">Akses Materi</h5>
+      <a href="materi/moduladvance9.html" target="_blank" rel="noopener" class="link-item bg-primary text-white">📘 Materi Lengkap Topik 9</a>
+      <a href="https://telkomsel.zoom.us/j/97603584839?pwd=81AYOmmerO1wT4ietOVxEqvvOWitHl.1" target="_blank" rel="noopener" class="link-item bg-success text-white">🎥 Link Zoom Live Session</a>
+      <a href="https://forms.gle/BG6qvDHWvnFb9the7" target="_blank" rel="noopener" class="link-item bg-warning text-dark">📝 Kuis Online</a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" class="link-item bg-danger text-white">▶️ Rekaman YouTube</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+      <button onclick="window.location.href='topic8.html'" class="btn btn-lg btn-primary px-4">Materi Sebelumnya: Topik 8</button>
+      <button onclick="window.location.href='topic10.html'" class="btn btn-lg btn-primary px-4">Materi Selanjutnya: Topik 10</button>
+      <button onclick="window.location.href='../dashboard.html'" class="btn btn-lg btn-danger px-4">Kembali ke Dashboard</button>
+    </div>
   </main>
 
-  <!-- Audio -->
-  <audio id="bgMusic" autoplay loop muted>
-    <source src="../assets/audio.mp3" type="audio/mpeg" />
-  </audio>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const audio = document.getElementById("bgMusic");
-    const toggleBtn = document.getElementById("toggleMusic");
+    // Dark Mode Toggle
+    const toggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
 
-    // Aktifkan suara saat interaksi pertama
-    const enableSound = () => {
-      if (audio.muted) {
-        audio.muted = false;
-      }
-      document.removeEventListener("click", enableSound);
-      document.removeEventListener("keydown", enableSound);
-    };
-
-    document.addEventListener("click", enableSound);
-    document.addEventListener("keydown", enableSound);
-
-    // Tombol kontrol
-    toggleBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.play();
-        toggleBtn.textContent = "🔊 Matikan Musik";
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-bs-theme') === 'light') {
+        html.setAttribute('data-bs-theme', 'dark');
+        toggle.textContent = "☀️ Mode Terang";
       } else {
-        audio.pause();
-        toggleBtn.textContent = "▶️ Putar Musik";
+        html.setAttribute('data-bs-theme', 'light');
+        toggle.textContent = "🌙 Mode Gelap";
       }
     });
   </script>

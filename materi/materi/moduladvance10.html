@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul 10 Digital Marketing Basic</title>
-  <meta name="description" content="Modul lengkap Digital Marketing Basic di Difabelajar. Pelajari dasar-dasar pemasaran digital dengan materi terstruktur dan aksesibel.">
+  <title>Tahapan Membuat Konten Video dengan VO3 & Copilot | Difabelajar</title>
+  <meta name="description" content="Materi pelatihan: tahapan membuat konten video promosi menggunakan Copilot Microsoft dan Google Veo 3 (VO3), dari konsep, image, prompt, hingga video realistis.">
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
@@ -16,6 +16,7 @@
       --bg-dark: #1a202c;
       --text-dark: #f5f9fc;
       --primary: #176ca6;
+      --accent: #ff6600;
     }
     body {
       background: var(--bg-light);
@@ -27,92 +28,38 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
-    body.dark-mode {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
+    body.dark-mode { background: var(--bg-dark); color: var(--text-dark); }
     @keyframes fadeIn { to { opacity: 1; } }
 
     .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      z-index: 100;
+      position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 100;
     }
     .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: .5rem 1rem;
-      border-radius: .25rem;
-      background: #ffffff;
-      border: 2px solid #005fcc;
-      outline: none;
+      left: 1rem; top: 1rem; width: auto; height: auto; padding: .5rem 1rem; border-radius: .25rem;
+      background: #ffffff; border: 2px solid #005fcc; outline: none;
     }
 
-    .logo-container {
-      text-align: center;
-      margin: 2rem 0 1rem 0;
-    }
+    .logo-container { text-align: center; margin: 2rem 0 1rem 0; }
     .logo-container img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      width: 90px; height: 90px; object-fit: contain; border-radius: 16px; background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
     }
 
-    h1, h2, h3 {
-      color: var(--primary);
-    }
-    body.dark-mode h1,
-    body.dark-mode h2,
-    body.dark-mode h3 {
-      color: #7ec3e6;
-    }
+    h1, h2, h3 { color: var(--primary); }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 { color: #7ec3e6; }
+    h2.section-accent, h3.section-accent { color: var(--accent); }
+    body.dark-mode h2.section-accent, body.dark-mode h3.section-accent { color: #ff9e66; }
 
     .btn-custom {
-      display: inline-block;
-      padding: 0.85em 2.2em;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 2em;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      display: inline-block; padding: .85em 2.2em; font-size: 1.1rem; font-weight: 700; border-radius: 2em;
+      background: var(--primary); color: #fff; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
     .btn-custom:hover, .btn-custom:focus {
-      background: #114d77;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-      text-decoration: underline;
-      transform: scale(1.05);
+      background: #114d77; box-shadow: 0 4px 16px rgba(0,0,0,.12); text-decoration: underline; transform: scale(1.05);
     }
 
-    .toggle-mode {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 999;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      color: var(--primary);
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      transition: color 0.5s;
-    }
-    body.dark-mode footer {
-      color: #7ec3e6;
-    }
+    .toggle-mode { position: fixed; top: 1rem; right: 1rem; z-index: 999; }
   </style>
 </head>
 <body>
@@ -128,64 +75,113 @@
 
   <main id="main-content" tabindex="-1" class="container">
     <h1>
-      Digital Marketing Basic<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul Lengkap</span>
+      Tahapan Membuat Konten Video<br>
+      Menggunakan VO3 & Copilot Microsoft<br>
+      <span style="font-size:1.1rem;font-weight:400;">
+        Studi kasus: konten promosi penjualan produk
+      </span>
     </h1>
 
-    <section aria-labelledby="modul10-title">
-      <h2 id="modul10-title">Modul 10: Tren dan Etika dalam Digital Marketing</h2>
-        <p>
-Dalam era digital yang sangat dinamis, memahami tren dan menjaga etika dalam digital marketing menjadi hal yang sangat penting. Perubahan teknologi yang cepat dan perilaku konsumen yang terus berkembang menuntut pemasar untuk selalu adaptif dan bertanggung jawab dalam menjalankan strategi pemasaran digital.
-</p>
-<p>
-Salah satu tren utama saat ini adalah penggunaan Artificial Intelligence (AI) dalam pemasaran. AI digunakan untuk mengotomatisasi proses seperti personalisasi konten, chatbot layanan pelanggan, hingga analisis prediktif. Dengan AI, perusahaan dapat menyajikan konten yang lebih relevan berdasarkan perilaku dan preferensi pengguna, sehingga meningkatkan keterlibatan dan konversi.
-</p>
-<p>
-Selain AI, video pendek menjadi format konten yang mendominasi platform digital. Platform seperti TikTok, Instagram Reels, dan YouTube Shorts telah mengubah cara konsumen mengonsumsi informasi. Konten berdurasi singkat yang informatif dan menghibur terbukti lebih efektif dalam menarik perhatian dan menyampaikan pesan pemasaran dalam waktu yang singkat.
-</p>
-<p>
-Tren lain yang terus berkembang adalah pemasaran melalui influencer. Influencer marketing memanfaatkan kepercayaan dan kedekatan yang dimiliki seorang influencer dengan audiensnya. Kolaborasi ini mampu meningkatkan visibilitas brand secara organik dan autentik. Namun, penting untuk memilih influencer yang selaras dengan nilai dan target audiens dari brand yang bersangkutan.
-</p>
-<p>
-Zero-party data juga mulai mendapat perhatian besar. Ini adalah data yang secara sukarela diberikan oleh pelanggan, seperti preferensi, minat, dan kebutuhan mereka. Berbeda dengan third-party data yang diperoleh dari pihak ketiga, zero-party data lebih akurat dan menghargai privasi pengguna. Pengumpulan data ini biasanya dilakukan melalui kuis interaktif, formulir preferensi, atau sistem personalisasi berbasis login.
-</p>
-<p>
-Dalam menghadapi semua tren tersebut, menjaga etika dalam digital marketing menjadi sangat krusial. Etika digital mengharuskan perusahaan bersikap jujur, transparan, dan menghormati privasi pengguna. Misalnya, saat mengumpulkan data pengguna, penting untuk mendapatkan persetujuan (consent) dan memberi pilihan untuk berhenti (opt-out). Menghindari clickbait dan konten menyesatkan juga menjadi bentuk tanggung jawab terhadap audiens.
-</p>
-<p>
-Regulasi seperti GDPR di Eropa dan UU ITE di Indonesia semakin memperketat aturan terkait perlindungan data pribadi. Perusahaan harus memastikan bahwa setiap aktivitas pemasaran digital mematuhi peraturan yang berlaku, termasuk dalam penggunaan cookies, pengiriman email, dan retargeting iklan.
-</p>
-<p>
-Secara keseluruhan, tren digital marketing akan terus berkembang, namun nilai etika harus tetap menjadi fondasi. Dengan memadukan teknologi terbaru dan komitmen terhadap integritas, perusahaan dapat membangun hubungan jangka panjang dengan pelanggan dan menjaga reputasi merek secara berkelanjutan.
-</p>
-<p>
-Tren personalisasi konten juga menjadi sorotan dalam strategi pemasaran digital modern. Dengan memanfaatkan data pelanggan, brand dapat menyampaikan pesan yang disesuaikan dengan minat dan perilaku masing-masing individu. Contohnya adalah email dengan rekomendasi produk berdasarkan histori pembelian atau konten halaman web yang menyesuaikan dengan lokasi pengguna. Personalisasi ini terbukti meningkatkan engagement dan mendorong loyalitas pelanggan.
-</p>
-<p>
-Social commerce juga menjadi tren penting yang menggabungkan media sosial dan e-commerce. Platform seperti Instagram Shopping dan TikTok Shop memungkinkan pengguna untuk langsung membeli produk tanpa meninggalkan aplikasi. Integrasi ini mempersingkat proses pembelian dan memperbesar peluang konversi, terutama di kalangan pengguna muda yang terbiasa dengan interaksi cepat dan visual menarik.
-</p>
-<p>
-Di sisi lain, augmented reality (AR) mulai digunakan untuk meningkatkan pengalaman pelanggan. Beberapa brand fashion dan kosmetik telah mengimplementasikan fitur AR yang memungkinkan pengguna mencoba produk secara virtual. Teknologi ini tidak hanya meningkatkan kenyamanan pengguna, tetapi juga mengurangi pengembalian produk karena ekspektasi yang lebih akurat.
-</p>
-<p>
-Etika dalam pemasaran digital juga mencakup tanggung jawab sosial dan keberlanjutan. Banyak konsumen kini lebih memilih brand yang menunjukkan komitmen terhadap isu lingkungan, kesetaraan, dan transparansi. Strategi marketing yang menyuarakan nilai-nilai sosial dengan tulus dapat membangun hubungan emosional yang kuat dengan pelanggan, asalkan tidak sekadar dijadikan alat kampanye semata (greenwashing).
-</p>
-<p>
-Penerapan etika juga mencakup penyampaian informasi yang akurat dan tidak manipulatif. Pemasar harus menghindari praktik seperti menyembunyikan informasi penting dalam syarat dan ketentuan, atau memberikan klaim berlebihan tanpa dasar yang jelas. Transparansi harga, keaslian produk, dan ketersediaan stok adalah hal-hal mendasar yang harus disampaikan dengan jujur kepada konsumen.
-</p>
-<p>
-Sebagai penutup, tren dan etika digital marketing harus berjalan seiring. Mengikuti perkembangan teknologi adalah keharusan, namun keberhasilan jangka panjang hanya bisa dicapai dengan membangun kepercayaan melalui praktik pemasaran yang etis dan bertanggung jawab. Dengan cara ini, brand tidak hanya unggul secara kompetitif tetapi juga dihargai oleh pelanggan karena integritasnya.
-</p>
+    <section aria-labelledby="materi">
+      <h2 id="materi" class="section-accent">1. Menentukan Tujuan dan Konsep Konten</h2>
+      <p>
+        Proses pembuatan konten video dimulai dari penentuan tujuan yang jelas. Pada studi kasus ini,
+        tujuan utama konten adalah promosi penjualan produk melalui video visual yang realistis dan menarik.
+      </p>
+      <ul>
+        <li>Menentukan produk yang akan dipromosikan</li>
+        <li>Menentukan target audiens (usia, kebutuhan, gaya hidup)</li>
+        <li>Menentukan platform tujuan (Instagram, TikTok, landing page, iklan)</li>
+        <li>Menentukan hasil akhir yang diharapkan</li>
+      </ul>
+
+      <h2 class="section-accent">2. Menyiapkan Aset Awal</h2>
+      <p>
+        Aset awal berupa foto selfie atau foto produk menjadi bahan dasar sebelum masuk ke proses AI.
+        Foto ini akan menjadi referensi utama dalam pembuatan image dan video.
+      </p>
+      <ul>
+        <li>Gunakan pencahayaan cukup dan natural</li>
+        <li>Background sederhana dan rapi</li>
+        <li>Foto jelas, tidak blur</li>
+        <li>Objek utama terlihat utuh</li>
+      </ul>
+
+      <h2 class="section-accent">3. Menentukan Kondisi dan Situasi Konten</h2>
+      <p>
+        Tentukan suasana visual yang ingin ditampilkan agar konten terasa hidup dan kontekstual.
+      </p>
+      <ul>
+        <li>Waktu: pagi, siang, sore, atau malam</li>
+        <li>Suasana: hangat, santai, profesional, atau premium</li>
+        <li>Lokasi: rumah, kafe, meja kerja, atau outdoor</li>
+        <li>Aktivitas: memegang, menggunakan, menuang, atau menikmati produk</li>
+      </ul>
+
+      <h2 class="section-accent">4. Membuat Image dengan Copilot Microsoft</h2>
+      <p>
+        Image dibuat terlebih dahulu sebagai fondasi video. Gunakan Copilot Microsoft untuk menghasilkan
+        gambar sesuai konsep yang telah ditentukan.
+      </p>
+      <p><strong>Contoh prompt image:</strong></p>
+      <p>
+        <em>
+          “A realistic photo of a person enjoying a cup of coffee in the morning, warm sunlight coming through
+          a window, cozy atmosphere, premium coffee branding on the table, cinematic look.”
+        </em>
+      </p>
+
+      <h2 class="section-accent">5. Menyimpan Prompt Image Terbaik</h2>
+      <p>
+        Prompt yang berhasil menghasilkan image sesuai harapan sebaiknya disimpan sebagai template.
+        Ini membantu menjaga konsistensi visual dan mempercepat proses pembuatan konten berikutnya.
+      </p>
+
+      <h2 class="section-accent">6. Membuat Video dengan VO3 (Google Veo 3)</h2>
+      <p>
+        Setelah image siap, masuk ke Gemini dan pilih fitur Veo / Video Generation. Upload image yang sudah dibuat
+        sebagai frame utama video AI.
+      </p>
+
+      <h2 class="section-accent">7. Menyusun Prompt Video yang Realistis</h2>
+      <p>
+        Prompt video berfungsi menghidupkan image menjadi video. Fokus pada gerakan kecil, pencahayaan konsisten,
+        dan suasana yang natural.
+      </p>
+      <p><strong>Contoh prompt video:</strong></p>
+      <p>
+        <em>
+          “Create a realistic short video based on this image. The person gently lifts the coffee cup,
+          steam slowly rises, warm morning light, cinematic camera movement, calm and premium mood.”
+        </em>
+      </p>
+
+      <h2 class="section-accent">8. Generate dan Evaluasi Video</h2>
+      <p>
+        Generate video menggunakan VO3, lalu lakukan evaluasi. Jika hasil belum sesuai, perbaiki prompt dan ulangi
+        proses hingga mendapatkan hasil paling realistis dan sesuai tujuan promosi.
+      </p>
+
+      <h2 class="section-accent">9. Prinsip Penting dalam Proses</h2>
+      <ul>
+        <li>Image adalah fondasi utama video</li>
+        <li>Prompt yang jelas lebih penting daripada panjang</li>
+        <li>Simpan semua prompt yang berhasil</li>
+        <li>Eksperimen adalah bagian dari proses kreatif</li>
+        <li>Utamakan realistis dan natural</li>
+      </ul>
+
+      <h2 class="section-accent">10. Penutup</h2>
+      <p>
+        Dengan menggabungkan Copilot Microsoft dan Google Veo 3, siapa pun dapat membuat konten video promosi
+        tanpa kamera dan kru produksi. Kunci keberhasilan terletak pada kejelasan konsep, ketelitian menyusun prompt,
+        dan keberanian untuk terus mencoba hingga mendapatkan hasil terbaik.
+      </p>
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
-      <a href="https://drive.google.com/file/d/1Iojoj6OX3cAJ3apMdym117hSTMSCcntv/view?usp=drivesdk"
-         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
-        Download Materi Lengkap
-      </a>
-      <a href="../topic10.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
-        Kembali
-      </a>
+    <div class="d-flex flex-column gap-3 align-items-center my-4">
+      <a href="https://drive.google.com/file/d/1A8BNzaWgT7YF00ik-chcADgqDvR17L_T/view?usp=sharing" class="btn-custom">Download Materi</a>
+      <a href="../topic10.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
     </div>
   </main>
 
@@ -193,10 +189,8 @@ Sebagai penutup, tren dan etika digital marketing harus berjalan seiring. Mengik
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -205,3 +199,4 @@ Sebagai penutup, tren dan etika digital marketing harus berjalan seiring. Mengik
   </script>
 </body>
 </html>
+
