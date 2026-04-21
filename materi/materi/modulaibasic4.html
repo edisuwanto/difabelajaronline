@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modul 4 Digital Marketing Basic</title>
+  <meta name="description" content="Modul lengkap Digital Marketing Basic di Difabelajar. Pelajari dasar-dasar pemasaran digital dengan materi terstruktur dan aksesibel.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      Digital Marketing Basic<br>
+      <span style="font-size:1.1rem;font-weight:400;">Modul Lengkap</span>
+    </h1>
+
+    <section aria-labelledby="modul4-title">
+      <h2 id="modul4-title">Modul 4: Menyusun Content Plan & Editorial Calendar yang Efektif</h2>
+        <p>
+    Dalam dunia digital marketing, strategi tanpa perencanaan konten ibarat kapal tanpa arah. Banyak bisnis gagal bukan karena produknya buruk, tetapi karena tidak memiliki rencana konten yang terstruktur dan konsisten. Di sinilah pentingnya Content Plan dan Editorial Calendar sebagai dua alat utama untuk mengelola dan mengoptimalkan konten digital.
+  </p>
+  <h3>Apa itu Content Plan?</h3>
+  <p>
+    Content Plan atau rencana konten adalah strategi besar yang menjawab pertanyaan:
+    <ul>
+      <li>Mengapa kita membuat konten?</li>
+      <li>Apa tujuan utama konten ini?</li>
+      <li>Siapa audiens yang ingin kita jangkau?</li>
+    </ul>
+    Content plan menyusun arah konten secara menyeluruh, termasuk:
+    <ul>
+      <li>Tujuan utama: Meningkatkan traffic, leads, atau membangun kepercayaan</li>
+      <li>Buyer Persona: Siapa targetnya, apa masalah dan kebutuhannya</li>
+      <li>Tipe konten: Blog, video, e-book, infografis</li>
+      <li>Platform distribusi: Blog, YouTube, Instagram, email</li>
+      <li>Pilar konten: Tema besar seperti “Tips Digital Marketing”, “Studi Kasus”, dll.</li>
+    </ul>
+    Membuat content plan yang jelas membantu tim fokus dan menghasilkan konten yang relevan dan efektif.
+  </p>
+  <h3>Apa itu Editorial Calendar?</h3>
+  <p>
+    Editorial Calendar atau kalender editorial adalah jadwal operasional yang menjawab:
+    <ul>
+      <li>Kapan konten dipublikasikan?</li>
+      <li>Di platform mana?</li>
+      <li>Siapa yang bertanggung jawab?</li>
+    </ul>
+    Kalender ini mengatur proses dari ide hingga publikasi dan evaluasi. Bisa berupa Google Sheets, Notion, Trello, atau Asana. Elemen penting meliputi:
+    <ul>
+      <li>Judul konten</li>
+      <li>Tanggal publikasi</li>
+      <li>Jenis format konten</li>
+      <li>Arah visual & caption</li>
+      <li>Status pengerjaan</li>
+      <li>Channel distribusi</li>
+    </ul>
+  </p>
+  <h3>Mengapa Keduanya Penting?</h3>
+  <p>
+    Tanpa perencanaan dan jadwal:
+    <ul>
+      <li>Tim bekerja tanpa arah</li>
+      <li>Konten tidak konsisten</li>
+      <li>Audiens kehilangan minat</li>
+      <li>Brand tampak tidak profesional</li>
+    </ul>
+    Dengan content plan dan editorial calendar:
+    <ul>
+      <li>Konten terarah dan sesuai target</li>
+      <li>Kerja tim lebih efisien</li>
+      <li>Publikasi konsisten</li>
+      <li>Strategi mudah dievaluasi</li>
+    </ul>
+  </p>
+  <h3>Tools yang Bisa Digunakan</h3>
+  <p>
+    Beberapa tools populer untuk mengelola konten:
+    <ul>
+      <li>Google Sheets – Gratis dan fleksibel</li>
+      <li>Trello – Visual dan intuitif</li>
+      <li>Notion – Multifungsi dan kolaboratif</li>
+      <li>Asana – Cocok untuk manajemen tim</li>
+      <li>CoSchedule – Profesional untuk tim besar</li>
+    </ul>
+    Membuat konten bagus saja tidak cukup. Diperlukan strategi dan jadwal yang rapi. Dengan Content Plan dan Editorial Calendar, konten Anda akan lebih konsisten, tepat sasaran, dan mendukung kesuksesan digital marketing secara menyeluruh. Perencanaan yang baik adalah setengah dari keberhasilan.
+  </p>
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1XUzRlv5WJAQ1jCpS1D1QIJVOlx3JRPjk/view?usp=drivesdk"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic4.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>
