@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Prompt Engineering - Modul 3</title>
+
+  <meta name="description" content="Menguasai Teknik Berkomunikasi dengan AI untuk Mendapatkan Hasil yang Akurat, Konsisten, dan Berkualitas">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light:#f5f9fc;
+      --text-light:#1a202c;
+      --bg-dark:#1a202c;
+      --text-dark:#f5f9fc;
+      --primary:#176ca6;
+    }
+
+    body{
+      background:var(--bg-light);
+      color:var(--text-light);
+      font-family:'Open Sans',Arial,sans-serif;
+      font-size:1.1rem;
+      line-height:1.7;
+      transition:.5s;
+      opacity:0;
+      animation:fadeIn 1s ease-in-out forwards;
+    }
+
+    body.dark-mode{
+      background:var(--bg-dark);
+      color:var(--text-dark);
+    }
+
+    @keyframes fadeIn{
+      to{
+        opacity:1;
+      }
+    }
+
+    .skip-link{
+      position:absolute;
+      left:-999px;
+    }
+
+    .skip-link:focus{
+      left:1rem;
+      top:1rem;
+      background:#fff;
+      padding:.5rem 1rem;
+      border:2px solid #005fcc;
+    }
+
+    .logo-container{
+      text-align:center;
+      margin:2rem 0 1rem;
+    }
+
+    .logo-container img{
+      width:90px;
+      height:90px;
+      object-fit:contain;
+      border-radius:16px;
+    }
+
+    h1,h2,h3,h4{
+      color:var(--primary);
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4{
+      color:#7ec3e6;
+    }
+
+    .btn-custom{
+      display:inline-block;
+      padding:.85em 2.2em;
+      border-radius:2em;
+      background:var(--primary);
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .toggle-mode{
+      position:fixed;
+      top:1rem;
+      right:1rem;
+      z-index:999;
+    }
+
+    footer{
+      text-align:center;
+      padding:1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">
+Lewati ke konten utama
+</a>
+
+<button class="btn btn-sm btn-outline-primary toggle-mode">
+🌙 Mode
+</button>
+
+<div class="logo-container">
+<img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar">
+</div>
+
+<main id="main-content" tabindex="-1" class="container">
+
+<h1>
+PROMPT ENGINEERING
+<br>
+<span style="font-size:1.1rem;font-weight:400;">
+Menguasai Teknik Berkomunikasi dengan AI untuk Mendapatkan Hasil yang Akurat, Konsisten, dan Berkualitas
+</span>
+</h1>
+
+<section aria-labelledby="modul3-title">
+
+<h2 id="modul3-title">Informasi Pelatihan</h2>
+
+<ul>
+<li>Nama Pelatihan: AI for Activity</li>
+<li>Pertemuan: 2</li>
+<li>Topik Utama: Prompt Engineering</li>
+<li>Durasi: 3–4 Jam</li>
+<li>Level: Pemula hingga Menengah</li>
+</ul>
+
+<h2>Tujuan Pembelajaran</h2>
+
+<p>Setelah mengikuti sesi ini, peserta mampu:</p>
+
+<ol>
+<li>Memahami konsep Prompt Engineering.</li>
+<li>Menulis prompt yang efektif dan terstruktur.</li>
+<li>Menggunakan teknik Role Prompting.</li>
+<li>Menggunakan teknik Few-Shot Prompting.</li>
+<li>Menggunakan teknik Chain of Thought Prompting.</li>
+<li>Melakukan revisi dan optimasi prompt.</li>
+<li>Membuat prompt untuk kebutuhan pendidikan, administrasi, dan bisnis.</li>
+</ol>
+
+<h2>Capaian Pembelajaran</h2>
+
+<ul>
+<li>Membuat prompt yang jelas dan terstruktur.</li>
+<li>Menghasilkan output AI yang lebih akurat.</li>
+<li>Mengurangi kesalahan hasil AI.</li>
+<li>Mengoptimalkan penggunaan Gemini, ChatGPT, Claude, dan AI lainnya.</li>
+<li>Menyusun prompt profesional sesuai kebutuhan pekerjaan.</li>
+</ul>
+
+<h2>Pendahuluan</h2>
+
+<p>
+Banyak orang menganggap AI akan memberikan jawaban sempurna secara otomatis.
+Padahal kualitas jawaban AI sangat bergantung pada instruksi yang diberikan.
+</p>
+
+<p>
+Prinsip sederhananya:
+</p>
+
+<p>
+<strong>Output yang baik berasal dari prompt yang baik.</strong>
+</p>
+
+<p>
+Kemampuan membuat prompt saat ini menjadi salah satu keterampilan penting di era AI.
+Keterampilan ini disebut Prompt Engineering.
+</p>
+
+<h2>Apa Itu Prompt Engineering?</h2>
+
+<p>
+Prompt Engineering adalah proses merancang, menyusun, menguji, dan memperbaiki instruksi yang diberikan kepada AI agar menghasilkan output yang sesuai dengan kebutuhan.
+</p>
+
+<p>
+Prompt Engineering bukan sekadar mengetik pertanyaan.
+</p>
+
+<p>
+Prompt Engineering adalah kemampuan mengarahkan AI untuk:
+</p>
+
+<ul>
+<li>Memahami tujuan pengguna</li>
+<li>Memahami konteks</li>
+<li>Menghasilkan format yang tepat</li>
+<li>Mengurangi kesalahan</li>
+<li>Menghasilkan jawaban yang lebih berkualitas</li>
+</ul>
+
+<h2>Mengapa Prompt Engineering Penting?</h2>
+
+<p>
+Tanpa Prompt Engineering:
+</p>
+
+<p>
+Prompt:
+</p>
+
+<p>
+"Buat materi AI."
+</p>
+
+<p>
+Hasilnya akan sangat umum.
+</p>
+
+<p>
+Dengan Prompt Engineering:
+</p>
+
+<p>
+Anda adalah trainer AI profesional. Buatkan materi pengenalan AI untuk guru sekolah dasar yang belum pernah menggunakan AI. Materi terdiri dari tujuan pembelajaran, penjelasan sederhana, contoh penggunaan di kelas, latihan, dan evaluasi. Gunakan bahasa Indonesia yang mudah dipahami.
+</p>
+
+<p>
+Hasil yang diperoleh akan jauh lebih sesuai dengan kebutuhan.
+</p>
+
+<h2>Analogi Prompt Engineering</h2>
+
+<p>
+Bayangkan AI seperti seorang asisten baru.
+</p>
+
+<p>
+Jika Anda hanya berkata:
+</p>
+
+<p>
+"Buat laporan."
+</p>
+
+<p>
+Maka hasilnya belum tentu sesuai.
+</p>
+
+<p>
+Namun jika Anda berkata:
+</p>
+
+<p>
+"Buat laporan kegiatan pelatihan AI selama satu hari untuk 30 peserta, dengan bagian pendahuluan, pelaksanaan, hasil, dan kesimpulan menggunakan bahasa formal."
+</p>
+
+<p>
+Maka hasilnya akan jauh lebih baik.
+</p>
+
+<h2>DASAR PROMPT ENGINEERING</h2>
+
+<h3>Komponen Dasar Prompt</h3>
+
+<p>
+Prompt yang baik biasanya memiliki beberapa unsur:
+</p>
+
+<ol>
+<li>Tujuan</li>
+<li>Peran</li>
+<li>Konteks</li>
+<li>Audiens</li>
+<li>Format Output</li>
+<li>Batasan</li>
+</ol>
+
+<h3>Tujuan</h3>
+
+<p>Menjelaskan apa yang ingin dicapai.</p>
+
+<ul>
+<li>Membuat email</li>
+<li>Membuat laporan</li>
+<li>Membuat materi</li>
+<li>Membuat presentasi</li>
+</ul>
+
+<h3>Konteks</h3>
+
+<ul>
+<li>Untuk guru</li>
+<li>Untuk UMKM</li>
+<li>Untuk mahasiswa</li>
+<li>Untuk peserta pemula</li>
+</ul>
+
+<h3>Audiens</h3>
+
+<ul>
+<li>Siswa SD</li>
+<li>Guru</li>
+<li>Pegawai kantor</li>
+<li>Pelanggan</li>
+</ul>
+
+<h3>Format Output</h3>
+
+<ul>
+<li>Tabel</li>
+<li>Poin-poin</li>
+<li>Artikel</li>
+<li>Presentasi</li>
+<li>Surat resmi</li>
+</ul>
+
+<h3>Batasan</h3>
+
+<ul>
+<li>Maksimal 500 kata</li>
+<li>Gunakan bahasa formal</li>
+<li>Jangan menggunakan istilah teknis</li>
+</ul>
+
+<h2>STRUKTUR PROMPT YANG EFEKTIF</h2>
+
+<h3>Formula RTCFO</h3>
+
+<p>
+Role + Task + Context + Format + Output
+</p>
+
+<h3>Role</h3>
+
+<ul>
+<li>Guru</li>
+<li>Konsultan</li>
+<li>Trainer</li>
+<li>Programmer</li>
+<li>Penulis</li>
+</ul>
+
+<h3>Task</h3>
+
+<ul>
+<li>Buatkan materi</li>
+<li>Buatkan laporan</li>
+<li>Buatkan email</li>
+</ul>
+
+<h3>Context</h3>
+
+<ul>
+<li>Pelatihan AI untuk guru</li>
+<li>Workshop untuk UMKM</li>
+<li>Seminar mahasiswa</li>
+</ul>
+
+<h3>Format</h3>
+
+<ul>
+<li>Tabel</li>
+<li>Daftar poin</li>
+<li>Artikel</li>
+</ul>
+
+<h3>Output</h3>
+
+<ul>
+<li>Formal</li>
+<li>Profesional</li>
+<li>Mudah dipahami</li>
+</ul>
+
+<h3>Contoh Prompt Efektif</h3>
+
+<p>
+Anda adalah trainer AI profesional. Buatkan materi pengenalan AI untuk guru SMA yang baru mengenal AI. Sajikan dalam bentuk poin-poin dengan bahasa sederhana dan mudah dipahami.
+</p>
+
+<h2>ROLE PROMPTING</h2>
+
+<h3>Apa Itu Role Prompting?</h3>
+
+<p>
+Role Prompting adalah teknik memberikan peran tertentu kepada AI sebelum memberikan tugas.
+</p>
+
+<p>
+Teknik ini membantu AI menghasilkan jawaban yang lebih sesuai dengan bidang tertentu.
+</p>
+
+<h3>Mengapa Role Prompting Efektif?</h3>
+
+<p>
+Karena AI akan menyesuaikan gaya berpikir berdasarkan peran yang diberikan.
+</p>
+
+<h3>Contoh Role Prompting</h3>
+
+<h4>Sebagai Guru</h4>
+
+<p>
+Anda adalah guru matematika berpengalaman. Jelaskan konsep persentase untuk siswa kelas 5 SD.
+</p>
+
+<h4>Sebagai Konsultan Bisnis</h4>
+
+<p>
+Anda adalah konsultan bisnis UMKM. Berikan strategi pemasaran digital untuk usaha kopi rumahan.
+</p>
+
+<h4>Sebagai Trainer AI</h4>
+
+<p>
+Anda adalah trainer AI profesional. Buatkan silabus pelatihan AI selama 10 pertemuan.
+</p>
+
+<h3>Praktik Role Prompting</h3>
+
+<p>
+Buat prompt menggunakan peran:
+</p>
+
+<ol>
+<li>Guru</li>
+<li>Kepala Sekolah</li>
+<li>Dosen</li>
+<li>Staf Administrasi</li>
+<li>Konsultan Bisnis</li>
+</ol>
+
+<p>
+Bandingkan hasil yang diberikan AI.
+</p>
+
+<h2>FEW-SHOT PROMPTING</h2>
+<h3>Apa Itu Few-Shot Prompting?</h3>
+
+<p>
+Few-Shot Prompting adalah teknik memberikan beberapa contoh terlebih dahulu agar AI memahami pola yang diinginkan.
+</p>
+
+<p>
+Teknik ini membantu AI menghasilkan jawaban yang lebih konsisten karena AI dapat mempelajari contoh yang diberikan sebelum mengerjakan tugas baru.
+</p>
+
+<h3>Mengapa Few-Shot Penting?</h3>
+
+<p>
+Kadang AI tidak memahami format atau gaya yang diharapkan oleh pengguna.
+</p>
+
+<p>
+Dengan memberikan contoh, AI dapat mengikuti pola yang sama sehingga hasil menjadi lebih sesuai kebutuhan.
+</p>
+
+<h3>Contoh Tanpa Few-Shot</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+Buatkan slogan pendidikan.
+</p>
+
+<p>
+Hasil yang diberikan AI bisa sangat beragam dan belum tentu sesuai dengan yang diinginkan.
+</p>
+
+<h3>Contoh Few-Shot Prompting</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+Contoh 1:
+</p>
+
+<p>
+Belajar Hari Ini, Memimpin Masa Depan.
+</p>
+
+<p>
+Contoh 2:
+</p>
+
+<p>
+Pendidikan Berkualitas untuk Generasi Unggul.
+</p>
+
+<p>
+Sekarang buatkan 10 slogan pendidikan lainnya dengan gaya yang sama.
+</p>
+
+<p>
+AI akan mengikuti pola yang telah diberikan sebelumnya.
+</p>
+
+<h3>Contoh Few-Shot untuk Administrasi</h3>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Judul:
+Laporan Kegiatan Pelatihan AI
+</p>
+
+<p>
+Tanggal:
+10 Januari 2026
+</p>
+
+<p>
+Peserta:
+30 Orang
+</p>
+
+<p>
+Kesimpulan:
+Kegiatan berjalan dengan baik.
+</p>
+
+<p>
+Sekarang buatkan laporan kegiatan seminar kewirausahaan dengan format yang sama.
+</p>
+
+<p>
+Dengan adanya contoh tersebut, AI akan lebih mudah memahami format laporan yang diinginkan.
+</p>
+
+<h3>Manfaat Few-Shot Prompting</h3>
+
+<ul>
+<li>Meningkatkan konsistensi hasil.</li>
+<li>Mengurangi kesalahan format.</li>
+<li>Membantu AI memahami pola penulisan.</li>
+<li>Menghasilkan output yang lebih sesuai kebutuhan.</li>
+<li>Menghemat waktu revisi.</li>
+</ul>
+
+<h3>Praktik Few-Shot</h3>
+
+<p>
+Buat beberapa contoh:
+</p>
+
+<ul>
+<li>Surat resmi</li>
+<li>Laporan kegiatan</li>
+<li>Deskripsi produk</li>
+</ul>
+
+<p>
+Kemudian minta AI membuat dokumen baru dengan pola yang sama.
+</p>
+
+<h2>CHAIN OF THOUGHT PROMPTING</h2>
+
+<h3>Apa Itu Chain of Thought Prompting?</h3>
+
+<p>
+Chain of Thought atau sering disingkat CoT adalah teknik meminta AI menjelaskan proses berpikir secara bertahap sebelum memberikan jawaban akhir.
+</p>
+
+<p>
+Teknik ini membantu AI menghasilkan analisis yang lebih sistematis dan mudah dipahami.
+</p>
+
+<h3>Kapan Chain of Thought Digunakan?</h3>
+
+<p>
+Chain of Thought sangat bermanfaat untuk:
+</p>
+
+<ul>
+<li>Analisis data</li>
+<li>Perhitungan matematika</li>
+<li>Pemecahan masalah</li>
+<li>Pengambilan keputusan</li>
+<li>Evaluasi suatu kondisi</li>
+<li>Perencanaan strategi</li>
+</ul>
+
+<h3>Contoh Tanpa Chain of Thought</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+Berapa keuntungan jika modal Rp1.000.000 dan penjualan Rp1.500.000?
+</p>
+
+<p>
+AI biasanya langsung memberikan jawaban akhir.
+</p>
+
+<h3>Contoh Dengan Chain of Thought</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+Hitung keuntungan usaha berikut secara bertahap. Jelaskan proses perhitungannya langkah demi langkah sebelum memberikan kesimpulan.
+</p>
+
+<p>
+AI akan menjelaskan proses berpikirnya secara sistematis.
+</p>
+
+<h3>Contoh Hasil Chain of Thought</h3>
+
+<p>
+Langkah 1:
+Menentukan modal usaha.
+</p>
+
+<p>
+Modal = Rp1.000.000
+</p>
+
+<p>
+Langkah 2:
+Menentukan total pendapatan.
+</p>
+
+<p>
+Pendapatan = Rp1.500.000
+</p>
+
+<p>
+Langkah 3:
+Menghitung selisih.
+</p>
+
+<p>
+Rp1.500.000 - Rp1.000.000
+</p>
+
+<p>
+Langkah 4:
+Menentukan keuntungan.
+</p>
+
+<p>
+Keuntungan = Rp500.000
+</p>
+
+<p>
+Kesimpulan:
+Usaha memperoleh keuntungan sebesar Rp500.000.
+</p>
+
+<h3>Contoh Chain of Thought untuk Pendidikan</h3>
+
+<p>
+Jelaskan langkah demi langkah cara menyelesaikan soal pecahan berikut sehingga siswa dapat memahami prosesnya.
+</p>
+
+<p>
+Dengan pendekatan ini, siswa tidak hanya mengetahui jawaban tetapi juga memahami prosesnya.
+</p>
+
+<h3>Contoh Chain of Thought untuk Bisnis</h3>
+
+<p>
+Analisis penyebab penurunan penjualan berikut secara bertahap, kemudian berikan rekomendasi perbaikannya.
+</p>
+
+<p>
+AI akan melakukan analisis secara sistematis sebelum memberikan rekomendasi.
+</p>
+
+<h3>Manfaat Chain of Thought Prompting</h3>
+
+<ul>
+<li>Meningkatkan kualitas analisis.</li>
+<li>Membantu memahami proses penyelesaian masalah.</li>
+<li>Mengurangi kemungkinan kesalahan logika.</li>
+<li>Meningkatkan kualitas keputusan.</li>
+<li>Menghasilkan jawaban yang lebih transparan.</li>
+</ul>
+
+<h3>Praktik Chain of Thought</h3>
+
+<p>
+Gunakan teknik Chain of Thought untuk:
+</p>
+
+<ul>
+<li>Menganalisis penjualan bulanan.</li>
+<li>Menyelesaikan soal matematika.</li>
+<li>Menganalisis penyebab suatu masalah.</li>
+<li>Menyusun strategi bisnis sederhana.</li>
+</ul>
+
+<p>
+Bandingkan hasil yang diperoleh dengan prompt biasa tanpa Chain of Thought.
+</p>
+
+<h2>TEKNIK REVISI DAN OPTIMASI PROMPT</h2>
+<h3>Mengapa Prompt Perlu Direvisi?</h3>
+
+<p>
+Prompt pertama yang dibuat tidak selalu menghasilkan jawaban terbaik.
+Sering kali pengguna perlu melakukan perbaikan dan penyempurnaan agar hasil yang diberikan AI menjadi lebih sesuai dengan kebutuhan.
+</p>
+
+<p>
+Proses memperbaiki prompt disebut optimasi prompt.
+</p>
+
+<h3>Teknik Optimasi Prompt</h3>
+
+<h4>Tambahkan Peran</h4>
+
+<p><strong>Kurang Baik:</strong></p>
+
+<p>
+Buatkan materi AI.
+</p>
+
+<p><strong>Lebih Baik:</strong></p>
+
+<p>
+Anda adalah trainer AI profesional. Buatkan materi AI untuk pemula.
+</p>
+
+<h4>Tambahkan Audiens</h4>
+
+<p><strong>Kurang Baik:</strong></p>
+
+<p>
+Buatkan presentasi AI.
+</p>
+
+<p><strong>Lebih Baik:</strong></p>
+
+<p>
+Buatkan presentasi AI untuk guru sekolah dasar.
+</p>
+
+<h4>Tambahkan Format</h4>
+
+<p><strong>Kurang Baik:</strong></p>
+
+<p>
+Jelaskan AI.
+</p>
+
+<p><strong>Lebih Baik:</strong></p>
+
+<p>
+Jelaskan AI dalam bentuk tabel yang berisi definisi, manfaat, dan contoh penggunaan.
+</p>
+
+<h4>Tambahkan Batasan</h4>
+
+<p><strong>Kurang Baik:</strong></p>
+
+<p>
+Buat artikel AI.
+</p>
+
+<p><strong>Lebih Baik:</strong></p>
+
+<p>
+Buat artikel AI maksimal 500 kata menggunakan bahasa sederhana.
+</p>
+
+<h2>Framework Prompt Profesional</h2>
+
+<p>
+Gunakan struktur berikut untuk membuat prompt yang lebih profesional:
+</p>
+
+<ul>
+<li>Anda adalah [Peran].</li>
+<li>Tugas Anda adalah [Tugas].</li>
+<li>Konteks pekerjaan adalah [Konteks].</li>
+<li>Target pembaca adalah [Audiens].</li>
+<li>Sajikan hasil dalam bentuk [Format].</li>
+<li>Gunakan gaya bahasa [Formal/Profesional/Sederhana].</li>
+<li>Tambahkan [Ketentuan Tambahan].</li>
+</ul>
+
+<h3>Contoh Framework Lengkap</h3>
+
+<p>
+Anda adalah trainer AI profesional.
+</p>
+
+<p>
+Tugas Anda adalah membuat materi pengenalan AI.
+</p>
+
+<p>
+Konteks pelatihan ditujukan untuk guru sekolah dasar.
+</p>
+
+<p>
+Target pembaca adalah guru yang belum pernah menggunakan AI.
+</p>
+
+<p>
+Sajikan hasil dalam bentuk poin-poin dan contoh praktik.
+</p>
+
+<p>
+Gunakan bahasa Indonesia yang sederhana dan mudah dipahami.
+</p>
+
+<p>
+Tambahkan latihan dan evaluasi di akhir materi.
+</p>
+
+<h2>PRAKTIK</h2>
+
+<h3>Praktik 1: Prompt untuk Pendidikan</h3>
+
+<p>
+Buat prompt untuk:
+</p>
+
+<ul>
+<li>Materi pembelajaran</li>
+<li>Soal ujian</li>
+<li>Rangkuman materi</li>
+<li>Modul pelatihan</li>
+</ul>
+
+<h3>Praktik 2: Prompt untuk Administrasi</h3>
+
+<p>
+Buat prompt untuk:
+</p>
+
+<ul>
+<li>Surat resmi</li>
+<li>Notulen rapat</li>
+<li>Laporan kegiatan</li>
+<li>Proposal program</li>
+</ul>
+
+<h3>Praktik 3: Prompt untuk Bisnis</h3>
+
+<p>
+Buat prompt untuk:
+</p>
+
+<ul>
+<li>Strategi pemasaran</li>
+<li>Analisis penjualan</li>
+<li>Deskripsi produk</li>
+<li>Rencana bisnis sederhana</li>
+</ul>
+
+<h2>Studi Kasus Akhir</h2>
+
+<p>
+Peserta diminta membuat satu prompt lengkap menggunakan:
+</p>
+
+<ul>
+<li>Role Prompting</li>
+<li>Few-Shot Prompting</li>
+<li>Chain of Thought Prompting</li>
+<li>Format Output</li>
+<li>Batasan Output</li>
+</ul>
+
+<p>
+Kemudian uji prompt tersebut menggunakan Gemini atau ChatGPT.
+</p>
+
+<p>
+Bandingkan hasil yang diperoleh dengan prompt sederhana untuk melihat perbedaan kualitas output.
+</p>
+
+<h2>Ringkasan Pertemuan 2</h2>
+
+<p>
+Peserta telah mempelajari:
+</p>
+
+<ul>
+<li>Dasar Prompt Engineering</li>
+<li>Struktur Prompt yang Efektif</li>
+<li>Role Prompting</li>
+<li>Few-Shot Prompting</li>
+<li>Chain of Thought Prompting</li>
+<li>Teknik Revisi dan Optimasi Prompt</li>
+<li>Penerapan Prompt untuk Pendidikan, Administrasi, dan Bisnis</li>
+</ul>
+
+<h2>Evaluasi Pertemuan 2</h2>
+
+<ol>
+<li>Apa yang dimaksud dengan Prompt Engineering?</li>
+<li>Mengapa prompt yang baik sangat penting?</li>
+<li>Apa fungsi Role Prompting?</li>
+<li>Apa manfaat Few-Shot Prompting?</li>
+<li>Kapan Chain of Thought Prompting digunakan?</li>
+<li>Sebutkan komponen utama prompt yang efektif.</li>
+<li>Buat satu prompt profesional untuk kebutuhan pekerjaan Anda.</li>
+</ol>
+
+</section>
+
+<div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+
+<a href="https://drive.google.com/"
+class="btn-custom"
+aria-label="Download Materi"
+target="_blank"
+rel="noopener">
+Download Materi Lengkap
+</a>
+
+<a href="../topic3.html"
+class="btn btn-outline-primary rounded-pill px-4"
+aria-label="Kembali">
+Kembali
+</a>
+
+</div>
+
+</main>
+
+<footer>
+&copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const toggleBtn = document.querySelector('.toggle-mode');
+
+toggleBtn.addEventListener('click', () => {
+document.body.classList.toggle('dark-mode');
+
+toggleBtn.textContent =
+document.body.classList.contains('dark-mode')
+? '☀️ Mode'
+: '🌙 Mode';
+});
+</script>
+
+</body>
+</html>

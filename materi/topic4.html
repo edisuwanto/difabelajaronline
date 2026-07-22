@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halaman Belum Bisa Diakses</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    background:#ffffff;
+    max-width:700px;
+    width:100%;
+    text-align:center;
+    padding:40px 30px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.emoji{
+    font-size:80px;
+    margin-bottom:20px;
+    display:inline-block;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+h1{
+    color:#EA4335;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.message{
+    font-size:18px;
+    line-height:1.8;
+    color:#444;
+    margin-bottom:25px;
+}
+
+.date-box{
+    background:#f4f7ff;
+    border-left:6px solid #4285F4;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:30px;
+    font-size:20px;
+    font-weight:bold;
+    color:#1a73e8;
+}
+
+.note{
+    background:#fff8e1;
+    border:1px solid #ffd54f;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:30px;
+    color:#555;
+}
+
+.btn-dashboard{
+    display:inline-block;
+    text-decoration:none;
+    background:#4285F4;
+    color:white;
+    padding:15px 30px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-dashboard:hover{
+    background:#3367d6;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(66,133,244,0.3);
+}
+
+.icons{
+    margin-top:25px;
+    font-size:30px;
+    animation:blink 3s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0.4;
+    }
+}
+
+@media(max-width:600px){
+    h1{
+        font-size:26px;
+    }
+
+    .message{
+        font-size:16px;
+    }
+
+    .emoji{
+        font-size:65px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="emoji">📚✨</div>
+
+    <h1>Halaman Belum Bisa Diakses</h1>
+
+    <p class="message">
+        Untuk dapat mengakses halaman ini, Anda harus terlebih dahulu
+        mempelajari dan menyelesaikan materi pada pertemuan sebelumnya.
+    </p>
+
+    <div class="date-box">
+        🔒 Akses dibuka pada:<br>
+        31 Juli 2026
+    </div>
+
+    <div class="note">
+        🎓 Tetap semangat belajar!<br>
+        Selesaikan materi sebelumnya agar proses pembelajaran berjalan
+        secara bertahap dan lebih maksimal.
+    </div>
+
+    <a href="../dashboard.html" class="btn-dashboard">
+        🏠 Kembali ke Dashboard
+    </a>
+
+    <div class="icons">
+        🚀 📖 🌟 💡 🎯
+    </div>
+
+</div>
+
+</body>
+</html>

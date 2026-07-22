@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gemini pada Google Workspace</title>
+  <meta name="description" content="Modul Gemini pada Google Workspace di Difabelajar.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      background: #fff;
+      border: 2px solid #005fcc;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
+    h1,h2,h3{
+      color: var(--primary);
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3{
+      color:#7ec3e6;
+    }
+
+    .btn-custom{
+      display:inline-block;
+      padding:.85em 2.2em;
+      border-radius:2em;
+      background:var(--primary);
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .toggle-mode{
+      position:fixed;
+      top:1rem;
+      right:1rem;
+      z-index:999;
+    }
+
+    footer{
+      text-align:center;
+      padding:1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">
+Lewati ke konten utama
+</a>
+
+<button class="btn btn-sm btn-outline-primary toggle-mode">
+🌙 Mode
+</button>
+
+<div class="logo-container">
+  <img src="assets/logodifabelajar.jpeg"
+       alt="Logo Difabelajar">
+</div>
+
+<main id="main-content" tabindex="-1" class="container">
+
+<h1>
+Gemini pada Google Workspace
+<br>
+<span style="font-size:1.1rem;font-weight:400;">
+Gemini pada Gmail dan Google Docs
+</span>
+</h1>
+
+<section aria-labelledby="modul1-title">
+
+<h2 id="modul1-title">
+Tujuan Pembelajaran
+</h2>
+
+<p>Setelah mengikuti materi ini peserta mampu:</p>
+
+<ul>
+<li>Memahami konsep Gemini for Google Workspace.</li>
+<li>Mengetahui manfaat AI dalam produktivitas kerja.</li>
+<li>Menggunakan Gemini pada Gmail.</li>
+<li>Menggunakan Gemini pada Google Docs.</li>
+<li>Membuat email profesional menggunakan AI.</li>
+<li>Membuat dokumen dan laporan menggunakan AI.</li>
+<li>Menulis prompt yang jelas dan efektif.</li>
+</ul>
+
+<h2>Capaian Pembelajaran</h2>
+
+<p>Peserta mampu:</p>
+
+<ul>
+<li>Membuat email profesional menggunakan Gemini.</li>
+<li>Membalas email dengan bantuan AI.</li>
+<li>Membuat laporan otomatis menggunakan Gemini.</li>
+<li>Merangkum dokumen panjang.</li>
+<li>Menyusun dokumen kerja lebih cepat menggunakan AI.</li>
+</ul>
+
+<h2>Mengapa Kita Perlu AI?</h2>
+
+<p>
+Sebelum mengenal Gemini, kita perlu memahami mengapa AI menjadi teknologi yang sangat penting saat ini.
+</p>
+
+<p>
+Dalam pekerjaan sehari-hari kita sering melakukan aktivitas seperti:
+</p>
+
+<ul>
+<li>Menulis email</li>
+<li>Membuat laporan</li>
+<li>Menyusun proposal</li>
+<li>Membuat materi pelatihan</li>
+<li>Membaca dokumen panjang</li>
+<li>Merangkum hasil rapat</li>
+</ul>
+
+<p>
+Aktivitas tersebut memerlukan waktu yang cukup banyak.
+</p>
+
+<p>
+Artificial Intelligence (AI) hadir untuk membantu manusia bekerja lebih cepat, lebih efisien, dan lebih produktif.
+</p>
+
+<p>
+AI tidak menggantikan manusia.
+</p>
+
+<p>
+AI berfungsi sebagai asisten yang membantu menyelesaikan pekerjaan secara lebih efektif.
+</p>
+
+<h2>Apa Itu Artificial Intelligence (AI)?</h2>
+
+<p>
+Artificial Intelligence atau Kecerdasan Buatan adalah teknologi yang memungkinkan komputer melakukan tugas yang biasanya memerlukan kecerdasan manusia.
+</p>
+
+<ul>
+<li>Memahami bahasa manusia</li>
+<li>Menjawab pertanyaan</li>
+<li>Menerjemahkan bahasa</li>
+<li>Membuat tulisan</li>
+<li>Mengenali gambar</li>
+<li>Mengenali suara</li>
+<li>Membuat presentasi</li>
+</ul>
+
+<p>
+Saat ini AI sudah digunakan oleh berbagai perusahaan besar seperti:
+</p>
+
+<ul>
+<li>Google</li>
+<li>Microsoft</li>
+<li>OpenAI</li>
+<li>Amazon</li>
+<li>Meta</li>
+</ul>
+
+<h2>Apa Itu Gemini?</h2>
+
+<p>
+Gemini adalah model AI yang dikembangkan oleh Google.
+</p>
+
+<p>
+Gemini dirancang untuk memahami dan menghasilkan berbagai jenis informasi seperti:
+</p>
+
+<ul>
+<li>Teks</li>
+<li>Gambar</li>
+<li>Audio</li>
+<li>Video</li>
+<li>Data</li>
+</ul>
+
+<p>
+Gemini terintegrasi dengan Google Workspace sehingga dapat digunakan langsung pada:
+</p>
+
+<ul>
+<li>Gmail</li>
+<li>Google Docs</li>
+<li>Google Sheets</li>
+<li>Google Forms</li>
+<li>Google Slides</li>
+<li>Google Drive</li>
+<li>Google Meet</li>
+</ul>
+
+<h2>Apa Itu Google Workspace?</h2>
+
+<p>
+Google Workspace adalah kumpulan aplikasi produktivitas yang dikembangkan oleh Google.
+</p>
+
+<ul>
+<li>Gmail</li>
+<li>Google Docs</li>
+<li>Google Sheets</li>
+<li>Google Slides</li>
+<li>Google Forms</li>
+<li>Google Drive</li>
+<li>Google Meet</li>
+</ul>
+
+<p>
+Dengan Gemini, semua aplikasi tersebut menjadi lebih cerdas karena dapat dibantu oleh AI.
+</p>
+
+<h2>Manfaat Gemini dalam Dunia Kerja</h2>
+
+<h3>Administrasi</h3>
+
+<ul>
+<li>Membuat surat</li>
+<li>Membuat laporan</li>
+<li>Membuat notulen rapat</li>
+<li>Membalas email</li>
+</ul>
+
+<h3>Pendidikan</h3>
+
+<ul>
+<li>Membuat materi pembelajaran</li>
+<li>Menyusun soal</li>
+<li>Membuat ringkasan materi</li>
+</ul>
+
+<h3>Bisnis</h3>
+
+<ul>
+<li>Menulis proposal</li>
+<li>Membuat strategi pemasaran</li>
+<li>Menyusun laporan penjualan</li>
+</ul>
+
+<h3>Organisasi Sosial</h3>
+
+<ul>
+<li>Membuat proposal donasi</li>
+<li>Menulis laporan kegiatan</li>
+<li>Menyusun surat resmi</li>
+</ul>
+
+<h2>Cara Kerja Gemini</h2>
+
+<p><strong>Input → Proses AI → Output</strong></p>
+
+<p><strong>Input:</strong></p>
+
+<p>
+"Buatkan email undangan rapat kepada tim pemasaran."
+</p>
+
+<p><strong>Proses:</strong></p>
+
+<p>
+Gemini memahami instruksi yang diberikan.
+</p>
+
+<p><strong>Output:</strong></p>
+
+<p>
+Gemini menghasilkan email yang siap digunakan.
+</p>
+
+<h2>Konsep Prompt</h2>
+
+<p>
+Prompt adalah instruksi yang diberikan kepada AI.
+</p>
+
+<p>
+Prompt yang baik akan menghasilkan jawaban yang lebih baik.
+</p>
+
+<p>
+Contoh prompt sederhana:
+</p>
+
+<p>
+"Buatkan email undangan rapat."
+</p>
+
+<p>
+Contoh prompt yang lebih baik:
+</p>
+
+<p>
+"Buatkan email formal kepada seluruh staf mengenai rapat evaluasi bulanan yang akan dilaksanakan pada tanggal 20 Agustus 2026 pukul 09.00 WIB."
+</p>
+
+<p>
+Prompt kedua menghasilkan output yang lebih spesifik.
+</p>
+
+<h2>GEMINI PADA GMAIL</h2>
+<h3>Apa Itu Gmail?</h3>
+
+<p>
+Gmail adalah layanan email milik Google yang digunakan untuk:
+</p>
+
+<ul>
+<li>Mengirim email</li>
+<li>Menerima email</li>
+<li>Menyimpan komunikasi bisnis</li>
+<li>Berkoordinasi dengan tim</li>
+</ul>
+
+<p>
+Saat Gemini terintegrasi dengan Gmail, pengguna dapat memperoleh bantuan AI langsung saat mengelola email.
+</p>
+
+<h3>Fungsi Gemini pada Gmail</h3>
+
+<p>Gemini dapat membantu:</p>
+
+<ol>
+<li>Menulis email baru</li>
+<li>Membalas email</li>
+<li>Merangkum email panjang</li>
+<li>Memperbaiki bahasa email</li>
+<li>Mengubah gaya bahasa email</li>
+<li>Menyusun email profesional</li>
+</ol>
+
+<h3>Membuat Email Menggunakan Gemini</h3>
+
+<p>
+Contoh kebutuhan:
+</p>
+
+<p>
+Seorang guru ingin mengundang narasumber untuk seminar AI.
+</p>
+
+<p>
+Instruksi kepada Gemini:
+</p>
+
+<p>
+"Buatkan email formal kepada narasumber untuk mengundang menjadi pembicara seminar AI di sekolah."
+</p>
+
+<p>
+Gemini akan menghasilkan email yang lengkap.
+</p>
+
+<h3>Membalas Email Secara Otomatis</h3>
+
+<p>
+Sering kali kita menerima email yang perlu dibalas dengan cepat.
+</p>
+
+<p>
+Gemini dapat membantu membuat draft balasan.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Pesan masuk:
+</p>
+
+<p>
+"Apakah pelatihan dapat dilaksanakan minggu depan?"
+</p>
+
+<p>
+Instruksi:
+</p>
+
+<p>
+"Buat balasan yang sopan dan menyetujui pelaksanaan minggu depan."
+</p>
+
+<p>
+Gemini akan membuat draft balasan yang siap dikirim.
+</p>
+
+<h3>Merangkum Email Panjang</h3>
+
+<p>
+Dalam pekerjaan, sering ditemukan rantai email yang sangat panjang.
+</p>
+
+<p>
+Gemini dapat:
+</p>
+
+<ul>
+<li>Mengidentifikasi poin penting</li>
+<li>Menampilkan keputusan rapat</li>
+<li>Menampilkan tindak lanjut</li>
+<li>Menampilkan tugas yang harus dilakukan</li>
+</ul>
+
+<p>
+Hal ini sangat membantu ketika jumlah email yang diterima banyak.
+</p>
+
+<h3>Mengubah Gaya Bahasa Email</h3>
+
+<h4>Formal</h4>
+
+<p>Cocok untuk:</p>
+
+<ul>
+<li>Atasan</li>
+<li>Mitra kerja</li>
+<li>Klien</li>
+</ul>
+
+<h4>Semi Formal</h4>
+
+<p>Cocok untuk:</p>
+
+<ul>
+<li>Rekan kerja</li>
+<li>Guru</li>
+<li>Dosen</li>
+</ul>
+
+<h4>Santai</h4>
+
+<p>Cocok untuk:</p>
+
+<ul>
+<li>Teman</li>
+<li>Komunitas</li>
+<li>Grup kerja informal</li>
+</ul>
+
+<h3>Tips Membuat Email Profesional</h3>
+
+<h4>Subjek yang Jelas</h4>
+
+<p>Contoh:</p>
+
+<p>
+"Undangan Pelatihan AI Dasar"
+</p>
+
+<p>Bukan:</p>
+
+<p>
+"Halo"
+</p>
+
+<h4>Salam Pembuka</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Yth. Bapak/Ibu
+</p>
+
+<h4>Isi yang Singkat dan Jelas</h4>
+
+<p>
+Jelaskan:
+</p>
+
+<ul>
+<li>Tujuan</li>
+<li>Waktu</li>
+<li>Harapan</li>
+</ul>
+
+<h4>Penutup</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Terima kasih atas perhatian dan kerja samanya.
+</p>
+
+<h3>Praktik 1</h3>
+
+<h4>Membuat Email Undangan</h4>
+
+<p>
+Buat email yang berisi:
+</p>
+
+<ul>
+<li>Undangan rapat</li>
+<li>Tanggal pelaksanaan</li>
+<li>Waktu pelaksanaan</li>
+<li>Agenda rapat</li>
+</ul>
+
+<p>
+Menggunakan Gemini pada Gmail.
+</p>
+
+<h3>Praktik 2</h3>
+
+<h4>Membuat Email Penawaran Kerja Sama</h4>
+
+<p>
+Buat email yang berisi:
+</p>
+
+<ul>
+<li>Perkenalan lembaga</li>
+<li>Tujuan kerja sama</li>
+<li>Penawaran program</li>
+</ul>
+
+<p>
+Menggunakan Gemini pada Gmail.
+</p>
+
+<h2>GEMINI PADA GOOGLE DOCS</h2>
+
+<h3>Apa Itu Google Docs?</h3>
+
+<p>
+Google Docs adalah aplikasi pengolah kata berbasis cloud yang digunakan untuk:
+</p>
+
+<ul>
+<li>Menulis dokumen</li>
+<li>Menyusun laporan</li>
+<li>Membuat proposal</li>
+<li>Menulis artikel</li>
+<li>Menyusun materi pelatihan</li>
+</ul>
+
+<p>
+Google Docs dapat diakses melalui browser tanpa perlu menginstal aplikasi tambahan.
+</p>
+
+<h3>Fungsi Gemini pada Google Docs</h3>
+
+<p>
+Gemini dapat membantu:
+</p>
+
+<ol>
+<li>Menulis dokumen</li>
+<li>Membuat laporan</li>
+<li>Membuat proposal</li>
+<li>Merangkum dokumen</li>
+<li>Menyusun ide</li>
+<li>Menyempurnakan tulisan</li>
+<li>Mengubah gaya bahasa</li>
+</ol>
+
+<h3>Membuat Dokumen dari Nol</h3>
+
+<p>
+Misalnya Anda ingin membuat laporan kegiatan.
+</p>
+
+<p>
+Instruksi:
+</p>
+
+<p>
+"Buatkan laporan kegiatan pelatihan AI selama satu hari dengan 30 peserta."
+</p>
+
+<p>
+Gemini dapat membuat struktur laporan lengkap.
+</p>
+
+<h3>Membuat Proposal</h3>
+
+<p>
+Contoh kebutuhan:
+</p>
+
+<p>
+Proposal pelatihan AI untuk sekolah.
+</p>
+
+<p>
+Instruksi:
+</p>
+
+<p>
+"Buatkan proposal pelatihan AI untuk guru selama dua hari."
+</p>
+
+<p>
+Gemini akan menghasilkan draft proposal yang dapat langsung diedit.
+</p>
+
+<h3>Merangkum Dokumen Panjang</h3>
+
+<p>
+Misalnya terdapat dokumen 20 halaman.
+</p>
+
+<p>
+Gemini dapat membantu:
+</p>
+
+<ul>
+<li>Membuat ringkasan</li>
+<li>Menampilkan poin penting</li>
+<li>Menampilkan kesimpulan utama</li>
+</ul>
+
+<p>
+Fitur ini sangat membantu dalam pekerjaan administrasi dan akademik.
+</p>
+<h3>Menyempurnakan Tulisan</h3>
+
+<p>
+Gemini dapat membantu menyempurnakan tulisan agar lebih mudah dipahami dan lebih profesional.
+</p>
+
+<h4>Memperbaiki Tata Bahasa</h4>
+
+<p>
+Tulisan menjadi lebih rapi, konsisten, dan mudah dibaca.
+</p>
+
+<h4>Memperjelas Kalimat</h4>
+
+<p>
+Kalimat yang terlalu panjang dapat disederhanakan sehingga lebih efektif.
+</p>
+
+<h4>Membuat Tulisan Lebih Profesional</h4>
+
+<p>
+Cocok digunakan untuk:
+</p>
+
+<ul>
+<li>Proposal</li>
+<li>Laporan</li>
+<li>Surat resmi</li>
+</ul>
+
+<h3>Mengubah Gaya Penulisan</h3>
+
+<p>
+Gemini dapat mengubah tulisan menjadi berbagai gaya sesuai kebutuhan.
+</p>
+
+<h4>Formal</h4>
+
+<p>
+Digunakan untuk laporan resmi dan surat kedinasan.
+</p>
+
+<h4>Akademik</h4>
+
+<p>
+Digunakan untuk penelitian, karya ilmiah, dan tugas kuliah.
+</p>
+
+<h4>Profesional</h4>
+
+<p>
+Digunakan dalam dunia kerja dan komunikasi bisnis.
+</p>
+
+<h4>Persuasif</h4>
+
+<p>
+Digunakan untuk promosi, pemasaran, dan kampanye.
+</p>
+
+<h3>Studi Kasus</h3>
+
+<p>
+Seorang staf administrasi harus membuat laporan kegiatan pelatihan.
+</p>
+
+<p>
+Biasanya proses pembuatan laporan membutuhkan waktu antara satu hingga dua jam.
+</p>
+
+<p>
+Dengan bantuan Gemini:
+</p>
+
+<ol>
+<li>Membuat draft laporan dalam hitungan detik.</li>
+<li>Mengedit hasil draft sesuai kebutuhan.</li>
+<li>Menambahkan data kegiatan yang sebenarnya.</li>
+<li>Menyimpan dokumen final.</li>
+</ol>
+
+<p>
+Waktu pengerjaan menjadi jauh lebih cepat dibandingkan membuat laporan secara manual dari awal.
+</p>
+
+<h3>Praktik 3</h3>
+
+<h4>Membuat Laporan Kegiatan</h4>
+
+<p>
+Buat laporan kegiatan menggunakan Gemini pada Google Docs dengan bagian:
+</p>
+
+<ul>
+<li>Pendahuluan</li>
+<li>Tujuan</li>
+<li>Pelaksanaan</li>
+<li>Hasil</li>
+<li>Kesimpulan</li>
+</ul>
+
+<h3>Praktik 4</h3>
+
+<h4>Membuat Proposal Kegiatan</h4>
+
+<p>
+Buat proposal dengan judul:
+</p>
+
+<p>
+<strong>
+Pelatihan Pemanfaatan AI untuk Produktivitas Kerja
+</strong>
+</p>
+
+<p>
+Proposal minimal terdiri dari:
+</p>
+
+<ul>
+<li>Latar belakang</li>
+<li>Tujuan</li>
+<li>Sasaran</li>
+<li>Materi</li>
+<li>Anggaran sederhana</li>
+</ul>
+
+</section>
+
+<div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+
+  <a href="https://drive.google.com/"
+     class="btn-custom"
+     aria-label="Download Materi"
+     target="_blank"
+     rel="noopener">
+    Download Materi Lengkap
+  </a>
+
+  <a href="../topic1.html"
+     class="btn btn-outline-primary rounded-pill px-4"
+     aria-label="Kembali">
+    Kembali
+  </a>
+
+</div>
+
+</main>
+
+<footer>
+  &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const toggleBtn = document.querySelector('.toggle-mode');
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  toggleBtn.textContent =
+    document.body.classList.contains('dark-mode')
+      ? '☀️ Mode'
+      : '🌙 Mode';
+});
+</script>
+
+</body>
+</html>

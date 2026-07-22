@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gemini pada Google Workspace - Modul 2</title>
+
+  <meta name="description" content="Gemini pada Google Sheets, Google Forms, Google Slides, dan Teknik Membuat Prompt yang Efektif">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background .5s, color .5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      background: #fff;
+      padding: .5rem 1rem;
+      border: 2px solid #005fcc;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
+    h1,h2,h3 {
+      color: var(--primary);
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: .85em 2.2em;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="#main-content" class="skip-link">
+Lewati ke konten utama
+</a>
+
+<button class="btn btn-sm btn-outline-primary toggle-mode">
+🌙 Mode
+</button>
+
+<div class="logo-container">
+  <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar">
+</div>
+
+<main id="main-content" tabindex="-1" class="container">
+
+<h1>
+Gemini pada Google Workspace
+<br>
+<span style="font-size:1.1rem;font-weight:400;">
+Google Sheets, Google Forms, Google Slides, dan Teknik Membuat Prompt yang Efektif
+</span>
+</h1>
+
+<section aria-labelledby="modul2-title">
+
+<h2 id="modul2-title">
+Tujuan Pembelajaran
+</h2>
+
+<p>
+Setelah mempelajari materi ini, peserta mampu:
+</p>
+
+<ul>
+<li>Menggunakan Gemini pada Google Sheets untuk analisis data.</li>
+<li>Menggunakan Gemini pada Google Forms untuk pembuatan dan analisis formulir.</li>
+<li>Menggunakan Gemini pada Google Slides untuk membuat presentasi.</li>
+<li>Memahami teknik dasar membuat prompt yang efektif.</li>
+<li>Mengoptimalkan penggunaan AI dalam pekerjaan sehari-hari.</li>
+</ul>
+
+<h2>GEMINI PADA GOOGLE SHEETS</h2>
+
+<h3>Apa Itu Google Sheets?</h3>
+
+<p>
+Google Sheets adalah aplikasi spreadsheet berbasis cloud yang digunakan untuk:
+</p>
+
+<ul>
+<li>Mengolah data</li>
+<li>Menghitung angka</li>
+<li>Membuat laporan</li>
+<li>Membuat grafik</li>
+<li>Menganalisis data</li>
+</ul>
+
+<p>
+Google Sheets sering digunakan dalam:
+</p>
+
+<ul>
+<li>Administrasi</li>
+<li>Keuangan</li>
+<li>Pendidikan</li>
+<li>Penjualan</li>
+<li>Bisnis</li>
+</ul>
+
+<h3>Apa Peran Gemini di Google Sheets?</h3>
+
+<p>
+Gemini membantu pengguna memahami dan menganalisis data tanpa harus menguasai rumus yang rumit.
+</p>
+
+<p>
+Gemini dapat membantu:
+</p>
+
+<ul>
+<li>Menjelaskan data</li>
+<li>Membuat rumus</li>
+<li>Membuat grafik</li>
+<li>Menemukan tren</li>
+<li>Membuat ringkasan data</li>
+<li>Menyusun laporan berdasarkan data</li>
+</ul>
+
+<h3>Manfaat Gemini pada Google Sheets</h3>
+
+<h4>Analisis Data Lebih Cepat</h4>
+
+<p>
+Biasanya pengguna harus membaca data satu per satu.
+</p>
+
+<p>
+Dengan Gemini, pengguna dapat langsung meminta:
+</p>
+
+<p>
+"Jelaskan tren data ini."
+</p>
+
+<p>
+Gemini akan memberikan analisis otomatis.
+</p>
+
+<h4>Membuat Rumus Spreadsheet</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Menghitung total penjualan.
+</p>
+
+<p>
+Gemini dapat membantu membuat rumus:
+</p>
+
+<p>
+=SUM(B2:B20)
+</p>
+
+<p>
+Menghitung rata-rata:
+</p>
+
+<p>
+=AVERAGE(B2:B20)
+</p>
+
+<p>
+Menghitung jumlah data:
+</p>
+
+<p>
+=COUNT(B2:B20)
+</p>
+
+<h4>Membuat Ringkasan Data</h4>
+
+<p>
+Contoh data:
+</p>
+
+<ul>
+<li>Januari: 5.000.000</li>
+<li>Februari: 6.500.000</li>
+<li>Maret: 8.000.000</li>
+<li>April: 7.000.000</li>
+</ul>
+
+<p>
+Gemini dapat menjelaskan:
+</p>
+
+<ul>
+<li>Terjadi peningkatan penjualan pada Februari dan Maret.</li>
+<li>Penjualan tertinggi terjadi pada bulan Maret.</li>
+<li>Penjualan mengalami sedikit penurunan pada bulan April.</li>
+</ul>
+
+<h3>Studi Kasus</h3>
+
+<p>
+Seorang pemilik UMKM memiliki data penjualan selama satu tahun.
+</p>
+
+<p>
+Biasanya membutuhkan waktu lama untuk menganalisis data tersebut.
+</p>
+
+<p>
+Dengan Gemini, pengguna cukup meminta:
+</p>
+
+<p>
+"Tolong analisis data penjualan ini dan berikan kesimpulan."
+</p>
+
+<p>
+Gemini akan membantu membuat analisis secara otomatis.
+</p>
+
+<h3>Praktik 1</h3>
+
+<h4>Analisis Data Penjualan</h4>
+
+<p>
+Masukkan data penjualan bulanan ke Google Sheets.
+</p>
+
+<p>
+Kemudian gunakan Gemini untuk:
+</p>
+
+<ul>
+<li>Menentukan bulan terbaik.</li>
+<li>Menentukan bulan terendah.</li>
+<li>Membuat kesimpulan penjualan.</li>
+</ul>
+
+<h3>Praktik 2</h3>
+
+<h4>Membuat Rumus Menggunakan Gemini</h4>
+
+<p>
+Minta Gemini membuat rumus:
+</p>
+
+<ul>
+<li>SUM</li>
+<li>AVERAGE</li>
+<li>COUNT</li>
+<li>MAX</li>
+<li>MIN</li>
+</ul>
+
+<p>
+Kemudian praktikkan pada data yang tersedia.
+</p>
+
+<h2>GEMINI PADA GOOGLE FORMS</h2>
+<h3>Apa Itu Google Forms?</h3>
+
+<p>
+Google Forms adalah aplikasi yang digunakan untuk:
+</p>
+
+<ul>
+<li>Survei</li>
+<li>Pendaftaran</li>
+<li>Evaluasi</li>
+<li>Pengumpulan data</li>
+<li>Ujian online</li>
+</ul>
+
+<p>
+Google Forms terhubung langsung dengan Google Sheets sehingga data dapat diolah secara otomatis.
+</p>
+
+<h3>Manfaat Gemini pada Google Forms</h3>
+
+<p>
+Gemini membantu membuat formulir lebih cepat dan lebih profesional.
+</p>
+
+<h3>Membuat Formulir Secara Otomatis</h3>
+
+<p>
+Contoh kebutuhan:
+</p>
+
+<p>
+Formulir pendaftaran pelatihan AI.
+</p>
+
+<p>
+Gemini dapat membantu menyusun:
+</p>
+
+<ul>
+<li>Judul formulir</li>
+<li>Deskripsi formulir</li>
+<li>Daftar pertanyaan</li>
+<li>Jenis jawaban</li>
+</ul>
+
+<h3>Membuat Pertanyaan yang Relevan</h3>
+
+<p>
+Gemini dapat memberikan rekomendasi pertanyaan berdasarkan tujuan formulir.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Evaluasi pelatihan.
+</p>
+
+<p>
+Pertanyaan yang dihasilkan:
+</p>
+
+<ol>
+<li>Bagaimana kualitas materi?</li>
+<li>Bagaimana kualitas instruktur?</li>
+<li>Apakah materi mudah dipahami?</li>
+<li>Apakah Anda puas dengan pelatihan?</li>
+<li>Apa saran untuk perbaikan?</li>
+</ol>
+
+<h3>Analisis Hasil Formulir</h3>
+
+<p>
+Setelah data masuk, Gemini dapat membantu:
+</p>
+
+<ul>
+<li>Membuat ringkasan hasil.</li>
+<li>Menemukan pola jawaban.</li>
+<li>Memberikan rekomendasi.</li>
+</ul>
+
+<p>
+Contoh:
+</p>
+
+<p>
+Dari 100 peserta:
+</p>
+
+<ul>
+<li>90% puas.</li>
+<li>8% cukup puas.</li>
+<li>2% kurang puas.</li>
+</ul>
+
+<p>
+Kesimpulan:
+</p>
+
+<p>
+Program berjalan baik dan perlu peningkatan pada sesi praktik.
+</p>
+
+<h3>Praktik 3</h3>
+
+<h4>Membuat Formulir Pendaftaran</h4>
+
+<p>
+Buat formulir yang berisi:
+</p>
+
+<ul>
+<li>Nama Lengkap</li>
+<li>Email</li>
+<li>Nomor WhatsApp</li>
+<li>Instansi</li>
+<li>Alasan Mengikuti Pelatihan</li>
+</ul>
+
+<h3>Praktik 4</h3>
+
+<h4>Membuat Formulir Evaluasi</h4>
+
+<p>
+Buat formulir evaluasi pelatihan yang memuat:
+</p>
+
+<ul>
+<li>Penilaian Materi</li>
+<li>Penilaian Instruktur</li>
+<li>Penilaian Fasilitas</li>
+<li>Saran dan Masukan</li>
+</ul>
+
+<h2>GEMINI PADA GOOGLE SLIDES</h2>
+
+<h3>Apa Itu Google Slides?</h3>
+
+<p>
+Google Slides adalah aplikasi presentasi berbasis cloud yang digunakan untuk:
+</p>
+
+<ul>
+<li>Presentasi bisnis</li>
+<li>Presentasi pendidikan</li>
+<li>Proposal</li>
+<li>Laporan</li>
+</ul>
+
+<p>
+Dengan Gemini, proses membuat presentasi menjadi jauh lebih cepat.
+</p>
+
+<h3>Fungsi Gemini pada Google Slides</h3>
+
+<p>
+Gemini dapat membantu:
+</p>
+
+<ul>
+<li>Membuat outline presentasi</li>
+<li>Membuat isi slide</li>
+<li>Membuat poin-poin utama</li>
+<li>Menyusun struktur presentasi</li>
+<li>Membuat ringkasan presentasi</li>
+</ul>
+
+<h3>Membuat Presentasi dari Nol</h3>
+
+<p>
+Contoh:
+</p>
+
+<p>
+"Buat presentasi tentang Pemanfaatan AI dalam Pendidikan sebanyak 10 slide."
+</p>
+
+<p>
+Gemini dapat membuat:
+</p>
+
+<ul>
+<li>Slide 1: Judul</li>
+<li>Slide 2: Pengertian AI</li>
+<li>Slide 3: Manfaat AI</li>
+<li>Slide 4: AI dalam Pendidikan</li>
+<li>Dan seterusnya.</li>
+</ul>
+
+<h3>Membuat Outline Presentasi</h3>
+
+<p>
+Gemini dapat membantu membuat struktur presentasi yang logis.
+</p>
+
+<p>
+Contoh struktur:
+</p>
+
+<ol>
+<li>Pendahuluan</li>
+<li>Latar Belakang</li>
+<li>Permasalahan</li>
+<li>Solusi</li>
+<li>Implementasi</li>
+<li>Kesimpulan</li>
+</ol>
+
+<h3>Menyempurnakan Presentasi</h3>
+
+<p>
+Gemini dapat memberikan saran:
+</p>
+
+<ul>
+<li>Tata letak</li>
+<li>Visual</li>
+<li>Diagram</li>
+<li>Grafik</li>
+<li>Poin penting</li>
+</ul>
+
+<h3>Praktik 5</h3>
+
+<h4>Membuat Presentasi AI</h4>
+
+<p>
+Buat presentasi:
+</p>
+
+<p>
+<strong>
+Pemanfaatan AI untuk Produktivitas Kerja
+</strong>
+</p>
+
+<p>
+Minimal:
+</p>
+
+<ul>
+<li>10 slide</li>
+<li>Memiliki kesimpulan</li>
+<li>Memiliki rekomendasi</li>
+</ul>
+
+<h2>TEKNIK MEMBUAT PROMPT YANG EFEKTIF</h2>
+
+<h3>Apa Itu Prompt?</h3>
+
+<p>
+Prompt adalah instruksi yang diberikan kepada AI.
+</p>
+
+<p>
+Prompt merupakan faktor terpenting yang menentukan kualitas hasil AI.
+</p>
+
+<p>
+Semakin jelas prompt yang diberikan, semakin baik hasil yang diperoleh.
+</p>
+
+<h3>Mengapa Prompt Penting?</h3>
+
+<p>
+AI tidak dapat membaca pikiran pengguna.
+</p>
+
+<p>
+AI hanya memahami instruksi yang ditulis.
+</p>
+
+<p>
+Prompt yang kurang jelas menghasilkan jawaban yang kurang sesuai.
+</p>
+
+<p>
+Prompt yang jelas menghasilkan jawaban yang lebih akurat.
+</p>
+
+<h3>Struktur Prompt yang Baik</h3>
+
+<p>
+Gunakan formula berikut:
+</p>
+
+<p>
+<strong>
+Role + Task + Context + Output
+</strong>
+</p>
+<h4>Role</h4>
+
+<p>
+Role adalah peran yang diberikan kepada AI agar AI memahami sudut pandang yang harus digunakan saat menjawab.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<ul>
+<li>Anda adalah seorang guru.</li>
+<li>Anda adalah seorang konsultan bisnis.</li>
+<li>Anda adalah seorang trainer AI.</li>
+</ul>
+
+<h4>Task</h4>
+
+<p>
+Task adalah tugas yang harus dilakukan oleh AI.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<ul>
+<li>Buatkan materi pelatihan.</li>
+<li>Buatkan proposal.</li>
+<li>Buatkan email.</li>
+</ul>
+
+<h4>Context</h4>
+
+<p>
+Context adalah informasi tambahan yang membantu AI memahami situasi atau latar belakang pengguna.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<ul>
+<li>Peserta adalah guru sekolah dasar.</li>
+<li>Program ditujukan untuk UMKM.</li>
+<li>Pelatihan ditujukan untuk pemula.</li>
+</ul>
+
+<h4>Output</h4>
+
+<p>
+Output adalah bentuk hasil yang diinginkan.
+</p>
+
+<p>
+Contoh:
+</p>
+
+<ul>
+<li>Dalam bentuk tabel.</li>
+<li>Dalam bentuk poin-poin.</li>
+<li>Dalam bahasa Indonesia formal.</li>
+<li>Dalam format laporan.</li>
+</ul>
+
+<h3>Contoh Prompt Kurang Efektif</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+"Buat materi AI."
+</p>
+
+<p>
+Prompt tersebut terlalu singkat sehingga hasil yang diberikan AI akan sangat umum dan belum tentu sesuai kebutuhan pengguna.
+</p>
+
+<h3>Contoh Prompt Lebih Efektif</h3>
+
+<p>
+Prompt:
+</p>
+
+<p>
+"Anda adalah trainer AI profesional. Buatkan materi pengenalan AI untuk guru sekolah dasar. Materi terdiri dari tujuan pembelajaran, penjelasan, contoh, latihan, dan evaluasi. Gunakan bahasa yang sederhana dan mudah dipahami."
+</p>
+
+<p>
+Prompt tersebut lebih efektif karena menjelaskan peran AI, tugas yang harus dilakukan, konteks peserta, dan bentuk hasil yang diinginkan.
+</p>
+
+<h3>Kesalahan Umum Saat Membuat Prompt</h3>
+
+<h4>Terlalu Pendek</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+"Buat proposal."
+</p>
+
+<p>
+AI tidak mengetahui proposal seperti apa yang diinginkan.
+</p>
+
+<h4>Tidak Menjelaskan Tujuan</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+"Buat presentasi."
+</p>
+
+<p>
+Tujuan presentasi tidak dijelaskan sehingga hasilnya kurang spesifik.
+</p>
+
+<h4>Tidak Menentukan Audiens</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+"Buat materi pelatihan."
+</p>
+
+<p>
+AI tidak mengetahui siapa peserta pelatihan yang menjadi sasaran.
+</p>
+
+<h4>Tidak Menentukan Format Output</h4>
+
+<p>
+Contoh:
+</p>
+
+<p>
+"Jelaskan AI."
+</p>
+
+<p>
+AI tidak mengetahui apakah jawaban harus berupa tabel, artikel, ringkasan, atau poin-poin.
+</p>
+
+<h3>Tips Membuat Prompt yang Efektif</h3>
+
+<ul>
+<li>Jelaskan tujuan dengan jelas.</li>
+<li>Tentukan siapa audiens atau pengguna akhir.</li>
+<li>Berikan konteks yang cukup.</li>
+<li>Tentukan format hasil yang diinginkan.</li>
+<li>Gunakan bahasa yang spesifik dan tidak ambigu.</li>
+<li>Tambahkan contoh apabila diperlukan.</li>
+</ul>
+
+<h3>Praktik 6</h3>
+
+<h4>Latihan Membuat Prompt</h4>
+
+<p>
+Buat prompt untuk:
+</p>
+
+<ol>
+<li>Membuat email resmi.</li>
+<li>Membuat laporan kegiatan.</li>
+<li>Membuat presentasi.</li>
+<li>Membuat formulir evaluasi.</li>
+<li>Membuat analisis data penjualan.</li>
+</ol>
+
+<p>
+Gunakan formula:
+</p>
+
+<p>
+<strong>
+Role + Task + Context + Output
+</strong>
+</p>
+
+<p>
+Bandingkan hasil prompt yang sederhana dengan prompt yang lengkap untuk melihat perbedaan kualitas jawaban yang diberikan AI.
+</p>
+
+</section>
+
+<div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+
+  <a href="https://drive.google.com/"
+     class="btn-custom"
+     aria-label="Download Materi"
+     target="_blank"
+     rel="noopener">
+    Download Materi Lengkap
+  </a>
+
+  <a href="../topic2.html"
+     class="btn btn-outline-primary rounded-pill px-4"
+     aria-label="Kembali">
+    Kembali
+  </a>
+
+</div>
+
+</main>
+
+<footer>
+  &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const toggleBtn = document.querySelector('.toggle-mode');
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  toggleBtn.textContent =
+    document.body.classList.contains('dark-mode')
+      ? '☀️ Mode'
+      : '🌙 Mode';
+});
+</script>
+
+</body>
+</html>
