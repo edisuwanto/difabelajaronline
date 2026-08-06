@@ -1,172 +1,93 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Halaman Belum Bisa Diakses</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335);
-    background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-@keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-.container{
-    background:#ffffff;
-    max-width:700px;
-    width:100%;
-    text-align:center;
-    padding:40px 30px;
-    border-radius:25px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
-}
-
-.emoji{
-    font-size:80px;
-    margin-bottom:20px;
-    display:inline-block;
-    animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-    0%,100%{
-        transform:translateY(0);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Topik 6 - Artificial Intelligent | Difabelajar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
-    50%{
-        transform:translateY(-15px);
+    .logo {
+      width: 150px;
+      border-radius: 12px;
     }
-}
-
-h1{
-    color:#EA4335;
-    font-size:32px;
-    margin-bottom:15px;
-}
-
-.message{
-    font-size:18px;
-    line-height:1.8;
-    color:#444;
-    margin-bottom:25px;
-}
-
-.date-box{
-    background:#f4f7ff;
-    border-left:6px solid #4285F4;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:30px;
-    font-size:20px;
-    font-weight:bold;
-    color:#1a73e8;
-}
-
-.note{
-    background:#fff8e1;
-    border:1px solid #ffd54f;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:30px;
-    color:#555;
-}
-
-.btn-dashboard{
-    display:inline-block;
-    text-decoration:none;
-    background:#4285F4;
-    color:white;
-    padding:15px 30px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-.btn-dashboard:hover{
-    background:#3367d6;
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(66,133,244,0.3);
-}
-
-.icons{
-    margin-top:25px;
-    font-size:30px;
-    animation:blink 3s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:0.4;
+    .link-item {
+      display: block;
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
     }
-}
-
-@media(max-width:600px){
-    h1{
-        font-size:26px;
+    .link-item:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
-
-    .message{
-        font-size:16px;
-    }
-
-    .emoji{
-        font-size:65px;
-    }
-}
-</style>
+  </style>
 </head>
-<body>
+<body class="bg-body-secondary">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="../index.html">
+        <img src="../assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo me-2" width="50">
+        Difabelajar
+      </a>
+      <button class="btn btn-outline-light" id="darkModeToggle">🌙 Mode Gelap</button>
+    </div>
+  </nav>
 
-<div class="container">
+  <!-- Header -->
+  <header class="text-center my-4">
+    <img src="../assets/logodifabelajar.jpeg" alt="Logo Difabelajar" class="logo mb-3">
+    <h1 class="text-primary fw-bold">Artificial Intelligent - Topik 6</h1>
+  </header>
 
-    <div class="emoji">📚✨</div>
-
-    <h1>Halaman Belum Bisa Diakses</h1>
-
-    <p class="message">
-        Untuk dapat mengakses halaman ini, Anda harus terlebih dahulu
-        mempelajari dan menyelesaikan materi pada pertemuan sebelumnya.
-    </p>
-
-    <div class="date-box">
-        🔒 Akses dibuka pada:<br>
-        7 Agustus 2026
+  <!-- Main Content -->
+  <main class="container mb-5">
+    <div class="card shadow-sm p-4 mb-4">
+      <h2 class="fw-semibold">AI VISUAL CONTENT CREATION - Text-to-Image dan Image-to-Text Menggunakan Artificial Intelligence</h2>
+      <p>
+Pelajari bagaimana Artificial Intelligence mampu mengubah teks menjadi gambar dan memahami gambar menjadi informasi yang bermanfaat melalui teknologi Text-to-Image dan Image-to-Text, lengkap dengan teknik penyusunan prompt, OCR, dan Computer Vision. Modul ini dilengkapi praktik langsung serta penerapan etika penggunaan AI Visual sehingga peserta mampu menghasilkan konten digital yang kreatif, profesional, dan bertanggung jawab.
+      </p>
     </div>
 
-    <div class="note">
-        🎓 Tetap semangat belajar!<br>
-        Selesaikan materi sebelumnya agar proses pembelajaran berjalan
-        secara bertahap dan lebih maksimal.
+    <!-- Link Container -->
+    <div class="card shadow-sm p-4 mb-4">
+      <h5 class="fw-bold mb-3">Akses Materi</h5>
+      <a href="materi/modulaiintermediate6.html" target="_blank" rel="noopener" class="link-item bg-primary text-white">📘 Materi Lengkap Topik 6</a>
+      <a href="https://telkomsel.zoom.us/j/97603584839?pwd=81AYOmmerO1wT4ietOVxEqvvOWitHl.1" target="_blank" rel="noopener" class="link-item bg-success text-white">🎥 Link Zoom Live Session</a>
+      <a href="https://forms.gle/aH4xb6pRjT9EF5zv6" target="_blank" rel="noopener" class="link-item bg-warning text-dark">📝 Kuis Online</a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" class="link-item bg-danger text-white">▶️ Rekaman YouTube</a>
+      <a href="https://forms.gle/zYAx63pn5azwf98J7" target="_blank" rel="noopener" class="link-item bg-danger text-white">✅ Isi presensi setelah sesi pelatihan.</a>
     </div>
 
-    <a href="../dashboard.html" class="btn-dashboard">
-        🏠 Kembali ke Dashboard
-    </a>
-
-    <div class="icons">
-        🚀 📖 🌟 💡 🎯
+    <!-- Buttons -->
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+      <button onclick="window.location.href='topic5.html'" class="btn btn-lg btn-primary px-4">Materi Sebelumnya: Topik 5</button>
+      <button onclick="window.location.href='topic7.html'" class="btn btn-lg btn-primary px-4">Materi Selanjutnya: Topik 7</button>
+      <button onclick="window.location.href='../dashboard.html'" class="btn btn-lg btn-danger px-4">Kembali ke Dashboard</button>
     </div>
+  </main>
 
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
 
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-bs-theme') === 'light') {
+        html.setAttribute('data-bs-theme', 'dark');
+        toggle.textContent = "☀️ Mode Terang";
+      } else {
+        html.setAttribute('data-bs-theme', 'light');
+        toggle.textContent = "🌙 Mode Gelap";
+      }
+    });
+  </script>
 </body>
 </html>
