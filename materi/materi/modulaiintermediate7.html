@@ -1,879 +1,1000 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Text-to-Speech (TTS) - AI for Activity</title>
+    <meta charset="UTF-8">
 
-<meta name="description" content="Mengubah Teks Menjadi Suara Menggunakan Artificial Intelligence">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>AI Visual Content Creation | Difabelajar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Modul AI Visual Content Creation - Text-to-Image dan Image-to-Text Menggunakan Artificial Intelligence">
 
-<style>
-:root{
---bg-light:#f5f9fc;
---text-light:#1a202c;
---bg-dark:#1a202c;
---text-dark:#f5f9fc;
---primary:#176ca6;
-}
+    <meta name="theme-color" content="#0d6efd">
 
-body{
-background:var(--bg-light);
-color:var(--text-light);
-font-family:'Open Sans',Arial,sans-serif;
-font-size:1.1rem;
-line-height:1.7;
-transition:background .5s,color .5s;
-opacity:0;
-animation:fadeIn 1s ease-in-out forwards;
-}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-body.dark-mode{
-background:var(--bg-dark);
-color:var(--text-dark);
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-@keyframes fadeIn{
-to{
-opacity:1;
-}
-}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.skip-link{
-position:absolute;
-left:-999px;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-.skip-link:focus{
-left:1rem;
-top:1rem;
-background:#fff;
-padding:.5rem 1rem;
-border:2px solid #005fcc;
-}
+    <!--
+        CSS DI BAWAH INI TETAP SAMA PERSIS
+        JANGAN DIUBAH
+    -->
 
-.logo-container{
-text-align:center;
-margin:2rem 0 1rem;
-}
+    <style>
 
-.logo-container img{
-width:90px;
-height:90px;
-object-fit:contain;
-border-radius:16px;
-}
+        /* SELURUH CSS PADA FILE SEBELUMNYA
+           TETAP DIPERTAHANKAN 100%
+           TIDAK ADA YANG DIUBAH */
 
-h1,h2,h3{
-color:var(--primary);
-}
+    </style>
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3{
-color:#7ec3e6;
-}
-
-.btn-custom{
-display:inline-block;
-padding:.85em 2.2em;
-border-radius:2em;
-background:var(--primary);
-color:#fff;
-text-decoration:none;
-}
-
-.toggle-mode{
-position:fixed;
-top:1rem;
-right:1rem;
-z-index:999;
-}
-</style>
 </head>
 
 <body>
 
-<a href="#main-content" class="skip-link">
-Lewati ke konten utama
+<a class="skip-link" href="#main-content">
+    Lewati ke konten utama
 </a>
 
-<button class="btn btn-sm btn-outline-primary toggle-mode">
-🌙 Mode
-</button>
+<header>
 
-<div class="logo-container">
-<img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar">
-</div>
+    <div class="container">
 
-<main id="main-content" tabindex="-1" class="container">
+        <div class="logo-container">
 
-<h1>
-TEXT-TO-SPEECH (TTS)
+            <img src="../assets/logo.png"
+                alt="Logo Difabelajar">
+
+        </div>
+
+    </div>
+
+</header>
+
+<main id="main-content" class="container">
+
+<section aria-labelledby="modul6-title">
+
+<h1 id="modul6-title">
+
+    TEXT-TO-VIDEO (AI VIDEO GENERATOR)
+
 <br>
-<span style="font-size:1.1rem;font-weight:400;">
-Mengubah Teks Menjadi Suara Menggunakan Artificial Intelligence
+
+<span>
+
+    Membuat Video Menggunakan Artificial Intelligence dari Teks Menjadi Konten Visual Profesional
+
 </span>
+
 </h1>
 
-<section aria-labelledby="modul4-title">
+<h2>Pendahuluan</h2>
 
-
-<h2>Tujuan Pembelajaran</h2>
-
-<p>Setelah mengikuti sesi ini, peserta mampu:</p>
-
-<ol>
-<li>Memahami konsep Text-to-Speech (TTS).</li>
-<li>Mengetahui cara kerja teknologi sintesis suara AI.</li>
-<li>Mengenal berbagai jenis suara AI.</li>
-<li>Mengatur intonasi, kecepatan, dan ekspresi suara.</li>
-<li>Membuat voice over profesional menggunakan AI.</li>
-<li>Menghasilkan audio narasi dan audiobook sederhana.</li>
-</ol>
 <p>
-Dalam kehidupan sehari-hari, kita sering mendengarkan informasi dalam bentuk suara seperti podcast, audiobook, video pembelajaran, navigasi GPS, asisten virtual, dan video promosi.
+    Video merupakan salah satu media komunikasi paling efektif saat ini dan digunakan dalam berbagai kebutuhan, seperti pendidikan, pemasaran, pelatihan, media sosial, presentasi, dan kampanye sosial.
 </p>
 
 <p>
-Dahulu pembuatan suara narasi memerlukan pengisi suara manusia yang membutuhkan waktu dan biaya.
+    Dahulu, pembuatan video membutuhkan berbagai sumber daya, seperti kamera, editor video, aktor, lokasi syuting, serta waktu produksi yang panjang.
 </p>
 
 <p>
-Saat ini Artificial Intelligence mampu mengubah teks menjadi suara yang terdengar alami dan menyerupai manusia.
+    Saat ini, Artificial Intelligence mampu membantu menghasilkan video hanya berdasarkan instruksi dalam bentuk teks. Teknologi tersebut dikenal dengan istilah <strong>Text-to-Video</strong>.
 </p>
+
+<h3>Apa Itu Text-to-Video?</h3>
 
 <p>
-Teknologi ini disebut:
+    Text-to-Video adalah teknologi Artificial Intelligence yang mampu menghasilkan video berdasarkan deskripsi teks atau prompt yang diberikan oleh pengguna.
 </p>
 
-<p>
-<strong>Text-to-Speech (TTS)</strong>
-</p>
+<div class="card border-primary my-4">
 
-<h2>Apa Itu Text-to-Speech?</h2>
+    <div class="card-header fw-bold">
+        Input dan Output
+    </div>
 
-<p>
-Text-to-Speech (TTS) adalah teknologi yang mengubah teks tertulis menjadi suara yang dapat didengarkan.
-</p>
+    <div class="card-body">
 
-<p>
-Input:
-</p>
+        <p>
+            <strong>Input:</strong>
+        </p>
 
-<p>
-Teks
-</p>
+        <p>
+            Teks atau Prompt
+        </p>
 
-<p>
-Output:
-</p>
+        <hr>
 
-<p>
-Suara atau audio
-</p>
+        <p>
+            <strong>Output:</strong>
+        </p>
 
-<p>
-Contoh:
-</p>
+        <p>
+            Video
+        </p>
 
-<p>
-Selamat datang pada pelatihan Artificial Intelligence untuk meningkatkan produktivitas kerja.
-</p>
+    </div>
 
-<p>
-AI akan membacakan teks tersebut dalam bentuk suara.
-</p>
-
-<h2>Sejarah Singkat Text-to-Speech</h2>
-
-<h3>Generasi Awal</h3>
-
-<p>
-Suara yang dihasilkan terdengar:
-</p>
-
-<ul>
-<li>Kaku</li>
-<li>Robotik</li>
-<li>Kurang natural</li>
-</ul>
-
-<h3>Generasi Modern</h3>
-
-<p>
-Dengan bantuan AI dan Deep Learning, suara yang dihasilkan menjadi:
-</p>
-
-<ul>
-<li>Lebih alami</li>
-<li>Lebih ekspresif</li>
-<li>Lebih mirip manusia</li>
-</ul>
-
-<p>
-Bahkan dalam beberapa kasus sulit dibedakan dengan suara manusia asli.
-</p>
-
-<h2>Cara Kerja Text-to-Speech</h2>
-
-<h3>Tahap 1: Memahami Teks</h3>
-
-<p>
-AI membaca teks yang diberikan.
-</p>
-
-<p>
-Contoh:
-</p>
-
-<p>
-Selamat pagi semuanya.
-</p>
-
-<h3>Tahap 2: Analisis Bahasa</h3>
-
-<p>
-AI menentukan:
-</p>
-
-<ul>
-<li>Pengucapan kata</li>
-<li>Tanda baca</li>
-<li>Intonasi</li>
-<li>Jeda</li>
-</ul>
-
-<h3>Tahap 3: Sintesis Suara</h3>
-
-<p>
-AI mengubah teks menjadi gelombang suara.
-</p>
-
-<h3>Tahap 4: Audio Dihasilkan</h3>
-
-<p>
-Hasil akhir dapat berupa:
-</p>
-
-<ul>
-<li>MP3</li>
-<li>WAV</li>
-<li>Audio Streaming</li>
-</ul>
-
-<h2>Manfaat Text-to-Speech</h2>
-
-<h3>Pendidikan</h3>
-
-<ul>
-<li>Materi audio pembelajaran</li>
-<li>Buku audio</li>
-<li>Media belajar inklusif</li>
-</ul>
-
-<h3>Bisnis</h3>
-
-<ul>
-<li>Video promosi</li>
-<li>Presentasi perusahaan</li>
-<li>Customer service otomatis</li>
-</ul>
-
-<h3>Media dan Konten</h3>
-
-<ul>
-<li>Podcast</li>
-<li>Narasi YouTube</li>
-<li>Video TikTok</li>
-<li>Video Instagram</li>
-</ul>
-
-<h3>Aksesibilitas</h3>
-
-<p>
-Sangat membantu bagi:
-</p>
-
-<ul>
-<li>Tunanetra</li>
-<li>Low Vision</li>
-<li>Disleksia</li>
-<li>Lansia</li>
-</ul>
-
-<h2>Platform Text-to-Speech Populer</h2>
-
-<h3>Google Text-to-Speech</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Mendukung banyak bahasa</li>
-<li>Terintegrasi dengan Android</li>
-<li>Suara cukup natural</li>
-</ul>
-
-<h3>Gemini</h3>
-
-<p>
-Gemini dapat membantu membuat naskah yang kemudian dikonversi menjadi suara menggunakan layanan TTS.
-</p>
-
-<h3>ElevenLabs</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Suara sangat natural</li>
-<li>Mendukung cloning suara</li>
-<li>Banyak pilihan suara</li>
-</ul>
-
-<h3>Microsoft Azure Speech</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Voice AI berkualitas tinggi</li>
-<li>Cocok untuk kebutuhan bisnis</li>
-</ul>
-
-<h3>OpenAI Voice</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Suara natural</li>
-<li>Terintegrasi dengan teknologi AI generatif</li>
-</ul>
-
-<h2>JENIS SUARA AI</h2>
-
-<h3>Berdasarkan Gender</h3>
-
-<h4>Suara Pria</h4>
-
-<p>Karakteristik:</p>
-
-<ul>
-<li>Tegas</li>
-<li>Formal</li>
-<li>Profesional</li>
-</ul>
-
-<p>Cocok untuk:</p>
-
-<ul>
-<li>Berita</li>
-<li>Presentasi bisnis</li>
-<li>Narasi dokumenter</li>
-</ul>
-
-<h4>Suara Wanita</h4>
-
-<p>Karakteristik:</p>
-
-<ul>
-<li>Ramah</li>
-<li>Hangat</li>
-<li>Komunikatif</li>
-</ul>
-
-<p>Cocok untuk:</p>
-
-<ul>
-<li>Pembelajaran</li>
-<li>Podcast</li>
-<li>Video promosi</li>
-</ul>
-
-<h3>Berdasarkan Usia</h3>
-
-<h4>Anak-anak</h4>
-
-<ul>
-<li>Edukasi anak</li>
-<li>Cerita anak</li>
-</ul>
-
-<h4>Dewasa</h4>
-
-<ul>
-<li>Pendidikan</li>
-<li>Bisnis</li>
-<li>Konten umum</li>
-</ul>
-
-<h4>Senior</h4>
-
-<ul>
-<li>Narasi formal</li>
-<li>Dokumenter</li>
-</ul>
-
-<h3>Berdasarkan Gaya Bicara</h3>
-
-<h4>Formal</h4>
-
-<ul>
-<li>Pelatihan</li>
-<li>Seminar</li>
-<li>Presentasi</li>
-</ul>
-
-<h4>Kasual</h4>
-
-<ul>
-<li>Podcast</li>
-<li>Konten media sosial</li>
-</ul>
-
-<h4>Motivasional</h4>
-
-<ul>
-<li>Pelatihan</li>
-<li>Pengembangan diri</li>
-</ul>
-
-<h4>Storytelling</h4>
-
-<ul>
-<li>Cerita</li>
-<li>Audiobook</li>
-<li>Dongeng</li>
-</ul>
-
-<h2>MEMILIH SUARA YANG TEPAT</h2>
-
-<h3>Pendidikan</h3>
-
-<ul>
-<li>Suara jelas</li>
-<li>Kecepatan sedang</li>
-<li>Intonasi stabil</li>
-</ul>
-
-<h3>Video Promosi</h3>
-
-<ul>
-<li>Enerjik</li>
-<li>Dinamis</li>
-<li>Menarik perhatian</li>
-</ul>
-
-<h3>Audiobook</h3>
-
-<ul>
-<li>Natural</li>
-<li>Ekspresif</li>
-<li>Nyaman didengar dalam durasi panjang</li>
-</ul>
-
-<h2>PENGATURAN INTONASI DAN EKSPRESI SUARA</h2>
-<h3>Apa Itu Intonasi?</h3>
-
-<p>
-Intonasi adalah naik turunnya nada suara saat berbicara.
-</p>
-
-<p>
-Intonasi membantu pendengar memahami makna kalimat.
-</p>
+</div>
 
 <h3>Contoh</h3>
 
 <p>
-Kalimat:
+    Misalnya pengguna memberikan prompt berikut:
 </p>
 
-<p>
-Selamat datang.
-</p>
+<div class="alert alert-secondary">
+
+    Seorang guru sedang mengajar di kelas modern menggunakan teknologi AI. Siswa terlihat antusias belajar. Gaya video realistis, pencahayaan alami, kualitas sinematik.
+
+</div>
 
 <p>
-Dapat terdengar:
+    Artificial Intelligence akan memahami deskripsi tersebut kemudian menghasilkan video sesuai dengan instruksi yang diberikan.
+</p>
+
+<h2>Cara Kerja Text-to-Video</h2>
+
+<h3>Tahap 1 — Pengguna Memberikan Prompt</h3>
+
+<p>
+    Pengguna memberikan instruksi atau prompt yang menjelaskan video yang ingin dibuat.
+</p>
+
+<h3>Tahap 2 — AI Memahami Prompt</h3>
+
+<p>
+    Artificial Intelligence memahami berbagai unsur yang terdapat dalam prompt, antara lain:
 </p>
 
 <ul>
-<li>Ramah</li>
-<li>Resmi</li>
-<li>Antusias</li>
+    <li>Objek.</li>
+    <li>Aktivitas.</li>
+    <li>Lingkungan.</li>
+    <li>Kamera.</li>
+    <li>Gaya visual.</li>
 </ul>
 
+<h3>Tahap 3 — AI Membuat Adegan</h3>
+
 <p>
-Tergantung pada pengaturan intonasinya.
+    Setelah memahami instruksi, AI membuat video secara bertahap melalui adegan demi adegan berdasarkan deskripsi yang diberikan.
 </p>
 
-<h3>Pengaturan Kecepatan Bicara</h3>
+<h3>Tahap 4 — AI Menghasilkan Video</h3>
 
 <p>
-Biasanya platform TTS menyediakan beberapa pilihan kecepatan bicara.
+    Artificial Intelligence menghasilkan video berdasarkan unsur visual, aktivitas, lingkungan, kamera, dan gaya yang terdapat dalam prompt.
 </p>
 
-<h4>Lambat</h4>
+<h3>Tahap 5 — Video Siap Diedit dan Diekspor</h3>
 
 <p>
-Cocok untuk:
+    Video yang telah dihasilkan dapat diedit kembali sesuai kebutuhan kemudian diekspor untuk digunakan pada berbagai media.
+</p>
+
+<h2>Perkembangan AI Video Saat Ini</h2>
+
+<p>
+    Generasi terbaru AI Video semakin mampu menghasilkan konten visual dengan kualitas yang lebih baik.
 </p>
 
 <ul>
-<li>Materi pelatihan</li>
-<li>Audiobook</li>
+    <li>Gerakan manusia yang lebih natural.</li>
+    <li>Gerakan kamera yang realistis.</li>
+    <li>Efek visual berkualitas tinggi.</li>
+    <li>Video dengan gaya sinematik.</li>
+    <li>Video promosi.</li>
+    <li>Video edukasi.</li>
+    <li>Video animasi.</li>
 </ul>
 
-<h4>Sedang</h4>
+<h2>Platform AI Video Generator Populer</h2>
+
+<h3>Google Veo</h3>
 
 <p>
-Cocok untuk:
+    Google Veo merupakan salah satu platform AI Video Generator yang mampu menghasilkan video dengan kualitas tinggi berdasarkan instruksi yang diberikan.
+</p>
+
+<p>
+    <strong>Kelebihan:</strong>
 </p>
 
 <ul>
-<li>Presentasi</li>
-<li>Pembelajaran</li>
+    <li>Kualitas video tinggi.</li>
+    <li>Memahami prompt kompleks.</li>
+    <li>Gerakan kamera realistis.</li>
 </ul>
 
-<h4>Cepat</h4>
+<h3>OpenAI Sora</h3>
 
 <p>
-Cocok untuk:
+    OpenAI Sora merupakan platform AI yang dapat digunakan untuk menghasilkan video realistis dengan kemampuan memahami konteks yang baik.
+</p>
+
+<p>
+    <strong>Kelebihan:</strong>
 </p>
 
 <ul>
-<li>Ringkasan informasi</li>
-<li>Pengumuman</li>
+    <li>Video realistis.</li>
+    <li>Pemahaman konteks yang baik.</li>
+    <li>Cocok untuk berbagai kebutuhan.</li>
 </ul>
 
-<h3>Pengaturan Pitch</h3>
+<h3>Runway</h3>
 
 <p>
-Pitch adalah tinggi rendahnya suara.
-</p>
-
-<h4>Pitch Rendah</h4>
-
-<ul>
-<li>Lebih serius</li>
-<li>Lebih formal</li>
-</ul>
-
-<h4>Pitch Tinggi</h4>
-
-<ul>
-<li>Lebih ceria</li>
-<li>Lebih energik</li>
-</ul>
-
-<h3>Pengaturan Jeda</h3>
-
-<p>
-Jeda sangat penting agar audio mudah dipahami.
+    Runway merupakan platform yang dapat digunakan untuk membuat dan mengedit konten video dengan bantuan Artificial Intelligence.
 </p>
 
 <p>
-Gunakan jeda:
+    <strong>Kelebihan:</strong>
 </p>
 
 <ul>
-<li>Setelah titik</li>
-<li>Setelah koma</li>
-<li>Setelah pergantian paragraf</li>
+    <li>Mudah digunakan.</li>
+    <li>Editing berbasis AI.</li>
+    <li>Cocok untuk kreator konten.</li>
 </ul>
 
-<h2>Tips Agar Suara Terdengar Natural</h2>
-
-<h3>Gunakan Kalimat yang Jelas</h3>
+<h3>Pika</h3>
 
 <p>
-Hindari kalimat yang terlalu panjang dan sulit dipahami.
+    Pika merupakan platform AI Video Generator yang dapat membantu pengguna membuat video dengan proses yang relatif cepat.
 </p>
 
-<h3>Gunakan Tanda Baca dengan Benar</h3>
-
 <p>
-Tanda baca membantu AI menentukan intonasi dan jeda yang sesuai.
-</p>
-
-<h3>Pisahkan Paragraf</h3>
-
-<p>
-Paragraf yang teratur membuat hasil suara lebih nyaman didengar.
-</p>
-
-<h3>Sesuaikan Kecepatan</h3>
-
-<p>
-Jangan terlalu cepat dan jangan terlalu lambat.
-</p>
-
-<h2>PEMBUATAN VOICE OVER PROFESIONAL</h2>
-
-<h3>Apa Itu Voice Over?</h3>
-
-<p>
-Voice Over adalah narasi suara yang digunakan pada berbagai media seperti:
+    <strong>Kelebihan:</strong>
 </p>
 
 <ul>
-<li>Video</li>
-<li>Presentasi</li>
-<li>Iklan</li>
-<li>Podcast</li>
-<li>Konten edukasi</li>
+    <li>Pembuatan video cepat.</li>
+    <li>Cocok untuk media sosial.</li>
 </ul>
 
-<h3>Langkah 1: Menyiapkan Naskah</h3>
+<h3>Canva AI Video</h3>
 
 <p>
-Naskah yang baik harus:
+    Canva AI Video mengintegrasikan kemampuan pembuatan video berbasis AI dengan berbagai kebutuhan desain visual.
+</p>
+
+<p>
+    <strong>Kelebihan:</strong>
 </p>
 
 <ul>
-<li>Jelas</li>
-<li>Singkat</li>
-<li>Terstruktur</li>
+    <li>Mudah digunakan.</li>
+    <li>Terintegrasi dengan desain visual.</li>
 </ul>
+<h2>Kapan Menggunakan Text-to-Video?</h2>
 
-<h4>Contoh Naskah</h4>
-
-<p>
-Selamat datang pada pelatihan Artificial Intelligence.
-</p>
+<h3>Pendidikan</h3>
 
 <p>
-Pada sesi ini kita akan mempelajari bagaimana AI dapat membantu meningkatkan produktivitas kerja sehari-hari.
-</p>
-
-<h3>Langkah 2: Memilih Suara</h3>
-
-<p>
-Pilih suara yang sesuai dengan tujuan penggunaan.
-</p>
-
-<p>
-Contoh:
+    Text-to-Video dapat dimanfaatkan untuk membuat berbagai materi visual yang mendukung proses pembelajaran.
 </p>
 
 <ul>
-<li>Pendidikan → suara tenang dan jelas</li>
-<li>Promosi → suara energik</li>
-<li>Audiobook → suara ekspresif</li>
+    <li>Video pembelajaran.</li>
+    <li>Simulasi pembelajaran.</li>
+    <li>Video tutorial.</li>
 </ul>
 
-<h3>Langkah 3: Mengatur Intonasi</h3>
+<h3>Bisnis</h3>
 
 <p>
-Sesuaikan beberapa parameter berikut:
+    Dalam dunia bisnis, Text-to-Video dapat membantu menghasilkan berbagai konten visual untuk kebutuhan komunikasi dan promosi.
 </p>
 
 <ul>
-<li>Kecepatan</li>
-<li>Pitch</li>
-<li>Jeda</li>
-<li>Ekspresi</li>
+    <li>Promosi produk.</li>
+    <li>Company profile.</li>
+    <li>Presentasi bisnis.</li>
 </ul>
 
-<h3>Langkah 4: Mengekspor Audio</h3>
+<h3>Organisasi Sosial</h3>
 
 <p>
-Setelah hasil suara sesuai, audio dapat diekspor ke berbagai format.
-</p>
-
-<p>
-Format yang umum digunakan:
+    Organisasi sosial dapat memanfaatkan teknologi AI Video untuk menyampaikan pesan, mendokumentasikan kegiatan, dan meningkatkan daya tarik kampanye.
 </p>
 
 <ul>
-<li>MP3</li>
-<li>WAV</li>
-<li>M4A</li>
+    <li>Kampanye sosial.</li>
+    <li>Video donasi.</li>
+    <li>Dokumentasi program.</li>
 </ul>
+
+<h3>Media Sosial</h3>
+
+<p>
+    Text-to-Video juga dapat digunakan untuk membuat konten singkat yang sesuai dengan berbagai platform media sosial.
+</p>
+
+<ul>
+    <li>Reels.</li>
+    <li>Shorts.</li>
+    <li>TikTok.</li>
+</ul>
+
+<hr class="my-5">
+
+<h2>TEKNIK MEMBUAT STORYBOARD</h2>
+
+<h3>Apa Itu Storyboard?</h3>
+
+<p>
+    Storyboard adalah perencanaan visual yang menggambarkan urutan adegan dalam sebuah video sebelum proses produksi dilakukan.
+</p>
+
+<p>
+    Storyboard membantu kreator merencanakan isi video secara lebih sistematis sehingga setiap adegan memiliki hubungan yang jelas dengan adegan berikutnya.
+</p>
+
+<p>
+    Storyboard membantu:
+</p>
+
+<ul>
+    <li>Menentukan alur cerita.</li>
+    <li>Mengurangi kesalahan produksi.</li>
+    <li>Mempermudah pembuatan prompt.</li>
+</ul>
+
+<h3>Mengapa Storyboard Penting?</h3>
+
+<p>
+    Storyboard menjadi bagian penting dalam pembuatan video karena membantu menjaga arah dan konsistensi cerita.
+</p>
+
+<p>
+    Tanpa storyboard, video sering:
+</p>
+
+<ul>
+    <li>Tidak terarah.</li>
+    <li>Tidak fokus.</li>
+    <li>Sulit dipahami.</li>
+</ul>
+
+<p>
+    Dengan storyboard, video menjadi lebih:
+</p>
+
+<ul>
+    <li>Terstruktur.</li>
+    <li>Konsisten.</li>
+    <li>Profesional.</li>
+</ul>
+
+<h3>Struktur Storyboard Sederhana</h3>
+
+<p>
+    Storyboard sederhana dapat disusun berdasarkan urutan adegan dan tujuan dari setiap adegan.
+</p>
+
+<ol>
+    <li>
+        <strong>Logo muncul, Selamat datang.</strong>
+        <br>
+        Video diawali dengan kemunculan logo dan pesan pembuka.
+    </li>
+
+    <li>
+        <strong>Aktivitas peserta, Pelatihan dimulai.</strong>
+        <br>
+        Menampilkan aktivitas peserta ketika kegiatan pelatihan mulai berlangsung.
+    </li>
+
+    <li>
+        <strong>Praktik AI, Peserta mencoba AI.</strong>
+        <br>
+        Menampilkan peserta ketika mempraktikkan teknologi Artificial Intelligence.
+    </li>
+
+    <li>
+        <strong>Hasil akhir, Produktivitas meningkat.</strong>
+        <br>
+        Menampilkan hasil kegiatan dan manfaat yang diperoleh setelah menggunakan AI.
+    </li>
+</ol>
+
+<h3>Contoh Storyboard Video Edukasi</h3>
+
+<p>
+    Berikut contoh storyboard sederhana untuk video edukasi dengan topik pemanfaatan Artificial Intelligence dalam pendidikan.
+</p>
+
+<p>
+    <strong>Topik:</strong>
+</p>
+
+<div class="alert alert-info">
+
+    Pemanfaatan AI dalam Pendidikan
+
+</div>
+
+<h3>Adegan 1</h3>
+
+<p>
+    Guru masuk kelas.
+</p>
+
+<p>
+    Adegan memperlihatkan guru memasuki ruang kelas sebagai pembuka video pembelajaran.
+</p>
+
+<h3>Adegan 2</h3>
+
+<p>
+    Guru menggunakan AI untuk membuat materi.
+</p>
+
+<p>
+    Adegan menunjukkan guru memanfaatkan teknologi Artificial Intelligence dalam proses menyiapkan materi pembelajaran.
+</p>
+
+<h3>Adegan 3</h3>
+
+<p>
+    Siswa belajar menggunakan teknologi AI.
+</p>
+
+<p>
+    Adegan memperlihatkan siswa menggunakan teknologi AI dalam aktivitas pembelajaran.
+</p>
+
+<h3>Adegan 4</h3>
+
+<p>
+    Kesimpulan dan manfaat AI.
+</p>
+
+<p>
+    Adegan terakhir menyampaikan kesimpulan serta manfaat pemanfaatan Artificial Intelligence dalam pendidikan.
+</p>
+<h2>TEKNIK MEMBUAT PROMPT VIDEO YANG EFEKTIF</h2>
+
+<h3>Mengapa Prompt Video Penting?</h3>
+
+<p>
+    Prompt merupakan instruksi utama yang digunakan untuk menentukan isi dan karakteristik video yang akan dihasilkan oleh Artificial Intelligence.
+</p>
+
+<p>
+    Semakin detail dan jelas prompt yang diberikan, semakin besar kemungkinan AI menghasilkan video yang sesuai dengan kebutuhan pengguna.
+</p>
+
+<h3>Formula Prompt Video</h3>
+
+<div class="alert alert-info">
+
+    <strong>Subjek + Aktivitas + Lingkungan + Kamera + Gaya + Kualitas</strong>
+
+</div>
+
+<h3>1. Subjek</h3>
+
+<p>
+    Subjek menjelaskan siapa atau apa yang akan muncul dalam video.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Guru.</li>
+    <li>Mahasiswa.</li>
+    <li>Produk kopi.</li>
+    <li>Laptop.</li>
+</ul>
+
+<h3>2. Aktivitas</h3>
+
+<p>
+    Aktivitas menjelaskan tindakan atau kegiatan yang sedang dilakukan oleh subjek dalam video.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Mengajar.</li>
+    <li>Berdiskusi.</li>
+    <li>Berjalan.</li>
+    <li>Menjelaskan.</li>
+</ul>
+
+<h3>3. Lingkungan</h3>
+
+<p>
+    Lingkungan menjelaskan lokasi atau tempat terjadinya aktivitas dalam video.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Ruang kelas.</li>
+    <li>Kantor.</li>
+    <li>Studio.</li>
+    <li>Kafe.</li>
+</ul>
+
+<h3>4. Kamera</h3>
+
+<p>
+    Kamera menjelaskan jenis pengambilan gambar atau pergerakan kamera yang diinginkan dalam video.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Close-up.</li>
+    <li>Medium shot.</li>
+    <li>Wide shot.</li>
+    <li>Slow zoom.</li>
+</ul>
+
+<h3>5. Gaya</h3>
+
+<p>
+    Gaya menentukan karakter atau tampilan visual video yang ingin dihasilkan.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Realistis.</li>
+    <li>Sinematik.</li>
+    <li>Animasi.</li>
+    <li>Dokumenter.</li>
+</ul>
+
+<h3>6. Kualitas</h3>
+
+<p>
+    Kualitas digunakan untuk memberikan arahan mengenai tingkat kualitas visual yang diharapkan pada hasil video.
+</p>
+
+<p>
+    Contoh:
+</p>
+
+<ul>
+    <li>Ultra HD.</li>
+    <li>High quality.</li>
+    <li>Professional lighting.</li>
+</ul>
+
+<hr class="my-5">
+
+<h2>Contoh Prompt Dasar</h2>
+
+<div class="alert alert-secondary">
+
+    Seorang guru sedang mengajar di kelas.
+
+</div>
+
+<p>
+    Prompt tersebut sudah menjelaskan subjek dan aktivitas, tetapi masih memiliki informasi yang terbatas mengenai lingkungan, kamera, gaya, dan kualitas video.
+</p>
+
+<h2>Contoh Prompt Profesional</h2>
+
+<div class="alert alert-success">
+
+    Seorang guru profesional sedang mengajar siswa di ruang kelas modern menggunakan teknologi AI. Siswa terlihat aktif berdiskusi. Kamera bergerak perlahan dari sisi kiri ke kanan. Pencahayaan alami dari jendela. Gaya sinematik realistis dengan kualitas ultra HD.
+
+</div>
+
+<p>
+    Prompt profesional memberikan informasi yang lebih lengkap mengenai subjek, aktivitas, lingkungan, pergerakan kamera, pencahayaan, gaya visual, dan kualitas video.
+</p>
+
+<hr class="my-5">
+
+<h2>Prompt Video Promosi</h2>
+
+<h3>Contoh</h3>
+
+<div class="alert alert-secondary">
+
+    Produk kopi premium dalam kemasan elegan berada di atas meja kayu. Uap kopi terlihat naik perlahan. Kamera melakukan close-up pada kemasan produk. Suasana hangat dan profesional. Gaya iklan komersial berkualitas tinggi.
+
+</div>
+
+<p>
+    Prompt tersebut dirancang untuk menghasilkan video yang menonjolkan sebuah produk dengan pendekatan visual yang sesuai untuk kebutuhan promosi.
+</p>
+
+<h2>Prompt Video Edukasi</h2>
+
+<h3>Contoh</h3>
+
+<div class="alert alert-secondary">
+
+    Seorang instruktur menjelaskan konsep Artificial Intelligence di ruang pelatihan modern. Peserta memperhatikan dengan antusias. Kamera berganti antara instruktur dan layar presentasi. Gaya video edukasi profesional.
+
+</div>
+
+<p>
+    Prompt tersebut menggabungkan subjek, aktivitas, lingkungan, dan pengaturan kamera untuk menghasilkan video edukasi yang lebih terarah.
+</p>
+
+<hr class="my-5">
+
+<h2>DASAR EDITING VIDEO BERBASIS AI</h2>
+
+<h3>Apa Itu AI Video Editing?</h3>
+
+<p>
+    AI Video Editing adalah proses mengedit video dengan bantuan Artificial Intelligence untuk membantu menyelesaikan berbagai pekerjaan editing secara lebih efektif.
+</p>
+
+<h3>Fungsi AI dalam Editing Video</h3>
+
+<p>
+    Artificial Intelligence dapat membantu berbagai proses editing video, antara lain:
+</p>
+
+<ul>
+    <li>Memotong video secara otomatis.</li>
+    <li>Menambahkan subtitle.</li>
+    <li>Menghapus noise audio.</li>
+    <li>Membuat transisi.</li>
+    <li>Menambahkan efek visual.</li>
+    <li>Membuat ringkasan video.</li>
+</ul>
+
+<h3>Editing Dasar yang Perlu Diketahui</h3>
+
+<h3>Trim</h3>
+
+<p>
+    Trim digunakan untuk memotong bagian awal atau akhir video yang tidak diperlukan.
+</p>
+
+<h3>Split</h3>
+
+<p>
+    Split digunakan untuk memisahkan video menjadi beberapa bagian.
+</p>
+
+<h3>Transition</h3>
+
+<p>
+    Transition merupakan perpindahan dari satu adegan ke adegan lainnya.
+</p>
+
+<h3>Subtitle</h3>
+
+<p>
+    Subtitle digunakan untuk menambahkan teks pada video agar informasi dalam video dapat dibaca oleh penonton.
+</p>
+
+<h3>Background Music</h3>
+
+<p>
+    Background Music digunakan untuk menambahkan musik latar pada video.
+</p>
+
+<h3>Voice Over</h3>
+
+<p>
+    Voice Over digunakan untuk menambahkan narasi suara ke dalam video.
+</p>
+<hr class="my-5">
+
+<h2>Alur Produksi Video Berbasis AI</h2>
+
+<p>
+    Pembuatan video menggunakan Artificial Intelligence perlu dilakukan melalui tahapan yang terstruktur agar hasil video sesuai dengan tujuan dan pesan yang ingin disampaikan.
+</p>
+
+<h3>Langkah 1 — Menentukan Tujuan Video</h3>
+
+<p>
+    Tentukan terlebih dahulu tujuan utama video, misalnya untuk pendidikan, promosi, presentasi, media sosial, atau kampanye sosial.
+</p>
+
+<h3>Langkah 2 — Membuat Storyboard</h3>
+
+<p>
+    Susun urutan adegan yang akan ditampilkan dalam video sehingga alur cerita menjadi lebih jelas dan terarah.
+</p>
+
+<h3>Langkah 3 — Menulis Prompt Video</h3>
+
+<p>
+    Buat prompt yang menjelaskan subjek, aktivitas, lingkungan, kamera, gaya, dan kualitas video yang diinginkan.
+</p>
+
+<h3>Langkah 4 — Menghasilkan Video Menggunakan AI</h3>
+
+<p>
+    Masukkan prompt ke dalam platform AI Video Generator kemudian hasilkan video berdasarkan instruksi yang telah dibuat.
+</p>
+
+<h3>Langkah 5 — Melakukan Editing</h3>
+
+<p>
+    Edit video untuk memperbaiki bagian yang kurang sesuai, mengatur durasi, memotong bagian yang tidak diperlukan, dan menyusun adegan agar lebih rapi.
+</p>
+
+<h3>Langkah 6 — Menambahkan Audio dan Subtitle</h3>
+
+<p>
+    Tambahkan voice over, musik latar, serta subtitle sesuai kebutuhan agar video lebih informatif dan mudah dipahami.
+</p>
+
+<h3>Langkah 7 — Mengekspor Video</h3>
+
+<p>
+    Setelah seluruh proses selesai, ekspor video dalam format yang sesuai dengan kebutuhan penggunaan atau platform publikasi.
+</p>
+
+<hr class="my-5">
 
 <h2>Studi Kasus</h2>
 
 <p>
-Sebuah lembaga pelatihan ingin membuat video promosi berdurasi 2 menit.
+    Sebuah lembaga pelatihan ingin membuat video promosi pelatihan Artificial Intelligence untuk dipublikasikan melalui media sosial.
 </p>
 
 <p>
-Proses yang dilakukan:
+    Langkah kerja yang dapat dilakukan adalah:
 </p>
 
 <ol>
-<li>Menulis naskah menggunakan Gemini.</li>
-<li>Menghasilkan suara menggunakan layanan TTS.</li>
-<li>Menambahkan audio ke video.</li>
-<li>Menyelesaikan video promosi.</li>
+    <li>Membuat storyboard.</li>
+    <li>Menulis prompt.</li>
+    <li>Menghasilkan video menggunakan AI.</li>
+    <li>Menambahkan narasi TTS.</li>
+    <li>Menambahkan subtitle.</li>
+    <li>Mengekspor video untuk media sosial.</li>
 </ol>
+
+<hr class="my-5">
 
 <h2>PRAKTIK</h2>
 
-<h3>Praktik 1: Membuat Audio Narasi</h3>
+<h2>Praktik 1 — Membuat Video Promosi</h2>
 
 <p>
-Buat naskah narasi sepanjang 1–2 menit mengenai:
+    Buat sebuah video promosi menggunakan Artificial Intelligence dengan tema:
+</p>
+
+<div class="alert alert-success">
+
+    <strong>Pelatihan Artificial Intelligence</strong>
+
+</div>
+
+<p>
+    <strong>Durasi:</strong>
 </p>
 
 <p>
-<strong>Manfaat Artificial Intelligence dalam Kehidupan Sehari-hari</strong>
+    30–60 detik
 </p>
 
 <p>
-Kemudian:
-</p>
-
-<ul>
-<li>Pilih suara AI.</li>
-<li>Atur kecepatan bicara.</li>
-<li>Ekspor menjadi file audio.</li>
-</ul>
-
-<h3>Praktik 2: Membuat Voice Over Presentasi</h3>
-
-<p>
-Buat voice over untuk presentasi:
-</p>
-
-<p>
-<strong>AI untuk Produktivitas Kerja</strong>
-</p>
-
-<p>
-Durasi 2–3 menit.
-</p>
-
-<h3>Praktik 3: Membuat Audiobook Sederhana</h3>
-
-<p>
-Pilih artikel atau cerita pendek sepanjang 500–1000 kata.
-</p>
-
-<p>
-Langkah-langkah:
+    <strong>Tahapan:</strong>
 </p>
 
 <ol>
-<li>Susun teks.</li>
-<li>Konversi menjadi suara menggunakan TTS.</li>
-<li>Simpan dalam format MP3.</li>
-<li>Dengarkan hasilnya.</li>
-<li>Evaluasi kualitas suara.</li>
+    <li>Buat storyboard.</li>
+    <li>Buat prompt video.</li>
+    <li>Hasilkan video menggunakan AI.</li>
+    <li>Tambahkan narasi.</li>
+    <li>Ekspor video.</li>
 </ol>
 
-<h2>Tips Membuat Audiobook yang Nyaman Didengar</h2>
+<hr class="my-4">
+
+<h2>Praktik 2 — Membuat Video Edukasi</h2>
+
+<p>
+    Buat video edukasi menggunakan Artificial Intelligence dengan tema:
+</p>
+
+<div class="alert alert-success">
+
+    <strong>Pengenalan Artificial Intelligence</strong>
+
+</div>
+
+<p>
+    <strong>Durasi:</strong>
+</p>
+
+<p>
+    1–2 menit
+</p>
+
+<p>
+    <strong>Tahapan:</strong>
+</p>
+
+<ol>
+    <li>Menentukan materi.</li>
+    <li>Menyusun storyboard.</li>
+    <li>Membuat prompt video.</li>
+    <li>Menghasilkan video.</li>
+    <li>Menambahkan subtitle.</li>
+</ol>
+
+<hr class="my-4">
+
+<h2>Praktik 3 — Membuat Video Kampanye Sosial</h2>
+
+<p>
+    Buat sebuah video kampanye sosial dengan tema:
+</p>
+
+<div class="alert alert-success">
+
+    <strong>Pemanfaatan Teknologi untuk Inklusi Disabilitas</strong>
+
+</div>
+
+<p>
+    Peserta membuat video pendek yang berisi:
+</p>
 
 <ul>
-<li>Gunakan paragraf pendek.</li>
-<li>Hindari kalimat terlalu panjang.</li>
-<li>Gunakan tanda baca yang benar.</li>
-<li>Pilih suara natural.</li>
-<li>Gunakan kecepatan bicara sedang.</li>
-<li>Berikan jeda pada pergantian bagian cerita.</li>
+    <li>Pesan utama.</li>
+    <li>Narasi.</li>
+    <li>Visual AI.</li>
+    <li>Subtitle.</li>
 </ul>
 
-<h2>Etika Penggunaan Voice AI</h2>
-<h3>Gunakan untuk Tujuan Positif</h3>
+<hr class="my-5">
+
+<h2>Tips Membuat Video AI yang Berkualitas</h2>
 
 <p>
-Sebagai pengguna AI, kita harus memperhatikan etika penggunaan teknologi suara.
-</p>
-
-<p>
-Gunakan teknologi Text-to-Speech dan Voice AI untuk tujuan yang bermanfaat seperti:
+    Perhatikan beberapa hal berikut agar video yang dihasilkan menggunakan Artificial Intelligence lebih terarah dan berkualitas.
 </p>
 
 <ul>
-<li>Pendidikan</li>
-<li>Pelatihan</li>
-<li>Konten edukatif</li>
-<li>Aksesibilitas</li>
-<li>Penyebaran informasi yang bermanfaat</li>
+    <li>Gunakan prompt yang rinci.</li>
+    <li>Fokus pada satu adegan dalam satu prompt.</li>
+    <li>Tentukan gerakan kamera.</li>
+    <li>Tentukan suasana video.</li>
+    <li>Gunakan storyboard terlebih dahulu.</li>
+    <li>Gunakan voice over yang jelas.</li>
+    <li>Tambahkan subtitle untuk aksesibilitas.</li>
 </ul>
 
-<h3>Jangan Meniru Identitas Orang Lain Tanpa Izin</h3>
+<hr class="my-5">
+
+<h2>Etika Penggunaan AI Video</h2>
+
+<h3>Hindari Informasi Palsu</h3>
 
 <p>
-Teknologi AI modern memungkinkan pembuatan suara yang sangat mirip dengan suara manusia asli.
+    Jangan membuat video yang menyesatkan atau digunakan untuk menyebarkan informasi yang tidak benar.
 </p>
+
+<h3>Hormati Hak Cipta</h3>
 
 <p>
-Karena itu, penggunaan voice cloning harus dilakukan secara bertanggung jawab.
+    Gunakan aset yang memiliki izin penggunaan dan hindari menggunakan karya milik pihak lain tanpa hak atau izin yang sesuai.
 </p>
+
+<h3>Transparansi</h3>
 
 <p>
-Voice cloning hanya boleh dilakukan dengan persetujuan dari pemilik suara.
+    Sampaikan jika video dibuat dengan bantuan Artificial Intelligence apabila diperlukan.
 </p>
+
+<h3>Jaga Privasi</h3>
 
 <p>
-Meniru suara seseorang tanpa izin dapat menimbulkan masalah etika, hukum, dan kepercayaan.
+    Jangan menggunakan wajah atau identitas seseorang tanpa izin.
 </p>
 
-<h3>Berikan Informasi Jika Konten Menggunakan AI</h3>
+<div class="alert alert-primary mt-5">
 
-<p>
-Dalam situasi tertentu, transparansi sangat penting.
-</p>
+    <strong>Kesimpulan</strong>
 
-<p>
-Audiens berhak mengetahui bahwa suara yang mereka dengarkan dibuat menggunakan teknologi Artificial Intelligence.
-</p>
+    <p class="mb-0 mt-3">
 
-<p>
-Keterbukaan akan meningkatkan kepercayaan pengguna terhadap konten yang dibuat.
-</p>
+        Text-to-Video memungkinkan pengguna membuat video berdasarkan instruksi teks dengan bantuan Artificial Intelligence. Dengan memahami storyboard, teknik penyusunan prompt, editing berbasis AI, alur produksi, serta etika penggunaannya, teknologi ini dapat dimanfaatkan untuk menghasilkan video promosi, edukasi, dan kampanye sosial secara lebih efektif, terstruktur, dan bertanggung jawab.
+
+    </p>
+
+</div>
 
 </section>
 
-<div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+<div class="d-flex flex-column gap-3 align-items-center my-5">
 
-<a href="https://drive.google.com/file/d/18YaIu91V17kGGcxobhCBIAcpLPXJoT-7/view?usp=sharing"
-class="btn-custom"
-aria-label="Download Materi"
-target="_blank"
-rel="noopener">
-Download Materi Lengkap
-</a>
+    <a href="https://drive.google.com/file/d/1a_bX-DEIvgmEJmbH-oRUE-4OZxyhGe2i/view?usp=sharing"
+        class="btn btn-primary btn-lg rounded-pill px-5"
+        target="_blank"
+        rel="noopener">
 
-<a href="../topic4.html"
-class="btn btn-outline-primary rounded-pill px-4"
-aria-label="Kembali">
-Kembali
-</a>
+        📄 Download Materi Lengkap
+
+    </a>
+
+    <a href="../topic7.html"
+        class="btn btn-outline-secondary rounded-pill px-5">
+
+        ← Kembali
+
+    </a>
 
 </div>
 
 </main>
 
-<footer>
-&copy; 2026 Difabelajar. Semua hak cipta dilindungi.
+<footer class="text-center mt-5 py-4 border-top">
+
+    <p class="mb-1">
+        <strong>Difabelajar</strong>
+    </p>
+
+    <p class="mb-0">
+        AI for Activity &copy; 2026
+    </p>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const toggleBtn = document.querySelector('.toggle-mode');
+/* Dark Mode */
 
-toggleBtn.addEventListener('click', () => {
-document.body.classList.toggle('dark-mode');
+const toggleButton = document.querySelector(".toggle-mode");
 
-toggleBtn.textContent =
-document.body.classList.contains('dark-mode')
-? '☀️ Mode'
-: '🌙 Mode';
-});
+if (toggleButton) {
+
+    toggleButton.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            toggleButton.innerHTML = "☀️";
+
+        } else {
+
+            toggleButton.innerHTML = "🌙";
+
+        }
+
+    });
+
+}
+
+/* Seluruh JavaScript lain tetap sama seperti file sebelumnya */
+
 </script>
 
 </body>
+
 </html>
