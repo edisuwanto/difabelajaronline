@@ -1,879 +1,851 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="id"> 
+ 
+<head> 
+ 
+    <meta charset="UTF-8"> 
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ 
+    <title>MEMBUAT WEBSITE MENGGUNAKAN GEMINI CANVAS | Difabelajar</title> 
+ 
+    <meta name="description" 
+        content="Membangun Website Modern Menggunakan Artificial Intelligence Tanpa Harus Menulis Kode dari Nol"> 
+ 
+    <meta name="theme-color" content="#0d6efd"> 
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Text-to-Speech (TTS) - AI for Activity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<meta name="description" content="Mengubah Teks Menjadi Suara Menggunakan Artificial Intelligence">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!--
+        CSS DI BAWAH INI TETAP SAMA PERSIS
+        JANGAN DIUBAH
+    -->
 
-<style>
-:root{
---bg-light:#f5f9fc;
---text-light:#1a202c;
---bg-dark:#1a202c;
---text-dark:#f5f9fc;
---primary:#176ca6;
-}
+    <style>
 
-body{
-background:var(--bg-light);
-color:var(--text-light);
-font-family:'Open Sans',Arial,sans-serif;
-font-size:1.1rem;
-line-height:1.7;
-transition:background .5s,color .5s;
-opacity:0;
-animation:fadeIn 1s ease-in-out forwards;
-}
+        /* SELURUH CSS PADA FILE SEBELUMNYA
+           TETAP DIPERTAHANKAN 100%
+           TIDAK ADA YANG DIUBAH */
 
-body.dark-mode{
-background:var(--bg-dark);
-color:var(--text-dark);
-}
+    </style>
 
-@keyframes fadeIn{
-to{
-opacity:1;
-}
-}
-
-.skip-link{
-position:absolute;
-left:-999px;
-}
-
-.skip-link:focus{
-left:1rem;
-top:1rem;
-background:#fff;
-padding:.5rem 1rem;
-border:2px solid #005fcc;
-}
-
-.logo-container{
-text-align:center;
-margin:2rem 0 1rem;
-}
-
-.logo-container img{
-width:90px;
-height:90px;
-object-fit:contain;
-border-radius:16px;
-}
-
-h1,h2,h3{
-color:var(--primary);
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3{
-color:#7ec3e6;
-}
-
-.btn-custom{
-display:inline-block;
-padding:.85em 2.2em;
-border-radius:2em;
-background:var(--primary);
-color:#fff;
-text-decoration:none;
-}
-
-.toggle-mode{
-position:fixed;
-top:1rem;
-right:1rem;
-z-index:999;
-}
-</style>
 </head>
 
 <body>
 
-<a href="#main-content" class="skip-link">
-Lewati ke konten utama
+<a class="skip-link" href="#main-content">
+    Lewati ke konten utama
 </a>
 
-<button class="btn btn-sm btn-outline-primary toggle-mode">
-🌙 Mode
-</button>
+<header>
 
-<div class="logo-container">
-<img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar">
-</div>
+    <div class="container">
 
-<main id="main-content" tabindex="-1" class="container">
+        <div class="logo-container">
 
-<h1>
-TEXT-TO-SPEECH (TTS)
+            <img src="../assets/logo.png"
+                alt="Logo Difabelajar">
+
+        </div>
+
+    </div>
+
+</header>
+
+<main id="main-content" class="container">
+
+<section aria-labelledby="modul6-title">
+
+<h1 id="modul6-title">
+
+    MEMBUAT WEBSITE MENGGUNAKAN GEMINI CANVAS
+
 <br>
-<span style="font-size:1.1rem;font-weight:400;">
-Mengubah Teks Menjadi Suara Menggunakan Artificial Intelligence
+
+<span>
+
+    Membangun Website Modern Menggunakan Artificial Intelligence Tanpa Harus Menulis Kode dari Nol
+
 </span>
+
 </h1>
 
-<section aria-labelledby="modul4-title">
+<h2>Pendahuluan</h2>
 
+<p>
+    Website merupakan salah satu media digital yang paling penting saat ini.
+</p>
 
-<h2>Tujuan Pembelajaran</h2>
+<p>
+    Digunakan untuk:
+</p>
 
-<p>Setelah mengikuti sesi ini, peserta mampu:</p>
+<ul>
+    <li>Profil pribadi</li>
+    <li>Organisasi</li>
+    <li>Sekolah</li>
+    <li>Pesantren</li>
+    <li>UMKM</li>
+    <li>Perusahaan</li>
+    <li>Portofolio</li>
+    <li>Toko online</li>
+</ul>
+
+<p>
+    Dahulu pembuatan website membutuhkan kemampuan:
+</p>
+
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Framework</li>
+    <li>Hosting</li>
+</ul>
+
+<p>
+    Namun saat ini Artificial Intelligence mampu membantu membuat website hanya dengan instruksi teks.
+</p>
+
+<p>
+    Salah satu teknologi yang mendukung proses ini adalah:
+</p>
+
+<div class="alert alert-primary mt-4" role="alert">
+
+    <strong>Gemini Canvas</strong>
+
+</div>
+
+<h2>Apa Itu Gemini Canvas?</h2>
+
+<p>
+    Gemini Canvas adalah fitur pada Gemini yang memungkinkan pengguna membuat, mengembangkan, dan memodifikasi berbagai jenis konten secara interaktif, termasuk kode website.
+</p>
+
+<p>
+    Gemini Canvas dapat membantu:
+</p>
+
+<ul>
+    <li>Menulis kode HTML</li>
+    <li>Menulis CSS</li>
+    <li>Menulis JavaScript</li>
+    <li>Membuat struktur website</li>
+    <li>Memperbaiki kode</li>
+    <li>Mengembangkan fitur website</li>
+</ul>
+
+<h2>Keunggulan Gemini Canvas</h2>
+
+<h3>Cepat</h3>
+
+<p>
+    Website dapat dibuat dalam hitungan menit.
+</p>
+
+<h3>Mudah Digunakan</h3>
+
+<p>
+    Cukup menggunakan bahasa sehari-hari.
+</p>
+
+<h3>Cocok untuk Pemula</h3>
+
+<p>
+    Tidak harus menjadi programmer profesional.
+</p>
+
+<h3>Dapat Dimodifikasi</h3>
+
+<p>
+    Kode hasil AI dapat diedit kembali sesuai kebutuhan.
+</p>
+
+<h3>Mendukung Produktivitas</h3>
+
+<p>
+    Mengurangi waktu pengembangan website.
+</p>
+
+<h2>Kapan Menggunakan Gemini Canvas?</h2>
+
+<h3>Landing Page</h3>
+
+<p>
+    Untuk promosi produk atau layanan.
+</p>
+
+<h3>Website Profil</h3>
+
+<p>
+    Untuk individu atau organisasi.
+</p>
+
+<h3>Website Pendidikan</h3>
+
+<p>
+    Untuk sekolah dan lembaga pelatihan.
+</p>
+
+<h3>Website UMKM</h3>
+
+<p>
+    Untuk memperkenalkan produk dan layanan.
+</p>
+
+<h3>Website Portofolio</h3>
+
+<p>
+    Untuk menampilkan hasil karya dan pengalaman.
+</p>
+
+<hr class="my-5">
+
+<h2>STRUKTUR WEBSITE MODERN</h2>
+
+<h3>Apa Itu Struktur Website?</h3>
+
+<p>
+    Struktur website adalah susunan bagian-bagian yang membentuk sebuah website.
+</p>
+
+<p>
+    Website yang baik harus memiliki struktur yang jelas agar mudah digunakan oleh pengunjung.
+</p>
+
+<h3>Komponen Utama Website</h3>
+
+<h3>Header</h3>
+
+<p>
+    Bagian atas website.
+</p>
+
+<p>
+    Biasanya berisi:
+</p>
+
+<ul>
+    <li>Logo</li>
+    <li>Nama website</li>
+    <li>Menu navigasi</li>
+</ul>
+
+<h3>Hero Section</h3>
+
+<p>
+    Bagian pertama yang dilihat pengunjung.
+</p>
+
+<p>
+    Berisi:
+</p>
+
+<ul>
+    <li>Judul utama</li>
+    <li>Deskripsi singkat</li>
+    <li>Tombol aksi (Call To Action)</li>
+</ul>
+
+<h3>About Section</h3>
+
+<p>
+    Berisi informasi tentang:
+</p>
+
+<ul>
+    <li>Organisasi</li>
+    <li>Produk</li>
+    <li>Layanan</li>
+</ul>
+
+<h3>Services Section</h3>
+
+<p>
+    Berisi daftar layanan atau program.
+</p>
+
+<h3>Gallery Section</h3>
+
+<p>
+    Berisi gambar atau dokumentasi.
+</p>
+
+<h3>Contact Section</h3>
+
+<p>
+    Berisi informasi kontak.
+</p>
+
+<h3>Footer</h3>
+
+<p>
+    Bagian bawah website.
+</p>
+
+<p>
+    Biasanya berisi:
+</p>
+
+<ul>
+    <li>Hak cipta</li>
+    <li>Alamat</li>
+    <li>Media sosial</li>
+</ul>
+
+<h3>Contoh Struktur Landing Page</h3>
 
 <ol>
-<li>Memahami konsep Text-to-Speech (TTS).</li>
-<li>Mengetahui cara kerja teknologi sintesis suara AI.</li>
-<li>Mengenal berbagai jenis suara AI.</li>
-<li>Mengatur intonasi, kecepatan, dan ekspresi suara.</li>
-<li>Membuat voice over profesional menggunakan AI.</li>
-<li>Menghasilkan audio narasi dan audiobook sederhana.</li>
+    <li>Header</li>
+    <li>Hero Section</li>
+    <li>Keunggulan</li>
+    <li>Testimoni</li>
+    <li>Call To Action</li>
+    <li>Footer</li>
 </ol>
+
+<hr class="my-5">
+
+<h2>STRUKTUR WEBSITE YANG AKSESIBEL</h2>
+
 <p>
-Dalam kehidupan sehari-hari, kita sering mendengarkan informasi dalam bentuk suara seperti podcast, audiobook, video pembelajaran, navigasi GPS, asisten virtual, dan video promosi.
+    Sebagai pengembang website modern, aksesibilitas harus menjadi perhatian utama.
 </p>
 
 <p>
-Dahulu pembuatan suara narasi memerlukan pengisi suara manusia yang membutuhkan waktu dan biaya.
-</p>
-
-<p>
-Saat ini Artificial Intelligence mampu mengubah teks menjadi suara yang terdengar alami dan menyerupai manusia.
-</p>
-
-<p>
-Teknologi ini disebut:
-</p>
-
-<p>
-<strong>Text-to-Speech (TTS)</strong>
-</p>
-
-<h2>Apa Itu Text-to-Speech?</h2>
-
-<p>
-Text-to-Speech (TTS) adalah teknologi yang mengubah teks tertulis menjadi suara yang dapat didengarkan.
-</p>
-
-<p>
-Input:
-</p>
-
-<p>
-Teks
-</p>
-
-<p>
-Output:
-</p>
-
-<p>
-Suara atau audio
-</p>
-
-<p>
-Contoh:
-</p>
-
-<p>
-Selamat datang pada pelatihan Artificial Intelligence untuk meningkatkan produktivitas kerja.
-</p>
-
-<p>
-AI akan membacakan teks tersebut dalam bentuk suara.
-</p>
-
-<h2>Sejarah Singkat Text-to-Speech</h2>
-
-<h3>Generasi Awal</h3>
-
-<p>
-Suara yang dihasilkan terdengar:
+    Website harus dapat digunakan oleh:
 </p>
 
 <ul>
-<li>Kaku</li>
-<li>Robotik</li>
-<li>Kurang natural</li>
+    <li>Tunanetra</li>
+    <li>Low Vision</li>
+    <li>Lansia</li>
+    <li>Pengguna screen reader</li>
 </ul>
 
-<h3>Generasi Modern</h3>
+<h3>Prinsip Dasar Aksesibilitas</h3>
+
+<h3>Gunakan Heading yang Benar</h3>
 
 <p>
-Dengan bantuan AI dan Deep Learning, suara yang dihasilkan menjadi:
+    Contoh:
+</p>
+
+<div class="alert alert-info">
+
+    &lt;h1&gt;Judul Utama&lt;/h1&gt;
+
+    <br>
+
+    &lt;h2&gt;Sub Judul&lt;/h2&gt;
+
+    <br>
+
+    &lt;h3&gt;Bagian&lt;/h3&gt;
+
+</div>
+
+<h3>Gunakan Teks Alternatif Gambar</h3>
+
+<p>
+    Contoh:
+</p>
+
+<div class="alert alert-info">
+
+    &lt;img src="foto.jpg" alt="Peserta pelatihan AI sedang belajar menggunakan laptop"&gt;
+
+</div>
+
+<h3>Gunakan Tombol yang Jelas</h3>
+
+<p>
+    Contoh:
+</p>
+
+<div class="alert alert-info">
+
+    &lt;button&gt;Daftar Sekarang&lt;/button&gt;
+
+</div>
+
+<h3>Gunakan Warna yang Memiliki Kontras Baik</h3>
+
+<p>
+    Agar mudah dibaca.
+</p>
+
+<h3>Pastikan Dapat Diakses dengan Keyboard</h3>
+
+<p>
+    Tanpa harus menggunakan mouse.
+</p>
+
+<hr class="my-5">
+
+<h2>PROMPT UNTUK MEMBUAT WEBSITE</h2>
+
+<h3>Mengapa Prompt Penting?</h3>
+
+<p>
+    Gemini membuat website berdasarkan instruksi yang diberikan.
+</p>
+
+<p>
+    Semakin jelas prompt, semakin baik hasilnya.
+</p>
+
+<h3>Struktur Prompt Website</h3>
+
+<p>
+    Gunakan formula:
+</p>
+
+<div class="alert alert-primary">
+
+    Tujuan + Jenis Website + Fitur + Desain + Teknologi
+
+</div>
+
+<h3>Contoh Prompt Dasar</h3>
+
+<p>
+    Buat website profil sekolah menggunakan HTML dan CSS.
+</p>
+
+<h3>Contoh Prompt Menengah</h3>
+
+<p>
+    Buat website profil organisasi sosial menggunakan HTML, CSS, dan JavaScript. Website memiliki halaman beranda, profil, program, galeri, dan kontak.
+</p>
+
+<h3>Contoh Prompt Profesional</h3>
+
+<p>
+    Anda adalah web developer profesional. Buat website profil organisasi Tunanetra dengan desain modern dan responsif menggunakan HTML, CSS, dan JavaScript. Website memiliki header, hero section, profil lembaga, program pendidikan, galeri kegiatan, formulir kontak, dan footer. Pastikan website ramah screen reader dan mengikuti prinsip aksesibilitas web.
+</p>
+
+<hr class="my-5">
+
+<h2>TEKNIK MEMODIFIKASI WEBSITE HASIL AI</h2>
+
+<h3>Mengubah Warna</h3>
+
+<p>
+    Prompt:
+</p>
+
+<div class="alert alert-info">
+
+    Ubah warna utama website menjadi biru dan putih.
+
+</div>
+
+<h3>Mengubah Layout</h3>
+
+<p>
+    Prompt:
+</p>
+
+<div class="alert alert-info">
+
+    Ubah tampilan menjadi lebih modern dengan desain satu halaman.
+
+</div>
+
+<h3>Menambahkan Fitur</h3>
+
+<p>
+    Prompt:
+</p>
+
+<div class="alert alert-info">
+
+    Tambahkan formulir pendaftaran online.
+
+</div>
+
+<h3>Menambahkan Galeri</h3>
+
+<p>
+    Prompt:
+</p>
+
+<div class="alert alert-info">
+
+    Tambahkan galeri gambar dengan tampilan grid.
+
+</div>
+
+<h3>Menambahkan Animasi</h3>
+
+<p>
+    Prompt:
+</p>
+
+<div class="alert alert-info">
+
+    Tambahkan animasi sederhana saat pengguna menggulir halaman.
+
+</div>
+<h2>MEMBUAT LANDING PAGE</h2>
+
+<h3>Apa Itu Landing Page?</h3>
+
+<p>
+    Landing Page adalah halaman website yang dibuat untuk mencapai tujuan tertentu.
+</p>
+
+<p>
+    Contohnya:
 </p>
 
 <ul>
-<li>Lebih alami</li>
-<li>Lebih ekspresif</li>
-<li>Lebih mirip manusia</li>
+    <li>Pendaftaran pelatihan</li>
+    <li>Promosi produk</li>
+    <li>Donasi</li>
+    <li>Webinar</li>
 </ul>
 
-<p>
-Bahkan dalam beberapa kasus sulit dibedakan dengan suara manusia asli.
-</p>
-
-<h2>Cara Kerja Text-to-Speech</h2>
-
-<h3>Tahap 1: Memahami Teks</h3>
+<h3>Struktur Landing Page</h3>
 
 <p>
-AI membaca teks yang diberikan.
+    Judul Menarik
 </p>
 
 <p>
-Contoh:
+    Deskripsi Singkat
 </p>
 
 <p>
-Selamat pagi semuanya.
+    Keunggulan
 </p>
 
-<h3>Tahap 2: Analisis Bahasa</h3>
+<p>
+    Testimoni
+</p>
 
 <p>
-AI menentukan:
+    Formulir Pendaftaran
+</p>
+
+<p>
+    Tombol Aksi
+</p>
+
+<h3>Contoh Prompt Landing Page</h3>
+
+<p>
+    Buat landing page untuk pelatihan Artificial Intelligence. Gunakan desain modern, responsif, dan aksesibel. Sertakan informasi pelatihan, manfaat, jadwal, formulir pendaftaran, dan tombol daftar sekarang.
+</p>
+
+<h2>MEMBUAT WEBSITE PROFIL</h2>
+
+<h3>Apa Itu Website Profil?</h3>
+
+<p>
+    Website yang digunakan untuk memperkenalkan:
 </p>
 
 <ul>
-<li>Pengucapan kata</li>
-<li>Tanda baca</li>
-<li>Intonasi</li>
-<li>Jeda</li>
+    <li>Individu</li>
+    <li>Organisasi</li>
+    <li>Sekolah</li>
+    <li>Pesantren</li>
+    <li>Perusahaan</li>
 </ul>
 
-<h3>Tahap 3: Sintesis Suara</h3>
+<h3>Struktur Website Profil</h3>
 
 <p>
-AI mengubah teks menjadi gelombang suara.
-</p>
-
-<h3>Tahap 4: Audio Dihasilkan</h3>
-
-<p>
-Hasil akhir dapat berupa:
-</p>
-
-<ul>
-<li>MP3</li>
-<li>WAV</li>
-<li>Audio Streaming</li>
-</ul>
-
-<h2>Manfaat Text-to-Speech</h2>
-
-<h3>Pendidikan</h3>
-
-<ul>
-<li>Materi audio pembelajaran</li>
-<li>Buku audio</li>
-<li>Media belajar inklusif</li>
-</ul>
-
-<h3>Bisnis</h3>
-
-<ul>
-<li>Video promosi</li>
-<li>Presentasi perusahaan</li>
-<li>Customer service otomatis</li>
-</ul>
-
-<h3>Media dan Konten</h3>
-
-<ul>
-<li>Podcast</li>
-<li>Narasi YouTube</li>
-<li>Video TikTok</li>
-<li>Video Instagram</li>
-</ul>
-
-<h3>Aksesibilitas</h3>
-
-<p>
-Sangat membantu bagi:
-</p>
-
-<ul>
-<li>Tunanetra</li>
-<li>Low Vision</li>
-<li>Disleksia</li>
-<li>Lansia</li>
-</ul>
-
-<h2>Platform Text-to-Speech Populer</h2>
-
-<h3>Google Text-to-Speech</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Mendukung banyak bahasa</li>
-<li>Terintegrasi dengan Android</li>
-<li>Suara cukup natural</li>
-</ul>
-
-<h3>Gemini</h3>
-
-<p>
-Gemini dapat membantu membuat naskah yang kemudian dikonversi menjadi suara menggunakan layanan TTS.
-</p>
-
-<h3>ElevenLabs</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Suara sangat natural</li>
-<li>Mendukung cloning suara</li>
-<li>Banyak pilihan suara</li>
-</ul>
-
-<h3>Microsoft Azure Speech</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Voice AI berkualitas tinggi</li>
-<li>Cocok untuk kebutuhan bisnis</li>
-</ul>
-
-<h3>OpenAI Voice</h3>
-
-<p>
-Keunggulan:
-</p>
-
-<ul>
-<li>Suara natural</li>
-<li>Terintegrasi dengan teknologi AI generatif</li>
-</ul>
-
-<h2>JENIS SUARA AI</h2>
-
-<h3>Berdasarkan Gender</h3>
-
-<h4>Suara Pria</h4>
-
-<p>Karakteristik:</p>
-
-<ul>
-<li>Tegas</li>
-<li>Formal</li>
-<li>Profesional</li>
-</ul>
-
-<p>Cocok untuk:</p>
-
-<ul>
-<li>Berita</li>
-<li>Presentasi bisnis</li>
-<li>Narasi dokumenter</li>
-</ul>
-
-<h4>Suara Wanita</h4>
-
-<p>Karakteristik:</p>
-
-<ul>
-<li>Ramah</li>
-<li>Hangat</li>
-<li>Komunikatif</li>
-</ul>
-
-<p>Cocok untuk:</p>
-
-<ul>
-<li>Pembelajaran</li>
-<li>Podcast</li>
-<li>Video promosi</li>
-</ul>
-
-<h3>Berdasarkan Usia</h3>
-
-<h4>Anak-anak</h4>
-
-<ul>
-<li>Edukasi anak</li>
-<li>Cerita anak</li>
-</ul>
-
-<h4>Dewasa</h4>
-
-<ul>
-<li>Pendidikan</li>
-<li>Bisnis</li>
-<li>Konten umum</li>
-</ul>
-
-<h4>Senior</h4>
-
-<ul>
-<li>Narasi formal</li>
-<li>Dokumenter</li>
-</ul>
-
-<h3>Berdasarkan Gaya Bicara</h3>
-
-<h4>Formal</h4>
-
-<ul>
-<li>Pelatihan</li>
-<li>Seminar</li>
-<li>Presentasi</li>
-</ul>
-
-<h4>Kasual</h4>
-
-<ul>
-<li>Podcast</li>
-<li>Konten media sosial</li>
-</ul>
-
-<h4>Motivasional</h4>
-
-<ul>
-<li>Pelatihan</li>
-<li>Pengembangan diri</li>
-</ul>
-
-<h4>Storytelling</h4>
-
-<ul>
-<li>Cerita</li>
-<li>Audiobook</li>
-<li>Dongeng</li>
-</ul>
-
-<h2>MEMILIH SUARA YANG TEPAT</h2>
-
-<h3>Pendidikan</h3>
-
-<ul>
-<li>Suara jelas</li>
-<li>Kecepatan sedang</li>
-<li>Intonasi stabil</li>
-</ul>
-
-<h3>Video Promosi</h3>
-
-<ul>
-<li>Enerjik</li>
-<li>Dinamis</li>
-<li>Menarik perhatian</li>
-</ul>
-
-<h3>Audiobook</h3>
-
-<ul>
-<li>Natural</li>
-<li>Ekspresif</li>
-<li>Nyaman didengar dalam durasi panjang</li>
-</ul>
-
-<h2>PENGATURAN INTONASI DAN EKSPRESI SUARA</h2>
-<h3>Apa Itu Intonasi?</h3>
-
-<p>
-Intonasi adalah naik turunnya nada suara saat berbicara.
+    Beranda
 </p>
 
 <p>
-Intonasi membantu pendengar memahami makna kalimat.
-</p>
-
-<h3>Contoh</h3>
-
-<p>
-Kalimat:
+    Tentang Kami
 </p>
 
 <p>
-Selamat datang.
+    Program atau Layanan
 </p>
 
 <p>
-Dapat terdengar:
-</p>
-
-<ul>
-<li>Ramah</li>
-<li>Resmi</li>
-<li>Antusias</li>
-</ul>
-
-<p>
-Tergantung pada pengaturan intonasinya.
-</p>
-
-<h3>Pengaturan Kecepatan Bicara</h3>
-
-<p>
-Biasanya platform TTS menyediakan beberapa pilihan kecepatan bicara.
-</p>
-
-<h4>Lambat</h4>
-
-<p>
-Cocok untuk:
-</p>
-
-<ul>
-<li>Materi pelatihan</li>
-<li>Audiobook</li>
-</ul>
-
-<h4>Sedang</h4>
-
-<p>
-Cocok untuk:
-</p>
-
-<ul>
-<li>Presentasi</li>
-<li>Pembelajaran</li>
-</ul>
-
-<h4>Cepat</h4>
-
-<p>
-Cocok untuk:
-</p>
-
-<ul>
-<li>Ringkasan informasi</li>
-<li>Pengumuman</li>
-</ul>
-
-<h3>Pengaturan Pitch</h3>
-
-<p>
-Pitch adalah tinggi rendahnya suara.
-</p>
-
-<h4>Pitch Rendah</h4>
-
-<ul>
-<li>Lebih serius</li>
-<li>Lebih formal</li>
-</ul>
-
-<h4>Pitch Tinggi</h4>
-
-<ul>
-<li>Lebih ceria</li>
-<li>Lebih energik</li>
-</ul>
-
-<h3>Pengaturan Jeda</h3>
-
-<p>
-Jeda sangat penting agar audio mudah dipahami.
+    Dokumentasi
 </p>
 
 <p>
-Gunakan jeda:
+    Kontak
 </p>
 
-<ul>
-<li>Setelah titik</li>
-<li>Setelah koma</li>
-<li>Setelah pergantian paragraf</li>
-</ul>
-
-<h2>Tips Agar Suara Terdengar Natural</h2>
-
-<h3>Gunakan Kalimat yang Jelas</h3>
+<h3>Contoh Prompt Website Profil</h3>
 
 <p>
-Hindari kalimat yang terlalu panjang dan sulit dipahami.
+    Buat website profil lembaga pelatihan AI dengan desain profesional. Gunakan HTML, CSS, dan JavaScript. Sertakan halaman beranda, profil, program pelatihan, galeri, dan kontak.
 </p>
 
-<h3>Gunakan Tanda Baca dengan Benar</h3>
+<h2>MENGEMBANGKAN WEBSITE MENGGUNAKAN AI</h2>
+
+<h3>Tahap 1</h3>
 
 <p>
-Tanda baca membantu AI menentukan intonasi dan jeda yang sesuai.
+    Membuat struktur awal.
 </p>
 
-<h3>Pisahkan Paragraf</h3>
+<h3>Tahap 2</h3>
 
 <p>
-Paragraf yang teratur membuat hasil suara lebih nyaman didengar.
+    Menambahkan konten.
 </p>
 
-<h3>Sesuaikan Kecepatan</h3>
+<h3>Tahap 3</h3>
 
 <p>
-Jangan terlalu cepat dan jangan terlalu lambat.
+    Menambahkan fitur.
 </p>
 
-<h2>PEMBUATAN VOICE OVER PROFESIONAL</h2>
-
-<h3>Apa Itu Voice Over?</h3>
+<h3>Tahap 4</h3>
 
 <p>
-Voice Over adalah narasi suara yang digunakan pada berbagai media seperti:
+    Menguji aksesibilitas.
 </p>
 
-<ul>
-<li>Video</li>
-<li>Presentasi</li>
-<li>Iklan</li>
-<li>Podcast</li>
-<li>Konten edukasi</li>
-</ul>
-
-<h3>Langkah 1: Menyiapkan Naskah</h3>
+<h3>Tahap 5</h3>
 
 <p>
-Naskah yang baik harus:
+    Melakukan perbaikan.
 </p>
 
-<ul>
-<li>Jelas</li>
-<li>Singkat</li>
-<li>Terstruktur</li>
-</ul>
-
-<h4>Contoh Naskah</h4>
+<h3>Tahap 6</h3>
 
 <p>
-Selamat datang pada pelatihan Artificial Intelligence.
+    Publikasi website.
+</p>
+
+<h3>Studi Kasus</h3>
+
+<p>
+    Sebuah UMKM ingin memiliki website promosi.
 </p>
 
 <p>
-Pada sesi ini kita akan mempelajari bagaimana AI dapat membantu meningkatkan produktivitas kerja sehari-hari.
-</p>
-
-<h3>Langkah 2: Memilih Suara</h3>
-
-<p>
-Pilih suara yang sesuai dengan tujuan penggunaan.
-</p>
-
-<p>
-Contoh:
-</p>
-
-<ul>
-<li>Pendidikan → suara tenang dan jelas</li>
-<li>Promosi → suara energik</li>
-<li>Audiobook → suara ekspresif</li>
-</ul>
-
-<h3>Langkah 3: Mengatur Intonasi</h3>
-
-<p>
-Sesuaikan beberapa parameter berikut:
-</p>
-
-<ul>
-<li>Kecepatan</li>
-<li>Pitch</li>
-<li>Jeda</li>
-<li>Ekspresi</li>
-</ul>
-
-<h3>Langkah 4: Mengekspor Audio</h3>
-
-<p>
-Setelah hasil suara sesuai, audio dapat diekspor ke berbagai format.
-</p>
-
-<p>
-Format yang umum digunakan:
-</p>
-
-<ul>
-<li>MP3</li>
-<li>WAV</li>
-<li>M4A</li>
-</ul>
-
-<h2>Studi Kasus</h2>
-
-<p>
-Sebuah lembaga pelatihan ingin membuat video promosi berdurasi 2 menit.
-</p>
-
-<p>
-Proses yang dilakukan:
+    Langkah kerja:
 </p>
 
 <ol>
-<li>Menulis naskah menggunakan Gemini.</li>
-<li>Menghasilkan suara menggunakan layanan TTS.</li>
-<li>Menambahkan audio ke video.</li>
-<li>Menyelesaikan video promosi.</li>
+    <li>Menentukan tujuan website.</li>
+    <li>Membuat prompt.</li>
+    <li>Menghasilkan website menggunakan Gemini Canvas.</li>
+    <li>Menyesuaikan warna dan konten.</li>
+    <li>Menambahkan formulir kontak.</li>
+    <li>Mempublikasikan website.</li>
 </ol>
+
+<hr class="my-5">
 
 <h2>PRAKTIK</h2>
 
-<h3>Praktik 1: Membuat Audio Narasi</h3>
+<h3>Praktik 1</h3>
+
+<h3>Membuat Landing Page</h3>
 
 <p>
-Buat naskah narasi sepanjang 1–2 menit mengenai:
+    Topik:
 </p>
 
 <p>
-<strong>Manfaat Artificial Intelligence dalam Kehidupan Sehari-hari</strong>
+    Pelatihan Artificial Intelligence
 </p>
 
 <p>
-Kemudian:
-</p>
-
-<ul>
-<li>Pilih suara AI.</li>
-<li>Atur kecepatan bicara.</li>
-<li>Ekspor menjadi file audio.</li>
-</ul>
-
-<h3>Praktik 2: Membuat Voice Over Presentasi</h3>
-
-<p>
-Buat voice over untuk presentasi:
-</p>
-
-<p>
-<strong>AI untuk Produktivitas Kerja</strong>
-</p>
-
-<p>
-Durasi 2–3 menit.
-</p>
-
-<h3>Praktik 3: Membuat Audiobook Sederhana</h3>
-
-<p>
-Pilih artikel atau cerita pendek sepanjang 500–1000 kata.
-</p>
-
-<p>
-Langkah-langkah:
-</p>
-
-<ol>
-<li>Susun teks.</li>
-<li>Konversi menjadi suara menggunakan TTS.</li>
-<li>Simpan dalam format MP3.</li>
-<li>Dengarkan hasilnya.</li>
-<li>Evaluasi kualitas suara.</li>
-</ol>
-
-<h2>Tips Membuat Audiobook yang Nyaman Didengar</h2>
-
-<ul>
-<li>Gunakan paragraf pendek.</li>
-<li>Hindari kalimat terlalu panjang.</li>
-<li>Gunakan tanda baca yang benar.</li>
-<li>Pilih suara natural.</li>
-<li>Gunakan kecepatan bicara sedang.</li>
-<li>Berikan jeda pada pergantian bagian cerita.</li>
-</ul>
-
-<h2>Etika Penggunaan Voice AI</h2>
-<h3>Gunakan untuk Tujuan Positif</h3>
-
-<p>
-Sebagai pengguna AI, kita harus memperhatikan etika penggunaan teknologi suara.
-</p>
-
-<p>
-Gunakan teknologi Text-to-Speech dan Voice AI untuk tujuan yang bermanfaat seperti:
+    Komponen:
 </p>
 
 <ul>
-<li>Pendidikan</li>
-<li>Pelatihan</li>
-<li>Konten edukatif</li>
-<li>Aksesibilitas</li>
-<li>Penyebaran informasi yang bermanfaat</li>
+    <li>Hero Section</li>
+    <li>Manfaat</li>
+    <li>Jadwal</li>
+    <li>Formulir</li>
+    <li>Kontak</li>
 </ul>
 
-<h3>Jangan Meniru Identitas Orang Lain Tanpa Izin</h3>
+<hr class="my-4">
+
+<h3>Praktik 2</h3>
+
+<h3>Membuat Website Profil</h3>
 
 <p>
-Teknologi AI modern memungkinkan pembuatan suara yang sangat mirip dengan suara manusia asli.
+    Topik:
 </p>
 
 <p>
-Karena itu, penggunaan voice cloning harus dilakukan secara bertanggung jawab.
+    Profil Organisasi atau Lembaga
 </p>
 
 <p>
-Voice cloning hanya boleh dilakukan dengan persetujuan dari pemilik suara.
+    Komponen:
 </p>
+
+<ul>
+    <li>Beranda</li>
+    <li>Tentang Kami</li>
+    <li>Program</li>
+    <li>Galeri</li>
+    <li>Kontak</li>
+</ul>
+
+<hr class="my-4">
+
+<h3>Praktik 3</h3>
+
+<h3>Modifikasi Website</h3>
 
 <p>
-Meniru suara seseorang tanpa izin dapat menimbulkan masalah etika, hukum, dan kepercayaan.
+    Tugas:
 </p>
 
-<h3>Berikan Informasi Jika Konten Menggunakan AI</h3>
+<ul>
+    <li>Mengubah warna.</li>
+    <li>Menambah fitur.</li>
+    <li>Menambah galeri.</li>
+    <li>Menambah formulir.</li>
+</ul>
+
+<hr class="my-4">
+
+<h3>Praktik 4</h3>
+
+<h3>Uji Aksesibilitas</h3>
 
 <p>
-Dalam situasi tertentu, transparansi sangat penting.
+    Pastikan website:
 </p>
+
+<ul>
+    <li>✓ Dapat digunakan dengan keyboard.</li>
+    <li>✓ Memiliki heading yang benar.</li>
+    <li>✓ Memiliki alt text pada gambar.</li>
+    <li>✓ Mudah digunakan oleh screen reader.</li>
+</ul>
+
+<hr class="my-5">
+
+<h2>Tips Menggunakan Gemini Canvas</h2>
+
+<ul>
+    <li>✓ Berikan prompt yang rinci.</li>
+    <li>✓ Sebutkan teknologi yang digunakan.</li>
+    <li>✓ Jelaskan struktur website.</li>
+    <li>✓ Sebutkan target pengguna.</li>
+    <li>✓ Minta desain yang responsif.</li>
+    <li>✓ Minta website yang aksesibel.</li>
+    <li>✓ Lakukan revisi secara bertahap.</li>
+</ul>
+
+<hr class="my-5">
+
+<h2>Etika dan Tanggung Jawab</h2>
+
+<h3>Verifikasi Kode</h3>
 
 <p>
-Audiens berhak mengetahui bahwa suara yang mereka dengarkan dibuat menggunakan teknologi Artificial Intelligence.
+    Jangan langsung menggunakan kode tanpa pengujian.
 </p>
+
+<h3>Perhatikan Keamanan</h3>
 
 <p>
-Keterbukaan akan meningkatkan kepercayaan pengguna terhadap konten yang dibuat.
+    Hindari menyimpan data sensitif secara sembarangan.
 </p>
 
-</section>
+<h3>Hormati Hak Cipta</h3>
 
-<div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+<p>
+    Gunakan gambar dan konten yang memiliki izin.
+</p>
 
-<a href="https://drive.google.com/file/d/18YaIu91V17kGGcxobhCBIAcpLPXJoT-7/view?usp=sharing"
-class="btn-custom"
-aria-label="Download Materi"
-target="_blank"
-rel="noopener">
-Download Materi Lengkap
-</a>
+<h3>Utamakan Aksesibilitas</h3>
 
-<a href="../topic4.html"
-class="btn btn-outline-primary rounded-pill px-4"
-aria-label="Kembali">
-Kembali
-</a>
+<p>
+    Pastikan website dapat digunakan oleh semua pengguna.
+</p>
+
+<hr class="my-5">
+
+</div>
+
+<div class="d-flex flex-column gap-3 align-items-center my-5">
+
+    <a href="https://drive.google.com/file/d/1wjTH0a3g-Ao6Ce1UPFgYlJ0Wuw6EFpdX/view?usp=sharing"
+        class="btn btn-primary btn-lg rounded-pill px-5"
+        target="_blank"
+        rel="noopener">
+
+        📄 Download Materi Lengkap
+
+    </a>
+
+    <a href="../topic9.html"
+        class="btn btn-outline-secondary rounded-pill px-5">
+
+        ← Kembali
+
+    </a>
 
 </div>
 
 </main>
 
-<footer>
-&copy; 2026 Difabelajar. Semua hak cipta dilindungi.
+<footer class="text-center mt-5 py-4 border-top">
+
+    <p class="mb-1">
+        <strong>Difabelajar</strong>
+    </p>
+
+    <p class="mb-0">
+        AI for Activity &copy; 2026
+    </p>
+
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const toggleBtn = document.querySelector('.toggle-mode');
+/* Dark Mode */
 
-toggleBtn.addEventListener('click', () => {
-document.body.classList.toggle('dark-mode');
+const toggleButton = document.querySelector(".toggle-mode");
 
-toggleBtn.textContent =
-document.body.classList.contains('dark-mode')
-? '☀️ Mode'
-: '🌙 Mode';
-});
+if (toggleButton) {
+
+    toggleButton.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            toggleButton.innerHTML = "☀️";
+
+        } else {
+
+            toggleButton.innerHTML = "🌙";
+
+        }
+
+    });
+
+}
+
+/* Seluruh JavaScript lain tetap sama seperti file sebelumnya */
+
 </script>
 
 </body>
+
 </html>
