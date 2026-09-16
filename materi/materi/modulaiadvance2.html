@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Learning Python for AI Engineering</title>
+  <meta name="description" content="Modul lengkap Artificial Intelligence Basic di Difabelajar. Pelajari dasar-dasar AI dengan materi terstruktur dan aksesibel.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      Learning Python for AI Engineering<br>
+      <span style="font-size:1.1rem;font-weight:400;">Mengubah Instruksi Menjadi Program yang Dapat Bekerja</span>
+    </h1>
+
+    <section aria-labelledby="modul1-title">
+      <h2 id="modul1-title">Tujuan Pembelajaran</h2>
+
+      <p>Setelah mempelajari materi ini, peserta mampu:</p>
+
+      <ul>
+        <li>Memahami peran Python dalam AI Engineering.</li>
+        <li>Memahami konsep dasar program Python.</li>
+        <li>Menggunakan variabel untuk menyimpan informasi.</li>
+        <li>Menerima input dari pengguna menggunakan <code>input()</code>.</li>
+        <li>Memahami konsep Input, Process, Output.</li>
+        <li>Menggunakan percabangan dengan <code>if</code> dan <code>else</code>.</li>
+        <li>Menggunakan perulangan dalam program Python.</li>
+        <li>Membuat dan menggunakan function.</li>
+        <li>Mengenal library Python dan penggunaannya dalam AI Engineering.</li>
+        <li>Memahami penggunaan JSON untuk pertukaran data.</li>
+        <li>Membuat program chat sederhana menggunakan Python.</li>
+      </ul>
+
+
+      <h2>Bagian 1 — Mengapa AI Engineer Perlu Python?</h2>
+
+      <p>
+        Pada pertemuan sebelumnya kita sudah memahami bahwa AI Engineer
+        tidak hanya menggunakan AI, tetapi juga menghubungkan AI dengan
+        aplikasi.
+      </p>
+
+      <p>
+        Di sinilah Python berperan.
+      </p>
+
+      <p>
+        Bayangkan model AI sebagai seorang ahli yang sangat pintar. Namun,
+        ahli tersebut tidak dapat langsung berinteraksi dengan pengguna
+        aplikasi kita. Kita membutuhkan seseorang yang mengatur komunikasi
+        antara pengguna dan ahli tersebut.
+      </p>
+
+      <p>
+        Dalam analogi ini, Python bertindak seperti penghubung antara
+        pengguna, aplikasi, data, dan model AI.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <p>
+        Pengguna<br>
+        ↓<br>
+        Aplikasi Python<br>
+        ↓<br>
+        Model AI<br>
+        ↓<br>
+        Aplikasi Python<br>
+        ↓<br>
+        Pengguna
+      </p>
+
+      <p>
+        Python dapat digunakan untuk menerima pertanyaan pengguna,
+        mengolah data, mengirim permintaan ke AI, menerima jawaban,
+        kemudian menampilkan hasilnya.
+      </p>
+
+      <p>
+        Karena itu, kita tidak perlu mempelajari seluruh bahasa Python
+        terlebih dahulu. Kita fokus pada bagian yang paling sering
+        digunakan dalam AI Engineering.
+      </p>
+
+
+      <h2>Bagian 2 — Konsep Dasar Program Python</h2>
+
+      <p>
+        Sebuah program pada dasarnya berisi instruksi. Komputer akan
+        menjalankan instruksi tersebut untuk menghasilkan suatu tindakan
+        atau hasil.
+      </p>
+
+      <p>Contoh program Python paling sederhana:</p>
+
+      <pre><code>print("Halo AI Engineering")</code></pre>
+
+      <p>
+        Perintah <code>print()</code> digunakan untuk menampilkan
+        informasi.
+      </p>
+
+      <p>Jika program dijalankan, hasilnya:</p>
+
+      <pre><code>Halo AI Engineering</code></pre>
+
+      <p>
+        Perhatikan bahwa komputer menjalankan instruksi yang kita berikan.
+        Ini merupakan konsep penting dalam programming.
+      </p>
+
+      <p>
+        Program adalah kumpulan instruksi yang dijalankan komputer untuk
+        menghasilkan suatu tindakan atau hasil.
+      </p>
+
+
+      <h2>Bagian 3 — Variabel</h2>
+
+      <p>
+        Variabel dapat dibayangkan sebagai tempat penyimpanan informasi.
+      </p>
+
+      <p>
+        Misalnya kita ingin menyimpan nama peserta.
+      </p>
+
+      <pre><code>nama = "Edi"</code></pre>
+
+      <p>
+        Sekarang variabel <code>nama</code> berisi teks:
+      </p>
+
+      <pre><code>Edi</code></pre>
+
+      <p>Kita dapat menampilkannya:</p>
+
+      <pre><code>nama = "Edi"
+
+print(nama)</code></pre>
+
+      <p>Hasil:</p>
+
+      <pre><code>Edi</code></pre>
+
+      <p>
+        Kita juga dapat menyimpan angka.
+      </p>
+
+      <pre><code>umur = 25
+
+print(umur)</code></pre>
+
+      <p>
+        Dalam AI Engineering, variabel sangat penting karena program
+        akan terus menerima dan menyimpan informasi.
+      </p>
+
+      <p>Misalnya:</p>
+
+      <pre><code>pertanyaan = "Apa itu AI?"</code></pre>
+
+      <p>
+        Variabel <code>pertanyaan</code> sekarang menyimpan pertanyaan
+        pengguna.
+      </p>
+
+
+      <h2>Bagian 4 — Input dari Pengguna</h2>
+
+      <p>
+        Aplikasi AI harus bisa menerima informasi dari pengguna.
+        Python menyediakan fungsi <code>input()</code>.
+      </p>
+
+      <p>Contoh:</p>
+
+      <pre><code>nama = input("Masukkan nama Anda: ")
+
+print("Halo", nama)</code></pre>
+
+      <p>Ketika program dijalankan:</p>
+
+      <pre><code>Masukkan nama Anda:</code></pre>
+
+      <p>Pengguna dapat mengetik:</p>
+
+      <pre><code>Edi</code></pre>
+
+      <p>Kemudian program menghasilkan:</p>
+
+      <pre><code>Halo Edi</code></pre>
+
+      <p>
+        Konsep ini sangat penting untuk chatbot.
+      </p>
+
+      <p>Misalnya:</p>
+
+      <pre><code>pertanyaan = input("Apa pertanyaan Anda? ")
+
+print("Anda bertanya:", pertanyaan)</code></pre>
+
+      <p>
+        Nantinya bagian <code>print()</code> dapat digantikan dengan
+        proses untuk mengirim pertanyaan ke model AI.
+      </p>
+
+
+      <h2>Bagian 5 — Input, Process, Output</h2>
+
+      <p>
+        Sekarang kita gabungkan konsep yang sudah dipelajari.
+        Sebuah program sederhana memiliki pola:
+      </p>
+
+      <p>
+        Input<br>
+        ↓<br>
+        Process<br>
+        ↓<br>
+        Output
+      </p>
+
+      <p>Contohnya:</p>
+
+      <pre><code>nama = input("Nama: ")
+
+pesan = "Halo " + nama
+
+print(pesan)</code></pre>
+
+      <p>Jika pengguna memasukkan:</p>
+
+      <pre><code>Edi</code></pre>
+
+      <p>Maka program melakukan:</p>
+
+      <p><strong>Input:</strong></p>
+
+      <pre><code>Edi</code></pre>
+
+      <p><strong>Process:</strong></p>
+
+      <pre><code>"Halo " + "Edi"</code></pre>
+
+      <p><strong>Output:</strong></p>
+
+      <pre><code>Halo Edi</code></pre>
+
+      <p>
+        Konsep Input → Process → Output akan terus digunakan ketika kita
+        membuat sistem AI.
+      </p>
+
+
+      <h2>Bagian 6 — Percabangan dengan If</h2>
+
+      <p>
+        Dalam AI Engineering, program sering harus mengambil keputusan.
+      </p>
+
+      <p>
+        Misalnya kita ingin membuat program yang menentukan apakah
+        seseorang sudah boleh mengikuti kelas.
+      </p>
+
+      <pre><code>umur = int(input("Masukkan umur: "))
+
+if umur >= 17:
+    print("Anda dapat mengikuti kelas.")
+else:
+    print("Anda belum memenuhi syarat.")</code></pre>
+
+      <p>
+        Jika umur yang dimasukkan adalah:
+      </p>
+
+      <pre><code>20</code></pre>
+
+      <p>Hasilnya:</p>
+
+      <pre><code>Anda dapat mengikuti kelas.</code></pre>
+
+      <p>
+        Python memeriksa kondisi:
+      </p>
+
+      <pre><code>umur >= 17</code></pre>
+
+      <p>
+        Jika benar, program menjalankan bagian <code>if</code>.
+        Jika salah, program menjalankan bagian <code>else</code>.
+      </p>
+
+      <p>
+        Konsep ini akan berguna ketika AI harus mengambil keputusan
+        berdasarkan kondisi tertentu.
+      </p>
+
+
+      <h2>Bagian 7 — Perulangan</h2>
+
+      <p>
+        Perulangan digunakan ketika kita ingin menjalankan instruksi
+        berkali-kali.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <pre><code>for i in range(5):
+    print("Belajar AI Engineering")</code></pre>
+
+      <p>Hasilnya:</p>
+
+      <pre><code>Belajar AI Engineering
+Belajar AI Engineering
+Belajar AI Engineering
+Belajar AI Engineering
+Belajar AI Engineering</code></pre>
+
+      <p>
+        Dalam aplikasi AI, perulangan dapat digunakan misalnya untuk:
+      </p>
+
+      <ul>
+        <li>Membaca banyak data.</li>
+        <li>Memproses banyak pertanyaan.</li>
+        <li>Membaca daftar kata.</li>
+        <li>Melakukan proses terhadap banyak dokumen.</li>
+      </ul>
+
+
+      <h2>Bagian 8 — Function</h2>
+
+      <p>
+        Function adalah sekumpulan instruksi yang kita beri nama sehingga
+        dapat digunakan kembali.
+      </p>
+
+      <p>Contoh:</p>
+
+      <pre><code>def sapa():
+    print("Selamat datang di AI Engineering")</code></pre>
+
+      <p>Untuk menjalankannya:</p>
+
+      <pre><code>sapa()</code></pre>
+
+      <p>Hasil:</p>
+
+      <pre><code>Selamat datang di AI Engineering</code></pre>
+
+      <p>
+        Function menjadi penting ketika program mulai besar.
+      </p>
+
+      <p>
+        Misalnya kita membuat function untuk memproses pertanyaan:
+      </p>
+
+      <pre><code>def proses_pertanyaan(pertanyaan):
+    print("Pertanyaan:", pertanyaan)
+    print("Sedang diproses...")</code></pre>
+
+      <p>Kemudian:</p>
+
+      <pre><code>proses_pertanyaan("Apa itu AI?")</code></pre>
+
+      <p>Hasil:</p>
+
+      <pre><code>Pertanyaan: Apa itu AI?
+Sedang diproses...</code></pre>
+
+      <p>
+        Nantinya function seperti ini dapat dikembangkan menjadi function
+        yang benar-benar memanggil model AI.
+      </p>
+
+
+      <h2>Bagian 9 — Library Python</h2>
+
+      <p>
+        Python memiliki banyak library yang membantu programmer melakukan
+        pekerjaan tertentu.
+      </p>
+
+      <p>
+        Kita tidak harus membuat semuanya dari awal.
+      </p>
+
+      <p>
+        Contohnya, library <code>math</code> dapat digunakan untuk
+        operasi matematika.
+      </p>
+
+      <pre><code>import math
+
+hasil = math.sqrt(25)
+
+print(hasil)</code></pre>
+
+      <p>Hasil:</p>
+
+      <pre><code>5.0</code></pre>
+
+      <p>
+        <code>import</code> berarti kita meminta Python menggunakan
+        library tertentu.
+      </p>
+
+      <p>
+        Dalam AI Engineering nanti kita akan menemukan library untuk:
+      </p>
+
+      <ul>
+        <li>Pengolahan data.</li>
+        <li>HTTP request.</li>
+        <li>JSON.</li>
+        <li>Machine Learning.</li>
+        <li>Deep Learning.</li>
+        <li>AI API.</li>
+        <li>Database.</li>
+      </ul>
+
+      <p>
+        Salah satu library yang akan sangat berguna adalah
+        <code>requests</code>.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <pre><code>import requests</code></pre>
+
+      <p>
+        Library tersebut dapat digunakan untuk melakukan komunikasi HTTP
+        dengan sebuah API.
+      </p>
+
+      <p>
+        Konsep API akan kita bahas lebih lanjut pada materi AI dan
+        pengembangan aplikasi berikutnya.
+      </p>
+
+
+      <h2>Bagian 10 — Python dan JSON</h2>
+
+      <p>
+        AI Engineering sangat sering berhubungan dengan data dalam format
+        JSON.
+      </p>
+
+      <p>
+        JSON merupakan format data yang umum digunakan untuk pertukaran
+        informasi antar aplikasi.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <pre><code>{
+    "nama": "Edi",
+    "keahlian": "AI Engineering"
+}</code></pre>
+
+      <p>
+        Python dapat membaca dan mengolah JSON menggunakan library bawaan:
+      </p>
+
+      <pre><code>import json
+
+data = {
+    "nama": "Edi",
+    "keahlian": "AI Engineering"
+}
+
+teks = json.dumps(data)
+
+print(teks)</code></pre>
+
+      <p>
+        JSON penting karena banyak API AI mengirimkan dan menerima data
+        dalam format tersebut.
+      </p>
+
+      <p>Dengan kata lain:</p>
+
+      <p>
+        Python<br>
+        ↓<br>
+        JSON<br>
+        ↓<br>
+        API<br>
+        ↓<br>
+        AI Model
+      </p>
+
+      <p>
+        Konsep ini akan menjadi dasar untuk materi berikutnya.
+      </p>
+
+
+      <h2>Bagian 11 — Membuat Program Chat Sederhana</h2>
+
+      <p>
+        Sekarang kita gabungkan beberapa konsep yang telah dipelajari.
+      </p>
+
+      <p>Buat file:</p>
+
+      <pre><code>chat.py</code></pre>
+
+      <p>Isi dengan kode berikut:</p>
+
+      <pre><code>nama = input("Nama Anda: ")
+
+print("Halo", nama)
+
+print("Selamat datang di program AI sederhana.")
+
+while True:
+
+    pertanyaan = input("Anda: ")
+
+    if pertanyaan.lower() == "keluar":
+        print("Program selesai.")
+        break
+
+    print("Sistem menerima:", pertanyaan)</code></pre>
+
+      <p>Jalankan dengan perintah:</p>
+
+      <pre><code>python chat.py</code></pre>
+
+      <p>Contoh penggunaan:</p>
+
+      <pre><code>Nama Anda: Edi
+
+Halo Edi
+
+Selamat datang di program AI sederhana.
+
+Anda: Apa itu AI?
+
+Sistem menerima: Apa itu AI?
+
+Anda: Apa itu Python?
+
+Sistem menerima: Apa itu Python?
+
+Anda: keluar
+
+Program selesai.</code></pre>
+
+      <p>
+        Perhatikan bahwa program tersebut sudah memiliki bentuk dasar
+        chatbot.
+      </p>
+
+      <p>
+        Tetapi ada satu hal yang belum ada:
+      </p>
+
+      <p><strong>AI Model.</strong></p>
+
+      <p>
+        Saat ini program hanya mengulangi pertanyaan pengguna.
+      </p>
+
+      <p>
+        Pada pertemuan-pertemuan berikutnya, kita akan mengganti bagian
+        tersebut dengan proses AI yang sebenarnya.
+      </p>
+
+
+      <h2>Bagian 12 — Mengubah Program Menjadi Dasar Chatbot AI</h2>
+
+      <p>
+        Program tadi dapat kita gambarkan:
+      </p>
+
+      <p>
+        Pengguna<br>
+        ↓<br>
+        input()<br>
+        ↓<br>
+        Python<br>
+        ↓<br>
+        proses<br>
+        ↓<br>
+        print()<br>
+        ↓<br>
+        Pengguna
+      </p>
+
+      <p>
+        Nantinya alurnya akan berkembang menjadi:
+      </p>
+
+      <p>
+        Pengguna<br>
+        ↓<br>
+        input()<br>
+        ↓<br>
+        Python<br>
+        ↓<br>
+        AI Model<br>
+        ↓<br>
+        Respons AI<br>
+        ↓<br>
+        Pengguna
+      </p>
+
+      <p>
+        Inilah perkembangan penting yang harus dipahami peserta.
+      </p>
+
+      <p>
+        Kita tidak belajar Python hanya untuk membuat program teks.
+      </p>
+
+      <p>
+        Kita belajar Python karena Python akan menjadi penghubung antara
+        pengguna, aplikasi, data, API, tools, dan AI model.
+      </p>
+
+
+      <h2>Latihan Praktik</h2>
+
+      <p><strong>Latihan 1 — Program Perkenalan</strong></p>
+
+      <p>
+        Buat program Python yang meminta nama dan keahlian pengguna,
+        kemudian menampilkan informasi tersebut.
+      </p>
+
+      <p><strong>Latihan 2 — Program Pemeriksaan Umur</strong></p>
+
+      <p>
+        Buat program menggunakan <code>input()</code>, <code>if</code>,
+        dan <code>else</code> untuk menentukan apakah pengguna sudah
+        memenuhi umur tertentu.
+      </p>
+
+      <p><strong>Latihan 3 — Program Chat Sederhana</strong></p>
+
+      <p>
+        Buat program chat sederhana yang dapat menerima pertanyaan
+        pengguna secara berulang dan berhenti ketika pengguna mengetik
+        <code>keluar</code>.
+      </p>
+
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1pG23FdVUYDXKOCJur8la8h0LZvKV_mUP/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic2.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>

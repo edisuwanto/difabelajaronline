@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The First Step into AI Engineering</title>
+  <meta name="description" content="Modul The First Step into AI Engineering di Difabelajar. Pelajari dasar-dasar AI Engineering, Python, model AI, prompt, API, data, dan komponen aplikasi AI secara terstruktur dan aksesibel.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      The First Step into AI Engineering<br>
+      <span style="font-size:1.1rem;font-weight:400;">Memulai dari AI Engineering</span>
+    </h1>
+
+    <section aria-labelledby="modul1-title">
+
+      <h2 id="modul1-title">Tujuan Pembelajaran</h2>
+
+      <p>Setelah mempelajari materi ini, peserta mampu:</p>
+
+      <ul>
+        <li>Memahami konsep dasar AI Engineering.</li>
+        <li>Memahami peran AI Engineer dalam membangun solusi berbasis AI.</li>
+        <li>Mengenal komponen utama dalam AI Engineering.</li>
+        <li>Memahami hubungan antara aplikasi, program, dan model AI.</li>
+        <li>Memahami konsep Input, Processing, dan Output dalam aplikasi AI.</li>
+        <li>Mengenal programming, model AI, prompt, API, data, database, tools, dan AI Agent.</li>
+        <li>Memahami hubungan antara Artificial Intelligence, Machine Learning, Deep Learning, dan LLM.</li>
+        <li>Mengenal peran Python dalam membangun aplikasi AI.</li>
+        <li>Membuat simulasi sederhana alur aplikasi AI menggunakan Python.</li>
+      </ul>
+
+
+      <h2>Bagian 1 — Memulai dari AI Engineering</h2>
+
+      <p>
+        Ketika kita mendengar kata AI Engineering, jangan langsung
+        membayangkan membuat robot atau menciptakan model AI yang sangat
+        rumit.
+      </p>
+
+      <p>
+        AI Engineering lebih mudah dipahami sebagai ilmu dan praktik untuk
+        membangun aplikasi atau solusi dengan memanfaatkan teknologi
+        Artificial Intelligence.
+      </p>
+
+      <p>
+        Seorang AI Engineer mengambil teknologi AI yang tersedia, kemudian
+        menggabungkannya dengan programming, data, database, API, tools,
+        dan antarmuka aplikasi sehingga AI dapat digunakan untuk
+        menyelesaikan masalah nyata.
+      </p>
+
+      <p>
+        Contohnya sederhana.
+      </p>
+
+      <p>
+        Bayangkan kita ingin membuat chatbot kamus bahasa Inggris.
+      </p>
+
+      <p>
+        Kita memiliki pengguna yang bertanya:
+      </p>
+
+      <p>
+        <strong>Apa bahasa Inggris dari rumah?</strong>
+      </p>
+
+      <p>
+        Sebuah sistem AI tidak hanya membutuhkan model AI. Kita membutuhkan
+        program yang menerima pertanyaan, memprosesnya, mengirimkan
+        pertanyaan kepada model, kemudian menampilkan jawaban kepada
+        pengguna.
+      </p>
+
+      <p>Secara sederhana:</p>
+
+      <p>
+        Pengguna<br>
+        ↓<br>
+        Aplikasi<br>
+        ↓<br>
+        Program<br>
+        ↓<br>
+        Model AI<br>
+        ↓<br>
+        Jawaban
+      </p>
+
+      <p>
+        Inilah cara berpikir seorang AI Engineer.
+      </p>
+
+      <p>
+        Jadi fokus utama AI Engineering bukan sekadar:
+      </p>
+
+      <p>
+        <strong>"Saya bisa menggunakan AI."</strong>
+      </p>
+
+      <p>
+        Tetapi:
+      </p>
+
+      <p>
+        <strong>"Saya bisa membangun solusi yang menggunakan AI."</strong>
+      </p>
+
+
+      <h2>Bagian 2 — Apa yang Dikerjakan AI Engineer?</h2>
+
+      <p>
+        AI Engineer biasanya bekerja dengan beberapa komponen teknologi.
+      </p>
+
+      <p>Beberapa di antaranya adalah:</p>
+
+      <ol>
+        <li>Programming.</li>
+        <li>Model AI.</li>
+        <li>Prompt.</li>
+        <li>API.</li>
+        <li>Data.</li>
+        <li>Database.</li>
+        <li>Tools.</li>
+        <li>Function.</li>
+        <li>AI Assistant.</li>
+        <li>AI Agent.</li>
+        <li>Backend.</li>
+        <li>Frontend.</li>
+        <li>Testing.</li>
+        <li>Deployment.</li>
+      </ol>
+
+      <p>
+        Tidak semuanya harus dikuasai sekaligus.
+      </p>
+
+      <p>
+        Dalam pelatihan ini kita akan mempelajarinya secara bertahap.
+      </p>
+
+      <p>Urutannya:</p>
+
+      <p>
+        AI Engineering<br>
+        ↓<br>
+        Python<br>
+        ↓<br>
+        Machine Learning<br>
+        ↓<br>
+        Deep Learning<br>
+        ↓<br>
+        Chatbot<br>
+        ↓<br>
+        AI Assistant<br>
+        ↓<br>
+        AI Agent<br>
+        ↓<br>
+        AI Application
+      </p>
+
+
+      <h2>Bagian 3 — Bagaimana Sebuah Aplikasi AI Bekerja?</h2>
+
+      <p>
+        Mari kita gunakan analogi asisten pribadi.
+      </p>
+
+      <p>
+        Bayangkan kita mempunyai seorang asisten.
+      </p>
+
+      <p>
+        Kita memberikan tugas:
+      </p>
+
+      <p>
+        <strong>"Tolong terjemahkan kata rumah ke bahasa Inggris."</strong>
+      </p>
+
+      <p>
+        Asisten menerima perintah tersebut, memahami maksudnya, mencari
+        atau menghasilkan jawaban, kemudian memberikannya kepada kita.
+      </p>
+
+      <p>
+        Aplikasi AI bekerja dengan konsep yang mirip.
+      </p>
+
+      <p>
+        Input<br>
+        ↓<br>
+        Processing<br>
+        ↓<br>
+        AI Model<br>
+        ↓<br>
+        Output
+      </p>
+
+      <p>
+        <strong>Input</strong> adalah informasi yang diberikan pengguna.
+      </p>
+
+      <p>
+        <strong>Processing</strong> adalah proses yang dilakukan program.
+      </p>
+
+      <p>
+        <strong>AI Model</strong> adalah model yang digunakan untuk
+        memahami atau menghasilkan informasi.
+      </p>
+
+      <p>
+        <strong>Output</strong> adalah hasil yang diberikan kepada
+        pengguna.
+      </p>
+
+      <p>Contoh:</p>
+
+      <p><strong>Input:</strong></p>
+
+      <pre><code>"Terjemahkan rumah ke bahasa Inggris"</code></pre>
+
+      <p><strong>Processing:</strong></p>
+
+      <pre><code>Program menerima pertanyaan</code></pre>
+
+      <p><strong>AI Model:</strong></p>
+
+      <pre><code>Memproses bahasa</code></pre>
+
+      <p><strong>Output:</strong></p>
+
+      <pre><code>"House"</code></pre>
+
+
+      <h2>Bagian 4 — Mengenal Komponen AI Engineering</h2>
+
+      <h3>1. Programming</h3>
+
+      <p>
+        Programming adalah cara kita memberikan instruksi kepada komputer.
+      </p>
+
+      <p>
+        Dalam pelatihan ini, bahasa utama yang digunakan adalah Python.
+      </p>
+
+      <p>Python akan digunakan untuk:</p>
+
+      <ul>
+        <li>Menerima input.</li>
+        <li>Mengolah data.</li>
+        <li>Memanggil AI.</li>
+        <li>Membaca database.</li>
+        <li>Menggunakan API.</li>
+        <li>Membuat chatbot.</li>
+        <li>Membuat AI Agent.</li>
+      </ul>
+
+      <p>
+        Karena itu, Python akan menjadi materi utama pada pertemuan
+        berikutnya.
+      </p>
+
+
+      <h3>2. Model AI</h3>
+
+      <p>
+        Model AI adalah komponen yang melakukan proses kecerdasan.
+      </p>
+
+      <p>
+        Model dapat digunakan untuk berbagai pekerjaan.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <ul>
+        <li>Memahami teks.</li>
+        <li>Menghasilkan teks.</li>
+        <li>Menerjemahkan.</li>
+        <li>Menganalisis data.</li>
+        <li>Mengenali suara.</li>
+        <li>Mengenali gambar.</li>
+      </ul>
+
+      <p>
+        Dalam AI Engineering, kita tidak selalu membuat model dari awal.
+        Kita sering menggunakan model yang sudah tersedia kemudian
+        mengintegrasikannya ke aplikasi.
+      </p>
+
+
+      <h3>3. Prompt</h3>
+
+      <p>
+        Prompt adalah instruksi yang diberikan kepada model AI.
+      </p>
+
+      <p>Contohnya:</p>
+
+      <pre><code>Terjemahkan kata berikut ke bahasa Inggris:
+
+rumah</code></pre>
+
+      <p>AI kemudian menghasilkan:</p>
+
+      <pre><code>House</code></pre>
+
+      <p>
+        Prompt dapat dibuat lebih lengkap.
+      </p>
+
+      <pre><code>Anda adalah kamus bahasa Inggris.
+Terjemahkan kata yang diberikan pengguna
+ke bahasa Inggris. Berikan juga contoh
+kalimat sederhana.
+
+Kata:
+
+rumah</code></pre>
+
+      <p>Hasilnya bisa berupa:</p>
+
+      <pre><code>House
+
+Contoh:
+
+I live in a small house.</code></pre>
+
+      <p>
+        Cara menyusun prompt yang baik akan kita pelajari lebih lanjut
+        dalam pengembangan chatbot dan AI Agent.
+      </p>
+
+
+      <h3>4. API</h3>
+
+      <p>
+        API digunakan sebagai salah satu cara bagi aplikasi untuk
+        berkomunikasi dengan layanan atau sistem lain.
+      </p>
+
+      <p>
+        Dalam AI Engineering, API dapat digunakan untuk menghubungkan
+        aplikasi dengan layanan AI.
+      </p>
+
+
+      <h3>5. Data dan Database</h3>
+
+      <p>
+        Data merupakan informasi yang dapat digunakan oleh aplikasi.
+        Database digunakan untuk menyimpan dan mengelola data tersebut.
+      </p>
+
+      <p>
+        Dalam aplikasi AI, data dan database dapat digunakan untuk
+        menyimpan informasi yang dibutuhkan sistem.
+      </p>
+
+
+      <h3>6. Tools, Function, AI Assistant, dan AI Agent</h3>
+
+      <p>
+        AI Engineering juga dapat menggunakan tools dan function untuk
+        memberikan kemampuan tambahan kepada aplikasi AI.
+      </p>
+
+      <p>
+        AI Assistant dapat membantu pengguna melakukan berbagai tugas
+        berdasarkan instruksi yang diberikan.
+      </p>
+
+      <p>
+        Sementara itu, AI Agent dapat dirancang untuk menjalankan
+        rangkaian tugas dengan memanfaatkan model AI, tools, dan function.
+      </p>
+
+
+      <h3>7. Backend dan Frontend</h3>
+
+      <p>
+        Backend menangani proses di sisi server atau sistem aplikasi,
+        sedangkan frontend merupakan bagian aplikasi yang berinteraksi
+        langsung dengan pengguna.
+      </p>
+
+      <p>
+        Dalam aplikasi AI, keduanya dapat bekerja bersama untuk
+        menyediakan pengalaman penggunaan AI yang lengkap.
+      </p>
+
+
+      <h3>8. Testing dan Deployment</h3>
+
+      <p>
+        Testing digunakan untuk memastikan aplikasi berjalan sesuai
+        kebutuhan dan mengurangi kesalahan.
+      </p>
+
+      <p>
+        Deployment adalah proses menempatkan aplikasi agar dapat
+        digunakan oleh pengguna.
+      </p>
+
+
+      <h2>Bagian 5 — Memahami AI, Machine Learning, Deep Learning, dan LLM</h2>
+
+      <p>
+        Dalam AI Engineering kita akan sering menemukan beberapa istilah.
+      </p>
+
+      <p>
+        Hubungannya dapat digambarkan secara sederhana:
+      </p>
+
+      <p>
+        Artificial Intelligence<br>
+        ↓<br>
+        Machine Learning<br>
+        ↓<br>
+        Deep Learning<br>
+        ↓<br>
+        Model AI tertentu
+      </p>
+
+      <p>
+        Sedangkan Generative AI adalah teknologi AI yang dapat
+        menghasilkan konten baru seperti teks, kode, gambar, suara,
+        atau video.
+      </p>
+
+      <p>
+        Untuk pemrosesan bahasa, kita sering berinteraksi dengan
+        Large Language Model atau LLM.
+      </p>
+
+      <p>Contoh penggunaan LLM:</p>
+
+      <ul>
+        <li>Chatbot.</li>
+        <li>Penerjemah.</li>
+        <li>Penulis teks.</li>
+        <li>Analisis dokumen.</li>
+        <li>Coding assistant.</li>
+        <li>AI assistant.</li>
+      </ul>
+
+      <p>
+        Peserta tidak perlu menghafalkan seluruh istilah tersebut pada
+        pertemuan pertama.
+      </p>
+
+      <p>
+        Yang paling penting adalah memahami hubungan sederhananya:
+      </p>
+
+      <p>
+        AI Engineering menggunakan berbagai teknologi AI untuk membangun
+        aplikasi yang menyelesaikan masalah.
+      </p>
+
+
+      <h2>Bagian 6 — Contoh Nyata AI Engineering</h2>
+
+      <p>
+        Misalnya kita ingin membuat aplikasi Kamus
+        Inggris–Arab–Indonesia.
+      </p>
+
+      <p>
+        Sistemnya dapat dirancang seperti ini:
+      </p>
+
+      <p>
+        Pengguna<br>
+        ↓<br>
+        Chatbot<br>
+        ↓<br>
+        Python<br>
+        ↓<br>
+        Database Kamus<br>
+        ↓<br>
+        Model AI<br>
+        ↓<br>
+        Jawaban
+      </p>
+
+      <p>
+        Pengguna memasukkan:
+      </p>
+
+      <pre><code>Apa bahasa Inggris dari "rumah"?</code></pre>
+
+      <p>
+        Program menerima pertanyaan.
+      </p>
+
+      <p>
+        Kemudian program dapat menggunakan database atau model AI untuk
+        memperoleh informasi.
+      </p>
+
+      <p>
+        Program akhirnya memberikan:
+      </p>
+
+      <pre><code>Bahasa Inggris dari rumah adalah:
+
+House</code></pre>
+
+      <p>
+        Jika pengguna bertanya:
+      </p>
+
+      <pre><code>Apa bahasa Arab dari rumah?</code></pre>
+
+      <p>
+        Sistem dapat memberikan:
+      </p>
+
+      <pre><code>بيت
+
+Bait</code></pre>
+
+
+      <h2>Bagian 7 — Mengapa Python Penting?</h2>
+
+      <p>
+        AI Engineering sangat dekat dengan programming.
+      </p>
+
+      <p>
+        Python menjadi salah satu bahasa yang banyak digunakan untuk AI
+        karena memiliki ekosistem library yang luas dan relatif mudah
+        dipelajari.
+      </p>
+
+      <p>Contoh program Python paling sederhana:</p>
+
+      <pre><code>print("Halo, AI Engineering")</code></pre>
+
+      <p>
+        Ketika dijalankan, komputer menghasilkan:
+      </p>
+
+      <pre><code>Halo, AI Engineering</code></pre>
+
+      <p>
+        Kita dapat membuat program yang menerima input:
+      </p>
+
+      <pre><code>nama = input("Masukkan nama Anda: ")
+
+print("Halo", nama)</code></pre>
+
+      <p>
+        Jika pengguna memasukkan:
+      </p>
+
+      <pre><code>Edi</code></pre>
+
+      <p>Hasilnya:</p>
+
+      <pre><code>Halo Edi</code></pre>
+
+      <p>
+        Program sederhana ini menjadi dasar untuk membuat program yang
+        lebih kompleks.
+      </p>
+
+
+      <h2>Bagian 8 — Membuat Program AI Engineering Sederhana</h2>
+
+      <p>
+        Sekarang kita membuat simulasi alur aplikasi AI.
+      </p>
+
+      <p>Buat file:</p>
+
+      <pre><code>ai_engineering.py</code></pre>
+
+      <p>Isi dengan:</p>
+
+      <pre><code>print("=== AI ENGINEERING ===")
+
+pertanyaan = input("Masukkan pertanyaan: ")
+
+print()
+
+print("Pertanyaan Anda:")
+
+print(pertanyaan)
+
+print()
+
+print("Sistem sedang memproses...")
+
+print("Jawaban AI akan ditampilkan di sini.")</code></pre>
+
+      <p>Jalankan dengan perintah:</p>
+
+      <pre><code>python ai_engineering.py</code></pre>
+
+      <p>
+        Kemudian masukkan:
+      </p>
+
+      <pre><code>Apa itu AI Engineering?</code></pre>
+
+      <p>
+        Program akan menghasilkan:
+      </p>
+
+      <pre><code>=== AI ENGINEERING ===
+
+Pertanyaan Anda:
+
+Apa itu AI Engineering?
+
+Sistem sedang memproses...
+
+Jawaban AI akan ditampilkan di sini.</code></pre>
+
+      <p>
+        Memang program tersebut belum benar-benar menggunakan AI.
+      </p>
+
+      <p>
+        Namun kita sedang mempelajari arsitektur dasarnya:
+      </p>
+
+      <p>
+        Input pengguna<br>
+        ↓<br>
+        Program<br>
+        ↓<br>
+        Processing<br>
+        ↓<br>
+        Output
+      </p>
+
+      <p>
+        Pada pertemuan berikutnya, kita akan memperkuat bagian program
+        menggunakan Python.
+      </p>
+
+      <p>
+        Setelah itu, program dapat dikembangkan sehingga bagian
+        processing tidak lagi sekadar teks, tetapi benar-benar
+        berinteraksi dengan AI.
+      </p>
+
+
+      <h2>Bagian 9 — Praktik Peserta</h2>
+
+      <p>
+        Peserta diberikan latihan sederhana.
+      </p>
+
+      <p>
+        Buat program:
+      </p>
+
+      <pre><code>nama = input("Nama: ")
+
+tujuan = input("Tujuan belajar AI: ")
+
+pertanyaan = input("Pertanyaan tentang AI: ")
+
+print()
+
+print("Nama:", nama)
+
+print("Tujuan belajar:", tujuan)
+
+print("Pertanyaan:", pertanyaan)</code></pre>
+
+      <p>
+        Peserta kemudian mencoba menjalankan program menggunakan terminal.
+      </p>
+
+      <p>
+        Latihan ini bertujuan mengenalkan tiga hal:
+      </p>
+
+      <ul>
+        <li>Input.</li>
+        <li>Variabel.</li>
+        <li>Output.</li>
+      </ul>
+
+
+      <h2>Kesimpulan</h2>
+
+      <p>
+        AI Engineering bukan hanya tentang menggunakan aplikasi AI,
+        tetapi tentang bagaimana membangun solusi yang menggabungkan
+        teknologi AI dengan programming, data, API, database, tools,
+        dan antarmuka aplikasi.
+      </p>
+
+      <p>
+        Pada tahap awal, peserta akan mempelajari Python sebagai fondasi
+        untuk membangun aplikasi AI. Dari Python, pembelajaran akan
+        berkembang menuju Machine Learning, Deep Learning, chatbot,
+        AI Assistant, AI Agent, hingga aplikasi AI yang dapat digunakan
+        untuk menyelesaikan masalah nyata.
+      </p>
+
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1GZS_ehCCMdf7KSYvoSuCC09_ER7X8WzB/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic1.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>

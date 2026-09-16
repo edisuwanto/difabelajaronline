@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modul Topik 8 - AI untuk Produktivitas Sehari-Hari</title>
+  <meta name="description" content="Modul AI untuk Produktivitas Sehari-Hari di Difabelajar. Pelajari cara menggunakan AI untuk membantu pekerjaan, belajar, komunikasi, dan pengelolaan informasi.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #f5f9fc;
+      --text-light: #1a202c;
+      --bg-dark: #1a202c;
+      --text-dark: #f5f9fc;
+      --primary: #176ca6;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      transition: background 0.5s, color 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      background: #ffffff;
+      border: 2px solid #005fcc;
+      outline: none;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    .logo-container img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3 {
+      color: #7ec3e6;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 2em;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: background .3s, box-shadow .3s, transform .3s;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      background: #114d77;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.5s;
+    }
+    body.dark-mode footer {
+      color: #7ec3e6;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+    🌙 Mode
+  </button>
+
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+    <h1>
+      AI untuk Produktivitas Sehari-Hari<br>
+      <span style="font-size:1.1rem;font-weight:400;">Modul 8 Artificial Intelligence Fundamental</span>
+    </h1>
+
+    <section aria-labelledby="modul2-title">
+      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
+      <p>Setelah mempelajari modul ini, peserta mampu:</p>
+      <ul>
+        <li>Memahami bagaimana AI membantu pekerjaan sehari-hari</li>
+        <li>Menggunakan AI untuk mengelola waktu, tugas, dan dokumen</li>
+        <li>Menggunakan AI untuk menulis, merangkum, dan mengorganisir informasi</li>
+        <li>Menggunakan AI untuk komunikasi yang lebih cepat dan efektif</li>
+        <li>Menggunakan AI untuk meningkatkan efisiensi kerja dan belajar</li>
+        <li>Mengetahui aplikasi AI yang paling relevan untuk tunanetra</li>
+      </ul>
+
+      <h2>Bagian 1 — Mengapa AI Penting untuk Produktivitas?</h2>
+      <p>Menurut Microsoft 365 Copilot Documentation, AI dapat:</p>
+      <ul>
+        <li>Mengurangi waktu kerja administratif hingga 40%</li>
+        <li>Mempercepat penulisan dokumen</li>
+        <li>Membantu merangkum rapat dan email</li>
+        <li>Membantu mengatur jadwal dan tugas</li>
+      </ul>
+      <p>Menurut Google Workspace AI, AI dapat:</p>
+      <ul>
+        <li>Membantu menulis email</li>
+        <li>Membuat ringkasan dokumen</li>
+        <li>Menghasilkan ide dan konsep</li>
+        <li>Mengatur file dan informasi</li>
+      </ul>
+      <p>Menurut UNESCO AI for Inclusion, AI sangat membantu penyandang disabilitas dalam:</p>
+      <ul>
+        <li>Navigasi digital</li>
+        <li>Komunikasi</li>
+        <li>Akses informasi</li>
+        <li>Kemandirian kerja</li>
+      </ul>
+      <p><strong>Analogi untuk pengguna screen reader:</strong><br>
+      AI seperti asisten pribadi digital yang membantu Anda mengerjakan hal-hal kecil agar Anda bisa fokus pada hal yang lebih penting.</p>
+
+      <h2>Bagian 2 — Area Produktivitas yang Bisa Dibantu AI</h2>
+      <p>AI dapat membantu produktivitas dalam 5 area utama:</p>
+      <ol>
+        <li>Menulis &amp; komunikasi</li>
+        <li>Manajemen waktu &amp; jadwal</li>
+        <li>Pengelolaan dokumen</li>
+        <li>Pencarian informasi</li>
+        <li>Pekerjaan kreatif &amp; ideasi</li>
+      </ol>
+      <p>Mari kita bahas satu per satu.</p>
+
+      <h2>Bagian 3 — AI untuk Menulis &amp; Komunikasi</h2>
+      <p>Menurut Microsoft Copilot, 70% waktu kerja dihabiskan untuk:</p>
+      <ul>
+        <li>Menulis email</li>
+        <li>Membuat laporan</li>
+        <li>Membuat pesan</li>
+        <li>Membuat dokumen</li>
+      </ul>
+      <p>AI dapat membantu:</p>
+
+      <h3>1. Menulis Email</h3>
+      <ul>
+        <li>Email formal</li>
+        <li>Email permohonan</li>
+        <li>Email laporan</li>
+        <li>Email tindak lanjut</li>
+      </ul>
+
+      <h3>2. Menulis Pesan WhatsApp</h3>
+      <ul>
+        <li>Pesan singkat</li>
+        <li>Pesan sopan</li>
+        <li>Pesan profesional</li>
+      </ul>
+
+      <h3>3. Menulis Dokumen</h3>
+      <ul>
+        <li>Laporan kegiatan</li>
+        <li>Proposal</li>
+        <li>Catatan rapat</li>
+      </ul>
+
+      <h3>4. Menulis Caption Media Sosial</h3>
+      <ul>
+        <li>Instagram</li>
+        <li>Facebook</li>
+        <li>TikTok</li>
+      </ul>
+
+      <p><strong>Contoh Prompt:</strong><br>
+      “Buatkan email profesional untuk meminta jadwal pertemuan. Gunakan bahasa formal dan singkat.”</p>
+
+      <h2>Bagian 4 — AI untuk Manajemen Waktu &amp; Jadwal</h2>
+      <p>Menurut Google Workspace AI, AI dapat membantu:</p>
+      <ul>
+        <li>Membuat jadwal harian</li>
+        <li>Membuat rencana mingguan</li>
+        <li>Mengatur prioritas</li>
+        <li>Mengingatkan tugas penting</li>
+      </ul>
+      <p><strong>Contoh Prompt:</strong><br>
+      “Buatkan jadwal belajar 1 minggu untuk mempelajari AI dasar. Sertakan waktu istirahat.”</p>
+      <p><strong>Contoh Prompt:</strong><br>
+      “Buatkan daftar prioritas harian berdasarkan 3 kategori: penting, mendesak, opsional.”</p>
+
+      <h2>Bagian 5 — AI untuk Pengelolaan Dokumen</h2>
+      <p>AI dapat membantu:</p>
+
+      <h3>1. Merangkum Dokumen Panjang</h3>
+      <ul>
+        <li>PDF</li>
+        <li>Artikel</li>
+        <li>Laporan</li>
+        <li>Catatan rapat</li>
+      </ul>
+
+      <h3>2. Mengubah Format Teks</h3>
+      <ul>
+        <li>Dari paragraf → poin</li>
+        <li>Dari poin → paragraf</li>
+        <li>Dari bahasa formal → santai</li>
+      </ul>
+
+      <h3>3. Membuat Template</h3>
+      <ul>
+        <li>Template laporan</li>
+        <li>Template email</li>
+        <li>Template proposal</li>
+      </ul>
+
+      <p><strong>Contoh Prompt:</strong><br>
+      “Ringkas dokumen berikut menjadi 5 poin utama. Gunakan bahasa sederhana.”</p>
+
+      <h2>Bagian 6 — AI untuk Pencarian Informasi</h2>
+      <p>Menurut OpenAI Use Cases, AI dapat:</p>
+      <ul>
+        <li>Menjawab pertanyaan cepat</li>
+        <li>Menjelaskan konsep</li>
+        <li>Memberikan referensi</li>
+        <li>Memberikan contoh</li>
+      </ul>
+      <p>AI dapat menggantikan:</p>
+      <ul>
+        <li>Browsing manual</li>
+        <li>Membaca artikel panjang</li>
+        <li>Mencari definisi</li>
+      </ul>
+      <p><strong>Contoh Prompt:</strong><br>
+      “Jelaskan perbedaan AI, Machine Learning, dan Deep Learning dalam 3 paragraf.”</p>
+
+      <h2>Bagian 7 — AI untuk Pekerjaan Kreatif &amp; Ideasi</h2>
+      <p>AI dapat membantu:</p>
+
+      <h3>1. Membuat Ide Konten</h3>
+      <ul>
+        <li>Ide video</li>
+        <li>Ide artikel</li>
+        <li>Ide caption</li>
+        <li>Ide kampanye</li>
+      </ul>
+
+      <h3>2. Membuat Naskah</h3>
+      <ul>
+        <li>Naskah video</li>
+        <li>Naskah podcast</li>
+        <li>Naskah presentasi</li>
+      </ul>
+
+      <h3>3. Membuat Deskripsi Produk</h3>
+      <ul>
+        <li>Untuk toko online</li>
+        <li>Untuk katalog</li>
+        <li>Untuk media sosial</li>
+      </ul>
+
+      <p><strong>Contoh Prompt:</strong><br>
+      “Buatkan 10 ide konten edukasi tentang AI untuk pemula tunanetra.”</p>
+
+      <h2>Bagian 8 — Aplikasi AI untuk Produktivitas</h2>
+
+      <h3>1. Microsoft Copilot</h3>
+      <ul>
+        <li>Menulis email</li>
+        <li>Merangkum dokumen</li>
+        <li>Membuat presentasi</li>
+        <li>Membuat ringkasan rapat</li>
+      </ul>
+
+      <h3>2. Google Gemini / Workspace AI</h3>
+      <ul>
+        <li>Menulis dokumen</li>
+        <li>Membuat ringkasan</li>
+        <li>Membuat ide konten</li>
+      </ul>
+
+      <h3>3. Notion AI</h3>
+      <ul>
+        <li>Membuat catatan</li>
+        <li>Merangkum rapat</li>
+        <li>Membuat rencana kerja</li>
+      </ul>
+
+      <h3>4. ChatGPT</h3>
+      <ul>
+        <li>Menulis</li>
+        <li>Merangkum</li>
+        <li>Menjelaskan</li>
+        <li>Membuat ide</li>
+      </ul>
+
+      <h3>5. Grammarly</h3>
+      <ul>
+        <li>Memperbaiki tata bahasa</li>
+      </ul>
+
+      <p>Semua aplikasi ini direkomendasikan oleh:</p>
+      <ul>
+        <li>Google AI Essentials</li>
+        <li>Microsoft Learn AI</li>
+        <li>OpenAI Best Practices</li>
+      </ul>
+
+      <h2>Bagian 9 — Batasan &amp; Etika Penggunaan AI untuk Produktivitas</h2>
+      <p>Menurut UNESCO AI Ethics (2023):</p>
+
+      <h3>1. Jangan masukkan data sensitif</h3>
+      <p>Seperti:</p>
+      <ul>
+        <li>Nomor rekening</li>
+        <li>Alamat lengkap</li>
+        <li>Data pribadi orang lain</li>
+      </ul>
+
+      <h3>2. Verifikasi hasil AI</h3>
+      <p>AI bisa salah (hallucination).</p>
+
+      <h3>3. Jangan gunakan AI untuk menyontek</h3>
+      <p>AI membantu, bukan menggantikan usaha.</p>
+
+      <h3>4. Gunakan AI sebagai alat bantu</h3>
+      <p>Bukan sebagai pengganti kemampuan manusia.</p>
+
+      <h2>Bagian 10 — Contoh Prompt Siap Pakai</h2>
+
+      <h3>1. Prompt Menulis</h3>
+      <p>“Buatkan laporan kegiatan pelatihan AI selama 1 hari. Gunakan bahasa formal dan 3 paragraf.”</p>
+
+      <h3>2. Prompt Merangkum</h3>
+      <p>“Ringkas teks berikut menjadi 5 poin utama.”</p>
+
+      <h3>3. Prompt Manajemen Waktu</h3>
+      <p>“Buatkan jadwal harian untuk pekerja remote.”</p>
+
+      <h3>4. Prompt Ide Konten</h3>
+      <p>“Buatkan 10 ide konten edukasi tentang teknologi untuk tunanetra.”</p>
+
+      <h2>Latihan Praktik</h2>
+
+      <h3>Latihan 1 — Menulis</h3>
+      <p>Gunakan AI untuk menulis email profesional.</p>
+
+      <h3>Latihan 2 — Merangkum</h3>
+      <p>Ringkas artikel berita menjadi 5 poin.</p>
+
+      <h3>Latihan 3 — Rencana Harian</h3>
+      <p>Minta AI membuat jadwal harian Anda.</p>
+
+      <h3>Latihan 4 — Ide Konten</h3>
+      <p>Minta AI membuat 10 ide konten edukasi.</p>
+    </section>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4">
+      <a href="https://drive.google.com/file/d/11loTdwZRX0QquxqXkjqa_zs9JA2MU8rM/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
+      <a href="../topic8.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const toggleBtn = document.querySelector('.toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Mode' : '🌙 Mode';
+    });
+  </script>
+</body>
+</html>
