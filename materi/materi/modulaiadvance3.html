@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 3 - Jenis-Jenis AI yang Digunakan Sehari-Hari</title>
-  <meta name="description" content="Modul lengkap Jenis-Jenis AI yang Digunakan Sehari-Hari di Difabelajar. Pelajari jenis AI untuk teks, suara, gambar, rekomendasi, dan video secara aksesibel.">
+
+  <title>Turning Data into Smart Predictions with Machine Learning</title>
+
+  <meta name="description" content="Materi Machine Learning dalam AI Engineering: memahami data, training, testing, dan prediksi menggunakan Python.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,6 +22,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -26,20 +33,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -56,6 +71,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -68,6 +84,7 @@
     h1, h2, h3 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
     body.dark-mode h3 {
@@ -86,6 +103,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -108,6 +126,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -115,300 +134,1351 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      Jenis-Jenis AI yang Digunakan Sehari-Hari<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul Topik 3 — Artificial Intelligence Fundamental</span>
+      Turning Data into Smart Predictions with Machine Learning<br>
+      <span style="font-size:1.1rem;font-weight:400;">
+        Machine Learning dalam AI Engineering
+      </span>
     </h1>
 
-    <section aria-labelledby="modul3-title">
-      <h2 id="modul3-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
+    <section aria-labelledby="modul1-title">
+
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul1-title">Tujuan Pembelajaran</h2>
+
+      <p>Setelah mempelajari materi ini, peserta mampu:</p>
+
       <ul>
-        <li>Memahami 5 jenis AI utama yang digunakan dalam kehidupan modern</li>
-        <li>Menjelaskan cara kerja dasar tiap jenis AI</li>
-        <li>Menghubungkan jenis AI dengan aplikasi nyata dari Google, Microsoft, dan platform populer</li>
-        <li>Memahami manfaat AI untuk pengguna screen reader</li>
-        <li>Menjelaskan bagaimana AI memproses teks, suara, gambar, perilaku, dan video</li>
+        <li>Memahami konsep Machine Learning dalam AI Engineering.</li>
+        <li>Memahami data, feature, dan label.</li>
+        <li>Membedakan training dan testing.</li>
+        <li>Mengenal Supervised Learning.</li>
+        <li>Membedakan klasifikasi dan regresi.</li>
+        <li>Membuat model Machine Learning sederhana menggunakan Python.</li>
+        <li>Memahami konsep Decision Tree.</li>
+        <li>Melakukan prediksi menggunakan model Machine Learning.</li>
+        <li>Memahami keterbatasan Machine Learning.</li>
       </ul>
 
-      <h2>Bagian 1 — Mengapa Kita Perlu Mengenal Jenis-Jenis AI?</h2>
-      <p>Menurut sumber terpercaya seperti:</p>
+      <!-- BAGIAN 1 -->
+      <h2>Bagian 1 — Machine Learning dalam AI Engineering</h2>
+
+      <p>
+        Pada dua pertemuan sebelumnya kita sudah mempelajari bahwa
+        AI Engineering berhubungan dengan proses membangun solusi
+        menggunakan teknologi AI.
+      </p>
+
+      <p>
+        Sekarang kita masuk ke salah satu bagian penting dari AI,
+        yaitu Machine Learning.
+      </p>
+
+      <p>
+        Jika programming biasa bekerja dengan cara:
+      </p>
+
+      <pre><code>Manusia
+↓
+Menulis aturan
+↓
+Program
+↓
+Hasil</code></pre>
+
+      <p>
+        Maka Machine Learning memiliki pendekatan yang berbeda.
+        Kita memberikan data dan contoh, kemudian algoritma
+        Machine Learning mempelajari pola dari data tersebut.
+      </p>
+
+      <p>Secara sederhana:</p>
+
+      <pre><code>Data
+↓
+Algoritma Machine Learning
+↓
+Training
+↓
+Model
+↓
+Prediksi</code></pre>
+
+      <p>
+        Jadi, Machine Learning dapat kita pahami sebagai pendekatan
+        untuk membuat komputer mempelajari pola dari data sehingga
+        dapat menghasilkan prediksi atau keputusan.
+      </p>
+
+      <!-- BAGIAN 2 -->
+      <h2>Bagian 2 — Analogi Machine Learning untuk Tunanetra</h2>
+
+      <p>
+        Bayangkan kita ingin mengajarkan seseorang membedakan
+        dua jenis buah: apel dan jeruk.
+      </p>
+
+      <p>
+        Kita tidak hanya mengatakan:
+      </p>
+
+      <p><strong>"Ini apel."</strong></p>
+
+      <p>Kemudian selesai.</p>
+
+      <p>Kita memberikan banyak contoh.</p>
+
+      <p>Contohnya:</p>
+
       <ul>
-        <li>Google AI Essentials</li>
-        <li>Microsoft Learn AI</li>
-        <li>Stanford AI Index Report</li>
-        <li>MIT Technology Review</li>
+        <li>Contoh 1 → Apel</li>
+        <li>Contoh 2 → Apel</li>
+        <li>Contoh 3 → Apel</li>
+        <li>Contoh 4 → Jeruk</li>
+        <li>Contoh 5 → Jeruk</li>
+        <li>Contoh 6 → Jeruk</li>
       </ul>
 
-      <p>AI modern bekerja berdasarkan jenis data yang diproses:</p>
-      <ol>
-        <li>Teks</li>
-        <li>Suara</li>
-        <li>Gambar</li>
-        <li>Perilaku pengguna</li>
-        <li>Video</li>
-      </ol>
-      <p>Kelima jenis ini membentuk fondasi aplikasi digital yang kita gunakan setiap hari.</p>
+      <p>
+        Setelah mendapatkan banyak contoh, seseorang mulai
+        menemukan pola.
+      </p>
 
-      <h2>Bagian 2 — AI untuk Teks (Natural Language Processing / NLP)</h2>
+      <p>
+        Machine Learning bekerja dengan konsep yang mirip.
+        Kita memberikan data kepada komputer, kemudian
+        algoritma mencari pola.
+      </p>
 
-      <h3>1. Definisi Lengkap</h3>
-      <p>AI untuk teks adalah teknologi yang memungkinkan komputer:</p>
+      <p>
+        Setelah proses belajar selesai, terbentuk sebuah model.
+        Model tersebut kemudian dapat digunakan untuk membuat
+        prediksi terhadap data baru.
+      </p>
+
+      <!-- BAGIAN 3 -->
+      <h2>Bagian 3 — Apa Itu Data?</h2>
+
+      <p>
+        Data adalah bahan yang digunakan oleh Machine Learning
+        untuk belajar.
+      </p>
+
+      <p>Data dapat berupa:</p>
+
       <ul>
-        <li>Memahami bahasa manusia</li>
-        <li>Menganalisis teks</li>
-        <li>Menghasilkan teks baru</li>
-        <li>Menerjemahkan bahasa</li>
-        <li>Merangkum informasi</li>
-        <li>Menjawab pertanyaan</li>
-      </ul>
-      <p>Menurut Google Research, NLP bekerja dengan mempelajari pola dari miliaran kalimat.</p>
-      <p>Menurut Microsoft AI, NLP adalah kemampuan mesin untuk “memahami, menafsirkan, dan menghasilkan bahasa manusia secara alami.”</p>
-
-      <h3>2. Cara Kerja Singkat</h3>
-      <ul>
-        <li>Teks dipecah menjadi kata</li>
-        <li>AI mencari pola dari data pelatihan</li>
-        <li>AI memprediksi jawaban paling relevan</li>
-      </ul>
-
-      <h3>3. Contoh Aplikasi</h3>
-      <ul>
-        <li>ChatGPT</li>
-        <li>Microsoft Copilot</li>
-        <li>Google Gemini</li>
-        <li>Google Translate</li>
-        <li>Grammarly</li>
+        <li>angka,</li>
+        <li>teks,</li>
+        <li>suara,</li>
+        <li>gambar,</li>
+        <li>tabel,</li>
+        <li>dokumen,</li>
+        <li>rekaman transaksi.</li>
       </ul>
 
-      <h3>4. Manfaat untuk Pengguna Screen Reader</h3>
+      <p>Contoh data sederhana:</p>
+
+      <pre><code>Jam Belajar:Nilai
+
+1:55
+2:60
+3:65
+4:75
+5:85</code></pre>
+
+      <p>
+        Kita ingin membuat model yang dapat memperkirakan
+        nilai berdasarkan jumlah jam belajar.
+      </p>
+
+      <p>
+        Dalam contoh tersebut, terdapat dua informasi.
+      </p>
+
+      <p>
+        Jam Belajar adalah informasi yang digunakan untuk
+        membuat prediksi.
+      </p>
+
+      <p>
+        Nilai adalah hasil yang ingin diprediksi.
+      </p>
+
+      <!-- BAGIAN 4 -->
+      <h2>Bagian 4 — Feature dan Label</h2>
+
+      <p>
+        Dalam Machine Learning, kita perlu mengenal
+        dua istilah penting.
+      </p>
+
+      <h3>1. Feature</h3>
+
+      <p>
+        Feature atau fitur adalah informasi yang digunakan
+        model untuk membuat prediksi.
+      </p>
+
+      <p>Dalam contoh:</p>
+
+      <p><strong>Jam Belajar</strong></p>
+
+      <p>adalah fitur.</p>
+
+      <h3>2. Label</h3>
+
+      <p>
+        Label adalah hasil atau target yang ingin diprediksi.
+      </p>
+
+      <p>Dalam contoh:</p>
+
+      <p><strong>Nilai</strong></p>
+
+      <p>adalah label.</p>
+
+      <p>Jadi:</p>
+
+      <pre><code>Feature:
+Jam belajar
+
+Label:
+Nilai</code></pre>
+
+      <p>Contoh lain:</p>
+
       <ul>
-        <li>Membantu menulis</li>
-        <li>Membantu merangkum</li>
-        <li>Membantu menerjemahkan</li>
-        <li>Membantu memahami teks panjang</li>
+        <li>Jumlah transaksi → Fitur</li>
+        <li>Status pelanggan → Label</li>
+        <li>Jumlah jam belajar → Fitur</li>
+        <li>Lulus atau tidak → Label</li>
       </ul>
 
-      <h3>5. Analogi</h3>
-      <p>AI teks seperti siswa yang sangat pandai bahasa, yang bisa:</p>
-      <ul>
-        <li>Menjelaskan pelajaran</li>
-        <li>Menulis ulang kalimat</li>
-        <li>Merangkum buku</li>
-        <li>Menerjemahkan bahasa</li>
-      </ul>
+      <p>
+        Konsep feature dan label sangat penting karena
+        akan terus digunakan dalam Machine Learning.
+      </p>
+<!-- TAHAP 2: DATASET, TRAINING DATA, DAN TESTING DATA -->
 
-      <h2>Bagian 3 — AI untuk Suara (Speech AI)</h2>
+<div class="materi-section">
+    <h2>D. Mengenal Dataset dalam Machine Learning</h2>
 
-      <h3>1. Definisi Lengkap</h3>
-      <p>AI suara mencakup:</p>
-      <ul>
-        <li>Speech-to-Text (STT): suara → teks</li>
-        <li>Text-to-Speech (TTS): teks → suara</li>
-        <li>Voice Recognition: mengenali identitas suara</li>
-        <li>Voice Command: perintah suara</li>
-      </ul>
-      <p>Menurut Microsoft Cognitive Services, AI suara bekerja dengan memecah suara menjadi gelombang kecil, lalu mencocokkannya dengan pola suara manusia.</p>
+    <p>
+        Setelah memahami Feature dan Label, sekarang kita akan
+        mempelajari Dataset.
+    </p>
 
-      <h3>2. Contoh Aplikasi</h3>
-      <ul>
-        <li>Google Assistant</li>
-        <li>Siri</li>
-        <li>Alexa</li>
-        <li>NVDA, JAWS, TalkBack, VoiceOver</li>
-        <li>Microsoft Azure Speech</li>
-      </ul>
+    <p>
+        Dataset adalah kumpulan data yang digunakan komputer
+        untuk mempelajari pola dan membuat prediksi.
+    </p>
 
-      <h3>3. Manfaat untuk Pengguna Screen Reader</h3>
-      <ul>
-        <li>Bisa mengetik dengan suara</li>
-        <li>Bisa mendengar isi dokumen</li>
-        <li>Bisa mengoperasikan perangkat tanpa melihat layar</li>
-      </ul>
+    <p>
+        Bayangkan seorang siswa tunanetra sedang belajar
+        mengenali suara kendaraan. Guru memberikan berbagai
+        contoh suara mobil, motor, bus, dan kereta.
+        Kumpulan contoh suara tersebut dapat dianalogikan
+        sebagai dataset.
+    </p>
 
-      <h3>4. Analogi</h3>
-      <p>AI suara seperti penerjemah dua arah:</p>
-      <ul>
-        <li>Anda berbicara → AI mengubah menjadi teks</li>
-        <li>AI membaca teks → menjadi suara</li>
-      </ul>
+    <p>
+        Dalam Machine Learning, dataset dapat berbentuk
+        tabel, angka, teks, gambar, suara, atau jenis data lainnya.
+    </p>
 
-      <h2>Bagian 4 — AI untuk Gambar (Computer Vision)</h2>
+    <h3>Contoh Dataset Prediksi Kelulusan</h3>
 
-      <h3>1. Definisi Lengkap</h3>
-      <p>AI gambar memungkinkan komputer:</p>
-      <ul>
-        <li>Mengenali objek</li>
-        <li>Membaca teks dalam gambar (OCR)</li>
-        <li>Mendeskripsikan gambar</li>
-        <li>Mengenali wajah</li>
-        <li>Memahami lingkungan visual</li>
-      </ul>
-      <p>Menurut Google Cloud Vision dan Microsoft Vision AI, teknologi ini bekerja dengan memecah gambar menjadi piksel, lalu mencari pola bentuk, warna, dan posisi.</p>
+    <p>
+        Misalnya, kita ingin membuat program Machine Learning
+        yang memprediksi apakah seorang siswa akan lulus
+        berdasarkan jumlah jam belajar dan jumlah latihan soal.
+    </p>
 
-      <h3>2. Contoh Aplikasi</h3>
-      <ul>
-        <li>Seeing AI</li>
-        <li>Be My Eyes (AI Vision)</li>
-        <li>Google Lookout</li>
-        <li>Google Photos</li>
-      </ul>
+    <p>
+        Dataset dapat berisi informasi berikut:
+    </p>
 
-      <h3>3. Manfaat untuk Pengguna Screen Reader</h3>
-      <ul>
-        <li>Membaca dokumen yang difoto</li>
-        <li>Mengetahui isi gambar di media sosial</li>
-        <li>Mengenali uang, produk, dan objek</li>
-      </ul>
+    <ul>
+        <li>Jam belajar: jumlah jam siswa belajar.</li>
+        <li>Latihan soal: jumlah soal yang dikerjakan.</li>
+        <li>Status kelulusan: apakah siswa lulus atau tidak.</li>
+    </ul>
 
-      <h3>4. Analogi</h3>
-      <p>AI gambar seperti teman yang melihatkan dunia untuk Anda, lalu menceritakannya dengan kata-kata.</p>
+    <p>
+        Dalam contoh ini, jam belajar dan latihan soal
+        merupakan Feature, sedangkan status kelulusan
+        merupakan Label.
+    </p>
 
-      <h2>Bagian 5 — AI untuk Rekomendasi (Recommendation Systems)</h2>
+    <p>
+        Semakin banyak contoh data yang relevan dan berkualitas,
+        semakin banyak pola yang berpotensi dipelajari model.
+        Namun, banyaknya data saja tidak menjamin prediksi
+        yang akurat. Kualitas dan kesesuaian data juga penting.
+    </p>
 
-      <h3>1. Definisi Lengkap</h3>
-      <p>AI rekomendasi mempelajari:</p>
-      <ul>
-        <li>Kebiasaan pengguna</li>
-        <li>Minat pengguna</li>
-        <li>Pola perilaku</li>
-      </ul>
-      <p>Lalu memberikan rekomendasi yang relevan.</p>
-      <p>Menurut YouTube Engineering, sistem rekomendasi adalah salah satu AI paling kompleks karena memproses miliaran data setiap hari.</p>
+    <h3>Analogi Dataset untuk Tunanetra</h3>
 
-      <h3>2. Contoh Aplikasi</h3>
-      <ul>
-        <li>YouTube (beranda &amp; Up Next)</li>
-        <li>TikTok (FYP)</li>
-        <li>Spotify (Discover Weekly)</li>
-        <li>Netflix (Recommended for You)</li>
-      </ul>
+    <p>
+        Dataset dapat dianalogikan sebagai kumpulan rekaman
+        suara yang sudah diberi keterangan.
+    </p>
 
-      <h3>3. Manfaat untuk Pengguna Screen Reader</h3>
-      <ul>
-        <li>Tidak perlu mencari manual</li>
-        <li>Konten lebih relevan</li>
-        <li>Menghemat waktu</li>
-      </ul>
+    <p>
+        Contohnya, terdapat rekaman suara mesin motor
+        yang diberi label "motor", dan rekaman suara mesin mobil
+        yang diberi label "mobil".
+    </p>
 
-      <h3>4. Analogi</h3>
-      <p>AI rekomendasi seperti teman yang hafal selera Anda, lalu selalu menyarankan hal-hal yang Anda sukai.</p>
+    <p>
+        Komputer mempelajari hubungan antara karakteristik
+        suara dan labelnya. Setelah dilatih menggunakan
+        banyak contoh, model dapat mencoba mengenali
+        rekaman suara baru.
+    </p>
+</div>
 
-      <h2>Bagian 6 — AI untuk Video (Video Intelligence / Video AI)</h2>
-      <p><strong>Kategori baru yang sangat penting dan sangat berkembang.</strong></p>
+<div class="materi-section">
+    <h2>E. Mengenal Training Data dan Testing Data</h2>
 
-      <h3>AI untuk Video — Definisi Lengkap</h3>
-      <p>AI untuk video adalah teknologi yang memungkinkan komputer:</p>
-      <ul>
-        <li>Memahami isi video</li>
-        <li>Mendeteksi objek dalam video</li>
-        <li>Mengenali aktivitas dalam video</li>
-        <li>Membuat ringkasan video</li>
-        <li>Menghasilkan video baru (Generative Video AI)</li>
-        <li>Menambahkan subtitle otomatis</li>
-        <li>Menjelaskan video untuk tunanetra</li>
-      </ul>
+    <p>
+        Dalam Machine Learning, dataset sering dibagi
+        menjadi dua bagian utama, yaitu Training Data
+        dan Testing Data.
+    </p>
 
-      <p>Menurut Google Video Intelligence API, AI video dapat:</p>
-      <ul>
-        <li>Mendeteksi objek frame-by-frame</li>
-        <li>Mengenali adegan</li>
-        <li>Mengenali aktivitas manusia</li>
-        <li>Membuat transkrip otomatis</li>
-      </ul>
+    <h3>1. Training Data</h3>
 
-      <p>Menurut Microsoft Azure Video Indexer, AI video dapat:</p>
-      <ul>
-        <li>Mengekstrak teks dari video</li>
-        <li>Mengenali wajah</li>
-        <li>Membuat ringkasan otomatis</li>
-        <li>Membuat deskripsi audio</li>
-      </ul>
+    <p>
+        Training Data adalah bagian dataset yang digunakan
+        untuk melatih model Machine Learning.
+    </p>
 
-      <h3>Cara Kerja AI Video (Versi Sederhana)</h3>
-      <ol>
-        <li>Video dipecah menjadi ribuan gambar (frame)</li>
-        <li>AI menganalisis setiap frame menggunakan computer vision</li>
-        <li>AI membaca suara menggunakan speech-to-text</li>
-        <li>AI menggabungkan hasil analisis gambar + suara</li>
-        <li>AI membuat ringkasan, deskripsi, atau rekomendasi</li>
-      </ol>
+    <p>
+        Model mempelajari pola dari Feature dan Label
+        yang terdapat dalam data pelatihan.
+    </p>
 
-      <h3>Contoh Aplikasi AI Video</h3>
+    <p>
+        Analogi untuk tunanetra:
+        Training Data seperti kumpulan contoh suara kendaraan
+        yang diperdengarkan guru kepada siswa ketika belajar.
+        Siswa mendengarkan contoh-contoh tersebut untuk
+        mempelajari perbedaan karakteristik suara.
+    </p>
 
-      <p><strong>1. YouTube Auto Caption</strong></p>
-      <ul>
-        <li>Menghasilkan subtitle otomatis</li>
-        <li>Menggunakan speech recognition</li>
-      </ul>
+    <h3>2. Testing Data</h3>
 
-      <p><strong>2. TikTok Auto Caption</strong></p>
-      <ul>
-        <li>Membuat teks otomatis dari suara</li>
-      </ul>
+    <p>
+        Testing Data adalah bagian dataset yang digunakan
+        untuk menguji kemampuan model setelah proses training.
+    </p>
 
-      <p><strong>3. Microsoft Azure Video Indexer</strong></p>
-      <ul>
-        <li>Menganalisis isi video</li>
-        <li>Membuat ringkasan</li>
-        <li>Menemukan wajah dan objek</li>
-      </ul>
+    <p>
+        Data pengujian sebaiknya belum pernah digunakan
+        model saat proses training. Dengan demikian,
+        pengujian dapat memberikan gambaran tentang
+        kemampuan model menghadapi data baru.
+    </p>
 
-      <p><strong>4. Runway ML</strong></p>
-      <ul>
-        <li>Membuat video dari teks (Generative Video AI)</li>
-      </ul>
+    <p>
+        Analogi untuk tunanetra:
+        Setelah siswa belajar mengenali suara kendaraan,
+        guru memperdengarkan rekaman suara lain yang
+        belum pernah digunakan saat latihan.
+        Guru kemudian memeriksa apakah siswa dapat
+        mengenali suara tersebut dengan benar.
+    </p>
 
-      <p><strong>5. CapCut AI</strong></p>
-      <ul>
-        <li>Mengedit video otomatis</li>
-        <li>Menambahkan subtitle otomatis</li>
-      </ul>
+    <h3>3. Mengapa Dataset Perlu Dibagi?</h3>
 
-      <h3>Manfaat AI Video untuk Pengguna Screen Reader</h3>
-      <ul>
-        <li>Mendapatkan deskripsi audio dari video</li>
-        <li>Mendapatkan ringkasan video tanpa harus menonton</li>
-        <li>Mendapatkan subtitle otomatis yang bisa dibaca screen reader</li>
-        <li>Memahami isi video edukasi, ceramah, atau tutorial</li>
-      </ul>
+    <p>
+        Jika model hanya diuji menggunakan data yang
+        sudah dipelajarinya, hasil pengujian belum tentu
+        menunjukkan kemampuannya menghadapi data baru.
+    </p>
 
-      <h3>Analogi untuk Screen Reader</h3>
-      <p>AI video seperti guru yang menonton video untuk Anda, lalu:</p>
-      <ul>
-        <li>Menjelaskan apa yang terjadi</li>
-        <li>Menceritakan adegan</li>
-        <li>Merangkum isi video</li>
-        <li>Menuliskan teks dari suara</li>
-      </ul>
+    <p>
+        Pemisahan Training Data dan Testing Data membantu
+        kita mengevaluasi kemampuan model secara lebih
+        objektif.
+    </p>
 
-      <h2>Latihan Praktik</h2>
+    <p>
+        Salah satu contoh pembagian dataset adalah
+        80 persen untuk Training Data dan 20 persen
+        untuk Testing Data. Namun, pembagian ini bukan
+        aturan mutlak. Proporsi yang sesuai bergantung
+        pada jumlah dan karakteristik dataset.
+    </p>
+</div>
 
-      <p><strong>Latihan 1 — Gunakan YouTube Auto Caption</strong></p>
-      <p>Cari video → aktifkan subtitle → dengarkan dengan screen reader.</p>
+<div class="materi-section">
+    <h2>F. Mengenal Proses Training Model</h2>
 
-      <p><strong>Latihan 2 — Gunakan AI untuk Merangkum Video</strong></p>
-      <p>Gunakan Copilot / Gemini:</p>
-      <p>“Ringkas isi video ini dalam 5 poin.”</p>
+    <p>
+        Training Model adalah proses ketika algoritma
+        Machine Learning mempelajari pola dari Training Data.
+    </p>
 
-      <p><strong>Latihan 3 — Gunakan Seeing AI untuk Video Frame</strong></p>
-      <p>Ambil screenshot → minta AI menjelaskan gambar.</p>
-    </section>
+    <p>
+        Selama proses training, model menyesuaikan
+        parameter internalnya agar hasil prediksi
+        semakin mendekati nilai yang benar.
+    </p>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/1stdbb5lq4ycAHyyFEy8SCasSX7Omu-F_/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic3.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <p>
+        Secara sederhana, proses training dapat dipahami
+        melalui tahapan berikut:
+    </p>
+
+    <ol>
+        <li>
+            Komputer menerima Training Data yang berisi
+            Feature dan Label.
+        </li>
+        <li>
+            Model menghasilkan prediksi berdasarkan pola
+            yang sedang dipelajarinya.
+        </li>
+        <li>
+            Prediksi model dibandingkan dengan Label
+            yang sebenarnya.
+        </li>
+        <li>
+            Model menghitung kesalahan prediksi.
+        </li>
+        <li>
+            Algoritma memperbarui parameter model
+            untuk mengurangi kesalahan tersebut.
+        </li>
+        <li>
+            Proses diulang sesuai pengaturan training.
+        </li>
+    </ol>
+
+    <h3>Analogi Training Model untuk Tunanetra</h3>
+
+    <p>
+        Bayangkan seorang siswa tunanetra sedang berlatih
+        mengenali suara kendaraan.
+    </p>
+
+    <p>
+        Pada awal latihan, siswa mungkin salah mengenali
+        suara motor sebagai suara mobil.
+        Guru kemudian memberi tahu jawaban yang benar.
+    </p>
+
+    <p>
+        Setelah mendengarkan lebih banyak contoh dan
+        menerima koreksi, siswa dapat memperbaiki
+        pemahamannya.
+    </p>
+
+    <p>
+        Proses tersebut merupakan analogi sederhana
+        dari training model. Model mempelajari pola
+        dan menyesuaikan parameter berdasarkan kesalahan
+        prediksinya.
+    </p>
+
+    <p>
+        Perlu diingat bahwa komputer tidak belajar
+        dengan cara yang sama seperti manusia.
+        Analogi ini digunakan untuk mempermudah
+        pemahaman konsep Machine Learning.
+    </p>
+</div>
+<!-- TAHAP 3: ALGORITMA MACHINE LEARNING DAN PRAKTIK PYTHON -->
+
+<div class="materi-section">
+    <h2>G. Mengenal Algoritma Machine Learning</h2>
+
+    <p>
+        Setelah memahami Dataset dan Training Model,
+        sekarang kita akan mempelajari algoritma
+        Machine Learning.
+    </p>
+
+    <p>
+        Algoritma Machine Learning adalah metode atau
+        pendekatan yang digunakan komputer untuk
+        mempelajari pola dari data dan menghasilkan model.
+    </p>
+
+    <p>
+        Jika Dataset diibaratkan sebagai kumpulan
+        contoh latihan, maka algoritma dapat dianalogikan
+        sebagai metode belajar yang digunakan untuk
+        memahami contoh-contoh tersebut.
+    </p>
+
+    <p>
+        Terdapat berbagai algoritma Machine Learning.
+        Setiap algoritma memiliki cara kerja,
+        kelebihan, dan keterbatasan yang berbeda.
+        Pemilihan algoritma bergantung pada tujuan
+        dan karakteristik data.
+    </p>
+
+    <h3>1. Linear Regression</h3>
+
+    <p>
+        Linear Regression adalah algoritma yang
+        digunakan untuk memprediksi nilai numerik
+        berdasarkan hubungan antara Feature dan Target.
+    </p>
+
+    <p>
+        Contohnya adalah memprediksi harga rumah
+        berdasarkan luas bangunan, atau memperkirakan
+        nilai penjualan berdasarkan data sebelumnya.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Bayangkan kita memiliki data jumlah jam
+        belajar dan nilai ujian dari beberapa siswa.
+        Linear Regression mencoba mempelajari
+        hubungan antara jam belajar dan nilai ujian,
+        kemudian memperkirakan nilai untuk jam
+        belajar yang baru.
+    </p>
+
+    <h3>2. Logistic Regression</h3>
+
+    <p>
+        Logistic Regression umumnya digunakan
+        untuk klasifikasi, yaitu memprediksi
+        kategori atau kelas.
+    </p>
+
+    <p>
+        Contohnya adalah memprediksi apakah
+        sebuah email termasuk spam atau bukan spam.
+    </p>
+
+    <p>
+        Meskipun namanya mengandung kata
+        Regression, algoritma ini sering digunakan
+        untuk tugas klasifikasi.
+    </p>
+
+    <h3>3. Decision Tree</h3>
+
+    <p>
+        Decision Tree adalah algoritma yang
+        membuat keputusan berdasarkan serangkaian
+        aturan atau pertanyaan.
+    </p>
+
+    <p>
+        Contohnya, sistem memprediksi kelulusan
+        siswa dengan mempertimbangkan jumlah
+        jam belajar dan nilai latihan.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Decision Tree mirip seperti mengikuti
+        petunjuk arah melalui serangkaian pertanyaan.
+        Jawaban dari satu pertanyaan menentukan
+        langkah atau pertanyaan berikutnya.
+    </p>
+
+    <h3>4. Random Forest</h3>
+
+    <p>
+        Random Forest adalah algoritma yang
+        menggabungkan banyak Decision Tree
+        untuk menghasilkan prediksi.
+    </p>
+
+    <p>
+        Dalam klasifikasi, hasil prediksi dapat
+        ditentukan melalui voting dari beberapa
+        pohon keputusan.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Bayangkan kita meminta beberapa orang
+        memberikan pendapat tentang identitas
+        sebuah suara kendaraan. Hasil akhirnya
+        ditentukan berdasarkan gabungan pendapat
+        mereka.
+    </p>
+
+    <h3>5. K-Nearest Neighbors (KNN)</h3>
+
+    <p>
+        K-Nearest Neighbors adalah algoritma
+        yang membuat prediksi berdasarkan
+        data lain yang paling dekat atau mirip
+        dengan data yang sedang dianalisis.
+    </p>
+
+    <p>
+        Contohnya, sistem mengenali kategori
+        kendaraan baru berdasarkan karakteristik
+        kendaraan yang sudah ada dalam dataset.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Ketika mendengar suara yang belum dikenal,
+        kita membandingkannya dengan beberapa
+        rekaman suara yang paling mirip.
+        Kemiripan tersebut membantu menentukan
+        kategori suara baru.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>H. Mengenal Library Python untuk Machine Learning</h2>
+
+    <p>
+        Untuk membangun model Machine Learning
+        menggunakan Python, kita dapat memanfaatkan
+        library atau pustaka pemrograman.
+    </p>
+
+    <p>
+        Library adalah kumpulan kode yang telah
+        dibuat sebelumnya sehingga programmer
+        tidak perlu membangun semua fungsi
+        dari awal.
+    </p>
+
+    <h3>1. Scikit-learn</h3>
+
+    <p>
+        Scikit-learn adalah library Python yang
+        menyediakan berbagai algoritma Machine
+        Learning untuk klasifikasi, regresi,
+        clustering, dan evaluasi model.
+    </p>
+
+    <p>
+        Pada materi ini, kita akan menggunakan
+        Scikit-learn untuk membuat model prediksi
+        kelulusan siswa.
+    </p>
+
+    <h3>2. Pandas</h3>
+
+    <p>
+        Pandas adalah library Python yang
+        membantu kita membaca, mengolah,
+        dan menganalisis data dalam bentuk tabel.
+    </p>
+
+    <p>
+        Pandas dapat digunakan untuk membaca
+        data dari file CSV dan mempersiapkannya
+        sebelum digunakan dalam Machine Learning.
+    </p>
+
+    <h3>3. NumPy</h3>
+
+    <p>
+        NumPy adalah library Python yang
+        mendukung operasi numerik dan
+        pengolahan array.
+    </p>
+
+    <p>
+        Library ini banyak digunakan dalam
+        pengolahan data dan komputasi ilmiah.
+    </p>
+
+    <h3>Analogi Library untuk Tunanetra</h3>
+
+    <p>
+        Library dapat dianalogikan seperti
+        kumpulan alat kerja yang sudah tersedia.
+        Kita tidak perlu membuat setiap alat
+        sendiri sebelum mulai bekerja.
+    </p>
+
+    <p>
+        Dengan memanfaatkan library Python,
+        AI Engineer dapat lebih fokus menyusun
+        alur program dan menyelesaikan masalah.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>I. Praktik Machine Learning Menggunakan Python</h2>
+
+    <p>
+        Sekarang kita akan membuat model Machine
+        Learning sederhana untuk memprediksi
+        kelulusan siswa berdasarkan jam belajar.
+    </p>
+
+    <p>
+        Kita akan menggunakan algoritma
+        Decision Tree dari library Scikit-learn.
+    </p>
+
+    <h3>1. Memeriksa Instalasi Python</h3>
+
+    <p>
+        Buka Terminal atau Command Prompt.
+        Jalankan perintah berikut:
+    </p>
+
+    <pre><code>python --version</code></pre>
+
+    <p>
+        Jika perintah tersebut tidak dikenali,
+        pada Windows kita dapat mencoba:
+    </p>
+
+    <pre><code>py --version</code></pre>
+
+    <p>
+        Pastikan Python sudah terinstal
+        sebelum melanjutkan.
+    </p>
+
+    <h3>2. Menginstal Scikit-learn</h3>
+
+    <p>
+        Pada Terminal atau Command Prompt,
+        jalankan perintah berikut:
+    </p>
+
+    <pre><code>python -m pip install scikit-learn</code></pre>
+
+    <p>
+        Jika menggunakan perintah Python
+        dengan awalan py, kita juga dapat
+        menjalankan:
+    </p>
+
+    <pre><code>py -m pip install scikit-learn</code></pre>
+
+    <p>
+        Tunggu sampai proses instalasi selesai.
+        Jika instalasi berhasil, library
+        Scikit-learn siap digunakan.
+    </p>
+
+    <h3>3. Membuat File Python</h3>
+
+    <p>
+        Buat file baru dengan nama:
+    </p>
+
+    <pre><code>machine_learning.py</code></pre>
+
+    <p>
+        File ini akan berisi program Machine
+        Learning sederhana untuk memprediksi
+        kelulusan siswa.
+    </p>
+
+    <h3>4. Menulis Dataset dan Program Machine Learning</h3>
+
+    <p>
+        Masukkan kode Python berikut ke dalam
+        file machine_learning.py.
+    </p>
+
+    <pre><code>from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+# Dataset jam belajar siswa
+X = [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]]
+
+# Label kelulusan
+# 0 = Tidak Lulus
+# 1 = Lulus
+y = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+
+# Membagi dataset menjadi data training dan testing
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+# Membuat model Decision Tree
+model = DecisionTreeClassifier(random_state=42)
+
+# Melatih model menggunakan training data
+model.fit(X_train, y_train)
+
+# Melakukan prediksi pada testing data
+predictions = model.predict(X_test)
+
+# Menghitung akurasi model
+accuracy = accuracy_score(y_test, predictions)
+
+print("Data Testing:", X_test)
+print("Label Sebenarnya:", y_test)
+print("Hasil Prediksi:", predictions)
+print("Akurasi Model:", accuracy)
+
+# Memprediksi siswa yang belajar selama 7 jam
+new_student = [[7]]
+
+prediction = model.predict(new_student)
+
+if prediction[0] == 1:
+    print("Prediksi: Lulus")
+else:
+    print("Prediksi: Tidak Lulus")</code></pre>
+
+    <h3>5. Menjalankan Program</h3>
+
+    <p>
+        Simpan file Python tersebut.
+        Buka Terminal atau Command Prompt
+        pada folder tempat file disimpan.
+    </p>
+
+    <p>
+        Jalankan perintah:
+    </p>
+
+    <pre><code>python machine_learning.py</code></pre>
+
+    <p>
+        Jika menggunakan perintah py,
+        jalankan:
+    </p>
+
+    <pre><code>py machine_learning.py</code></pre>
+
+    <p>
+        Program akan menampilkan data testing,
+        label sebenarnya, hasil prediksi,
+        akurasi model, dan prediksi untuk
+        siswa yang belajar selama 7 jam.
+    </p>
+
+    <p>
+        Hasil akurasi dapat berbeda jika
+        pembagian data atau dataset diubah.
+        Akurasi dari dataset kecil ini hanya
+        untuk latihan dan bukan ukuran
+        performa model di dunia nyata.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>J. Memahami Kode Machine Learning</h2>
+
+    <h3>1. Mengimpor Library</h3>
+
+    <pre><code>from sklearn.tree import DecisionTreeClassifier</code></pre>
+
+    <p>
+        Kode ini mengimpor algoritma Decision
+        Tree Classifier dari Scikit-learn.
+        Algoritma tersebut akan digunakan
+        untuk membuat model klasifikasi.
+    </p>
+
+    <h3>2. Menentukan Feature dan Label</h3>
+
+    <pre><code>X = [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]]
+
+y = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]</code></pre>
+
+    <p>
+        Variabel X menyimpan Feature,
+        yaitu jumlah jam belajar siswa.
+    </p>
+
+    <p>
+        Variabel y menyimpan Label,
+        yaitu status kelulusan siswa.
+    </p>
+
+    <p>
+        Angka 0 berarti tidak lulus,
+        sedangkan angka 1 berarti lulus.
+    </p>
+
+    <h3>3. Membagi Dataset</h3>
+
+    <pre><code>train_test_split()</code></pre>
+
+    <p>
+        Fungsi ini digunakan untuk membagi
+        dataset menjadi Training Data dan
+        Testing Data.
+    </p>
+
+    <p>
+        Training Data digunakan untuk melatih
+        model, sedangkan Testing Data digunakan
+        untuk menguji prediksi model.
+    </p>
+
+    <h3>4. Membuat Model</h3>
+
+    <pre><code>model = DecisionTreeClassifier(random_state=42)</code></pre>
+
+    <p>
+        Kode ini membuat objek model
+        Decision Tree Classifier.
+        Model tersebut belum dilatih
+        sampai kita menjalankan proses fit.
+    </p>
+
+    <h3>5. Melatih Model</h3>
+
+    <pre><code>model.fit(X_train, y_train)</code></pre>
+
+    <p>
+        Fungsi fit digunakan untuk melatih
+        model menggunakan Feature dan Label
+        dari Training Data.
+    </p>
+
+    <p>
+        Pada tahap ini, model mempelajari
+        pola hubungan antara jam belajar
+        dan status kelulusan.
+    </p>
+
+    <h3>6. Melakukan Prediksi</h3>
+
+    <pre><code>model.predict(new_student)</code></pre>
+
+    <p>
+        Fungsi predict digunakan untuk
+        menghasilkan prediksi berdasarkan
+        Feature baru yang diberikan.
+    </p>
+
+    <p>
+        Dalam contoh ini, program mencoba
+        memprediksi status kelulusan siswa
+        yang belajar selama 7 jam.
+    </p>
+
+    <h3>7. Mengukur Akurasi</h3>
+
+    <pre><code>accuracy_score(y_test, predictions)</code></pre>
+
+    <p>
+        Fungsi accuracy_score membandingkan
+        hasil prediksi dengan Label sebenarnya
+        pada Testing Data.
+    </p>
+
+    <p>
+        Akurasi menunjukkan proporsi prediksi
+        yang benar dibandingkan seluruh
+        prediksi pada data pengujian.
+    </p>
+</div>
+<!-- TAHAP 4: EVALUASI MODEL, RANGKUMAN, DAN LATIHAN -->
+
+<div class="materi-section">
+    <h2>K. Evaluasi Model Machine Learning</h2>
+
+    <p>
+        Setelah model Machine Learning selesai dilatih,
+        kita perlu mengevaluasi kemampuannya.
+        Evaluasi dilakukan untuk mengetahui apakah
+        model dapat menghasilkan prediksi yang sesuai
+        dengan data sebenarnya.
+    </p>
+
+    <p>
+        Model yang berhasil dilatih belum tentu
+        menghasilkan prediksi yang baik.
+        Oleh karena itu, proses evaluasi merupakan
+        bagian penting dalam Machine Learning.
+    </p>
+
+    <h3>1. Apa Itu Evaluasi Model?</h3>
+
+    <p>
+        Evaluasi model adalah proses mengukur
+        performa model Machine Learning menggunakan
+        data dan metrik tertentu.
+    </p>
+
+    <p>
+        Salah satu metrik evaluasi yang sederhana
+        adalah Accuracy atau akurasi.
+    </p>
+
+    <p>
+        Akurasi menunjukkan perbandingan antara
+        jumlah prediksi yang benar dengan jumlah
+        seluruh prediksi yang dilakukan.
+    </p>
+
+    <p>
+        Contohnya, jika model melakukan 10 prediksi
+        dan 8 di antaranya benar, maka akurasinya
+        adalah 80 persen.
+    </p>
+
+    <p>
+        Namun, akurasi tidak selalu cukup untuk
+        menilai semua jenis model. Pada dataset
+        yang tidak seimbang, metrik seperti
+        Precision, Recall, dan F1-score juga
+        dapat diperlukan.
+    </p>
+
+    <h3>2. Analogi Evaluasi Model untuk Tunanetra</h3>
+
+    <p>
+        Bayangkan seorang siswa tunanetra sedang
+        belajar mengenali suara kendaraan.
+    </p>
+
+    <p>
+        Setelah berlatih menggunakan sejumlah
+        rekaman suara, guru memberikan 10 rekaman
+        baru untuk diuji.
+    </p>
+
+    <p>
+        Jika siswa dapat mengenali 8 suara dengan
+        benar, maka hasil pengenalannya mencapai
+        80 persen pada latihan tersebut.
+    </p>
+
+    <p>
+        Hal ini mirip dengan evaluasi model
+        Machine Learning. Kita membandingkan
+        hasil prediksi dengan jawaban yang benar
+        untuk mengetahui performanya.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>L. Memahami Overfitting dan Underfitting</h2>
+
+    <p>
+        Dalam Machine Learning, model dapat
+        mengalami masalah ketika mempelajari data.
+        Dua masalah yang umum dibahas adalah
+        Overfitting dan Underfitting.
+    </p>
+
+    <h3>1. Overfitting</h3>
+
+    <p>
+        Overfitting terjadi ketika model terlalu
+        menyesuaikan diri dengan Training Data,
+        termasuk pola yang terlalu spesifik atau
+        noise dalam data.
+    </p>
+
+    <p>
+        Akibatnya, model dapat memperoleh hasil
+        yang sangat baik pada data training,
+        tetapi kurang baik ketika menghadapi
+        data baru.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Bayangkan siswa hanya menghafal beberapa
+        rekaman suara kendaraan yang diberikan
+        guru. Ketika mendengar rekaman yang sedikit
+        berbeda, siswa kesulitan mengenali suara
+        tersebut.
+    </p>
+
+    <h3>2. Underfitting</h3>
+
+    <p>
+        Underfitting terjadi ketika model belum
+        mampu mempelajari pola penting dalam data
+        dengan baik.
+    </p>
+
+    <p>
+        Model yang mengalami Underfitting biasanya
+        memiliki performa yang kurang baik pada
+        Training Data maupun Testing Data.
+    </p>
+
+    <p>
+        Analogi untuk tunanetra:
+        Siswa hanya mendengarkan satu atau dua
+        contoh suara kendaraan sehingga belum
+        memahami perbedaan karakteristik suara
+        mobil, motor, dan bus.
+    </p>
+
+    <h3>3. Perbedaan Overfitting dan Underfitting</h3>
+
+    <ul>
+        <li>
+            Overfitting: model terlalu menyesuaikan
+            diri dengan data training dan kesulitan
+            melakukan generalisasi terhadap data baru.
+        </li>
+        <li>
+            Underfitting: model belum cukup
+            mempelajari pola penting dalam data.
+        </li>
+    </ul>
+
+    <p>
+        Tujuan pelatihan Machine Learning adalah
+        membangun model yang dapat mempelajari
+        pola penting dan menghasilkan prediksi
+        yang baik pada data baru.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>M. Keterbatasan Machine Learning</h2>
+
+    <p>
+        Machine Learning dapat membantu menyelesaikan
+        berbagai masalah, tetapi bukan berarti
+        semua prediksinya selalu benar.
+    </p>
+
+    <p>
+        Ada beberapa keterbatasan yang perlu
+        dipahami oleh seorang AI Engineer.
+    </p>
+
+    <h3>1. Bergantung pada Kualitas Data</h3>
+
+    <p>
+        Model Machine Learning mempelajari pola
+        dari data yang digunakan.
+        Jika data tidak akurat, tidak lengkap,
+        atau tidak mewakili kondisi sebenarnya,
+        hasil prediksi dapat menjadi kurang baik.
+    </p>
+
+    <h3>2. Prediksi Tidak Selalu Benar</h3>
+
+    <p>
+        Model Machine Learning menghasilkan
+        prediksi berdasarkan pola yang dipelajari.
+        Prediksi tersebut bukan jaminan bahwa
+        hasilnya selalu benar.
+    </p>
+
+    <p>
+        Karena itu, hasil model perlu diuji
+        dan dipantau, terutama ketika digunakan
+        dalam situasi penting.
+    </p>
+
+    <h3>3. Data Training Harus Relevan</h3>
+
+    <p>
+        Jika model dilatih menggunakan data
+        yang berbeda jauh dari kondisi penggunaan
+        sebenarnya, performanya dapat menurun.
+    </p>
+
+    <p>
+        Sebagai contoh, model pengenal suara
+        yang hanya dilatih dengan rekaman
+        di ruangan tenang mungkin kesulitan
+        mengenali suara di lingkungan yang bising.
+    </p>
+
+    <h3>4. Machine Learning Tidak Memahami Dunia Seperti Manusia</h3>
+
+    <p>
+        Model Machine Learning mempelajari
+        pola berdasarkan data dan metode
+        komputasi yang digunakan.
+    </p>
+
+    <p>
+        Model tidak otomatis memiliki
+        pemahaman, pengalaman, dan penalaran
+        seperti manusia.
+    </p>
+
+    <p>
+        AI Engineer tetap perlu memahami
+        masalah yang ingin diselesaikan,
+        memeriksa kualitas data, menguji
+        model, dan memastikan hasilnya
+        sesuai dengan kebutuhan pengguna.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>N. Alur Kerja Machine Learning</h2>
+
+    <p>
+        Secara umum, proses membangun solusi
+        Machine Learning dapat dirangkum
+        dalam beberapa tahapan berikut.
+    </p>
+
+    <ol>
+        <li>
+            Menentukan masalah yang ingin
+            diselesaikan.
+        </li>
+        <li>
+            Mengumpulkan dataset yang relevan.
+        </li>
+        <li>
+            Menentukan Feature dan Label
+            jika menggunakan pembelajaran
+            terawasi atau Supervised Learning.
+        </li>
+        <li>
+            Membersihkan dan menyiapkan data.
+        </li>
+        <li>
+            Membagi data menjadi Training Data
+            dan Testing Data.
+        </li>
+        <li>
+            Memilih algoritma Machine Learning.
+        </li>
+        <li>
+            Melatih model menggunakan
+            Training Data.
+        </li>
+        <li>
+            Menguji dan mengevaluasi model
+            menggunakan Testing Data.
+        </li>
+        <li>
+            Menggunakan model untuk membuat
+            prediksi terhadap data baru.
+        </li>
+        <li>
+            Memantau dan memperbaiki model
+            jika diperlukan.
+        </li>
+    </ol>
+
+    <p>
+        Alur tersebut dapat menjadi dasar
+        bagi AI Engineer untuk membangun
+        aplikasi berbasis Machine Learning.
+    </p>
+</div>
+
+<div class="materi-section">
+    <h2>O. Rangkuman Materi Machine Learning</h2>
+
+    <p>
+        Machine Learning merupakan bagian
+        dari Artificial Intelligence yang
+        memungkinkan komputer mempelajari
+        pola dari data untuk menghasilkan
+        prediksi atau keputusan.
+    </p>
+
+    <ul>
+        <li>
+            Dataset adalah kumpulan data
+            yang digunakan untuk mempelajari
+            pola.
+        </li>
+        <li>
+            Feature adalah informasi yang
+            digunakan model untuk membuat
+            prediksi.
+        </li>
+        <li>
+            Label adalah jawaban atau target
+            yang ingin diprediksi dalam
+            Supervised Learning.
+        </li>
+        <li>
+            Training Data digunakan untuk
+            melatih model.
+        </li>
+        <li>
+            Testing Data digunakan untuk
+            mengevaluasi kemampuan model
+            pada data yang tidak digunakan
+            saat training.
+        </li>
+        <li>
+            Algoritma Machine Learning
+            merupakan metode untuk mempelajari
+            pola dari data.
+        </li>
+        <li>
+            Python dan Scikit-learn dapat
+            digunakan untuk membangun
+            model Machine Learning.
+        </li>
+        <li>
+            Evaluasi model membantu mengukur
+            performa prediksi.
+        </li>
+        <li>
+            Overfitting dan Underfitting
+            merupakan masalah yang dapat
+            memengaruhi kemampuan model.
+        </li>
+    </ul>
+
+    <p>
+        Sebagai AI Engineer, kita tidak hanya
+        menulis kode. Kita juga perlu memahami
+        data, memilih metode yang sesuai,
+        menguji hasil prediksi, dan memastikan
+        solusi yang dibangun benar-benar
+        bermanfaat bagi pengguna.
+    </p>
+</div>
+
+<div class="materi-section">
+</div>
+
+</section>
+</main>
+
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1JrgDXzzMPXrypqLuyBe-DaU3yTX5Gmkg/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic3.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
     </div>
   </main>
 
@@ -416,8 +1486,10 @@
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');

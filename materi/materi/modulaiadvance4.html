@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 4 - Pengenalan Generative AI</title>
-  <meta name="description" content="Modul lengkap Pengenalan Generative AI di Difabelajar. Pelajari definisi, cara kerja, jenis, manfaat, risiko, dan contoh Generative AI secara sederhana dan aksesibel.">
+
+  <title>Understanding Neural Networks, Training Models, and Making Predictions with Python</title>
+
+  <meta name="description" content="Materi Deep Learning dalam AI Engineering: Neural Networks, Training Models, dan Prediksi menggunakan Python.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,6 +22,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -26,20 +33,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -56,6 +71,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -68,6 +84,7 @@
     h1, h2, h3 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
     body.dark-mode h3 {
@@ -86,6 +103,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -108,6 +126,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -115,284 +134,593 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      Pengenalan Generative AI<br>
-      <span style="font-size:1.1rem;font-weight:400;">Artificial Intelligence Fundamental</span>
+      Understanding Neural Networks, Training Models, and Making Predictions with Python<br>
+      <span style="font-size:1.1rem;font-weight:400;">
+        Deep Learning dalam AI Engineering
+      </span>
     </h1>
 
-    <section aria-labelledby="modul2-title">
-      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
+    <section aria-labelledby="modul-title">
+
+      <h2 id="modul-title">Deep Learning dalam AI Engineering</h2>
+
+      <p>
+        Pada pertemuan sebelumnya kita sudah belajar bahwa Machine Learning memungkinkan komputer mempelajari pola dari data.
+        Sekarang kita naik satu tingkat.
+      </p>
+
+      <p>
+        Deep Learning merupakan salah satu bagian dari Machine Learning yang menggunakan neural network dengan banyak lapisan untuk mempelajari pola dari data.
+      </p>
+
+      <p>Hubungannya dapat digambarkan seperti ini:</p>
+
+      <pre><code>Artificial Intelligence
+        ↓
+Machine Learning
+        ↓
+Deep Learning
+        ↓
+Neural Network</code></pre>
+
+      <p>Jadi Deep Learning bukan teknologi yang berdiri sendiri di luar Machine Learning.</p>
+
+      <p>Deep Learning adalah salah satu pendekatan dalam Machine Learning.</p>
+
+      <p>Deep Learning menjadi sangat penting dalam perkembangan AI modern karena dapat digunakan untuk berbagai jenis pekerjaan, seperti:</p>
+
       <ul>
-        <li>Memahami apa itu Generative AI dan bagaimana bedanya dengan AI biasa</li>
-        <li>Menjelaskan cara kerja Generative AI dalam bahasa sederhana</li>
-        <li>Menyebutkan contoh Generative AI untuk teks, gambar, suara, dan video</li>
-        <li>Memahami manfaat dan risiko penggunaan Generative AI</li>
-        <li>Menghubungkan Generative AI dengan aktivitas sehari-hari, terutama untuk pengguna screen reader</li>
+        <li>pengenalan suara,</li>
+        <li>pengenalan gambar,</li>
+        <li>pemrosesan bahasa,</li>
+        <li>penerjemahan,</li>
+        <li>analisis teks,</li>
+        <li>computer vision,</li>
+        <li>speech recognition,</li>
+        <li>generative AI.</li>
       </ul>
 
-      <h2>Bagian 1 — Apa Itu Generative AI?</h2>
+      <p>
+        Namun pada pertemuan ini kita tidak akan membuat model sebesar model AI modern seperti LLM. Kita akan membuat model neural network sederhana agar memahami prinsip dasarnya.
+      </p>
 
-      <h3>1. Definisi Sederhana</h3>
-      <p>Generative AI adalah jenis AI yang bisa membuat sesuatu yang baru, seperti:</p>
-      <ul>
-        <li>Teks</li>
-        <li>Gambar</li>
-        <li>Suara</li>
-        <li>Musik</li>
-        <li>Video</li>
-        <li>Kode program</li>
-      </ul>
-      <p>Bukan hanya mengenali atau mengklasifikasi, tetapi menciptakan konten baru berdasarkan pola yang telah dipelajari dari data.</p>
+      <div class="materi-section">
+        <h2>Analogi Neural Network</h2>
 
-      <h3>2. Definisi Lebih Lengkap</h3>
-      <p>Menurut berbagai sumber seperti Google, Microsoft, dan OpenAI:</p>
-      <ul>
-        <li>Generative AI adalah model AI yang dilatih dengan jumlah data sangat besar, lalu digunakan untuk menghasilkan konten baru yang mirip dengan data latihannya, tetapi bukan salinan persis.</li>
-        <li>Model ini disebut model generatif, contohnya:</li>
-      </ul>
-      <ul>
-        <li>Large Language Model (LLM) untuk teks</li>
-        <li>Diffusion Model / GAN untuk gambar dan video</li>
-      </ul>
+        <p>
+          Untuk memahami neural network, bayangkan sebuah sistem yang terdiri dari beberapa orang yang saling meneruskan informasi.
+        </p>
 
-      <h2>Bagian 2 — Perbedaan AI “Biasa” dan Generative AI</h2>
+        <p>Orang pertama menerima informasi.</p>
+        <p>Kemudian informasi diteruskan kepada orang kedua.</p>
+        <p>Orang kedua memproses informasi tersebut dan meneruskannya lagi.</p>
+        <p>Setelah melewati beberapa orang, akhirnya informasi sampai kepada orang terakhir yang menghasilkan keputusan.</p>
 
-      <h3>1. AI “Biasa” (Discriminative)</h3>
-      <ul>
-        <li>Fokus: mengenali, mengklasifikasi, memprediksi</li>
-        <li>Contoh:</li>
-      </ul>
-      <ul>
-        <li>“Apakah ini spam atau bukan?”</li>
-        <li>“Apakah ini kucing atau anjing?”</li>
-      </ul>
+        <p>Neural network memiliki konsep yang mirip.</p>
 
-      <h3>2. Generative AI</h3>
-      <ul>
-        <li>Fokus: menciptakan sesuatu yang baru</li>
-        <li>Contoh:</li>
-      </ul>
-      <ul>
-        <li>“Tuliskan cerita tentang kucing dan hujan.”</li>
-        <li>“Buat gambar kota di malam hari.”</li>
-        <li>“Buat musik dengan nuansa tenang.”</li>
-      </ul>
+        <pre><code>Input
+  ↓
+Layer
+  ↓
+Layer
+  ↓
+Output</code></pre>
 
-      <p><strong>Analogi:</strong></p>
-      <ul>
-        <li>AI biasa seperti siswa yang pandai menjawab soal pilihan ganda.</li>
-        <li>Generative AI seperti siswa yang pandai menulis karangan sendiri.</li>
-      </ul>
+        <p>Setiap bagian memiliki tugas dalam proses pengolahan informasi.</p>
+      </div>
 
-      <h2>Bagian 3 — Cara Kerja Generative AI (Versi Sederhana)</h2>
+      <div class="materi-section">
+        <h2>Analogi Neural Network untuk Tunanetra</h2>
 
-      <h3>1. Tahap 1 — Belajar dari Data</h3>
-      <p>AI diberi jumlah data sangat besar:</p>
-      <ul>
-        <li>Teks, seperti buku, artikel, dan website</li>
-        <li>Gambar</li>
-        <li>Suara</li>
-        <li>Video</li>
-      </ul>
-      <p>AI belajar pola:</p>
-      <ul>
-        <li>Bagaimana kalimat disusun</li>
-        <li>Bagaimana gambar terbentuk</li>
-        <li>Bagaimana suara terdengar</li>
-      </ul>
+        <p>
+          Untuk mempermudah pemahaman, mari kita gunakan analogi yang relevan bagi tunanetra.
+          Bayangkan Anda sedang berusaha mengenali sebuah benda hanya dengan merabanya.
+        </p>
 
-      <h3>2. Tahap 2 — Memprediksi Langkah Berikutnya</h3>
-      <p><strong>Untuk teks:</strong></p>
-      <ul>
-        <li>AI memprediksi kata berikutnya berdasarkan kata-kata sebelumnya.</li>
-        <li>Dari prediksi kata demi kata, terbentuk kalimat, paragraf, dan dokumen.</li>
-      </ul>
+        <ul>
+          <li><strong>Input Layer:</strong> Kulit di ujung jari Anda menyentuh benda tersebut. Jari-jari bertugas mengumpulkan informasi dasar, seperti tekstur (kasar atau halus) dan bentuk permukaan.</li>
+          <li><strong>Hidden Layer:</strong> Informasi dasar dari jari diteruskan melalui jaringan saraf ke otak. Di tahap ini (lapisan tersembunyi), informasi digabungkan dan diproses secara bertingkat. Otak Anda mulai merangkai pola bahwa "benda ini bulat, permukaannya berpori, dan seukuran kepalan tangan".</li>
+          <li><strong>Output Layer:</strong> Bagian akhir dari otak Anda mengambil kesimpulan dari semua rangkaian informasi tersebut dan memutuskan: "Ini adalah buah jeruk".</li>
+        </ul>
 
-      <p><strong>Untuk gambar:</strong></p>
-      <ul>
-        <li>AI memulai dari “noise” atau acak, lalu memperbaiki sedikit demi sedikit hingga menjadi gambar yang bermakna.</li>
-      </ul>
+        <p>
+          Dalam Neural Network, setiap "layer" (lapisan) bekerja persis seperti proses meraba dan mengenali tersebut. Lapisan-lapisan itu saling mengoper dan mengolah informasi dari bagian yang paling sederhana hingga menghasilkan sebuah prediksi atau keputusan akhir yang utuh.
+        </p>
+      </div>
 
-      <p><strong>Untuk suara:</strong></p>
-      <ul>
-        <li>AI memprediksi pola gelombang suara yang terdengar seperti manusia.</li>
-      </ul>
+      <div class="materi-section">
+        <h2>Apa Itu Neuron?</h2>
 
-      <h3>3. Tahap 3 — Menghasilkan Konten Baru</h3>
-      <ul>
-        <li>AI tidak menyalin data latihannya, tetapi menciptakan kombinasi baru berdasarkan pola yang dipelajari.</li>
-        <li>Hasilnya bisa unik setiap kali, meskipun prompt sama.</li>
-      </ul>
+        <p>Neuron merupakan unit dasar dalam neural network.</p>
+        <p>Kita dapat membayangkannya sebagai sebuah unit pengolah informasi.</p>
+        <p>Neuron menerima beberapa nilai input, mengolahnya, kemudian menghasilkan output.</p>
+        
+        <p>Contohnya kita mempunyai dua informasi:</p>
+        <ul>
+          <li>Jam belajar</li>
+          <li>Jumlah latihan</li>
+        </ul>
+        
+        <p>Informasi tersebut diberikan kepada neural network.</p>
 
-      <h2>Bagian 4 — Jenis-Jenis Generative AI Berdasarkan Konten</h2>
+        <pre><code>Jam belajar ─────┐
+                ↓
+             Neuron
+                ↑
+Jumlah latihan ─┘</code></pre>
 
-      <h3>1. Generative AI untuk Teks</h3>
-      <p>Contoh kemampuan:</p>
-      <ul>
-        <li>Menulis artikel</li>
-        <li>Menulis cerita</li>
-        <li>Menulis email</li>
-        <li>Merangkum teks</li>
-        <li>Membuat soal latihan</li>
-      </ul>
-      <p>Contoh aplikasi:</p>
-      <ul>
-        <li>ChatGPT</li>
-        <li>Microsoft Copilot</li>
-        <li>Google Gemini</li>
-      </ul>
-      <p>Manfaat untuk pengguna screen reader:</p>
-      <ul>
-        <li>Membantu menulis cepat</li>
-        <li>Membantu merangkum dokumen panjang</li>
-        <li>Membantu menjelaskan konsep sulit</li>
-      </ul>
+        <p>Neuron kemudian menghasilkan sebuah nilai.</p>
+        
+        <p>
+          Dalam neural network sebenarnya terdapat proses matematika di dalam neuron. Namun untuk pemula, kita tidak perlu langsung mempelajari rumusnya secara mendalam.
+        </p>
+        
+        <p>Yang perlu dipahami terlebih dahulu:</p>
+        <p>Neuron menerima input, melakukan perhitungan, kemudian menghasilkan output.</p>
+      </div>
 
-      <h3>2. Generative AI untuk Gambar</h3>
-      <p>Contoh kemampuan:</p>
-      <ul>
-        <li>Membuat gambar dari teks (text-to-image)</li>
-        <li>Mengubah gaya gambar</li>
-        <li>Mengedit gambar dengan perintah teks</li>
-      </ul>
-      <p>Contoh aplikasi:</p>
-      <ul>
-        <li>DALL·E</li>
-        <li>Midjourney</li>
-        <li>Stable Diffusion</li>
-        <li>Canva AI</li>
-      </ul>
-      <p>Manfaat untuk pengguna screen reader:</p>
-      <ul>
-        <li>Membuat aset visual untuk orang lain, seperti desain, poster, dan konten</li>
-        <li>Dengan bantuan deskripsi AI, pengguna tunanetra tetap bisa “menghasilkan” gambar meski tidak melihatnya.</li>
-      </ul>
+      <div class="materi-section">
+        <h2>Apa Itu Layer?</h2>
 
-      <h3>3. Generative AI untuk Suara</h3>
-      <p>Contoh kemampuan:</p>
-      <ul>
-        <li>Mengubah teks menjadi suara (TTS canggih)</li>
-        <li>Meniru suara tertentu (voice cloning)</li>
-        <li>Membuat narasi audio</li>
-      </ul>
-      <p>Contoh aplikasi:</p>
-      <ul>
-        <li>ElevenLabs</li>
-        <li>Microsoft Azure Neural TTS</li>
-        <li>Descript (Overdub)</li>
-      </ul>
-      <p>Manfaat untuk pengguna screen reader:</p>
-      <ul>
-        <li>Membuat audio book</li>
-        <li>Membuat konten suara profesional</li>
-        <li>Membuat pengumuman atau narasi</li>
-      </ul>
+        <p>Neuron biasanya disusun dalam kelompok yang disebut layer atau lapisan.</p>
+        
+        <p>Secara sederhana terdapat:</p>
+        
+        <h3>1. Input Layer</h3>
+        <p>Menerima data.</p>
+        
+        <h3>2. Hidden Layer</h3>
+        <p>Memproses informasi.</p>
+        
+        <h3>3. Output Layer</h3>
+        <p>Menghasilkan hasil akhir.</p>
+        
+        <p>Gambaran sederhananya:</p>
 
-      <h3>4. Generative AI untuk Video</h3>
-      <p>Contoh kemampuan:</p>
-      <ul>
-        <li>Membuat video dari teks (text-to-video)</li>
-        <li>Mengedit video otomatis</li>
-        <li>Menambahkan efek, transisi, dan subtitle otomatis</li>
-      </ul>
-      <p>Contoh aplikasi:</p>
-      <ul>
-        <li>Runway ML</li>
-        <li>Pika Labs</li>
-        <li>CapCut AI</li>
-        <li>Descript (video editing AI)</li>
-      </ul>
-      <p>Manfaat untuk pengguna screen reader:</p>
-      <ul>
-        <li>Membuat konten video tanpa harus mengedit manual</li>
-        <li>Menghasilkan video dari naskah teks</li>
-        <li>Menambahkan subtitle otomatis yang bisa dibaca screen reader</li>
-      </ul>
+        <pre><code>Input Layer
+     ↓
+Hidden Layer
+     ↓
+Hidden Layer
+     ↓
+Output Layer</code></pre>
 
-      <h2>Bagian 5 — Contoh Penerapan Generative AI dalam Kehidupan Sehari-Hari</h2>
+        <p>Disebut Deep Learning karena neural network dapat memiliki banyak layer.</p>
+        
+        <p>Semakin banyak dan kompleks lapisan yang digunakan, semakin kompleks pula pola yang dapat dipelajari model.</p>
+        
+        <p>Tetapi semakin kompleks model, biasanya semakin besar pula kebutuhan data, komputasi, dan proses training.</p>
+      </div>
 
-      <h3>1. Untuk Belajar</h3>
-      <ul>
-        <li>Minta AI menjelaskan materi pelajaran</li>
-        <li>Minta AI membuat soal latihan</li>
-        <li>Minta AI membuat rangkuman buku</li>
-      </ul>
+      <div class="materi-section">
+        <h2>Input, Hidden Layer, dan Output</h2>
 
-      <h3>2. Untuk Pekerjaan Ringan</h3>
-      <ul>
-        <li>Menulis email</li>
-        <li>Menulis laporan singkat</li>
-        <li>Menulis caption media sosial</li>
-      </ul>
+        <p>Mari kita gunakan contoh klasifikasi sederhana.</p>
+        <p>Kita ingin memprediksi apakah seorang siswa lulus atau tidak lulus.</p>
+        
+        <p>Data yang diberikan:</p>
+        <ul>
+          <li>Jam belajar</li>
+          <li>Jumlah latihan</li>
+        </ul>
+        
+        <p>Maka:</p>
+        
+        <pre><code>Input:
+Jam belajar
+Jumlah latihan</code></pre>
 
-      <h3>3. Untuk Kreativitas</h3>
-      <ul>
-        <li>Menulis cerita</li>
-        <li>Menulis puisi</li>
-        <li>Membuat ide konten</li>
-      </ul>
+        <p>Neural network memproses data tersebut.</p>
+        <p>Kemudian output:</p>
+        
+        <pre><code>Lulus</code></pre>
+        
+        <p>atau:</p>
+        
+        <pre><code>Tidak Lulus</code></pre>
 
-      <h3>4. Untuk Kemandirian Digital Tunanetra</h3>
-      <ul>
-        <li>Membuat naskah audio</li>
-        <li>Membuat konten edukasi berbasis suara</li>
-        <li>Membuat materi belajar untuk orang lain</li>
-      </ul>
+        <p>Alurnya:</p>
+        
+        <pre><code>Jam belajar
+Jumlah latihan
+       ↓
+ Input Layer
+       ↓
+ Hidden Layer
+       ↓
+ Output Layer
+       ↓
+Lulus / Tidak Lulus</code></pre>
+      </div>
 
-      <h2>Bagian 6 — Risiko dan Etika Generative AI (Penting)</h2>
+      <div class="materi-section">
+        <h2>Apa yang Dipelajari Model?</h2>
 
-      <h3>1. Risiko</h3>
-      <ul>
-        <li>Deepfake: suara atau wajah palsu yang mirip asli</li>
-        <li>Informasi salah: AI bisa salah menjawab</li>
-        <li>Plagiarisme: konten mirip karya orang lain</li>
-        <li>Privasi: data sensitif tidak boleh dibagikan ke AI</li>
-      </ul>
+        <p>Pertanyaan pentingnya:</p>
+        <p>Kalau model tidak kita beri aturan secara langsung, lalu apa yang sebenarnya dipelajari?</p>
+        
+        <p>Model belajar menemukan pola dalam data.</p>
+        
+        <p>Misalnya kita memiliki data:</p>
 
-      <h3>2. Prinsip Penggunaan yang Aman</h3>
-      <ul>
-        <li>Jangan membagikan data pribadi, seperti KTP, alamat, dan nomor rekening</li>
-        <li>Jangan mengandalkan AI untuk keputusan penting tanpa verifikasi</li>
-        <li>Gunakan AI sebagai alat bantu, bukan sumber kebenaran mutlak</li>
-        <li>Hormati hak cipta dan privasi orang lain</li>
-      </ul>
+        <pre><code>Jam Belajar | Latihan | Status
+1           | 1       | Tidak Lulus
+2           | 1       | Tidak Lulus
+3           | 2       | Tidak Lulus
+5           | 4       | Lulus
+6           | 5       | Lulus
+7           | 6       | Lulus</code></pre>
 
-      <h2>Latihan Praktik</h2>
+        <p>Model mencoba menemukan pola hubungan antara input dan output.</p>
+        
+        <p>Ketika diberikan data baru:</p>
+        
+        <pre><code>Jam belajar = 6
+Latihan = 4</code></pre>
 
-      <p><strong>Latihan 1 — Coba Generative AI Teks</strong></p>
-      <p>Gunakan ChatGPT / Copilot / Gemini, lalu:</p>
-      <ul>
-        <li>Minta AI menulis cerita pendek tentang “siswa tunanetra yang belajar teknologi”.</li>
-        <li>Minta AI merangkum cerita tersebut dalam 5 kalimat.</li>
-      </ul>
+        <p>model dapat menghasilkan prediksi.</p>
+      </div>
 
-      <p><strong>Latihan 2 — Coba Generative AI Gambar (Dengan Bantuan Orang Lihat)</strong></p>
-      <ul>
-        <li>Buat prompt: “Poster pelatihan AI untuk difabel, gaya modern, warna biru.”</li>
-        <li>Minta orang melihat hasilnya dan menjelaskan kepada Anda.</li>
-      </ul>
+      <div class="materi-section">
+        <h2>Training</h2>
 
-      <p><strong>Latihan 3 — Coba Generative AI Suara</strong></p>
-      <ul>
-        <li>Gunakan TTS canggih jika tersedia untuk mengubah teks menjadi suara narasi.</li>
-      </ul>
+        <p>Training adalah proses ketika model belajar dari data.</p>
+        <p>Secara sederhana:</p>
+        
+        <pre><code>Dataset
+   ↓
+Neural Network
+   ↓
+Prediksi
+   ↓
+Bandingkan dengan jawaban
+   ↓
+Perbaiki parameter
+   ↓
+Training berikutnya</code></pre>
+
+        <p>Proses tersebut dilakukan berulang kali.</p>
+        <p>Model mencoba menghasilkan prediksi.</p>
+        <p>Kemudian hasilnya dibandingkan dengan jawaban yang benar.</p>
+        <p>Jika hasilnya masih salah, parameter model diperbaiki.</p>
+        <p>Proses ini terus dilakukan sampai model mendapatkan hasil yang lebih baik berdasarkan tujuan training.</p>
+      </div>
+
+      <div class="materi-section">
+        <h2>Epoch</h2>
+
+        <p>Dalam Deep Learning kita akan menemukan istilah epoch.</p>
+        <p>Epoch adalah satu putaran ketika seluruh data training digunakan untuk melatih model.</p>
+        
+        <p>Misalnya kita memiliki:</p>
+        <pre><code>100 data</code></pre>
+        
+        <p>Jika model memproses seluruh 100 data tersebut satu kali, itu dapat disebut:</p>
+        <pre><code>1 epoch</code></pre>
+        
+        <p>Jika dilakukan 10 kali:</p>
+        <pre><code>10 epoch</code></pre>
+        
+        <p>Contohnya:</p>
+        <pre><code>Epoch 1 → Model belajar
+Epoch 2 → Model belajar lagi
+Epoch 3 → Model belajar lagi
+...
+Epoch 10 → Model belajar lagi</code></pre>
+
+        <p>Namun lebih banyak epoch tidak selalu berarti model menjadi lebih baik. Jika terlalu lama dilatih terhadap data tertentu, model dapat mengalami overfitting.</p>
+        <p>Untuk pertemuan ini kita cukup memahami konsep epoch secara sederhana.</p>
+      </div>
+
+      <div class="materi-section">
+        <h2>Inference</h2>
+
+        <p>Setelah model selesai dilatih, kita dapat menggunakannya untuk data baru.</p>
+        <p>Proses menggunakan model yang sudah dilatih disebut inference.</p>
+        
+        <p>Alurnya:</p>
+        <pre><code>Training Data
+      ↓
+Training
+      ↓
+Model
+      ↓
+Data Baru
+      ↓
+Inference
+      ↓
+Prediksi</code></pre>
+
+        <p>Contohnya:</p>
+        <pre><code>Training:
+Data siswa sebelumnya
+
+Model:
+Belajar pola
+
+Inference:
+Siswa baru
+
+Hasil:
+Prediksi Lulus</code></pre>
+
+        <p>Jadi jangan mencampur:</p>
+        <ul>
+          <li>Training = proses belajar.</li>
+          <li>Inference = menggunakan model yang sudah belajar.</li>
+        </ul>
+      </div>
+
+      <div class="materi-section">
+        <h2>Activation Function</h2>
+
+        <p>Di dalam neural network terdapat komponen yang disebut activation function.</p>
+        <p>Activation function membantu neural network menentukan bagaimana sebuah nilai diteruskan dari satu bagian jaringan ke bagian lainnya.</p>
+        
+        <p>Beberapa activation function yang sering ditemukan:</p>
+        <ul>
+          <li>ReLU.</li>
+          <li>Sigmoid.</li>
+          <li>Tanh.</li>
+          <li>Softmax.</li>
+        </ul>
+        
+        <p>Untuk pemula, cukup pahami bahwa activation function merupakan salah satu komponen penting yang membuat neural network mampu memproses pola yang lebih kompleks.</p>
+        
+        <p>Contohnya dalam Python:</p>
+
+        <pre><code>from tensorflow.keras.layers import Dense
+
+Dense(16, activation="relu")</code></pre>
+
+        <p>Artinya kita membuat sebuah layer dengan 16 unit dan menggunakan fungsi aktivasi ReLU.</p>
+        <p>Kita tidak perlu membahas rumus ReLU pada pertemuan ini.</p>
+      </div>
+
+      <div class="materi-section">
+        <h2>Praktik: Membuat Neural Network Sederhana</h2>
+
+        <p>Sekarang kita masuk praktik.</p>
+        <p>Kita akan menggunakan TensorFlow dan Keras.</p>
+        
+        <p>Install terlebih dahulu:</p>
+        <pre><code>pip install tensorflow</code></pre>
+        
+        <p>Kemudian buat file:</p>
+        <pre><code>deep_learning.py</code></pre>
+        
+        <p>Masukkan kode berikut:</p>
+
+        <pre><code>import numpy as np
+from tensorflow import keras
+from tensorflow.keras import layers
+
+X = np.array([
+    [1, 1],
+    [2, 1],
+    [3, 2],
+    [5, 4],
+    [6, 5],
+    [7, 6]
+], dtype=float)
+
+y = np.array([
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+], dtype=float)
+
+model = keras.Sequential([
+    layers.Dense(8, activation="relu", input_shape=(2,)),
+    layers.Dense(1, activation="sigmoid")
+])
+
+model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)
+
+model.fit(X, y, epochs=50, verbose=0)
+
+hasil = model.predict(
+    np.array([[6, 4]], dtype=float),
+    verbose=0
+)
+
+print("Probabilitas:", hasil[0][0])
+
+if hasil[0][0] >= 0.5:
+    print("Prediksi: Lulus")
+else:
+    print("Prediksi: Tidak Lulus")</code></pre>
+      </div>
+
+      <div class="materi-section">
+        <h2>M. Memahami Kode</h2>
+
+        <p>Bagian:</p>
+        <pre><code>X = np.array([
+    [1, 1],
+    [2, 1],
+    [3, 2],
+    [5, 4],
+    [6, 5],
+    [7, 6]
+])</code></pre>
+        <p>merupakan data input.</p>
+        
+        <p>Kita mempunyai dua fitur:</p>
+        <ul>
+          <li>Fitur 1 = Jam belajar</li>
+          <li>Fitur 2 = Jumlah latihan</li>
+        </ul>
+        
+        <p>Kemudian:</p>
+        <pre><code>y = np.array([
+    0,
+    0,
+    0,
+    1,
+    1,
+    1
+])</code></pre>
+        <p>merupakan label.</p>
+        
+        <p>Kita menggunakan:</p>
+        <ul>
+          <li>0 = Tidak Lulus</li>
+          <li>1 = Lulus</li>
+        </ul>
+        
+        <p>Kemudian kita membuat neural network:</p>
+        <pre><code>model = keras.Sequential([
+    layers.Dense(8, activation="relu", input_shape=(2,)),
+    layers.Dense(1, activation="sigmoid")
+])</code></pre>
+        <p>Model memiliki:</p>
+        <pre><code>Input
+  ↓
+8 neuron
+  ↓
+Output</code></pre>
+
+        <p>Kemudian model dikonfigurasi:</p>
+        <pre><code>model.compile(
+    optimizer="adam",
+    loss="binary_crossentropy",
+    metrics=["accuracy"]
+)</code></pre>
+        
+        <p>Kita tidak perlu menghafalkan seluruh parameter tersebut pada pertemuan ini.</p>
+        <p>Yang penting dipahami:</p>
+        <p><code>compile()</code> digunakan untuk menyiapkan cara model melakukan proses pembelajaran.</p>
+      </div>
+
+      <div class="materi-section">
+        <h2>Melatih Model</h2>
+
+        <p>Bagian paling penting adalah:</p>
+        <pre><code>model.fit(X, y, epochs=50, verbose=0)</code></pre>
+        <p><code>fit()</code> digunakan untuk melakukan training.</p>
+        
+        <p>Kita memberikan:</p>
+        <ul>
+          <li>X = data input</li>
+          <li>y = jawaban</li>
+          <li>epochs = jumlah putaran training</li>
+        </ul>
+        
+        <p>Setelah training selesai, model sudah memiliki pola yang dipelajari dari data training.</p>
+      </div>
+
+      <div class="materi-section">
+        <h2>Melakukan Prediksi</h2>
+
+        <p>Sekarang kita memberikan data baru:</p>
+        <pre><code>[[6, 4]]</code></pre>
+        
+        <p>Artinya:</p>
+        <ul>
+          <li>Jam belajar = 6</li>
+          <li>Jumlah latihan = 4</li>
+        </ul>
+        
+        <p>Kemudian:</p>
+        <pre><code>hasil = model.predict(
+    np.array([[6, 4]], dtype=float),
+    verbose=0
+)</code></pre>
+        <p>Model menghasilkan sebuah nilai probabilitas.</p>
+        
+        <p>Kemudian program memeriksa:</p>
+        <pre><code>if hasil[0][0] >= 0.5:
+    print("Prediksi: Lulus")
+else:
+    print("Prediksi: Tidak Lulus")</code></pre>
+        
+        <p>Dengan demikian kita sudah menjalankan proses:</p>
+        <pre><code>Data
+ ↓
+Neural Network
+ ↓
+Training
+ ↓
+Model
+ ↓
+Data Baru
+ ↓
+Inference
+ ↓
+Prediksi</code></pre>
+      </div>
+
+      <div class="materi-section">
+        <h2>Hubungan Deep Learning dengan AI Modern</h2>
+
+        <p>Deep Learning sangat penting dalam perkembangan teknologi AI modern.</p>
+        <p>Model yang mampu memahami bahasa, suara, gambar, dan berbagai jenis data kompleks banyak menggunakan pendekatan neural network dan deep learning.</p>
+        
+        <p>Misalnya sistem:</p>
+        <pre><code>Suara
+ ↓
+Neural Network
+ ↓
+Teks</code></pre>
+        
+        <p>atau:</p>
+        <pre><code>Teks
+ ↓
+Neural Network
+ ↓
+Respons</code></pre>
+        
+        <p>atau:</p>
+        <pre><code>Gambar
+ ↓
+Neural Network
+ ↓
+Informasi</code></pre>
+        
+        <p>Teknologi seperti ini kemudian menjadi bagian dari aplikasi AI yang lebih besar.</p>
+        <p>Inilah yang nantinya akan kita gunakan ketika membangun chatbot dan AI Assistant.</p>
+      </div>
+
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/167tN2bWaE8DwFRKco1fEi6OvBj2Ea3x6/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic4.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1kDz4wtI-8hG9EHRcppJQo9JgHKKJe9OI/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic4.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
     </div>
   </main>
 
@@ -400,8 +728,10 @@
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
