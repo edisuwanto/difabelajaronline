@@ -180,64 +180,72 @@
       </span>
     </h1>
 
-    <section aria-labelledby="modul-title">
+    <section aria-labelledby="modul4-title">
 
-      <h2 id="modul-title">Deep Learning dalam AI Engineering</h2>
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul4-title">Tujuan Pembelajaran</h2>
+      <p>Setelah mempelajari materi ini, peserta mampu:</p>
+      <ul>
+        <li>Memahami konsep dasar Deep Learning dan Neural Network.</li>
+        <li>Memahami struktur Neural Network seperti Neuron dan Layer.</li>
+        <li>Membedakan Input, Hidden Layer, dan Output Layer.</li>
+        <li>Memahami proses Training, Epoch, dan Inference.</li>
+        <li>Mengenal fungsi aktivasi (Activation Function) secara umum.</li>
+        <li>Membuat dan melatih model Neural Network sederhana menggunakan Python dan TensorFlow/Keras.</li>
+        <li>Mengevaluasi dan menggunakan model untuk melakukan prediksi.</li>
+      </ul>
 
-      <p>
-        Pada pertemuan sebelumnya kita sudah belajar bahwa Machine Learning memungkinkan komputer mempelajari pola dari data.
-        Sekarang kita naik satu tingkat.
-      </p>
-
-      <p>
-        Deep Learning merupakan salah satu bagian dari Machine Learning yang menggunakan neural network dengan banyak lapisan untuk mempelajari pola dari data.
-      </p>
-
-      <p>Hubungannya dapat digambarkan seperti ini:</p>
-
-      <pre><code>Artificial Intelligence
+      <!-- BAGIAN 1 -->
+      <div class="materi-section">
+        <h2>Bagian 1 — Deep Learning dalam AI Engineering</h2>
+        <p>
+          Pada pertemuan sebelumnya kita sudah belajar bahwa Machine Learning memungkinkan komputer mempelajari pola dari data.
+          Sekarang kita naik satu tingkat.
+        </p>
+        <p>
+          Deep Learning merupakan salah satu bagian dari Machine Learning yang menggunakan neural network dengan banyak lapisan untuk mempelajari pola dari data.
+        </p>
+        <p>Hubungannya dapat digambarkan seperti ini:</p>
+        <pre><code>Artificial Intelligence
         ↓
 Machine Learning
         ↓
 Deep Learning
         ↓
 Neural Network</code></pre>
+        <p>Jadi Deep Learning bukan teknologi yang berdiri sendiri di luar Machine Learning.</p>
+        <p>Deep Learning adalah salah satu pendekatan dalam Machine Learning.</p>
+        <p>Deep Learning menjadi sangat penting dalam perkembangan AI modern karena dapat digunakan untuk berbagai jenis pekerjaan, seperti:</p>
+        <ul>
+          <li>pengenalan suara,</li>
+          <li>pengenalan gambar,</li>
+          <li>pemrosesan bahasa,</li>
+          <li>penerjemahan,</li>
+          <li>analisis teks,</li>
+          <li>computer vision,</li>
+          <li>speech recognition,</li>
+          <li>generative AI.</li>
+        </ul>
+        <p>
+          Namun pada pertemuan ini kita tidak akan membuat model sebesar model AI modern seperti LLM. Kita akan membuat model neural network sederhana agar memahami prinsip dasarnya.
+        </p>
+        <h3>Analogi Deep Learning untuk Tunanetra</h3>
+        <p>
+          Bayangkan Anda belajar mengenali berbagai bentuk uang logam. Awalnya Anda hanya mengenali ukuran (Machine Learning dasar). Namun seiring berjalannya waktu, Anda mulai meraba tekstur pinggiran, ketebalan, dan beratnya sekaligus secara mendalam (Deep Learning) sehingga Anda bisa mengenali koin tersebut dengan jauh lebih akurat dan cepat.
+        </p>
+      </div>
 
-      <p>Jadi Deep Learning bukan teknologi yang berdiri sendiri di luar Machine Learning.</p>
-
-      <p>Deep Learning adalah salah satu pendekatan dalam Machine Learning.</p>
-
-      <p>Deep Learning menjadi sangat penting dalam perkembangan AI modern karena dapat digunakan untuk berbagai jenis pekerjaan, seperti:</p>
-
-      <ul>
-        <li>pengenalan suara,</li>
-        <li>pengenalan gambar,</li>
-        <li>pemrosesan bahasa,</li>
-        <li>penerjemahan,</li>
-        <li>analisis teks,</li>
-        <li>computer vision,</li>
-        <li>speech recognition,</li>
-        <li>generative AI.</li>
-      </ul>
-
-      <p>
-        Namun pada pertemuan ini kita tidak akan membuat model sebesar model AI modern seperti LLM. Kita akan membuat model neural network sederhana agar memahami prinsip dasarnya.
-      </p>
-
+      <!-- BAGIAN 2 -->
       <div class="materi-section">
-        <h2>Analogi Neural Network</h2>
-
+        <h2>Bagian 2 — Analogi Neural Network</h2>
         <p>
           Untuk memahami neural network, bayangkan sebuah sistem yang terdiri dari beberapa orang yang saling meneruskan informasi.
         </p>
-
         <p>Orang pertama menerima informasi.</p>
         <p>Kemudian informasi diteruskan kepada orang kedua.</p>
         <p>Orang kedua memproses informasi tersebut dan meneruskannya lagi.</p>
         <p>Setelah melewati beberapa orang, akhirnya informasi sampai kepada orang terakhir yang menghasilkan keputusan.</p>
-
         <p>Neural network memiliki konsep yang mirip.</p>
-
         <pre><code>Input
   ↓
 Layer
@@ -245,78 +253,65 @@ Layer
 Layer
   ↓
 Output</code></pre>
-
         <p>Setiap bagian memiliki tugas dalam proses pengolahan informasi.</p>
-      </div>
-
-      <div class="materi-section">
-        <h2>Analogi Neural Network untuk Tunanetra</h2>
-
+        
+        <h3>Analogi Neural Network untuk Tunanetra</h3>
         <p>
           Untuk mempermudah pemahaman, mari kita gunakan analogi yang relevan bagi tunanetra.
           Bayangkan Anda sedang berusaha mengenali sebuah benda hanya dengan merabanya.
         </p>
-
         <ul>
           <li><strong>Input Layer:</strong> Kulit di ujung jari Anda menyentuh benda tersebut. Jari-jari bertugas mengumpulkan informasi dasar, seperti tekstur (kasar atau halus) dan bentuk permukaan.</li>
           <li><strong>Hidden Layer:</strong> Informasi dasar dari jari diteruskan melalui jaringan saraf ke otak. Di tahap ini (lapisan tersembunyi), informasi digabungkan dan diproses secara bertingkat. Otak Anda mulai merangkai pola bahwa "benda ini bulat, permukaannya berpori, dan seukuran kepalan tangan".</li>
           <li><strong>Output Layer:</strong> Bagian akhir dari otak Anda mengambil kesimpulan dari semua rangkaian informasi tersebut dan memutuskan: "Ini adalah buah jeruk".</li>
         </ul>
-
         <p>
           Dalam Neural Network, setiap "layer" (lapisan) bekerja persis seperti proses meraba dan mengenali tersebut. Lapisan-lapisan itu saling mengoper dan mengolah informasi dari bagian yang paling sederhana hingga menghasilkan sebuah prediksi atau keputusan akhir yang utuh.
         </p>
       </div>
 
+      <!-- BAGIAN 3 -->
       <div class="materi-section">
-        <h2>Apa Itu Neuron?</h2>
-
+        <h2>Bagian 3 — Apa Itu Neuron?</h2>
         <p>Neuron merupakan unit dasar dalam neural network.</p>
         <p>Kita dapat membayangkannya sebagai sebuah unit pengolah informasi.</p>
         <p>Neuron menerima beberapa nilai input, mengolahnya, kemudian menghasilkan output.</p>
-        
         <p>Contohnya kita mempunyai dua informasi:</p>
         <ul>
           <li>Jam belajar</li>
           <li>Jumlah latihan</li>
         </ul>
-        
         <p>Informasi tersebut diberikan kepada neural network.</p>
-
         <pre><code>Jam belajar ─────┐
                 ↓
              Neuron
                 ↑
 Jumlah latihan ─┘</code></pre>
-
         <p>Neuron kemudian menghasilkan sebuah nilai.</p>
-        
         <p>
           Dalam neural network sebenarnya terdapat proses matematika di dalam neuron. Namun untuk pemula, kita tidak perlu langsung mempelajari rumusnya secara mendalam.
         </p>
-        
         <p>Yang perlu dipahami terlebih dahulu:</p>
         <p>Neuron menerima input, melakukan perhitungan, kemudian menghasilkan output.</p>
+        
+        <h3>Analogi Neuron untuk Tunanetra</h3>
+        <p>
+          Bayangkan neuron sebagai satu titik peka pada ujung jari Anda saat meraba huruf Braille. Satu titik tersebut mendeteksi ada tidaknya tonjolan (input). Saraf di titik tersebut merespon (perhitungan) dan mengirimkan sinyal rasa (output) ke otak. Masing-masing titik ujung jari (neuron) bekerja menangkap informasi kecil yang spesifik.
+        </p>
       </div>
 
+      <!-- BAGIAN 4 -->
       <div class="materi-section">
-        <h2>Apa Itu Layer?</h2>
-
+        <h2>Bagian 4 — Apa Itu Layer?</h2>
         <p>Neuron biasanya disusun dalam kelompok yang disebut layer atau lapisan.</p>
-        
         <p>Secara sederhana terdapat:</p>
-        
         <h3>1. Input Layer</h3>
         <p>Menerima data.</p>
-        
         <h3>2. Hidden Layer</h3>
         <p>Memproses informasi.</p>
-        
         <h3>3. Output Layer</h3>
         <p>Menghasilkan hasil akhir.</p>
-        
         <p>Gambaran sederhananya:</p>
-
         <pre><code>Input Layer
      ↓
 Hidden Layer
@@ -324,43 +319,37 @@ Hidden Layer
 Hidden Layer
      ↓
 Output Layer</code></pre>
-
         <p>Disebut Deep Learning karena neural network dapat memiliki banyak layer.</p>
-        
         <p>Semakin banyak dan kompleks lapisan yang digunakan, semakin kompleks pula pola yang dapat dipelajari model.</p>
-        
         <p>Tetapi semakin kompleks model, biasanya semakin besar pula kebutuhan data, komputasi, dan proses training.</p>
+        
+        <h3>Analogi Layer untuk Tunanetra</h3>
+        <p>
+          Layer bisa diibaratkan sebagai tahapan saat Anda mengenali sebuah ruangan baru. 
+          Lapisan pertama (Input Layer) adalah saat tongkat Anda menyentuh lantai. Lapisan kedua (Hidden Layer) adalah saat pendengaran Anda menangkap gema suara di ruangan dan menggabungkannya dengan perasaan langkah kaki. Lapisan ketiga (Output Layer) adalah kesimpulan akhir di otak Anda yang menyatukan semua itu: "Ini adalah ruangan aula yang luas".
+        </p>
       </div>
 
+      <!-- BAGIAN 5 -->
       <div class="materi-section">
-        <h2>Input, Hidden Layer, dan Output</h2>
-
+        <h2>Bagian 5 — Input, Hidden Layer, dan Output</h2>
         <p>Mari kita gunakan contoh klasifikasi sederhana.</p>
         <p>Kita ingin memprediksi apakah seorang siswa lulus atau tidak lulus.</p>
-        
         <p>Data yang diberikan:</p>
         <ul>
           <li>Jam belajar</li>
           <li>Jumlah latihan</li>
         </ul>
-        
         <p>Maka:</p>
-        
         <pre><code>Input:
 Jam belajar
 Jumlah latihan</code></pre>
-
         <p>Neural network memproses data tersebut.</p>
         <p>Kemudian output:</p>
-        
         <pre><code>Lulus</code></pre>
-        
         <p>atau:</p>
-        
         <pre><code>Tidak Lulus</code></pre>
-
         <p>Alurnya:</p>
-        
         <pre><code>Jam belajar
 Jumlah latihan
        ↓
@@ -371,18 +360,23 @@ Jumlah latihan
  Output Layer
        ↓
 Lulus / Tidak Lulus</code></pre>
+
+        <h3>Analogi Input, Hidden Layer, dan Output untuk Tunanetra</h3>
+        <p>
+          Proses ini mirip dengan menyeduh secangkir kopi. 
+          <strong>Input Layer:</strong> Anda menyiapkan kopi bubuk dan air panas ke dalam cangkir. 
+          <strong>Hidden Layer:</strong> Anda mengaduknya agar larut merata dan menyatu sempurna, proses yang tidak terlihat tapi menyatukan rasa. 
+          <strong>Output Layer:</strong> Anda mencicipi dan merasakan secangkir kopi yang siap dinikmati.
+        </p>
       </div>
 
+      <!-- BAGIAN 6 -->
       <div class="materi-section">
-        <h2>Apa yang Dipelajari Model?</h2>
-
+        <h2>Bagian 6 — Apa yang Dipelajari Model?</h2>
         <p>Pertanyaan pentingnya:</p>
         <p>Kalau model tidak kita beri aturan secara langsung, lalu apa yang sebenarnya dipelajari?</p>
-        
         <p>Model belajar menemukan pola dalam data.</p>
-        
         <p>Misalnya kita memiliki data:</p>
-
         <pre><code>Jam Belajar | Latihan | Status
 1           | 1       | Tidak Lulus
 2           | 1       | Tidak Lulus
@@ -390,23 +384,24 @@ Lulus / Tidak Lulus</code></pre>
 5           | 4       | Lulus
 6           | 5       | Lulus
 7           | 6       | Lulus</code></pre>
-
         <p>Model mencoba menemukan pola hubungan antara input dan output.</p>
-        
         <p>Ketika diberikan data baru:</p>
-        
         <pre><code>Jam belajar = 6
 Latihan = 4</code></pre>
-
         <p>model dapat menghasilkan prediksi.</p>
+
+        <h3>Analogi untuk Tunanetra</h3>
+        <p>
+          Model belajar menemukan pola sama seperti Anda belajar mengenali rute jalan menuju taman. 
+          Awalnya mungkin Anda sesekali salah belok (kesalahan prediksi), tapi setelah berkali-kali melewati jalan yang sama sambil mengingat jumlah langkah dan arah belokan, Anda akhirnya menemukan pola yang tepat. Saat berjalan kembali, Anda bisa memprediksi dengan tepat kapan harus belok kiri atau kanan.
+        </p>
       </div>
 
+      <!-- BAGIAN 7 -->
       <div class="materi-section">
-        <h2>Training</h2>
-
+        <h2>Bagian 7 — Training</h2>
         <p>Training adalah proses ketika model belajar dari data.</p>
         <p>Secara sederhana:</p>
-        
         <pre><code>Dataset
    ↓
 Neural Network
@@ -418,46 +413,52 @@ Bandingkan dengan jawaban
 Perbaiki parameter
    ↓
 Training berikutnya</code></pre>
-
         <p>Proses tersebut dilakukan berulang kali.</p>
         <p>Model mencoba menghasilkan prediksi.</p>
         <p>Kemudian hasilnya dibandingkan dengan jawaban yang benar.</p>
         <p>Jika hasilnya masih salah, parameter model diperbaiki.</p>
         <p>Proses ini terus dilakukan sampai model mendapatkan hasil yang lebih baik berdasarkan tujuan training.</p>
+
+        <h3>Analogi Training untuk Tunanetra</h3>
+        <p>
+          Training mirip dengan belajar memainkan alat musik, misalnya piano. 
+          Saat Anda meraba dan menekan tuts, guru Anda akan memberitahu apakah nada tersebut benar atau salah (membandingkan dengan jawaban). Jika salah, Anda memperbaiki posisi jari Anda dan mencoba lagi (memperbaiki parameter). Proses ini diulang terus-menerus hingga Anda bisa memainkan lagu dengan lancar tanpa salah nada.
+        </p>
       </div>
 
+      <!-- BAGIAN 8 -->
       <div class="materi-section">
-        <h2>Epoch</h2>
-
+        <h2>Bagian 8 — Epoch</h2>
         <p>Dalam Deep Learning kita akan menemukan istilah epoch.</p>
         <p>Epoch adalah satu putaran ketika seluruh data training digunakan untuk melatih model.</p>
-        
         <p>Misalnya kita memiliki:</p>
         <pre><code>100 data</code></pre>
-        
         <p>Jika model memproses seluruh 100 data tersebut satu kali, itu dapat disebut:</p>
         <pre><code>1 epoch</code></pre>
-        
         <p>Jika dilakukan 10 kali:</p>
         <pre><code>10 epoch</code></pre>
-        
         <p>Contohnya:</p>
         <pre><code>Epoch 1 → Model belajar
 Epoch 2 → Model belajar lagi
 Epoch 3 → Model belajar lagi
 ...
 Epoch 10 → Model belajar lagi</code></pre>
-
         <p>Namun lebih banyak epoch tidak selalu berarti model menjadi lebih baik. Jika terlalu lama dilatih terhadap data tertentu, model dapat mengalami overfitting.</p>
         <p>Untuk pertemuan ini kita cukup memahami konsep epoch secara sederhana.</p>
+
+        <h3>Analogi Epoch untuk Tunanetra</h3>
+        <p>
+          Epoch ibarat membaca sebuah buku Braille dari awal sampai akhir. 
+          Satu Epoch berarti Anda telah selesai meraba dan membaca seluruh halaman di buku tersebut. 
+          Membaca berulang kali (banyak epoch) membuat Anda lebih mengingat dan memahami ceritanya. Tapi jika terlalu sering membaca buku yang persis sama, Anda mungkin hanya akan menghafal urutan letak titiknya tanpa sungguh-sungguh memahami maknanya (overfitting).
+        </p>
       </div>
 
+      <!-- BAGIAN 9 -->
       <div class="materi-section">
-        <h2>Inference</h2>
-
+        <h2>Bagian 9 — Inference</h2>
         <p>Setelah model selesai dilatih, kita dapat menggunakannya untuk data baru.</p>
         <p>Proses menggunakan model yang sudah dilatih disebut inference.</p>
-        
         <p>Alurnya:</p>
         <pre><code>Training Data
       ↓
@@ -470,7 +471,6 @@ Data Baru
 Inference
       ↓
 Prediksi</code></pre>
-
         <p>Contohnya:</p>
         <pre><code>Training:
 Data siswa sebelumnya
@@ -483,20 +483,23 @@ Siswa baru
 
 Hasil:
 Prediksi Lulus</code></pre>
-
         <p>Jadi jangan mencampur:</p>
         <ul>
           <li>Training = proses belajar.</li>
           <li>Inference = menggunakan model yang sudah belajar.</li>
         </ul>
+
+        <h3>Analogi Inference untuk Tunanetra</h3>
+        <p>
+          Inference ibarat menjalani ujian praktik. Setelah berminggu-minggu berlatih (training) meraba berbagai rute di lingkungan sekolah, kini saatnya Anda diuji berjalan di sebuah rute baru yang mirip namun belum pernah Anda lewati. Kemampuan Anda menebak kapan harus berbelok dengan lancar menggunakan keahlian yang telah dilatih sebelumnya, itulah proses inference.
+        </p>
       </div>
 
+      <!-- BAGIAN 10 -->
       <div class="materi-section">
-        <h2>Activation Function</h2>
-
+        <h2>Bagian 10 — Activation Function</h2>
         <p>Di dalam neural network terdapat komponen yang disebut activation function.</p>
         <p>Activation function membantu neural network menentukan bagaimana sebuah nilai diteruskan dari satu bagian jaringan ke bagian lainnya.</p>
-        
         <p>Beberapa activation function yang sering ditemukan:</p>
         <ul>
           <li>ReLU.</li>
@@ -504,33 +507,31 @@ Prediksi Lulus</code></pre>
           <li>Tanh.</li>
           <li>Softmax.</li>
         </ul>
-        
         <p>Untuk pemula, cukup pahami bahwa activation function merupakan salah satu komponen penting yang membuat neural network mampu memproses pola yang lebih kompleks.</p>
-        
         <p>Contohnya dalam Python:</p>
-
         <pre><code>from tensorflow.keras.layers import Dense
 
 Dense(16, activation="relu")</code></pre>
-
         <p>Artinya kita membuat sebuah layer dengan 16 unit dan menggunakan fungsi aktivasi ReLU.</p>
         <p>Kita tidak perlu membahas rumus ReLU pada pertemuan ini.</p>
+
+        <h3>Analogi Activation Function untuk Tunanetra</h3>
+        <p>
+          Activation function ibarat sebuah pintu saringan bagi indera peraba Anda. 
+          Misalnya saat Anda meraba meja mencari koin logam. Jari Anda menyaring sentuhan: jika benda itu berbahan kertas yang rata, jari Anda akan mengabaikannya (informasi ditahan). Namun jika benda itu terasa bulat dan keras, jari Anda akan merespons kuat (informasi diteruskan). Pintu saringan inilah yang menentukan informasi penting mana yang akan dilanjutkan ke otak.
+        </p>
       </div>
 
+      <!-- BAGIAN 11 -->
       <div class="materi-section">
-        <h2>Praktik: Membuat Neural Network Sederhana</h2>
-
+        <h2>Bagian 11 — Praktik: Membuat Neural Network Sederhana</h2>
         <p>Sekarang kita masuk praktik.</p>
         <p>Kita akan menggunakan TensorFlow dan Keras.</p>
-        
         <p>Install terlebih dahulu:</p>
         <pre><code>pip install tensorflow</code></pre>
-        
         <p>Kemudian buat file:</p>
         <pre><code>deep_learning.py</code></pre>
-        
         <p>Masukkan kode berikut:</p>
-
         <pre><code>import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -579,9 +580,9 @@ else:
     print("Prediksi: Tidak Lulus")</code></pre>
       </div>
 
+      <!-- BAGIAN 12 -->
       <div class="materi-section">
-        <h2>M. Memahami Kode</h2>
-
+        <h2>Bagian 12 — Memahami Kode</h2>
         <p>Bagian:</p>
         <pre><code>X = np.array([
     [1, 1],
@@ -592,13 +593,11 @@ else:
     [7, 6]
 ])</code></pre>
         <p>merupakan data input.</p>
-        
         <p>Kita mempunyai dua fitur:</p>
         <ul>
           <li>Fitur 1 = Jam belajar</li>
           <li>Fitur 2 = Jumlah latihan</li>
         </ul>
-        
         <p>Kemudian:</p>
         <pre><code>y = np.array([
     0,
@@ -609,13 +608,11 @@ else:
     1
 ])</code></pre>
         <p>merupakan label.</p>
-        
         <p>Kita menggunakan:</p>
         <ul>
           <li>0 = Tidak Lulus</li>
           <li>1 = Lulus</li>
         </ul>
-        
         <p>Kemudian kita membuat neural network:</p>
         <pre><code>model = keras.Sequential([
     layers.Dense(8, activation="relu", input_shape=(2,)),
@@ -627,61 +624,53 @@ else:
 8 neuron
   ↓
 Output</code></pre>
-
         <p>Kemudian model dikonfigurasi:</p>
         <pre><code>model.compile(
     optimizer="adam",
     loss="binary_crossentropy",
     metrics=["accuracy"]
 )</code></pre>
-        
         <p>Kita tidak perlu menghafalkan seluruh parameter tersebut pada pertemuan ini.</p>
         <p>Yang penting dipahami:</p>
         <p><code>compile()</code> digunakan untuk menyiapkan cara model melakukan proses pembelajaran.</p>
       </div>
 
+      <!-- BAGIAN 13 -->
       <div class="materi-section">
-        <h2>Melatih Model</h2>
-
+        <h2>Bagian 13 — Melatih Model</h2>
         <p>Bagian paling penting adalah:</p>
         <pre><code>model.fit(X, y, epochs=50, verbose=0)</code></pre>
         <p><code>fit()</code> digunakan untuk melakukan training.</p>
-        
         <p>Kita memberikan:</p>
         <ul>
           <li>X = data input</li>
           <li>y = jawaban</li>
           <li>epochs = jumlah putaran training</li>
         </ul>
-        
         <p>Setelah training selesai, model sudah memiliki pola yang dipelajari dari data training.</p>
       </div>
 
+      <!-- BAGIAN 14 -->
       <div class="materi-section">
-        <h2>Melakukan Prediksi</h2>
-
+        <h2>Bagian 14 — Melakukan Prediksi</h2>
         <p>Sekarang kita memberikan data baru:</p>
         <pre><code>[[6, 4]]</code></pre>
-        
         <p>Artinya:</p>
         <ul>
           <li>Jam belajar = 6</li>
           <li>Jumlah latihan = 4</li>
         </ul>
-        
         <p>Kemudian:</p>
         <pre><code>hasil = model.predict(
     np.array([[6, 4]], dtype=float),
     verbose=0
 )</code></pre>
         <p>Model menghasilkan sebuah nilai probabilitas.</p>
-        
         <p>Kemudian program memeriksa:</p>
         <pre><code>if hasil[0][0] >= 0.5:
     print("Prediksi: Lulus")
 else:
     print("Prediksi: Tidak Lulus")</code></pre>
-        
         <p>Dengan demikian kita sudah menjalankan proses:</p>
         <pre><code>Data
  ↓
@@ -696,35 +685,40 @@ Data Baru
 Inference
  ↓
 Prediksi</code></pre>
+        
+        <h3>Analogi Membangun dan Melatih Model untuk Tunanetra</h3>
+        <p>
+          Langkah-langkah dalam praktik dari Bagian 11 hingga 14 mirip dengan membuat kerajinan anyaman bambu. 
+          Menyiapkan array X dan y ibarat menyiapkan potongan bambu (bahan baku). 
+          Fungsi <code>Sequential()</code> dan <code>compile()</code> ibarat menyusun kerangka dan menentukan pola anyaman (persiapan). 
+          Lalu, <code>fit()</code> adalah proses Anda menganyam berulang-ulang, memperbaiki bagian yang kurang rapat (training). 
+          Terakhir, <code>predict()</code> adalah saat Anda menguji memasukkan barang ke keranjang anyaman Anda untuk memastikan seberapa rapi dan kuatnya keranjang tersebut (inference).
+        </p>
       </div>
 
+      <!-- BAGIAN 15 -->
       <div class="materi-section">
-        <h2>Hubungan Deep Learning dengan AI Modern</h2>
-
+        <h2>Bagian 15 — Hubungan Deep Learning dengan AI Modern</h2>
         <p>Deep Learning sangat penting dalam perkembangan teknologi AI modern.</p>
         <p>Model yang mampu memahami bahasa, suara, gambar, dan berbagai jenis data kompleks banyak menggunakan pendekatan neural network dan deep learning.</p>
-        
         <p>Misalnya sistem:</p>
         <pre><code>Suara
  ↓
 Neural Network
  ↓
 Teks</code></pre>
-        
         <p>atau:</p>
         <pre><code>Teks
  ↓
 Neural Network
  ↓
 Respons</code></pre>
-        
         <p>atau:</p>
         <pre><code>Gambar
  ↓
 Neural Network
  ↓
 Informasi</code></pre>
-        
         <p>Teknologi seperti ini kemudian menjadi bagian dari aplikasi AI yang lebih besar.</p>
         <p>Inilah yang nantinya akan kita gunakan ketika membangun chatbot dan AI Assistant.</p>
       </div>
