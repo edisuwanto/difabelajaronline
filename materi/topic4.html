@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" data-bs-theme="light">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Topik 4 - Artificial Intelligent | Difabelajar</title>
@@ -27,6 +28,60 @@
       transform: translateY(-2px);
     }
   </style>
+=======
+
+  <!-- CEK LOGIN SEBELUM HALAMAN DITAMPILKAN -->
+  <script>
+    (function () {
+      const loginData = localStorage.getItem('difabelajar_login');
+      if (!loginData) {
+        window.location.replace('../login.html');
+        return;
+      }
+      try {
+        const user = JSON.parse(loginData);
+        if (!user.username) throw new Error("Invalid");
+      } catch (error) {
+        localStorage.removeItem('difabelajar_login');
+        window.location.replace('../login.html');
+      }
+    })();
+  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Belum Bisa Diakses</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: #0056b3;
+        }
+    </style>
+>>>>>>> 2906f22b126cb97ad9d14b807946cf8e0635ebf8
 </head>
 <body class="bg-body-secondary">
   <!-- Navbar -->
