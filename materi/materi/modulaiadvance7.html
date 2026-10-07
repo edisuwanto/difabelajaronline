@@ -21,9 +21,15 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 7 - AI untuk Membantu Belajar</title>
-  <meta name="description" content="Modul AI untuk Membantu Belajar di Difabelajar. Pelajari cara menggunakan AI sebagai tutor pribadi, pembuat soal, peringkas materi, dan pendukung belajar mandiri.">
+
+  <title>Building an Application with Google AI Studio</title>
+
+  <meta name="description" content="Modul AI Engineering Topik 7: Dari Ide Menjadi Aplikasi AI dengan Bahasa Alami di Google AI Studio Build Mode, panduan terstruktur Bagian 1 hingga Bagian 17, panduan pengguna screen reader, serta keamanan API Key.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -34,6 +40,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -44,20 +51,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -74,6 +89,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -83,13 +99,50 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
       color: #7ec3e6;
+    }
+
+    .materi-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
+    }
+
+    pre {
+      background: #e9ecef;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode pre {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    code {
+      font-family: Consolas, 'Courier New', monospace;
     }
 
     .btn-custom {
@@ -104,6 +157,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -126,6 +180,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -133,219 +188,657 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      AI untuk Membantu Belajar<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul Topik 7 — Artificial Intelligence Fundamental</span>
+      Building an Application with Google AI Studio
     </h1>
 
-    <section aria-labelledby="modul2-title">
-      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
-      <ul>
-        <li>Memahami bagaimana AI dapat menjadi tutor pribadi</li>
-        <li>Menggunakan AI untuk menjelaskan konsep sulit</li>
-        <li>Menggunakan AI untuk membuat soal latihan</li>
-        <li>Menggunakan AI untuk membuat rangkuman materi</li>
-        <li>Menggunakan AI untuk belajar mandiri secara efektif</li>
-        <li>Mengetahui batasan dan etika penggunaan AI dalam pendidikan</li>
-      </ul>
+    <div class="step-box mb-4">
+      <p class="mt-2 mb-0">
+        Pada pertemuan ini kita mulai berpindah dari belajar konsep AI Engineering menuju membangun aplikasi AI secara nyata. 
+        Google AI Studio saat ini memiliki <em>Build mode</em> yang memungkinkan kita mendeskripsikan aplikasi menggunakan bahasa alami, kemudian AI menghasilkan struktur dan kode aplikasi. Untuk aplikasi web, AI Studio kini menyediakan lingkungan full-stack dengan frontend dan runtime server-side berbasis Node.js.
+      </p>
+    </div>
 
-      <h2>Bagian 1 — Mengapa AI Sangat Cocok untuk Membantu Belajar?</h2>
-      <p>Menurut Google AI for Education, AI dapat:</p>
-      <ul>
-        <li>Menjelaskan konsep dengan berbagai cara</li>
-        <li>Menyesuaikan penjelasan sesuai tingkat pemahaman siswa</li>
-        <li>Memberikan latihan soal otomatis</li>
-        <li>Memberikan umpan balik cepat</li>
-        <li>Membantu siswa belajar mandiri</li>
-      </ul>
+    <section aria-labelledby="modul7-title">
 
-      <p>Menurut Microsoft Learn AI in Education, AI membantu:</p>
-      <ul>
-        <li>Pembelajaran personal (personalized learning)</li>
-        <li>Pembelajaran adaptif (adaptive learning)</li>
-        <li>Pembelajaran mandiri (self-paced learning)</li>
-      </ul>
-
-      <p>Menurut UNESCO (2023), AI dapat meningkatkan akses pendidikan bagi penyandang disabilitas, termasuk tunanetra.</p>
-
-      <p><strong>Analogi untuk pengguna screen reader:</strong><br>
-      AI seperti guru privat yang selalu siap 24 jam, yang bisa menjelaskan ulang materi sampai Anda benar-benar paham.</p>
-
-      <h2>Bagian 2 — Cara AI Membantu Belajar</h2>
-      <p>AI dapat membantu belajar dalam 4 cara utama:</p>
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul7-title">Tujuan Pembelajaran</h2>
+      <p>Setelah menyelesaikan pertemuan ini, peserta diharapkan mampu:</p>
       <ol>
-        <li>Menjelaskan konsep sulit</li>
-        <li>Membuat soal latihan</li>
-        <li>Membuat rangkuman materi</li>
-        <li>Memberikan contoh dan analogi</li>
+        <li>Memahami fungsi Google AI Studio.</li>
+        <li>Memahami konsep Build mode.</li>
+        <li>Memahami hubungan prompt dengan pembuatan aplikasi.</li>
+        <li>Membuat spesifikasi aplikasi menggunakan bahasa alami.</li>
+        <li>Membuat aplikasi sederhana menggunakan Google AI Studio.</li>
+        <li>Memahami struktur dasar aplikasi yang dihasilkan AI.</li>
+        <li>Menguji aplikasi secara mandiri.</li>
+        <li>Memperbaiki aplikasi menggunakan instruksi kepada AI (<em>iterative prompt</em>).</li>
+        <li>Memahami dasar keamanan API key.</li>
+        <li>Memahami bahwa AI coding bukan berarti programmer tidak perlu memahami kode.</li>
       </ol>
-      <p>Mari kita bahas satu per satu.</p>
 
-      <h2>Bagian 3 — AI sebagai Tutor Pribadi</h2>
+      <!-- BAGIAN 1 -->
+      <div class="materi-section">
+        <h2>Bagian 1 — Apa Itu Google AI Studio?</h2>
+        <p>
+          Secara sederhana, <strong>Google AI Studio</strong> adalah lingkungan untuk bereksperimen dan membangun aplikasi menggunakan model Gemini.
+        </p>
+        <p>Dahulu kita biasanya membangun aplikasi dengan cara bertahap yang membutuhkan banyak penulisan kode manual:</p>
+        <pre><code>Ide
+ │
+ v
+Desain
+ │
+ v
+Menulis kode
+ │
+ v
+Debugging
+ │
+ v
+Testing
+ │
+ v
+Aplikasi</code></pre>
+        <p>
+          Sekarang AI dapat membantu sebagian besar proses tersebut. Dengan <strong>Google AI Studio Build mode</strong>, kita dapat memberikan instruksi menggunakan bahasa manusia sehari-hari seperti:
+        </p>
+        <pre><code>Buat aplikasi chatbot kamus Bahasa Inggris.
+Pengguna dapat memasukkan kata.
+Aplikasi menampilkan arti dalam Bahasa Indonesia
+dan contoh kalimat.</code></pre>
+        <p>
+          AI kemudian membuat aplikasi berdasarkan instruksi tersebut. Google menjelaskan bahwa Build mode dapat membuat aplikasi web full-stack dan juga aplikasi Android native. Untuk pembelajaran AI Engineering kita akan fokus terlebih dahulu pada aplikasi web karena lebih sederhana untuk dipahami dan diuji langsung melalui browser.
+        </p>
 
-      <h3>1. Menjelaskan Konsep Sulit</h3>
-      <p>AI dapat menjelaskan:</p>
-      <ul>
-        <li>Matematika</li>
-        <li>Sains</li>
-        <li>Teknologi</li>
-        <li>Bahasa</li>
-        <li>Sejarah</li>
-        <li>Konsep abstrak</li>
-      </ul>
+        <h3>Analogi untuk Peserta Tunanetra</h3>
+        <p>
+          Bayangkan Anda mendatangi seorang arsitek digital terampil. Anda tidak perlu menyusun batu bata atau mengecor lantai sendiri; Anda cukup mendeskripsikan: <em>"Tolong buatkan ruangan belajar dengan satu pintu masuk lebar yang mudah dilalui, meja komputer di tengah, dan ventilasi udara yang sejuk."</em> Arsitek tersebut akan membuat denah dan mendirikan ruangannya untuk Anda. Demikian halnya Build mode: kata-kata dan deskripsi logis Anda adalah cetak biru aplikasinya.
+        </p>
+      </div>
 
-      <p>AI dapat menyesuaikan gaya penjelasan:</p>
-      <ul>
-        <li>untuk pemula</li>
-        <li>untuk anak-anak</li>
-        <li>untuk tunanetra</li>
-        <li>untuk profesional</li>
-      </ul>
+      <!-- BAGIAN 2 -->
+      <div class="materi-section">
+        <h2>Bagian 2 — Mengapa Ini Penting untuk AI Engineer?</h2>
+        <p>
+          Seorang AI Engineer tidak selalu harus menulis seluruh kode aplikasi dari awal baris per baris. Yang jauh lebih penting adalah memahami kerangka masalah dan solusinya:
+        </p>
+        <pre><code>Apa masalahnya?
+Apa solusi yang dibutuhkan?
+Data apa yang digunakan?
+Model AI apa yang diperlukan?
+Tool apa yang diperlukan?
+Bagaimana aplikasi diuji?
+Bagaimana keamanan dijaga?</code></pre>
+        <p>
+          AI dapat membantu menulis kode. Tetapi seorang AI Engineer tetap harus mampu:
+        </p>
+        <ul>
+          <li>Membaca kode;</li>
+          <li>Memahami struktur aplikasi;</li>
+          <li>Memberikan instruksi yang tepat;</li>
+          <li>Menguji hasil;</li>
+          <li>Menemukan kesalahan;</li>
+          <li>Memperbaiki aplikasi;</li>
+          <li>Menjaga keamanan data.</li>
+        </ul>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Prinsip Utama AI Engineer:</strong><br>
+            <em>AI membantu programmer membuat aplikasi, bukan menggantikan pemahaman programmer.</em>
+          </p>
+        </div>
+      </div>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Jelaskan apa itu fotosintesis untuk pemula tunanetra. Gunakan analogi audio dan bahasa sederhana.”</p>
+      <!-- BAGIAN 3 -->
+      <div class="materi-section">
+        <h2>Bagian 3 — Memahami Build Mode</h2>
+        <p>
+          Google AI Studio memiliki Build mode yang memungkinkan kita memberikan deskripsi aplikasi menggunakan prompt. Alurnya terstruktur dan jelas:
+        </p>
+        <pre><code>Ide aplikasi
+     │
+     v
+Prompt
+     │
+     v
+AI memahami kebutuhan
+     │
+     v
+AI membuat kode
+     │
+     v
+Aplikasi
+     │
+     v
+Preview
+     │
+     v
+Testing
+     │
+     v
+Perbaikan</code></pre>
+        <p>
+          Google AI Studio juga memungkinkan kita melanjutkan percakapan dengan AI untuk meminta perubahan pada aplikasi yang sudah dibuat. Misalnya aplikasi pertama sudah selesai, kemudian kita mengatakan:
+        </p>
+        <pre><code>Tambahkan tombol hapus.</code></pre>
+        <p>AI akan mencoba memodifikasi aplikasi. Kemudian kita lanjutkan:</p>
+        <pre><code>Tambahkan fitur pencarian.</code></pre>
+        <p>Lalu diperkuat dengan aksesibilitas ramah pembaca layar:</p>
+        <pre><code>Buat tampilannya lebih sederhana dan
+mudah digunakan oleh pengguna screen reader.</code></pre>
+        <p>
+          Inilah yang disebut <strong>Iterative Development</strong> (pengembangan berulang dan bertahap).
+        </p>
+      </div>
 
-      <h3>2. Menjelaskan dengan Berbagai Gaya</h3>
-      <p>Menurut OpenAI Teaching Guide, AI dapat menjelaskan:</p>
-      <ul>
-        <li>dengan analogi</li>
-        <li>dengan contoh</li>
-        <li>dengan langkah-langkah</li>
-        <li>dengan cerita</li>
-        <li>dengan perbandingan</li>
-      </ul>
+      <!-- BAGIAN 4 -->
+      <div class="materi-section">
+        <h2>Bagian 4 — Apa Itu Prompt untuk Membuat Aplikasi?</h2>
+        <p>
+          Pada pertemuan sebelumnya kita sudah mengenal prompt untuk menghasilkan teks atau jawaban. Namun ketika membuat aplikasi utuh, prompt harus jauh lebih terstruktur dan berorientasi arsitektur.
+        </p>
+        <p><strong>Jangan hanya mengatakan:</strong></p>
+        <pre><code>Buat aplikasi kamus.</code></pre>
+        <p><em>Instruksi tersebut terlalu umum dan membuat AI menebak-nebak kebutuhan Anda.</em></p>
+        <p><strong>Lebih baik susun secara terperinci:</strong></p>
+        <pre><code>Buat aplikasi web chatbot kamus Bahasa Inggris.
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Jelaskan konsep gravitasi dengan analogi suara.”</p>
+Fitur:
+1. Pengguna dapat memasukkan kata Bahasa Inggris.
+2. Aplikasi menampilkan arti Bahasa Indonesia.
+3. Aplikasi menampilkan contoh kalimat.
+4. Aplikasi memiliki riwayat pencarian.
+5. Pengguna dapat menghapus riwayat.
 
-      <h2>Bagian 4 — AI untuk Membuat Soal Latihan</h2>
-      <p>AI dapat membuat:</p>
-      <ul>
-        <li>soal pilihan ganda</li>
-        <li>soal essay</li>
-        <li>soal benar/salah</li>
-        <li>soal berbasis kasus</li>
-        <li>soal latihan bertingkat</li>
-      </ul>
+Buat antarmuka sederhana dan mudah digunakan
+oleh pengguna screen reader.
+Gunakan label yang jelas pada setiap input
+dan tombol.</code></pre>
+        <p>Prompt tersebut memberikan konteks dan batasan teknis yang sangat terarah bagi AI.</p>
+      </div>
 
-      <p>Menurut Google for Education, AI dapat membantu guru membuat soal lebih cepat dan variatif.</p>
+      <!-- BAGIAN 5 -->
+      <div class="materi-section">
+        <h2>Bagian 5 — Formula Prompt untuk AI Coding</h2>
+        <p>Peserta dapat menggunakan pola atau kerangka kerja (formula) terstandar berikut saat merancang aplikasi dengan AI:</p>
+        <pre><code>Buat [jenis aplikasi]
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan 5 soal pilihan ganda tentang fotosintesis untuk pemula.”</p>
+Tujuan:
+[tujuan aplikasi]
 
-      <h2>Bagian 5 — AI untuk Merangkum Materi Pelajaran</h2>
-      <p>AI dapat merangkum:</p>
-      <ul>
-        <li>artikel</li>
-        <li>buku</li>
-        <li>catatan kelas</li>
-        <li>materi PDF</li>
-        <li>video (melalui transkrip)</li>
-      </ul>
+Pengguna:
+[siapa yang menggunakan]
 
-      <p>Menurut Microsoft Learn, AI sangat efektif untuk:</p>
-      <ul>
-        <li>ringkasan poin</li>
-        <li>ringkasan paragraf</li>
-        <li>ringkasan untuk pemula</li>
-        <li>ringkasan untuk tunanetra</li>
-      </ul>
+Fitur:
+1. ...
+2. ...
+3. ...
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Ringkas materi berikut menjadi 5 poin utama. Gunakan bahasa sederhana dan ramah screen reader.”</p>
+Input:
+...
 
-      <h2>Bagian 6 — AI untuk Membuat Contoh dan Analogi</h2>
-      <p>AI dapat membuat:</p>
-      <ul>
-        <li>contoh soal</li>
-        <li>contoh penggunaan konsep</li>
-        <li>analogi audio</li>
-        <li>cerita pendek untuk memahami konsep</li>
-      </ul>
+Output:
+...
 
-      <p>Ini sangat membantu tunanetra karena analogi audio lebih mudah dibayangkan.</p>
+Teknologi:
+...
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buat analogi audio untuk menjelaskan apa itu listrik.”</p>
+Ketentuan:
+...</code></pre>
 
-      <h2>Bagian 7 — AI untuk Membuat Rencana Belajar</h2>
-      <p>AI dapat membuat:</p>
-      <ul>
-        <li>jadwal belajar</li>
-        <li>roadmap belajar</li>
-        <li>daftar materi</li>
-        <li>target harian</li>
-      </ul>
+        <h3>Contoh Penerapan Formula:</h3>
+        <pre><code>Buat aplikasi web AI Assistant untuk belajar Bahasa Inggris.
 
-      <p>Menurut Google AI Essentials, AI dapat membantu siswa mengatur waktu belajar.</p>
+Tujuan:
+Membantu pengguna mempelajari kosakata Bahasa Inggris.
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan rencana belajar AI dasar selama 7 hari untuk pemula tunanetra.”</p>
+Pengguna:
+Pelajar dan pengguna umum.
 
-      <h2>Bagian 8 — Batasan dan Etika Penggunaan AI dalam Belajar</h2>
-      <p>Menurut UNESCO (2023), penggunaan AI dalam pendidikan harus memperhatikan:</p>
+Fitur:
+1. Input kata Bahasa Inggris.
+2. Menampilkan arti Bahasa Indonesia.
+3. Menampilkan contoh kalimat.
+4. Menyimpan riwayat pencarian.
+5. Menyediakan tombol hapus riwayat.
 
-      <p><strong>1. Jangan gunakan AI untuk menyontek</strong><br>
-      AI boleh membantu belajar, tetapi tidak boleh menggantikan usaha siswa.</p>
+Ketentuan aksesibilitas:
+1. Gunakan label pada semua input.
+2. Semua tombol dapat digunakan dengan keyboard.
+3. Jangan hanya menggunakan warna sebagai penanda informasi.
+4. Gunakan struktur heading yang jelas.
+5. Pastikan hasil AI dapat dibaca screen reader.</code></pre>
+        <p>
+          Prompt dengan formula ini mencerminkan cara berpikir seorang AI Engineer profesional yang memikirkan aspek fungsionalitas sekaligus kemudahan akses sejak detik pertama.
+        </p>
+      </div>
 
-      <p><strong>2. Verifikasi jawaban AI</strong><br>
-      AI bisa salah (hallucination). Selalu cek ulang.</p>
+      <!-- BAGIAN 6 -->
+      <div class="materi-section">
+        <h2>Bagian 6 — Praktik: Konsep AI Assistant</h2>
+        <p>
+          Pada pertemuan ini kita akan membuat sebuah aplikasi sederhana: <strong>AI Assistant Pembelajaran Bahasa Inggris</strong> (<em>English Learning Assistant</em>).
+        </p>
+        <p>Aplikasi memiliki alur konsep:</p>
+        <pre><code>Pengguna
+   │
+   v
+Pertanyaan
+   │
+   v
+Gemini
+   │
+   v
+Jawaban</code></pre>
+        <p>
+          Contoh skenario: Pengguna memasukkan pertanyaan: <code>"Jelaskan perbedaan house dan home."</code> Aplikasi memberikan penjelasan. Kemudian pengguna bertanya lagi: <code>"Berikan contoh kalimat."</code> AI memberikan contoh kontekstual yang relevan.
+        </p>
+      </div>
 
-      <p><strong>3. Jangan masukkan data pribadi</strong><br>
-      Seperti:</p>
-      <ul>
-        <li>alamat</li>
-        <li>nomor telepon</li>
-        <li>data sensitif</li>
-      </ul>
+      <!-- BAGIAN 7 -->
+      <div class="materi-section">
+        <h2>Bagian 7 — Prompt Praktik Utama</h2>
+        <p>
+          Di Google AI Studio Build mode, peserta dapat memasukkan prompt utama berikut:
+        </p>
+        <pre><code>Buat aplikasi web bernama English Learning Assistant.
 
-      <p><strong>4. Gunakan AI sebagai alat bantu, bukan pengganti guru</strong><br>
-      AI membantu, tetapi guru tetap sumber utama.</p>
+Tujuan aplikasi:
+Membantu pengguna belajar Bahasa Inggris
+menggunakan AI.
 
-      <h2>Bagian 9 — Contoh Prompt Siap Pakai</h2>
+Fitur utama:
+1. Pengguna dapat memasukkan pertanyaan.
+2. AI menjawab pertanyaan tentang Bahasa Inggris.
+3. AI dapat menjelaskan arti kata.
+4. AI dapat memberikan contoh kalimat.
+5. AI dapat memberikan latihan sederhana.
+6. Tampilkan percakapan pengguna dan AI.
+7. Sediakan tombol untuk menghapus percakapan.
 
-      <p><strong>1. Untuk Menjelaskan Materi</strong><br>
-      “Jelaskan apa itu ekosistem dalam 3 paragraf pendek. Gunakan bahasa sederhana.”</p>
+Aksesibilitas:
+1. Semua input harus memiliki label yang jelas.
+2. Semua tombol dapat digunakan dengan keyboard.
+3. Gunakan heading HTML yang terstruktur.
+4. Jangan menggunakan informasi yang hanya dapat
+   dipahami berdasarkan warna.
+5. Pastikan hasil percakapan dapat dibaca dengan
+   screen reader.
+6. Gunakan teks yang jelas dan sederhana.
 
-      <p><strong>2. Untuk Membuat Soal</strong><br>
-      “Buatkan 10 soal pilihan ganda tentang ekosistem untuk pemula.”</p>
+Buat desain sederhana dan responsif.</code></pre>
+        <p>
+          Prompt ini sangat lengkap. Peserta tidak perlu menghafalnya kata per kata, melainkan memahami bagaimana setiap komponen kebutuhan disusun dengan sistematis.
+        </p>
+      </div>
 
-      <p><strong>3. Untuk Merangkum</strong><br>
-      “Ringkas teks berikut menjadi 5 poin utama.”</p>
+      <!-- BAGIAN 8 -->
+      <div class="materi-section">
+        <h2>Bagian 8 — Mengapa Kita Harus Memikirkan Aksesibilitas?</h2>
+        <p>
+          Dalam pengembangan aplikasi konvensional, developer sering kali hanya memikirkan estetika visual: <em>"Apakah aplikasi terlihat cantik dan modern?"</em> Namun dalam rekayasa perangkat lunak yang inklusif, pertanyaan wajibnya adalah: <strong>"Apakah aplikasi dapat digunakan secara mandiri oleh semua orang?"</strong>
+        </p>
+        <p>
+          Bagi pengguna pembaca layar (<em>screen reader</em> seperti NVDA atau JAWS), hal-hal berikut sangat krusial:
+        </p>
+        <pre><code>Input memiliki label eksplisit
+        │
+        v
+Tombol memiliki nama yang jelas (Accessible Name)
+        │
+        v
+Heading terstruktur rapi (H1, H2, H3)
+        │
+        v
+Navigasi keyboard lengkap (Tab, Shift+Tab, Enter)
+        │
+        v
+Pesan error terbaca dan terdengar
+        │
+        v
+Hasil respon AI langsung terdengar jelas</code></pre>
+        <p>
+          Oleh karena itu, prinsip emas AI Engineer: <strong>Aksesibilitas harus dimasukkan sejak prompt pertama</strong>, bukan baru ditambal belakangan ketika aplikasi sudah selesai dibuat.
+        </p>
+      </div>
 
-      <p><strong>4. Untuk Membuat Rencana Belajar</strong><br>
-      “Buatkan rencana belajar matematika dasar selama 1 minggu.”</p>
+      <!-- BAGIAN 9 -->
+      <div class="materi-section">
+        <h2>Bagian 9 — Memahami Hasil yang Dibuat AI</h2>
+        <p>
+          Setelah prompt dijalankan, AI Studio akan menghasilkan aplikasi lengkap beserta kode sumber dan jendela preview langsung. Untuk aplikasi web, AI Studio menyusun struktur kode frontend (biasanya React/JSX) dan runtime server-side berbasis Node.js.
+        </p>
+        <p>Struktur file yang umumnya terlihat antara lain:</p>
+        <pre><code>src/
+    App.jsx      <-- Komponen utama tampilan & logika
+    main.jsx     <-- Titik masuk aplikasi web
+package.json     <-- Daftar pustaka/dependensi aplikasi</code></pre>
+        <p>
+          Jangan panik ketika melihat banyak baris kode. Kita tidak perlu menghafal atau membaca seluruh baris sekaligus. Gunakan kerangka berpikir terarah:
+        </p>
+        <pre><code>File
+ │
+ v
+Apa fungsinya?
+ │
+ v
+Bagian mana yang penting?
+ │
+ v
+Apa yang terjadi ketika dijalankan?</code></pre>
+      </div>
 
-      <h2>Latihan Praktik</h2>
+      <!-- BAGIAN 10 -->
+      <div class="materi-section">
+        <h2>Bagian 10 — Belajar Membaca Kode Hasil AI</h2>
+        <p>Misalnya di dalam file <code>src/App.jsx</code> kita menemukan potongan kode berikut:</p>
+        <pre><code>function App() {
+    return (
+        &lt;main&gt;
+            &lt;h1&gt;English Learning Assistant&lt;/h1&gt;
+        &lt;/main&gt;
+    );
+}</code></pre>
+        <p>Cukup pahami elemen-elemen utamanya:</p>
+        <ul>
+          <li><code>function App()</code>: fungsi JavaScript/React yang mewakili seluruh komponen tampilan aplikasi.</li>
+          <li><code>&lt;main&gt;</code>: penanda landmark HTML untuk area konten utama halaman yang sangat disukai screen reader.</li>
+          <li><code>&lt;h1&gt;</code>: heading tingkat pertama yang dibaca screen reader sebagai judul utama halaman.</li>
+        </ul>
+        <p>
+          Jadi AI-generated code tetap harus kita baca dan verifikasi sedikit demi sedikit.
+        </p>
+      </div>
 
-      <p><strong>Latihan 1 — Penjelasan Konsep</strong><br>
-      Minta AI menjelaskan konsep yang sulit Anda pahami.</p>
+      <!-- BAGIAN 11 -->
+      <div class="materi-section">
+        <h2>Bagian 11 — Mengembangkan Aplikasi dengan Percakapan</h2>
+        <p>
+          Salah satu kemampuan yang menarik adalah kita dapat meminta AI melakukan perubahan secara bertahap melalui dialog interaktif.
+        </p>
+        <p><strong>Contoh instruksi kelanjutan 1:</strong></p>
+        <pre><code>Tambahkan fitur tombol "Baca Jawaban".
+Gunakan text-to-speech browser (SpeechSynthesis API).
+Pastikan tombol dapat digunakan
+dengan keyboard dan screen reader.</code></pre>
+        <p><strong>Contoh instruksi kelanjutan 2:</strong></p>
+        <pre><code>Tambahkan fitur mode latihan.
+Pengguna memasukkan jawaban,
+kemudian AI memberikan evaluasi ramah.</code></pre>
+        <p><strong>Contoh instruksi kelanjutan 3:</strong></p>
+        <pre><code>Tambahkan riwayat pertanyaan.
+Sediakan tombol untuk menghapus semua riwayat.</code></pre>
+        <p>Dengan cara tersebut aplikasi dikembangkan dan diperkaya secara bertahap.</p>
+      </div>
 
-      <p><strong>Latihan 2 — Buat Soal</strong><br>
-      Minta AI membuat soal latihan untuk topik tertentu.</p>
+      <!-- BAGIAN 12 -->
+      <div class="materi-section">
+        <h2>Bagian 12 — Konsep Iterasi dalam AI Engineering</h2>
+        <p>
+          Dalam AI Engineering, jangan mengharapkan prompt pertama langsung menghasilkan aplikasi sempurna tanpa kekurangan. Gunakan siklus iterasi:
+        </p>
+        <pre><code>Prompt
+  │
+  v
+Generate
+  │
+  v
+Test
+  │
+  v
+Temukan masalah
+  │
+  v
+Prompt perbaikan
+  │
+  v
+Test lagi
+  │
+  v
+Aplikasi semakin baik & stabil</code></pre>
+        <p>Ini adalah proses pengembangan aplikasi yang realistis:</p>
+        <ul>
+          <li><strong>Versi 1:</strong> Chatbot tanya-jawab teks dasar.</li>
+          <li><strong>Versi 2:</strong> Tambah riwayat percakapan.</li>
+          <li><strong>Versi 3:</strong> Tambah text-to-speech (suara).</li>
+          <li><strong>Versi 4:</strong> Perbaiki aksesibilitas screen reader.</li>
+          <li><strong>Versi 5:</strong> Tambah database atau mode latihan interaktif.</li>
+        </ul>
+      </div>
 
-      <p><strong>Latihan 3 — Ringkas Materi</strong><br>
-      Ambil artikel pendek, lalu minta AI merangkum.</p>
+      <!-- BAGIAN 13 -->
+      <div class="materi-section">
+        <h2>Bagian 13 — Mengenal API Key</h2>
+        <p>
+          Aplikasi AI biasanya membutuhkan akses ke model AI melalui API (<em>Application Programming Interface</em>). Secara sederhana:
+        </p>
+        <pre><code>Aplikasi
+    │
+    v
+API
+    │
+    v
+Model Gemini
+    │
+    v
+Jawaban</code></pre>
+        <p>
+          API key digunakan untuk mengautentikasi dan mengamankan penggunaan API. Google saat ini merekomendasikan penggunaan <em>Gemini Interactions API</em> untuk proyek baru; API tersebut mendukung percakapan, alat (tools), function calling, dan workflow agentic (AI Agent). Namun peserta tidak perlu menghafal seluruh kode API terlebih dahulu, melainkan memahami prinsip alurnya:
+        </p>
+        <pre><code>Aplikasi ──> meminta layanan AI ──> API ──> model AI ──> hasil</code></pre>
+      </div>
 
-      <p><strong>Latihan 4 — Buat Rencana Belajar</strong><br>
-      Minta AI membuat jadwal belajar harian.</p>
+      <!-- BAGIAN 14 -->
+      <div class="materi-section">
+        <h2>Bagian 14 — Keamanan API Key</h2>
+        <p>
+          Ini merupakan konsep yang sangat penting bagi AI Engineer. Jangan menulis API key secara langsung di kode frontend seperti:
+        </p>
+        <pre><code>// CARA INI SANGAT BERBAHAYA - JANGAN DITIRU!
+const apiKey = "KUNCI_RAHASIA_ANDA";</code></pre>
+        <p>
+          Cara seperti ini berbahaya karena siapa pun dapat melihat kunci rahasia Anda melalui fitur <em>View Source / Inspect Element</em> peramban. API key seharusnya disimpan sebagai <strong>secret</strong> di sisi server.
+        </p>
+        <p>
+          Google AI Studio Build mode saat ini dapat mengatur <code>GEMINI_API_KEY</code> sebagai secret pada lingkungan server-side aplikasi sehingga key tidak perlu diekspos di kode frontend.
+        </p>
+        <p>Prinsip sederhananya:</p>
+        <pre><code>ALUR AMAN:
+API Key ──> Secret ──> Server ──> Gemini API
+
+ALUR SALAH:
+API Key ──> Kode Frontend ──> Semua pengguna dapat melihat</code></pre>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- PANDUAN PRAKTIK & PANDUAN SCREEN READER (LENGKAP) -->
+      <!-- ======================================================== -->
+
+      <!-- BAGIAN 15 -->
+      <div class="materi-section">
+        <h2>Bagian 15 — Panduan Pengguna Screen Reader di Google AI Studio</h2>
+        <p>
+          Bagi peserta tunanetra yang menggunakan pembaca layar (<strong>NVDA</strong> atau <strong>JAWS</strong>), berikut adalah langkah-langkah navigasi ramah keyboard dari membuka situs hingga mengeksekusi Build mode:
+        </p>
+
+        <div class="step-box">
+          <h4>Langkah 1: Membuka Google AI Studio di Browser</h4>
+          <p>Gunakan Google Chrome, Microsoft Edge, atau Mozilla Firefox:</p>
+          <ul>
+            <li>Tekan shortcut <code>Windows + R</code> pada keyboard.</li>
+            <li>Ketik <code>chrome</code> atau <code>msedge</code>, lalu tekan <code>Enter</code>.</li>
+            <li>Tekan shortcut <code>Ctrl + L</code> atau <code>Alt + D</code> untuk fokus ke Address Bar.</li>
+            <li>Ketik alamat URL resmi: <code>aistudio.google.com</code> lalu tekan <code>Enter</code>.</li>
+            <li>Pastikan Anda telah masuk (login) dengan akun Google Anda.</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 2: Mengenal Antarmuka & Memilih Build Mode</h4>
+          <ul>
+            <li>Gunakan tombol shortcut <code>H</code> pada NVDA/JAWS untuk melompat antar heading halaman.</li>
+            <li>Gunakan tombol <code>Tab</code> atau panah bawah untuk menelusuri menu navigasi dan temukan tombol/tab <strong>"Build"</strong> atau <strong>"New Prompt"</strong>.</li>
+            <li>Tekan <code>Enter</code> atau <code>Spasi</code> untuk memilih <strong>Build mode</strong>. Screen reader akan membacakan konfirmasi antarmuka pembuatan aplikasi telah terbuka.</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 3: Menavigasi ke Kotak Input Prompt</h4>
+          <ul>
+            <li>Tekan shortcut <code>E</code> (fitur cepat NVDA/JAWS untuk langsung melompat ke kotak edit/input teks).</li>
+            <li>Screen reader akan membacakan: <em>"Prompt edit multi-line"</em> atau <em>"Describe the app you want to build"</em>.</li>
+            <li>Tekan <code>Enter</code> untuk mengaktifkan <em>Focus Mode</em> (terdengar bunyi klik penanda siap mengetik).</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 4: Memasukkan Prompt Spesifikasi Aplikasi</h4>
+          <p>
+            Salin teks prompt dari <strong>Bagian 7</strong> di modul ini. Tekan <code>Ctrl + V</code> di dalam kotak prompt untuk menempelkan spesifikasi aplikasi English Learning Assistant.
+          </p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 5: Mengeksekusi Pembuatan Aplikasi (Run / Build)</h4>
+          <ul>
+            <li>Tekan tombol <code>Escape</code> satu kali untuk keluar dari mode edit teks (kembali ke <em>Browse Mode</em>).</li>
+            <li>Tekan <code>Tab</code> hingga screen reader membacakan tombol <strong>"Run"</strong> atau <strong>"Build"</strong> (atau gunakan shortcut <code>Ctrl + Enter</code> langsung saat di kotak teks).</li>
+            <li>Tekan <code>Enter</code> untuk menjalankan. Tunggu beberapa saat selagi AI Studio menyusun file aplikasi dan menyiapkan server lokal.</li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 6: Menjelajahi Preview Aplikasi dengan Screen Reader</h4>
+          <ul>
+            <li>Gunakan tombol <code>H</code> untuk mencari heading <strong>Preview</strong> atau tombol landmark untuk menuju area bingkai aplikasi yang dihasilkan.</li>
+            <li>Tekan tombol <code>Tab</code> untuk mencoba seluruh tombol dan kotak isian:
+              <ul>
+                <li>Dengarkan apakah kotak input dibacakan labelnya dengan jelas.</li>
+                <li>Pastikan tombol memiliki nama yang deskriptif saat disentuh fokus keyboard.</li>
+                <li>Ketikkan pertanyaan uji coba dan dengarkan bagaimana jawaban Gemini disajikan.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BAGIAN 16 -->
+      <div class="materi-section">
+        <h2>Bagian 16 — Latihan Praktik</h2>
+        
+        <h3>Latihan Praktik 1: Membuat & Menguji Aplikasi Pertama</h3>
+        <p>
+          Buat aplikasi <strong>English Learning Assistant</strong> dengan komponen minimal yang harus dimiliki:
+        </p>
+        <ol>
+          <li>Judul aplikasi yang jelas.</li>
+          <li>Kotak pertanyaan dengan label.</li>
+          <li>Tombol kirim yang responsif.</li>
+          <li>Jawaban AI yang terbaca runtut.</li>
+          <li>Riwayat percakapan pengguna dan AI.</li>
+          <li>Tombol hapus percakapan.</li>
+          <li>Struktur HTML yang ramah pengguna screen reader.</li>
+        </ol>
+        <p>Setelah aplikasi berhasil dibuat di jendela preview, lakukan pengujian dengan pertanyaan nyata berikut:</p>
+        <ul>
+          <li><strong>Uji 1:</strong> <code>Apa arti kata beautiful?</code></li>
+          <li><strong>Uji 2:</strong> <code>Buatkan contoh kalimat menggunakan beautiful.</code></li>
+          <li><strong>Uji 3:</strong> <code>Apa perbedaan house dan home?</code></li>
+        </ul>
+
+        <h3 class="mt-4">Latihan Praktik 2: Memperbaiki Aplikasi dengan AI (Iterasi Aksesibilitas)</h3>
+        <p>
+          Setelah aplikasi berjalan, jangan langsung berhenti. Kirimkan instruksi perbaikan melalui kotak dialog AI Studio:
+        </p>
+        <pre><code>Periksa aplikasi ini untuk masalah aksesibilitas
+bagi pengguna screen reader.
+
+Perbaiki:
+1. Label input.
+2. Nama tombol.
+3. Struktur heading.
+4. Navigasi keyboard.
+5. Pembacaan hasil AI.
+6. Pesan error.</code></pre>
+        <p>
+          Kemudian lakukan pengujian ulang. Ini merupakan latihan penting karena AI Engineer tidak hanya membuat aplikasi, tetapi juga melakukan testing dan continuous improvement.
+        </p>
+      </div>
+
+      <!-- BAGIAN 17 -->
+      <div class="materi-section">
+        <h2>Bagian 17 — Produk yang Dihasilkan</h2>
+        <p>
+          Pada akhir pertemuan, peserta diharapkan memiliki:
+        </p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>English Learning Assistant Berbasis AI</strong> — Aplikasi web full-stack modern yang lahir dari deskripsi bahasa alami terstruktur, memiliki antarmuka ramah disabilitas, dan ditenagai oleh kecerdasan model Gemini.
+          </p>
+        </div>
+        <p>Dengan alur lengkap:</p>
+        <pre><code>Pengguna
+   │
+   v
+Menulis pertanyaan
+   │
+   v
+Aplikasi
+   │
+   v
+Gemini
+   │
+   v
+Jawaban AI
+   │
+   v
+Dibaca pengguna (Layar & Screen Reader)</code></pre>
+        <p>
+          Produk ini nantinya juga dapat menjadi dasar untuk berbagai aplikasi AI lainnya, seperti:
+        </p>
+        <ul>
+          <li>AI Assistant Pendidikan</li>
+          <li>AI Assistant Administrasi</li>
+          <li>AI Assistant Bisnis</li>
+          <li>AI Assistant Pesantren</li>
+          <li>AI Assistant Tunanetra</li>
+          <li>AI Assistant Customer Service</li>
+        </ul>
+      </div>
+
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/1qEawwl77gDQMwo8TijoECT4hGDjiKwpg/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic7.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <!-- Navigasi Modul -->
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1tFpClA0Tlj48O2R5PS4jqbp_03zHFGrj/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi Lengkap" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic7.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali ke Daftar Topik">
+        Kembali
+      </a>
     </div>
   </main>
 
@@ -353,8 +846,10 @@
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');

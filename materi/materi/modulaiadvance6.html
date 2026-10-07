@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
 
@@ -20,13 +19,20 @@
       }
     })();
   </script>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Modul Topik 6 - AI untuk Menulis dan Merangkum Teks</title>
-<meta content="Modul lengkap AI untuk Menulis dan Merangkum Teks di Difabelajar. Pelajari cara menggunakan AI untuk menulis, merangkum, dan memahami teks secara aksesibel." name="description"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Building an Intelligent AI Dictionary Chatbot with Python</title>
+
+  <meta name="description" content="Modul lengkap AI Engineering Topik 6: Teori Natural Language Processing (NLP) sederhana, struktur chatbot kamus cerdas, serta panduan langkah demi langkah mempraktikkannya dengan Python yang ramah tunanetra.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
     :root {
       --bg-light: #f5f9fc;
       --text-light: #1a202c;
@@ -34,6 +40,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -44,20 +51,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -74,6 +89,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -83,13 +99,50 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
       color: #7ec3e6;
+    }
+
+    .materi-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
+    }
+
+    pre {
+      background: #e9ecef;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode pre {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    code {
+      font-family: Consolas, 'Courier New', monospace;
     }
 
     .btn-custom {
@@ -104,6 +157,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -126,227 +180,543 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
   </style>
 </head>
+
 <body>
-<a class="skip-link" href="#main-content">Lewati ke konten utama</a>
-<button aria-label="Toggle Dark Mode" class="btn btn-sm btn-outline-primary toggle-mode">
+
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
-<div class="logo-container">
-<img alt="Logo Difabelajar" src="assets/logodifabelajar.jpeg"/>
-</div>
-<main class="container" id="main-content" tabindex="-1">
-<h1>AI untuk Menulis dan Merangkum Teks<br/>
-      <span style="font-size:1.1rem;font-weight:400;">Modul Topik 6 — Artificial Intelligence Fundamental</span>
+
+  <!-- Logo Difabelajar -->
+  <div class="logo-container">
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
+  </div>
+
+  <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
+    <h1>
+      Building an Intelligent AI Dictionary Chatbot with Python<br>
+      <span style="font-size:1.1rem;font-weight:400;">
+        Penerapan Natural Language Processing & Pembuatan Chatbot Cerdas Langkah demi Langkah
+      </span>
     </h1>
 
-<section aria-labelledby="modul2-title">
-<h2 id="modul2-title">Tujuan Pembelajaran</h2>
-<p>Setelah mempelajari modul ini, peserta mampu:</p>
-<ul>
-<li>Memahami bagaimana AI membantu menulis teks secara cepat dan efektif</li>
-<li>Menggunakan AI untuk merangkum dokumen panjang</li>
-<li>Menggunakan teknik prompting untuk menulis dan merangkum</li>
-<li>Menghindari kesalahan umum saat menggunakan AI untuk menulis</li>
-<li>Menggunakan AI untuk berbagai kebutuhan: email, caption, laporan, pesan, artikel</li>
-<li>Memahami batasan dan etika penggunaan AI dalam penulisan</li>
-</ul>
-<h2>Bagian 1 — Mengapa AI Sangat Baik untuk Menulis dan Merangkum?</h2>
-<p>Menurut Google Research dan Microsoft AI, AI modern (LLM — Large Language Model) dilatih menggunakan:</p>
-<ul>
-<li>miliaran kalimat</li>
-<li>ratusan ribu buku</li>
-<li>artikel, website, jurnal</li>
-<li>percakapan manusia</li>
-</ul>
-<p>Karena itu AI:</p>
-<ul>
-<li>memahami struktur bahasa</li>
-<li>memahami gaya penulisan</li>
-<li>mampu membuat teks baru</li>
-<li>mampu merangkum dengan cepat</li>
-<li>mampu menjelaskan konsep sulit dengan sederhana</li>
-</ul>
-<p><strong>Analogi untuk pengguna screen reader:</strong><br/>
-  AI seperti siswa yang sudah membaca ribuan buku, sehingga ia bisa membantu Anda menulis apa pun dengan cepat.</p>
-<h2>Bagian 2 — Cara Kerja AI dalam Menulis Teks</h2>
-<h3>1. AI memprediksi kata berikutnya</h3>
-<p>Menurut OpenAI Documentation, AI menulis dengan cara:</p>
-<ul>
-<li>membaca prompt Anda</li>
-<li>memprediksi kata berikutnya yang paling tepat</li>
-<li>menyusun kalimat demi kalimat</li>
-<li>menghasilkan paragraf yang koheren</li>
-</ul>
-<h3>2. AI meniru gaya penulisan</h3>
-<p>AI bisa meniru:</p>
-<ul>
-<li>gaya formal</li>
-<li>gaya santai</li>
-<li>gaya profesional</li>
-<li>gaya akademik</li>
-<li>gaya storytelling</li>
-</ul>
-<h3>3. AI menyesuaikan konteks</h3>
-<p>Jika Anda memberi konteks:</p>
-<ul>
-<li>“Untuk siswa tunanetra”</li>
-<li>“Untuk postingan Instagram”</li>
-<li>“Untuk laporan resmi”</li>
-</ul>
-<p>AI akan menyesuaikan gaya dan struktur penulisan.</p>
-<h2>Bagian 3 — Cara Kerja AI dalam Merangkum Teks</h2>
-<p>Menurut Google AI Essentials, AI merangkum dengan cara:</p>
-<ol>
-<li>Membaca seluruh teks</li>
-<li>Mencari ide utama</li>
-<li>Menghapus detail yang tidak penting</li>
-<li>Menyusun ulang informasi menjadi ringkas</li>
-<li>Menjaga makna tetap utuh</li>
-</ol>
-<p>Ada dua jenis ringkasan:</p>
-<p><strong>1. Extractive Summarization</strong><br/>
-  AI mengambil kalimat penting dari teks.</p>
-<p><strong>2. Abstractive Summarization</strong><br/>
-  AI menulis ulang ringkasan dengan bahasanya sendiri.</p>
-<p>Ini yang digunakan oleh ChatGPT, Copilot, Gemini.</p>
-<h2>Bagian 4 — Jenis Tugas Menulis yang Bisa Dibantu AI</h2>
-<h3>1. Menulis Email</h3>
-<ul>
-<li>Email izin</li>
-<li>Email permohonan</li>
-<li>Email profesional</li>
-<li>Email penawaran</li>
-</ul>
-<h3>2. Menulis Pesan WhatsApp</h3>
-<ul>
-<li>Pesan formal</li>
-<li>Pesan santai</li>
-<li>Pesan permintaan maaf</li>
-<li>Pesan pengingat</li>
-</ul>
-<h3>3. Menulis Caption Media Sosial</h3>
-<ul>
-<li>Instagram</li>
-<li>Facebook</li>
-<li>TikTok</li>
-<li>LinkedIn</li>
-</ul>
-<h3>4. Menulis Artikel Pendek</h3>
-<ul>
-<li>Artikel edukasi</li>
-<li>Artikel motivasi</li>
-<li>Artikel teknologi</li>
-</ul>
-<h3>5. Menulis Laporan</h3>
-<ul>
-<li>Laporan kegiatan</li>
-<li>Laporan harian</li>
-<li>Laporan ringkas</li>
-</ul>
-<h3>6. Menulis Cerita</h3>
-<ul>
-<li>Cerita pendek</li>
-<li>Cerita inspiratif</li>
-<li>Cerita anak</li>
-</ul>
-<h2>Bagian 5 — Teknik Prompting untuk Menulis</h2>
-<h3>1. Tentukan Role</h3>
-<p>Contoh:<br/>
-  “Bertindak sebagai penulis profesional.”</p>
-<h3>2. Tentukan Task</h3>
-<p>Contoh:<br/>
-  “Tulis email permohonan izin.”</p>
-<h3>3. Berikan Context</h3>
-<p>Contoh:<br/>
-  “Saya tidak bisa hadir karena sakit.”</p>
-<h3>4. Tentukan Output</h3>
-<p>Contoh:<br/>
-  “Gunakan 1 paragraf, bahasa formal.”</p>
-<h2>Bagian 6 — Teknik Prompting untuk Merangkum</h2>
-<h3>1. Ringkas menjadi poin</h3>
-<p>“Ringkas teks berikut menjadi 5 poin utama.”</p>
-<h3>2. Ringkas untuk pemula</h3>
-<p>“Ringkas teks ini dengan bahasa sederhana.”</p>
-<h3>3. Ringkas untuk tunanetra</h3>
-<p>“Ringkas teks ini dalam format audio-first, tanpa visual.”</p>
-<h3>4. Ringkas panjang tertentu</h3>
-<p>“Ringkas teks ini menjadi 3 paragraf.”</p>
-<h2>Bagian 7 — Kesalahan Umum dalam Menggunakan AI untuk Menulis</h2>
-<p><strong>1. Prompt terlalu pendek</strong><br/>
-  Contoh: “Tolong buat email.”<br/>
-  → Hasilnya tidak sesuai.</p>
-<p><strong>2. Tidak memberi konteks</strong><br/>
-  Contoh: “Buat caption.”<br/>
-  → Caption bisa tidak sesuai tema.</p>
-<p><strong>3. Tidak menentukan gaya bahasa</strong><br/>
-  Contoh: “Tulis laporan.”<br/>
-  → Bisa terlalu formal atau terlalu santai.</p>
-<p><strong>4. Tidak menentukan panjang output</strong><br/>
-  Contoh: “Ringkas ini.”<br/>
-  → Bisa terlalu panjang atau terlalu pendek.</p>
-<h2>Bagian 8 — Contoh Prompt Siap Pakai</h2>
-<p><strong>1. Prompt Menulis Email</strong><br/>
-  “Bertindak sebagai penulis profesional.<br/>
-  Tugas: buat email izin tidak masuk kerja.<br/>
-  Konteks: saya sakit flu.<br/>
-  Output: 1 paragraf, bahasa formal.”</p>
-<p><strong>2. Prompt Merangkum</strong><br/>
-  “Ringkas teks berikut menjadi 5 poin utama.<br/>
-  Gunakan bahasa sederhana dan ramah screen reader.”</p>
-<p><strong>3. Prompt Menulis Caption</strong><br/>
-  “Buat caption Instagram tentang pelatihan AI untuk tunanetra.<br/>
-  Gaya: inspiratif, singkat, dan mudah dipahami.”</p>
-<h2>Bagian 9 — Aplikasi AI yang Direkomendasikan</h2>
-<p><strong>1. ChatGPT / Microsoft Copilot / Google Gemini</strong></p>
-<ul>
-<li>Menulis</li>
-<li>Merangkum</li>
-<li>Menjelaskan</li>
-</ul>
-<p><strong>2. Grammarly / LanguageTool</strong></p>
-<ul>
-<li>Memperbaiki tata bahasa</li>
-</ul>
-<p><strong>3. Notion AI</strong></p>
-<ul>
-<li>Menulis dokumen</li>
-<li>Merangkum catatan</li>
-</ul>
-<p><strong>4. QuillBot</strong></p>
-<ul>
-<li>Parafrase</li>
-<li>Ringkasan</li>
-</ul>
-<p>Semua aplikasi ini direkomendasikan oleh:</p>
-<ul>
-<li>Google AI Essentials</li>
-<li>Microsoft Learn AI</li>
-<li>OpenAI Best Practices</li>
-</ul>
-<h2>Latihan Praktik</h2>
-<p><strong>Latihan 1 — Menulis</strong><br/>
-  Buat email permohonan izin dengan struktur Role–Task–Context–Output.</p>
-<p><strong>Latihan 2 — Merangkum</strong><br/>
-  Ringkas artikel berita menjadi 5 poin.</p>
-<p><strong>Latihan 3 — Bandingkan</strong><br/>
-  Bandingkan hasil prompt pendek vs prompt lengkap.</p>
-</section>
-<h1>AI untuk Menulis dan Merangkum Teks</h1>
-<div class="d-flex flex-column gap-3 align-items-center my-4">
-<a class="btn-custom" href="https://drive.google.com/file/d/1GbPWzcLGwfZ4O_qzIivEqoJvWrDsEyyV/view?usp=sharing" rel="noopener" target="_blank">Download Materi Lengkap</a>
-<a class="btn btn-outline-primary rounded-pill px-4" href="../topic6.html">Kembali</a>
-</div>
-</main>
-<footer>
-    © 2025 Difabelajar. Semua hak cipta dilindungi.
+    <section aria-labelledby="modul6-title">
+
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul6-title">Tujuan Pembelajaran</h2>
+      <p>Setelah mempelajari materi ini, peserta mampu:</p>
+      <ul>
+        <li>Memahami perbedaan mendasar antara pencarian kata persis (*exact matching*) dan pemrosesan kalimat bebas (*Natural Language Processing / NLP*).</li>
+        <li>Menerapkan teknik pembersihan teks dan pemotongan kata (*tokenisasi*) sederhana di Python menggunakan fungsi bawaan <code>.split()</code> dan <code>.replace()</code>.</li>
+        <li>Menyusun basis data kamus terstruktur yang kaya (*nested dictionary*) berisi arti, kelas kata (*part of speech*), dan contoh kalimat lengkap.</li>
+        <li>Membangun fungsi pemindai kata kunci cerdas (*keyword extraction*) untuk menemukan kata inti di dalam kalimat percakapan pengguna.</li>
+        <li>Menerapkan deteksi niat percakapan (*intent recognition*) sederhana untuk merespons salam dan sapaan ramah.</li>
+        <li>Memahami konsep integrasi model AI Generatif (LLM) untuk menjawab kata-kata baru yang belum tercatat di kamus lokal secara otomatis.</li>
+        <li>Mempersiapkan lingkungan koding (mengecek Python, memahami kebutuhan library, membuat file proyek, dan menjalankan kode di terminal).</li>
+        <li>Mempraktikkan kode program secara mandiri dengan antarmuka yang sangat ramah terhadap pembaca layar (*screen reader* NVDA / JAWS).</li>
+      </ul>
+
+      <!-- PENGANTAR TEORI -->
+      <div class="materi-section">
+        <h2>Pengantar — Dari Chatbot Kaku Menuju Chatbot Cerdas</h2>
+        <p>
+          Pada <strong>Topik 5</strong> sebelumnya, kita telah berhasil membangun fondasi chatbot kamus pertama menggunakan bahasa Python. Program tersebut bekerja dengan cara memeriksa kecocokan persis antara input pengguna dan kata di dalam kamus:
+        </p>
+        <pre><code>if kata in kamus:
+    print("Arti", kata, "adalah", kamus[kata])</code></pre>
+        <p>
+          Namun, ada satu kelemahan besar pada chatbot tersebut: <strong>program sangat kaku</strong>. Jika pengguna mengetik satu kata saja seperti <code>house</code>, program bisa menjawab. Tetapi jika pengguna mengetik kalimat wajar manusia seperti:
+        </p>
+        <pre><code>"Halo chatbot, apa arti kata house?"</code></pre>
+        <p>
+          Chatbot Topik 5 akan bingung dan menjawab: <em>"Maaf, kata tersebut belum tersedia di kamus."</em> Mengapa demikian? Karena program mencari teks lengkap <code>"Halo chatbot, apa arti kata house?"</code> di dalam database, bukan mencari kata intinya.
+        </p>
+        <p>
+          Pada <strong>Topik 6</strong> ini, kita akan melengkapi chatbot kita dengan <strong>kecerdasan buatan (AI) sederhana</strong> agar mampu membedah kalimat pengguna, mengenali kata kuncinya secara otomatis, dan memberikan jawaban yang lengkap serta ramah.
+        </p>
+
+        <h3>Analogi untuk Peserta Tunanetra</h3>
+        <p>
+          Bayangkan Anda sedang berbicara dengan seorang asisten pribadi atau asisten suara tunanetra. Ketika Anda berkata: <em>"Tolong bacakan arti kata komputer"</em>, asisten Anda tidak mencari arti dari kata <em>"Tolong"</em> atau <em>"bacakan"</em>. Telinga dan otak asisten secara cerdas menyaring suara Anda, membuang kata pembuka, lalu langsung berfokus pada kata intinya: <strong>komputer</strong>.
+        </p>
+        <p>
+          Itulah yang akan kita ajarkan kepada komputer pada materi ini menggunakan logika pemrograman Python yang terstruktur dan mudah dipelajari.
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 1: NLP SEDERHANA -->
+      <div class="materi-section">
+        <h2>Bagian 1 — Konsep Natural Language Processing (NLP) Sederhana</h2>
+        <p>
+          <strong>Natural Language Processing (NLP)</strong> adalah bidang dalam kecerdasan buatan yang memungkinkan komputer memahami, mengolah, dan merespons bahasa manusia secara alami.
+        </p>
+        <p>
+          Untuk membuat chatbot kita cerdas tanpa perlu pustaka eksternal yang rumit, kita dapat menerapkan 3 langkah utama NLP dasar di Python:
+        </p>
+        
+        <h3>1. Normalisasi Teks (Text Normalization)</h3>
+        <p>
+          Mengubah seluruh karakter menjadi huruf kecil menggunakan <code>.lower()</code> dan membersihkan tanda baca seperti tanda tanya (<code>?</code>), titik (<code>.</code>), atau tanda seru (<code>!</code>).
+        </p>
+
+        <h3>2. Pemotongan Kata / Tokenisasi (Tokenization)</h3>
+        <p>
+          Memecah sebuah kalimat panjang menjadi daftar potongan kata (*tokens*) menggunakan fungsi <code>.split()</code>.
+        </p>
+        <pre><code>kalimat = "apa arti kata school"
+kata_kata = kalimat.split()
+# Hasilnya: ['apa', 'arti', 'kata', 'school']</code></pre>
+
+        <h3>3. Ekstraksi Kata Kunci (Keyword Extraction)</h3>
+        <p>
+          Memeriksa setiap kata hasil pecahan tersebut ke dalam database kamus kita untuk menemukan kata kunci yang dicari.
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 2: NESTED DICTIONARY -->
+      <div class="materi-section">
+        <h2>Bagian 2 — Struktur Data Kamus yang Kaya (Nested Dictionary)</h2>
+        <p>
+          Di Topik 5, kamus kita hanya menyimpan sebaris teks arti sederhana. Sekarang, kita ingin chatbot memberikan informasi selayaknya kamus pintar: ada arti kata, kelas kata (*noun, verb, adjective*), dan contoh kalimat praktis.
+        </p>
+        <p>
+          Dalam Python, kita bisa menyusun *dictionary* di dalam *dictionary* (*nested dictionary*):
+        </p>
+        <pre><code>kamus_ai = {
+    "house": {
+        "arti": "rumah",
+        "tipe": "kata benda (noun)",
+        "contoh": "This is a big house.",
+        "arti_contoh": "Ini adalah rumah yang besar."
+    },
+    "book": {
+        "arti": "buku",
+        "tipe": "kata benda (noun)",
+        "contoh": "I love reading this book.",
+        "arti_contoh": "Saya suka membaca buku ini."
+    },
+    "learn": {
+        "arti": "belajar",
+        "tipe": "kata kerja (verb)",
+        "contoh": "We learn AI Engineering together.",
+        "arti_contoh": "Kita belajar AI Engineering bersama-sama."
+    },
+    "beautiful": {
+        "arti": "indah atau cantik",
+        "tipe": "kata sifat (adjective)",
+        "contoh": "She has a beautiful voice.",
+        "arti_contoh": "Dia memiliki suara yang merdu dan indah."
+    }
+}</code></pre>
+        <p>
+          Dengan struktur ini, saat kata <code>"house"</code> ditemukan, chatbot dapat menyajikan penjelasan yang mendalam dan mudah didengarkan oleh pembaca layar.
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 3: LOGIKA PENCARI KATA -->
+      <div class="materi-section">
+        <h2>Bagian 3 — Logika Cerdas: Menemukan Kata di Dalam Kalimat</h2>
+        <p>
+          Bagaimana cara chatbot mencari kata di antara kalimat panjang pengguna? Kita buat fungsi pintar pencari kata:
+        </p>
+        <pre><code>def cari_kata_kunci(kalimat_pengguna, data_kamus):
+    # Bersihkan tanda baca umum
+    tanda_baca = ["?", "!", ".", ",", ":", ";", '"', "'"]
+    kalimat_bersih = kalimat_pengguna.lower()
+    for tanda in tanda_baca:
+        kalimat_bersih = kalimat_bersih.replace(tanda, "")
+    
+    # Pecah kalimat menjadi daftar kata
+    daftar_kata = kalimat_bersih.split()
+    
+    # Periksa apakah ada kata yang cocok dengan kamus
+    for kata in daftar_kata:
+        if kata in data_kamus:
+            return kata # Kata ditemukan!
+            
+    return None # Tidak ada kata yang cocok</code></pre>
+        <p>
+          Mari perhatikan alur kerjanya: jika pengguna mengetik <em>"Tolong jelaskan arti kata beautiful dong!"</em>, fungsi akan membersihkan tanda seru, memecah kalimat menjadi kumpulan kata, dan ketika menemukan kata <code>"beautiful"</code>, fungsi langsung mengembalikannya. Sangat praktis dan cerdas!
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 4: INTENT RECOGNITION -->
+      <div class="materi-section">
+        <h2>Bagian 4 — Menambahkan Fitur Ramah: Pengenalan Maksud (Intent Recognition)</h2>
+        <p>
+          Pengguna sering kali tidak langsung bertanya arti kata. Terkadang mereka menyapa terlebih dahulu seperti <em>"halo"</em>, <em>"selamat pagi"</em>, atau <em>"siapa namamu?"</em>.
+        </p>
+        <p>
+          Dalam AI Chatbot, kemampuan mengenali tujuan pesan ini disebut <strong>Intent Recognition</strong>. Kita dapat menambahkannya dengan aturan sederhana di dalam program kita:
+        </p>
+        <pre><code># Deteksi salam (Greeting Intent)
+salam_list = ["halo", "hai", "selamat pagi", "selamat siang", "assalamualaikum"]
+apakah_salam = any(salam in pesan.lower() for salam in salam_list)
+
+if apakah_salam:
+    print("Chatbot: Halo! Senang bisa menyapa Anda. Ada kata bahasa Inggris yang ingin Anda ketahui artinya?")
+    continue</code></pre>
+        <p>
+          Dengan menambahkan baris ini sebelum pemindaian kata, chatbot menjadi jauh lebih hangat dan manusiawi saat diajak berinteraksi.
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 5: INTEGRASI LLM -->
+      <div class="materi-section">
+        <h2>Bagian 5 — Menuju AI Modern: Integrasi Model Bahasa (LLM API)</h2>
+        <p>
+          Lalu, apa yang terjadi jika pengguna menanyakan kata yang <strong>belum ada</strong> di kamus lokal kita?
+        </p>
+        <p>
+          Di sinilah peran nyata <strong>AI Generatif (Large Language Models / LLM)</strong> seperti Google Gemini atau OpenAI:
+        </p>
+        <ol>
+          <li><strong>Pemeriksaan Cepat (Database Lokal):</strong> Program mencari kata di <code>kamus_ai</code> lokal terlebih dahulu. Proses ini instan dan tidak memakan kuota internet.</li>
+          <li><strong>Panggilan Model AI (Fallback API):</strong> Jika kata tidak ditemukan di kamus lokal, program secara otomatis mengirimkan permintaan (*request*) ke Model AI melalui API.</li>
+          <li><strong>Penyusunan Prompt Otomatis:</strong> Program menyusun prompt otomatis:
+            <pre><code>prompt = f"Berikan arti kata '{kata}', jenis katanya, dan 1 contoh kalimat beserta terjemahan bahasa Indonesianya secara ringkas."</code></pre>
+          </li>
+          <li><strong>Menjawab Pengguna:</strong> AI mengembalikan jawaban dan menampilkannya kepada pengguna.</li>
+        </ol>
+        <p>
+          Pola penggabungan antara data lokal terstruktur dan model AI generatif inilah yang disebut sebagai <strong>Hybrid AI Architecture</strong> — fondasi utama aplikasi AI modern saat ini!
+        </p>
+      </div>
+
+      <!-- TEORI BAGIAN 6: RANGKUMAN ALUR -->
+      <div class="materi-section">
+        <h2>Bagian 6 — Rangkuman Alur Kerja AI Chatbot</h2>
+        <p>Berikut adalah ringkasan skema pemrosesan sistem chatbot cerdas yang telah kita pelajari:</p>
+        <pre><code>Input Kalimat Pengguna ("Apa arti kata house?")
+               ↓
+Normalisasi & Pembersihan Tanda Baca
+               ↓
+Deteksi Niat / Intent (Salam / Keluar / Tanya Kata)
+               ↓
+Pencarian Kata Kunci di Kamus Lokal
+      ↙                 ↘
+(Kata Ditemukan)       (Kata Belum Terdaftar)
+      ↓                         ↓
+Tampilkan Definisi,      Panggil Model AI /
+Kelas Kata, & Contoh    Beri Tips Bantuan
+      ↘                 ↙
+Output Jawaban Ramah Screen Reader</code></pre>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- PANDUAN PRAKTIK & LANGKAH-LANGKAH (SETELAH TEORI) -->
+      <!-- ======================================================== -->
+
+      <!-- PRAKTIK BAGIAN 7: PERSIAPAN & LIBRARY -->
+      <div class="materi-section">
+        <h2>Bagian 7 — Persiapan & Kebutuhan Library</h2>
+        <p>
+          Setelah memahami seluruh konsep teorinya, sekarang kita masuk ke bagian <strong>praktik langsung</strong>. Mari siapkan lingkungan komputer Anda:
+        </p>
+
+        <div class="step-box">
+          <h4>1. Memeriksa Python di Komputer</h4>
+          <p>Buka <strong>Command Prompt</strong> atau <strong>Terminal</strong>:</p>
+          <ul>
+            <li>Tekan tombol <code>Windows + R</code> pada keyboard Anda.</li>
+            <li>Ketik <code>cmd</code> lalu tekan <code>Enter</code>.</li>
+            <li>Ketik perintah berikut lalu tekan <code>Enter</code>:</li>
+          </ul>
+          <pre><code>python --version</code></pre>
+          <p>Jika muncul versi Python (misalnya <code>Python 3.10.x</code> atau versi 3 lainnya), berarti Python sudah siap digunakan.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>2. Apakah Perlu Menginstal Library?</h4>
+          <p>
+            <strong>Kabar Baik:</strong> Untuk mempraktikkan program Chatbot Cerdas NLP ini, <strong>Anda TIDAK PERLU menginstal library tambahan apa pun!</strong>
+          </p>
+          <p>
+            Semua fungsi yang kita butuhkan (seperti <code>.split()</code>, <code>.lower()</code>, perulangan, dan *nested dictionary*) sudah merupakan fitur bawaan (*Standard Library*) Python. Anda bisa langsung koding tanpa internet dan bebas dari risiko error instalasi.
+          </p>
+        </div>
+
+        <div class="step-box">
+          <h4>3. Library Tambahan (Opsional — Jika Ingin Fitur Suara)</h4>
+          <p>
+            Bagi peserta yang ingin chatbot mengeluarkan suara secara otomatis ke speaker (*Text-to-Speech*), Anda dapat menginstal library <code>pyttsx3</code> di Command Prompt:
+          </p>
+          <pre><code>pip install pyttsx3</code></pre>
+          <p><em>(Catatan: Ini bersifat opsional. Kita utamakan program dasar terlebih dahulu agar langsung berjalan lancar).</em></p>
+        </div>
+      </div>
+
+      <!-- PRAKTIK BAGIAN 8: LANGKAH MEMBUAT & MENJALANKAN KODE -->
+      <div class="materi-section">
+        <h2>Bagian 8 — Panduan Langkah demi Langkah Mempraktikkan Kode</h2>
+        <p>
+          Berikut adalah urutan langkah kerja dari membuat file hingga menjalankan chatbot:
+        </p>
+
+        <div class="step-box">
+          <h4>Langkah 1: Menyiapkan Folder Proyek</h4>
+          <p>Buat folder baru untuk tempat menyimpan program Anda, misalnya di folder Dokumen dengan nama <code>belajar_ai</code>.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 2: Membuat File Program Python</h4>
+          <p>
+            Buka editor teks favorit Anda (seperti <strong>Visual Studio Code</strong> atau <strong>Notepad</strong> bawaan Windows). Buat file baru lalu simpan dengan nama:
+          </p>
+          <pre><code>chatbot_kamus.py</code></pre>
+          <p><em>(Pastikan nama file berakhiran <code>.py</code>, bukan <code>.txt</code>).</em></p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 3: Menulis Kode Program Lengkap</h4>
+          <p>Ketik atau salin kode program berikut ke dalam file <code>chatbot_kamus.py</code> Anda:</p>
+          <pre><code># ========================================================
+# PROYEK: CHATBOT KAMUS CERDAS BERBASIS AI (TOPIK 6)
+# DIFABELAJAR - KELAS AI ENGINEERING
+# ========================================================
+
+# 1. BASIS DATA KAMUS TERSTRUKTUR (NESTED DICTIONARY)
+kamus_ai = {
+    "house": {
+        "arti": "rumah",
+        "tipe": "kata benda (noun)",
+        "contoh": "This is a big house.",
+        "arti_contoh": "Ini adalah rumah yang besar."
+    },
+    "book": {
+        "arti": "buku",
+        "tipe": "kata benda (noun)",
+        "contoh": "I love reading this book.",
+        "arti_contoh": "Saya suka membaca buku ini."
+    },
+    "learn": {
+        "arti": "belajar",
+        "tipe": "kata kerja (verb)",
+        "contoh": "We learn AI Engineering together.",
+        "arti_contoh": "Kita belajar AI Engineering bersama-sama."
+    },
+    "beautiful": {
+        "arti": "indah atau cantik",
+        "tipe": "kata sifat (adjective)",
+        "contoh": "She has a beautiful voice.",
+        "arti_contoh": "Dia memiliki suara yang merdu dan indah."
+    },
+    "computer": {
+        "arti": "komputer",
+        "tipe": "kata benda (noun)",
+        "contoh": "I write Python code on my computer.",
+        "arti_contoh": "Saya menulis kode Python di komputer saya."
+    },
+    "school": {
+        "arti": "sekolah",
+        "tipe": "kata benda (noun)",
+        "contoh": "They walk to school every morning.",
+        "arti_contoh": "Mereka berjalan kaki ke sekolah setiap pagi."
+    }
+}
+
+# 2. FUNGSI PEMINDAI KATA KUNCI (NLP SEDERHANA)
+def cari_kata_kunci(kalimat_pengguna, data_kamus):
+    # Bersihkan tanda baca umum yang sering diketik manusia
+    tanda_baca = ["?", "!", ".", ",", ":", ";", '"', "'"]
+    kalimat_bersih = kalimat_pengguna.lower()
+    
+    for tanda in tanda_baca:
+        kalimat_bersih = kalimat_bersih.replace(tanda, "")
+    
+    # Pecah kalimat menjadi potongan kata (tokenisasi)
+    daftar_kata = kalimat_bersih.split()
+    
+    # Periksa apakah ada kata yang terdaftar di dalam kamus
+    for kata in daftar_kata:
+        if kata in data_kamus:
+            return kata # Kata kunci berhasil ditemukan!
+            
+    return None # Tidak ada kata yang cocok di kamus
+
+
+# 3. ANTARMUKA UTAMA PROGRAM (MAIN LOOP)
+print("==================================================")
+print("🤖 Selamat Datang di Chatbot Kamus Cerdas AI!")
+print("Anda bisa bertanya dengan kalimat bebas bahasa Indonesia.")
+print("Contoh: 'Tolong jelaskan arti kata learn dong!'")
+print("Ketik 'keluar' untuk mengakhiri program.")
+print("==================================================\n")
+
+while True:
+    # Mengambil input dari pengguna
+    pesan = input("Anda: ")
+    
+    # Cek apakah pengguna ingin keluar
+    if pesan.lower().strip() == "keluar":
+        print("\nChatbot: Terima kasih telah belajar bersama saya. Sampai jumpa lagi!")
+        break
+    
+    # Cek jika pengguna tidak mengetik apa-apa
+    if pesan.strip() == "":
+        print("Chatbot: Anda belum mengetikkan pertanyaan. Silakan coba lagi.\n")
+        continue
+    
+    # Deteksi salam ramah (Intent Recognition Sederhana)
+    salam_list = ["halo", "hai", "selamat pagi", "selamat siang", "selamat sore", "assalamualaikum"]
+    if any(salam in pesan.lower() for salam in salam_list):
+        print("Chatbot: Halo! Senang menyapa Anda. Silakan tanyakan kata bahasa Inggris yang ingin Anda ketahui artinya.\n")
+        continue
+
+    # Lakukan pencarian kata kunci di dalam kalimat pengguna
+    kata_ditemukan = cari_kata_kunci(pesan, kamus_ai)
+    
+    if kata_ditemukan:
+        info = kamus_ai[kata_ditemukan]
+        print("\n--- [HASIL TEMUAN KAMUS AI] ---")
+        print("Kata       :", kata_ditemukan)
+        print("Arti       :", info["arti"])
+        print("Kelas Kata :", info["tipe"])
+        print("Contoh     :", info["contoh"])
+        print("Artinya    :", info["arti_contoh"])
+        print("-------------------------------\n")
+    else:
+        print("Chatbot: Maaf, saya belum menemukan kata tersebut di basis data kamus.")
+        print("💡 Tips: Coba tanyakan kata seperti 'house', 'book', 'learn', atau 'beautiful'.\n")
+</code></pre>
+          <p>Setelah selesai, tekan <code>Ctrl + S</code> untuk menyimpan file Anda.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 4: Memahami Bagian-Bagian Kode (Sebelum Menjalankan)</h4>
+          <p>Sebelum kita menjalankan program di terminal, mari kita pahami apa yang sebenarnya dilakukan oleh setiap baris kode yang baru saja Anda tulis:</p>
+          
+          <p><strong>1. Variabel <code>kamus_ai</code> (Basis Data Terstruktur):</strong><br>
+          Kita menggunakan <em>nested dictionary</em> (kamus di dalam kamus). Kata bahasa Inggris seperti <code>"house"</code> menjadi kunci utama (*main key*). Di dalamnya tersimpan informasi lengkap: <code>arti</code>, <code>tipe</code> kata, <code>contoh</code> kalimat, dan <code>arti_contoh</code>. Struktur ini membuat data rapi dan mudah diambil kapan saja.</p>
+
+          <p><strong>2. Fungsi <code>cari_kata_kunci(kalimat_pengguna, data_kamus)</code>:</strong><br>
+          Ini adalah "otak" pemroses bahasa alami (NLP sederhana) kita. Fungsi ini bekerja melalui 3 tahap:
+          <ul>
+            <li><strong>Pembersihan Simbol:</strong> Daftar <code>tanda_baca = ["?", "!", ".", ",", ...]</code> digunakan bersama perulangan <code>replace()</code> untuk membuang tanda baca agar kata seperti <code>"house?"</code> menjadi <code>"house"</code> bersih.</li>
+            <li><strong>Pemotongan Kalimat:</strong> Baris <code>kalimat_bersih.split()</code> memotong kalimat panjang menjadi daftar kata-kata terpisah.</li>
+            <li><strong>Pencocokan Cerdas:</strong> Baris <code>for kata in daftar_kata:</code> memindai setiap kata. Jika kata tersebut terdaftar di <code>data_kamus</code>, fungsi langsung mengembalikannya (<code>return kata</code>). Jika tidak ada yang cocok hingga kata terakhir, fungsi mengembalikan nilai kosong (<code>return None</code>).</li>
+          </ul>
+          </p>
+
+          <p><strong>3. Perulangan <code>while True:</code>:</strong><br>
+          Perulangan tanpa henti (*infinite loop*) ini memastikan program terus berjalan menerima pertanyaan Anda berkali-kali tanpa langsung tertutup setelah satu kali tanya.</p>
+
+          <p><strong>4. Pengecekan <code>if pesan == "keluar":</code>:</strong><br>
+          Memungkinkan Anda menghentikan program kapan saja secara sopan dengan perintah <code>break</code>.</p>
+
+          <p><strong>5. Deteksi Salam Ramah (<code>any(...)</code>):</strong><br>
+          Sebelum mencari ke kamus, program memeriksa apakah Anda hanya sekadar menyapa (seperti <em>"halo"</em> atau <em>"selamat pagi"</em>). Jika terdeteksi salam, chatbot menyapa balik dan perintah <code>continue</code> membuat program langsung melompat kembali ke atas menunggu pertanyaan berikutnya.</p>
+
+          <p><strong>6. Menampilkan Hasil:</strong><br>
+          Jika kata kunci ditemukan, baris <code>info = kamus_ai[kata_ditemukan]</code> mengambil seluruh rincian lalu mencetaknya ke konsol dengan format yang sangat runtut dan nyaman didengarkan oleh pembaca layar.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 5: Membuka Terminal & Menjalankan Program</h4>
+          <p>Arahkan terminal ke folder proyek Anda (atau jika menggunakan VS Code, cukup tekan shortcut <code>Ctrl + `</code> untuk membuka terminal internal), lalu ketik:</p>
+          <pre><code>python chatbot_kamus.py</code></pre>
+          <p>Tekan <code>Enter</code> untuk menjalankan program.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 6: Berinteraksi dan Menguji Chatbot</h4>
+          <p>Cobalah ketik beberapa kalimat bebas berikut untuk melihat kecerdasan chatbot Anda:</p>
+          <ul>
+            <li>Ketik: <code>Halo chatbot!</code> &rarr; Chatbot membalas sapaan Anda secara ramah.</li>
+            <li>Ketik: <code>Apa arti kata house?</code> &rarr; Chatbot mengenali kata <em>house</em> dan menyajikan arti beserta contoh kalimatnya.</li>
+            <li>Ketik: <code>Tolong carikan arti kata beautiful dong!</code> &rarr; Chatbot langsung menyajikan penjelasan lengkap kata <em>beautiful</em>.</li>
+            <li>Ketik: <code>keluar</code> &rarr; Program selesai dan kembali ke prompt terminal.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PRAKTIK BAGIAN 9: FITUR TAMBAHAN TEXT-TO-SPEECH -->
+      <div class="materi-section">
+        <h2>Bagian 9 — Fitur Tambahan (Opsional): Membuat Chatbot Mengeluarkan Suara</h2>
+        <p>
+          Bagi peserta yang ingin chatbot tidak hanya mencetak teks di layar, tetapi juga <strong>bersuara langsung membacakan hasil terjemahan ke telinga</strong>, kita bisa mengintegrasikan library gratis <code>pyttsx3</code>:
+        </p>
+
+        <h4>1. Instalasi Library di Terminal:</h4>
+        <pre><code>pip install pyttsx3</code></pre>
+
+        <h4>2. Contoh Koding Suara Sederhana:</h4>
+        <pre><code>import pyttsx3
+
+# Inisialisasi engine suara
+engine = pyttsx3.init()
+engine.setProperty('rate', 160) # Mengatur kecepatan bicara yang nyaman
+
+def bicara(teks):
+    print("Chatbot:", teks)
+    engine.say(teks)
+    engine.runAndWait()
+
+# Menguji suara:
+bicara("Halo, saya asisten kamus cerdas Anda. Ada kata yang ingin dicari?")</code></pre>
+        <p>
+          Fitur ini membuat chatbot Anda resmi menjadi <strong>Asisten Suara Kamus Pribadi</strong> yang sepenuhnya offline dan mandiri!
+        </p>
+      </div>
+
+      <!-- LATIHAN PRAKTIK -->
+      <div class="materi-section">
+        <h2>Latihan Praktik Mandiri</h2>
+        <p>Untuk memperdalam pemahaman, silakan coba tantangan koding berikut di komputer Anda:</p>
+        <ol>
+          <li>
+            <strong>Menambah Kosakata Baru:</strong><br>
+            Tambahkan 3 kata baru ke dalam variabel <code>kamus_ai</code>, misalnya kata <code>"friend"</code>, <code>"music"</code>, dan <code>"accessible"</code> lengkap dengan arti, tipe kata, dan contoh kalimatnya.
+          </li>
+          <li>
+            <strong>Menambahkan Respons Ucapan Terima Kasih:</strong><br>
+            Tambahkan logika agar ketika pengguna mengetik <em>"terima kasih"</em> atau <em>"makasih"</em>, chatbot membalas: <em>"Sama-sama! Senang bisa membantu Anda belajar."</em>
+          </li>
+          <li>
+            <strong>Eksperimen Kalimat Bertingkat:</strong><br>
+            Cobalah membuat kalimat pertanyaan baru yang panjang, lalu dengarkan bagaimana pembaca layar Anda membaca hasilnya secara jelas dan runtut.
+          </li>
+        </ol>
+      </div>
+
+    </section>
+
+    <!-- Navigasi Modul -->
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1QBdV73nglykCdK9TfWn4x3IluV-_WtNN/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi Lengkap
+      </a>
+      <a href="../topic6.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali">
+        Kembali
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');

@@ -99,18 +99,32 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
 
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
       color: #7ec3e6;
     }
 
     .materi-section {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
     }
 
     pre {
@@ -531,11 +545,180 @@ Menggunakan model AI
 Menghasilkan jawaban kontekstual</code></pre>
       </div>
 
+      <!-- ======================================================== -->
+      <!-- PANDUAN PRAKTIK & LANGKAH-LANGKAH (SETELAH TEORI) -->
+      <!-- ======================================================== -->
+
+      <!-- PRAKTIK BAGIAN 10: PERSIAPAN & LIBRARY -->
+      <div class="materi-section">
+        <h2>Bagian 10 — Persiapan & Kebutuhan Library</h2>
+        <p>
+          Setelah memahami seluruh alur konsep dan logika chatbot kamus, sekarang saatnya kita mempraktikkannya langsung di komputer Anda.
+        </p>
+
+        <div class="step-box">
+          <h4>1. Memeriksa Instalasi Python</h4>
+          <p>Buka <strong>Command Prompt</strong> atau <strong>Terminal</strong>:</p>
+          <ul>
+            <li>Tekan shortcut <code>Windows + R</code> pada keyboard Anda.</li>
+            <li>Ketik <code>cmd</code> lalu tekan <code>Enter</code>.</li>
+            <li>Ketik perintah berikut lalu tekan <code>Enter</code>:</li>
+          </ul>
+          <pre><code>python --version</code></pre>
+          <p>Jika muncul versi Python (misalnya <code>Python 3.10.x</code> atau versi 3 lainnya), berarti Python sudah terpasang dan siap digunakan.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>2. Kebutuhan Library</h4>
+          <p>
+            <strong>Kabar Baik:</strong> Untuk membuat program chatbot kamus ini, <strong>Anda TIDAK PERLU menginstal library tambahan apa pun!</strong>
+          </p>
+          <p>
+            Struktur data <em>dictionary</em>, perulangan <code>while</code>, fungsi <code>input()</code>, dan percabangan <code>if-else</code> merupakan fitur bawaan (*Standard Library*) Python. Program dapat langsung dijalankan secara offline tanpa kuota internet dan bebas risiko error instalasi.
+          </p>
+        </div>
+      </div>
+
+      <!-- PRAKTIK BAGIAN 11: LANGKAH PRAKTIK -->
+      <div class="materi-section">
+        <h2>Bagian 11 — Panduan Langkah demi Langkah Mempraktikkan Kode</h2>
+        <p>
+          Berikut adalah urutan langkah kerja mulai dari menyiapkan file hingga menjalankan program chatbot pertama Anda:
+        </p>
+
+        <div class="step-box">
+          <h4>Langkah 1: Menyiapkan Folder Proyek</h4>
+          <p>
+            Buat folder baru untuk menyimpan latihan koding Anda, misalnya di folder Dokumen dengan nama <code>kamus_dasar</code>.
+          </p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 2: Membuat File Program Python</h4>
+          <p>
+            Buka editor teks favorit Anda (seperti <strong>Visual Studio Code</strong> atau <strong>Notepad</strong> bawaan Windows). Buat file baru lalu simpan dengan nama:
+          </p>
+          <pre><code>chatbot_kamus.py</code></pre>
+          <p><em>(Pastikan nama file berakhiran <code>.py</code>, bukan <code>.txt</code>).</em></p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 3: Menulis Kode Program Lengkap</h4>
+          <p>Ketik atau salin kode program berikut ke dalam file <code>chatbot_kamus.py</code> Anda:</p>
+          <pre><code># ========================================================
+# PROYEK: CHATBOT KAMUS DASAR BAHASA INGGRIS (TOPIK 5)
+# DIFABELAJAR - KELAS AI ENGINEERING
+# ========================================================
+
+# 1. BASIS DATA KAMUS (PYTHON DICTIONARY)
+kamus = {
+    "house": "rumah",
+    "book": "buku",
+    "school": "sekolah",
+    "computer": "komputer",
+    "teacher": "guru"
+}
+
+# 2. MENAMPILKAN PESAN PEMBUKA
+print("==================================================")
+print("🤖 Selamat Datang di Chatbot Kamus Bahasa Inggris!")
+print("Saya siap membantu Anda menerjemahkan kata.")
+print("Ketik 'keluar' jika ingin mengakhiri program.")
+print("==================================================\n")
+
+# 3. PERULANGAN PERCAKAPAN UTAMA
+while True:
+    kata = input("Masukkan kata Bahasa Inggris: ").lower().strip()
+
+    # Cek perintah keluar
+    if kata == "keluar":
+        print("\nChatbot: Terima kasih telah menggunakan chatbot. Sampai jumpa!")
+        break
+
+    # Cek jika input kosong
+    if kata == "":
+        print("Chatbot: Anda belum memasukkan kata. Silakan coba lagi.\n")
+        continue
+
+    # Cek apakah kata ada di dalam kamus
+    if kata in kamus:
+        print("Chatbot: Arti kata", kata, "adalah", kamus[kata], "\n")
+    else:
+        print("Chatbot: Maaf, kata tersebut belum tersedia di kamus.\n")
+</code></pre>
+          <p>Setelah selesai, tekan <code>Ctrl + S</code> untuk menyimpan file Anda.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 4: Memahami Bagian-Bagian Kode (Sebelum Menjalankan)</h4>
+          <p>Sebelum menjalankan program di terminal, mari kita pahami apa fungsi dari setiap baris kode di atas:</p>
+          <ul>
+            <li>
+              <strong>Variabel <code>kamus</code>:</strong> Struktur *dictionary* Python yang menyimpan pasangan kunci dan nilai (*key-value*). Kunci adalah kata bahasa Inggris (misalnya <code>"house"</code>), dan nilainya adalah arti bahasa Indonesianya (<code>"rumah"</code>).
+            </li>
+            <li>
+              <strong>Perulangan <code>while True:</code>:</strong> Memastikan chatbot terus aktif dan siap menerima pertanyaan Anda berulang kali tanpa langsung berhenti setelah satu kali tebak kata.
+            </li>
+            <li>
+              <strong>Metode <code>.lower().strip()</code>:</strong> Fungsi <code>.lower()</code> memastikan huruf besar/kecil diubah menjadi huruf kecil semua secara konsisten, sedangkan <code>.strip()</code> membersihkan spasi tak sengaja di awal atau akhir kata.
+            </li>
+            <li>
+              <strong>Perintah <code>if kata == "keluar": break</code>:</strong> Memeriksa apakah pengguna ingin menyudahi sesi. Perintah <code>break</code> akan langsung menghentikan perulangan dan mengakhiri program dengan sopan.
+            </li>
+            <li>
+              <strong>Pemeriksaan <code>if kata in kamus:</code>:</strong> Mengecek apakah kata yang diketik ada di dalam kamus. Jika ada, program mencetak artinya melalui <code>kamus[kata]</code>. Jika tidak ada, blok <code>else:</code> akan memberikan pesan pemberitahuan yang jelas.
+            </li>
+          </ul>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 5: Membuka Terminal & Menjalankan Program</h4>
+          <p>Arahkan terminal ke folder proyek Anda (atau jika di VS Code tekan shortcut <code>Ctrl + `</code> untuk membuka terminal terintegrasi), lalu ketik perintah:</p>
+          <pre><code>python chatbot_kamus.py</code></pre>
+          <p>Tekan <code>Enter</code> untuk menjalankan program.</p>
+        </div>
+
+        <div class="step-box">
+          <h4>Langkah 6: Berinteraksi dan Menguji Chatbot</h4>
+          <p>Cobalah lakukan simulasi interaksi di terminal dengan memasukkan kata-kata berikut:</p>
+          <ul>
+            <li>Ketik: <code>house</code> &rarr; Chatbot menjawab: <code>Arti kata house adalah rumah</code>.</li>
+            <li>Ketik: <code>COMPUTER</code> &rarr; Karena menggunakan <code>.lower()</code>, chatbot tetap mengenali dan menjawab: <code>Arti kata computer adalah komputer</code>.</li>
+            <li>Ketik: <code>beautiful</code> &rarr; Chatbot menjawab dengan sopan: <code>Maaf, kata tersebut belum tersedia di kamus.</code></li>
+            <li>Ketik: <code>keluar</code> &rarr; Program menampilkan salam perpisahan dan selesai.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PRAKTIK BAGIAN 12: LATIHAN PRAKTIK -->
+      <div class="materi-section">
+        <h2>Bagian 12 — Latihan Praktik Mandiri</h2>
+        <p>Agar keterampilan koding Python Anda semakin terlatih, cobalah 3 latihan berikut di komputer Anda:</p>
+        <ol>
+          <li>
+            <strong>Menambah Kata Baru:</strong><br>
+            Buka kembali file <code>chatbot_kamus.py</code> Anda, lalu tambahkan 3 pasangan kata baru ke dalam dictionary <code>kamus</code>, misalnya:
+            <pre><code>    "student": "siswa",
+    "water": "air",
+    "friend": "teman"</code></pre>
+            Simpan file, jalankan kembali di terminal, dan uji apakah kata-kata baru tersebut berhasil diterjemahkan.
+          </li>
+          <li>
+            <strong>Membuat Pesan Pembuka Sendiri:</strong><br>
+            Ubahlah teks pesan sambutan pada baris <code>print()</code> agar menyebutkan nama Anda sebagai pembuat chatbot.
+          </li>
+          <li>
+            <strong>Bereksperimen dengan Tombol Darurat:</strong><br>
+            Saat chatbot sedang meminta input, cobalah tekan tombol shortcut keyboard <code>Ctrl + C</code> di terminal untuk membiasakan diri membatalkan proses program secara cepat.
+          </li>
+        </ol>
+      </div>
+
     </section>
 
     <!-- Navigasi Modul -->
     <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
-      <a href="https://drive.google.com/file/d/1L83Z9pqYwu3nn43AHoDBJmmW8vK0sVEr/view?usp=sharing"
+      <a href="https://drive.google.com/file/d/1gp8Zn4rEbZJIDv5U7B5ogr6t9ePkR0YS/view?usp=sharing"
          class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
         Download Materi Lengkap
       </a>
