@@ -21,9 +21,15 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 8 - AI untuk Produktivitas Sehari-Hari</title>
-  <meta name="description" content="Modul AI untuk Produktivitas Sehari-Hari di Difabelajar. Pelajari cara menggunakan AI untuk membantu pekerjaan, belajar, komunikasi, dan pengelolaan informasi.">
+
+  <title>Building AI Agent with Google ADK</title>
+
+  <meta name="description" content="Modul AI Engineering Topik 8: Tutorial Lengkap Google ADK (Agent Development Kit) dari Nol. Teori mendalam arsitektur AI Agent, 4 pilar Google ADK, dan praktik membangun AI Assistant Pengelolaan Media Sosial dengan Function Tools. Panduan terstruktur ramah pengguna screen reader dengan estimasi 1.5 jam.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -34,6 +40,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -44,20 +51,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -74,6 +89,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -83,13 +99,78 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
       color: #7ec3e6;
+    }
+
+    .materi-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
+    }
+
+    pre {
+      background: #e9ecef;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode pre {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    code {
+      font-family: Consolas, 'Courier New', monospace;
+    }
+
+    .table-custom {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-collapse: collapse;
+    }
+
+    .table-custom th, .table-custom td {
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      vertical-align: top;
+    }
+
+    .table-custom th {
+      background: #e2e8f0;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    body.dark-mode .table-custom th {
+      background: #334155;
+      color: #f8fafc;
+      border-color: #475569;
+    }
+
+    body.dark-mode .table-custom td {
+      border-color: #475569;
     }
 
     .btn-custom {
@@ -104,6 +185,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -126,6 +208,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -133,303 +216,1030 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      AI untuk Produktivitas Sehari-Hari<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul 8 Artificial Intelligence Fundamental</span>
+      <span style="font-size:1.1rem;font-weight:400;">
+      </span>
+Building AI Agent with Google ADK
     </h1>
 
-    <section aria-labelledby="modul2-title">
-      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
-      <ul>
-        <li>Memahami bagaimana AI membantu pekerjaan sehari-hari</li>
-        <li>Menggunakan AI untuk mengelola waktu, tugas, dan dokumen</li>
-        <li>Menggunakan AI untuk menulis, merangkum, dan mengorganisir informasi</li>
-        <li>Menggunakan AI untuk komunikasi yang lebih cepat dan efektif</li>
-        <li>Menggunakan AI untuk meningkatkan efisiensi kerja dan belajar</li>
-        <li>Mengetahui aplikasi AI yang paling relevan untuk tunanetra</li>
-      </ul>
+    <div class="step-box mb-4">
+      <p class="mt-2 mb-0">
+        Pada pertemuan ini kita akan mempelajari secara mendalam framework resmi dari Google untuk membangun agen cerdas, yaitu <strong>Google ADK (Agent Development Kit)</strong>. Modul ini diawali dengan teori fundamental tentang filosofi, arsitektur, 4 pilar utama, dan siklus kerja Google ADK sebelum melangkah ke persiapan teknis dan praktik. Selanjutnya, kita akan mengimplementasikan pengetahuan tersebut dengan membuat proyek nyata: <strong>Social Media Management Assistant</strong> yang mampu memantau konten, memperbarui status progres, menghitung engagement rate, serta memberikan rekomendasi kerja berbasis data tanpa halusinasi. Seluruh instruksi disusun bertahap dan ramah bagi pengguna screen reader seperti NVDA atau JAWS.
+      </p>
+    </div>
 
-      <h2>Bagian 1 — Mengapa AI Penting untuk Produktivitas?</h2>
-      <p>Menurut Microsoft 365 Copilot Documentation, AI dapat:</p>
-      <ul>
-        <li>Mengurangi waktu kerja administratif hingga 40%</li>
-        <li>Mempercepat penulisan dokumen</li>
-        <li>Membantu merangkum rapat dan email</li>
-        <li>Membantu mengatur jadwal dan tugas</li>
-      </ul>
-      <p>Menurut Google Workspace AI, AI dapat:</p>
-      <ul>
-        <li>Membantu menulis email</li>
-        <li>Membuat ringkasan dokumen</li>
-        <li>Menghasilkan ide dan konsep</li>
-        <li>Mengatur file dan informasi</li>
-      </ul>
-      <p>Menurut UNESCO AI for Inclusion, AI sangat membantu penyandang disabilitas dalam:</p>
-      <ul>
-        <li>Navigasi digital</li>
-        <li>Komunikasi</li>
-        <li>Akses informasi</li>
-        <li>Kemandirian kerja</li>
-      </ul>
-      <p><strong>Analogi untuk pengguna screen reader:</strong><br>
-      AI seperti asisten pribadi digital yang membantu Anda mengerjakan hal-hal kecil agar Anda bisa fokus pada hal yang lebih penting.</p>
+    <section aria-labelledby="modul8-title">
 
-      <h2>Bagian 2 — Area Produktivitas yang Bisa Dibantu AI</h2>
-      <p>AI dapat membantu produktivitas dalam 5 area utama:</p>
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul8-title">Tujuan Pembelajaran</h2>
+      <p>Setelah menyelesaikan pertemuan ini, peserta diharapkan mampu:</p>
       <ol>
-        <li>Menulis &amp; komunikasi</li>
-        <li>Manajemen waktu &amp; jadwal</li>
-        <li>Pengelolaan dokumen</li>
-        <li>Pencarian informasi</li>
-        <li>Pekerjaan kreatif &amp; ideasi</li>
+        <li>Memahami konsep dasar, filosofi, dan 4 pilar arsitektur Google ADK (Agent Development Kit).</li>
+        <li>Membedakan karakteristik Model Bahasa (LLM), Chatbot Konvensional, dan Autonomous AI Agent.</li>
+        <li>Memahami siklus penalaran dan eksekusi AI Agent (Reasoning, Action, Observation, Response).</li>
+        <li>Memahami bagaimana Google ADK memetakan fungsi Python biasa menjadi Function Tools yang dipahami AI secara otomatis.</li>
+        <li>Menyiapkan lingkungan pengembangan terisolasi dengan Python Virtual Environment (<code>.venv</code>).</li>
+        <li>Menginstal paket resmi <code>google-adk</code> dan mengelola Gemini API Key secara aman melalui file <code>.env</code>.</li>
+        <li>Membuat AI Agent menggunakan kelas <code>Agent</code> pada Google ADK.</li>
+        <li>Membuat Function Tools untuk mencatat, memantau, dan memperbarui status alur kerja konten media sosial.</li>
+        <li>Mengimplementasikan analisis data kuantitatif (engagement rate) menggunakan fungsi Python.</li>
+        <li>Menguji AI Agent melalui antarmuka terminal dan memverifikasi integritas rekomendasi berbasis data faktual.</li>
+        <li>Memahami arah pengembangan prototipe menjadi aplikasi tim skala profesional.</li>
       </ol>
-      <p>Mari kita bahas satu per satu.</p>
 
-      <h2>Bagian 3 — AI untuk Menulis &amp; Komunikasi</h2>
-      <p>Menurut Microsoft Copilot, 70% waktu kerja dihabiskan untuk:</p>
-      <ul>
-        <li>Menulis email</li>
-        <li>Membuat laporan</li>
-        <li>Membuat pesan</li>
-        <li>Membuat dokumen</li>
-      </ul>
-      <p>AI dapat membantu:</p>
+      <!-- Bagian Kesatu -->
+      <div class="materi-section">
+        <h2>Bagian Kesatu — Apa Itu Google ADK? (Technical Overview &amp; Filosofi)</h2>
+        <p>
+          <strong>Google ADK (Agent Development Kit)</strong> adalah framework pengembangan AI Agent tingkat lanjut yang dirancang dan dirilis oleh Google. Framework ini diciptakan untuk membantu para pengembang (developer dan AI engineer) membangun sistem agen kecerdasan buatan yang tidak hanya pandai mengolah kata-kata, tetapi juga mampu memahami instruksi kompleks, mengambil keputusan logis secara bertahap, dan mengeksekusi fungsi perangkat lunak nyata (disebut <em>tools</em>) untuk menyelesaikan sasaran kerja (<em>goal-oriented tasks</em>).
+        </p>
+        <p>
+          Dalam dunia rekayasa kecerdasan buatan, kita mengenal evolusi interaksi komputer sebagai berikut:
+        </p>
+        <pre><code>Generasi 1: Chatbot Biasa
+Menerima teks pertanyaan -> Menghasilkan teks jawaban berdasarkan data statis.
+Bersifat pasif dan terisolasi dari sistem komputer.
+       │
+       v
+Generasi 2: AI Assistant
+Mampu memahami instruksi pengguna lebih luwes, namun masih terbatas pada pemberian saran teks
+tanpa kemampuan mengubah status data secara otomatis.
+       │
+       v
+Generasi 3: Autonomous AI Agent (Google ADK)
+Menerima tujuan (goal) -> Melakukan penalaran (reasoning) -> Memilih tools komputer (tools execution)
+-> Memperbarui data nyata -> Memberikan laporan hasil yang terverifikasi.</code></pre>
 
-      <h3>1. Menulis Email</h3>
-      <ul>
-        <li>Email formal</li>
-        <li>Email permohonan</li>
-        <li>Email laporan</li>
-        <li>Email tindak lanjut</li>
-      </ul>
+        <p>
+          Perhatikan tabel perbandingan karakteristik ketiga tingkatan tersebut serta posisi Google ADK:
+        </p>
+        <div class="table-responsive">
+          <table class="table-custom" aria-label="Tabel Perbandingan Chatbot, AI Agent, dan Google ADK">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%;">Kategori</th>
+                <th scope="col" style="width: 35%;">Perilaku &amp; Karakteristik</th>
+                <th scope="col" style="width: 40%;">Analogi Sederhana</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Chatbot Biasa</th>
+                <td>Hanya mencocokkan kata kunci atau merespons kalimat berdasarkan data teks latihan. Tidak memiliki akses ke sistem luar atau eksekusi fungsi.</td>
+                <td>Buku panduan wisata yang hanya menjawab pertanyaan rute tanpa bisa mengemudikan mobil untuk Anda.</td>
+              </tr>
+              <tr>
+                <th scope="row">AI Agent</th>
+                <td>Memahami tujuan akhir, memecah tugas menjadi langkah-langkah terencana, memanggil fungsi komputer (tools), mengevaluasi hasilnya, dan menyesuaikan langkah berikutnya.</td>
+                <td>Pemandu wisata pribadi yang tidak hanya tahu peta rute, tetapi juga memesankan tiket, memeriksa prakiraan cuaca, dan mengantar Anda ke tujuan.</td>
+              </tr>
+              <tr>
+                <th scope="row">Google ADK</th>
+                <td>Framework perangkat lunak resmi dari Google yang menyediakan arsitektur terpadu: integrasi model Gemini, otomasi function calling, manajemen memori sesi, serta CLI dan Web Inspector.</td>
+                <td>Sistem operasi atau toolkit standar industri yang memungkinkan teknisi membangun pemandu wisata pribadi tersebut dengan cepat, aman, dan modular.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <h3>2. Menulis Pesan WhatsApp</h3>
-      <ul>
-        <li>Pesan singkat</li>
-        <li>Pesan sopan</li>
-        <li>Pesan profesional</li>
-      </ul>
+        <h3>Analogi untuk Peserta Pengguna Screen Reader</h3>
+        <p>
+          Bayangkan Anda mempekerjakan seorang asisten administrasi di kantor Anda. Jika Anda hanya memberinya buku ensiklopedia, dia hanya bisa menjawab apa yang tercatat di buku itu (itulah Chatbot teks biasa). Namun jika Anda memberinya meja kerja yang dilengkapi buku agenda, kalkulator, lemari arsip, dan stempel persetujuan (perangkat fungsi/tools), maka dia dapat membuka lemari arsip saat Anda bertanya tentang dokumen lama, menghitung pengeluaran dengan kalkulator, dan mencap surat persetujuan (itulah AI Agent). Google ADK adalah peraturan standar operasional (SOP) resmi yang dibuat Google agar asisten Anda tahu kapan harus menggunakan kalkulator dan kapan harus memeriksa lemari arsip secara teratur.
+        </p>
+      </div>
 
-      <h3>3. Menulis Dokumen</h3>
-      <ul>
-        <li>Laporan kegiatan</li>
-        <li>Proposal</li>
-        <li>Catatan rapat</li>
-      </ul>
+      <!-- Bagian Kedua -->
+      <div class="materi-section">
+        <h2>Bagian Kedua — Arsitektur &amp; 4 Pilar Utama Google ADK</h2>
+        <p>
+          Untuk memahami bagaimana Google ADK bekerja di balik layar, kita perlu mengenal 4 pilar arsitektur utamanya:
+        </p>
+        <pre><code>                    ┌────────────────────────────────────────┐
+                    │            PENGGUNA / USER             │
+                    └───────────────────┬────────────────────┘
+                                        │ Instruksi Alami
+                                        v
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│                             GOOGLE ADK (AGENT CORE)                                │
+│                                                                                    │
+│   1. BRAIN / MODEL (Gemini)          ◄───►   2. ORCHESTRATION &amp; INSTRUCTION        │
+│   Penalaran logis &amp; pemahaman bahasa        Aturan kerja, persona, batasan etika   │
+│                                                                                    │
+│   3. CONTEXT &amp; SESSION MEMORY        ◄───►   4. FUNCTION TOOLS (Kode Python)       │
+│   Penyimpan status &amp; konteks obrolan        Kalkulator, database, akses API nyata  │
+└───────────────────────────────────────┬────────────────────────────────────────────┘
+                                        │
+                                        v
+                       TINDAKAN NYATA &amp; HASIL TERVERIFIKASI</code></pre>
 
-      <h3>4. Menulis Caption Media Sosial</h3>
-      <ul>
-        <li>Instagram</li>
-        <li>Facebook</li>
-        <li>TikTok</li>
-      </ul>
+        <p>Mari kita bedah fungsi masing-masing pilar tersebut:</p>
+        <ol>
+          <li>
+            <strong>Brain / Model AI (Keluarga Gemini):</strong> Bertindak sebagai pusat pemikiran (otak). Model ini bertugas mencerna kalimat manusia yang bebas, menentukan niat pengguna (intent), dan menyusun strategi penyelesaian masalah.
+          </li>
+          <li>
+            <strong>Function Tools (Tangan dan Kaki Agen):</strong> Fungsi-fungsi bahasa pemrograman Python biasa yang Anda tulis. Tools ini bertugas menghubungkan AI dengan dunia nyata, misalnya membaca data di memori, menulis ke database, menghitung angka pasti, atau mengirim pesan ke server.
+          </li>
+          <li>
+            <strong>Context &amp; Session Memory (Ingatan Percakapan):</strong> Mekanisme yang menjaga riwayat interaksi dan status data antar giliran percakapan (multi-turn dialog), sehingga agen tidak mengalami "amnesia" di tengah proses kerja.
+          </li>
+          <li>
+            <strong>Orchestration &amp; System Instruction (SOP &amp; Kebijakan):</strong> Arahan sistem yang memandu karakter, etika, dan batasan operasional agen. Melalui instruksi ini, kita menegaskan agar agen tidak berhalusinasi, selalu ramah pengguna disabilitas, dan hanya bertindak sesuai kewenangan.
+          </li>
+        </ol>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan email profesional untuk meminta jadwal pertemuan. Gunakan bahasa formal dan singkat.”</p>
+        <h3>Siklus Kerja ReAct (Reasoning - Action - Observation - Response)</h3>
+        <p>Saat pengguna mengirimkan permintaan, Google ADK menjalankan siklus yang dinamakan <strong>ReAct</strong>:</p>
+        <pre><code>1. REASON (Menalar):
+   Model AI membaca instruksi dan menalar: "Pengguna ingin melihat daftar konten media sosial.
+   Saya memiliki tool bernama 'lihat_konten'. Saya harus memanggil tool tersebut."
+        │
+        v
+2. ACTION (Bertindak):
+   Google ADK mengeksekusi fungsi Python 'lihat_konten()' di komputer Anda.
+        │
+        v
+3. OBSERVATION (Mengamati):
+   Fungsi Python mengembalikan data daftar konten. Model AI membaca output data tersebut.
+        │
+        v
+4. RESPONSE (Menjawab):
+   Model AI merangkum data faktual menjadi bahasa manusia yang ramah dibaca oleh screen reader.</code></pre>
+      </div>
 
-      <h2>Bagian 4 — AI untuk Manajemen Waktu &amp; Jadwal</h2>
-      <p>Menurut Google Workspace AI, AI dapat membantu:</p>
-      <ul>
-        <li>Membuat jadwal harian</li>
-        <li>Membuat rencana mingguan</li>
-        <li>Mengatur prioritas</li>
-        <li>Mengingatkan tugas penting</li>
-      </ul>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan jadwal belajar 1 minggu untuk mempelajari AI dasar. Sertakan waktu istirahat.”</p>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan daftar prioritas harian berdasarkan 3 kategori: penting, mendesak, opsional.”</p>
+      <!-- Bagian Ketiga -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga — Bagaimana Google ADK Menghubungkan Gemini dengan Kode Python?</h2>
+        <p>
+          Salah satu keunggulan terbesar Google ADK dibanding pendekatan konvensional adalah kemudahannya dalam mendaftarkan fungsi Python menjadi tools AI.
+        </p>
+        <p>
+          Di masa lalu, pengembang harus menyusun deskripsi fungsi dalam format JSON Schema yang sangat panjang dan rumit agar AI mengerti parameter apa yang dibutuhkan. Namun di Google ADK, Anda cukup menulis fungsi Python standar dengan dua aturan:
+        </p>
+        <ol>
+          <li><strong>Type Hints (Penanda Tipe Data):</strong> Menuliskan tipe input dan output (seperti <code>str</code> untuk teks, <code>int</code> untuk bilangan bulat, <code>list</code> untuk daftar).</li>
+          <li><strong>Docstrings (Komentar Dokumentasi Fungsi):</strong> Menuliskan penjelasan singkat di dalam tanda petik tiga (<code>"""..."""</code>) mengenai apa tugas fungsi tersebut.</li>
+        </ol>
+        <p>Perhatikan contoh elegan berikut:</p>
+        <pre><code>def update_status(konten_id: int, status_baru: str) -> str:
+    """Memperbarui status pekerjaan konten media sosial berdasarkan ID konten."""
+    # Kode Python Anda di sini...</code></pre>
+        <p>
+          Saat fungsi di atas dimasukkan ke dalam daftar <code>tools=[update_status]</code> pada agen ADK, Google ADK secara otomatis menerjemahkan docstring dan type hints tersebut menjadi format pemanggilan yang dimengerti oleh model Gemini. Model langsung paham bahwa untuk memperbarui status, ia harus meminta parameter <code>konten_id</code> berupa angka dan <code>status_baru</code> berupa teks.
+        </p>
+      </div>
 
-      <h2>Bagian 5 — AI untuk Pengelolaan Dokumen</h2>
-      <p>AI dapat membantu:</p>
+      <!-- Bagian Keempat -->
+      <div class="materi-section">
+        <h2>Bagian Keempat — Mengapa Google ADK Sangat Penting untuk AI Engineer?</h2>
+        <p>
+          Sebagai seorang AI Engineer, memahami framework seperti Google ADK memberikan keunggulan kompetitif yang besar:
+        </p>
+        <ul>
+          <li><strong>Standar Industri Resmi:</strong> Dibangun langsung oleh tim Google DeepMind dan Google Cloud, menjamin kompatibilitas jangka panjang dengan model-model masa depan Gemini.</li>
+          <li><strong>Aksesibilitas Dual-Interface:</strong> Menyediakan antarmuka terminal (CLI) berbasis teks murni yang sangat cepat dan ramah screen reader (NVDA/JAWS), serta antarmuka visual berbasis web (ADK Web) untuk inspeksi grafik interaktif.</li>
+          <li><strong>Pencegahan Halusinasi yang Ketat:</strong> Karena AI diwajibkan mengambil data melalui tools Python terverifikasi, risiko AI mengarang data angka atau status palsu dapat ditekan seminimal mungkin.</li>
+          <li><strong>Skalabilitas Menuju Produksi:</strong> Kode agent yang kita tulis di komputer lokal dapat langsung dipindahkan ke layanan server cloud (seperti Google Cloud Run atau Vertex AI) tanpa merombak logika program dari awal.</li>
+        </ul>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Prinsip Utama AI Agent Engineering:</strong><br>
+            <em>AI menyediakan kemampuan bahasa dan fleksibilitas penalaran, sedangkan kode Python menyediakan kepastian matematika dan integritas penyimpanan data.</em>
+          </p>
+        </div>
+      </div>
 
-      <h3>1. Merangkum Dokumen Panjang</h3>
-      <ul>
-        <li>PDF</li>
-        <li>Artikel</li>
-        <li>Laporan</li>
-        <li>Catatan rapat</li>
-      </ul>
+      <!-- Bagian Kelima -->
+      <div class="materi-section">
+        <h2>Bagian Kelima — Ragam Contoh Implementasi &amp; Peluang Proyek AI Agent</h2>
+        <p>
+          Google ADK dapat diterapkan pada berbagai industri dan kebutuhan otomatisasi:
+        </p>
+        <div class="table-responsive">
+          <table class="table-custom" aria-label="Tabel Contoh Proyek AI Agent di Berbagai Bidang">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%;">Nama Proyek</th>
+                <th scope="col" style="width: 35%;">Peran &amp; Tools yang Digunakan</th>
+                <th scope="col" style="width: 40%;">Manfaat Nyata</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Social Media Management Assistant</th>
+                <td>Tools monitoring konten, pencatatan jadwal, pembaruan status review, dan kalkulasi engagement rate.</td>
+                <td>Membantu tim konten bekerja sinkron, mengurangi keterlambatan rilis, dan menyajikan analisis performa otomatis (proyek kita hari ini!).</td>
+              </tr>
+              <tr>
+                <th scope="row">AI Tutor Bahasa Inggris Inklusif</th>
+                <td>Tools pencarian kamus leksikal, tata bahasa, dan pembacaan teks fonetik ramah disabilitas netra.</td>
+                <td>Menyediakan sarana latihan percakapan mandiri yang sabar dan aksesibel bagi pembelajar tunanetra.</td>
+              </tr>
+              <tr>
+                <th scope="row">Data Analytics &amp; Reporting Agent</th>
+                <td>Tools pembaca file CSV/Excel, kalkulator agregasi data, dan pembuat ringkasan eksekutif.</td>
+                <td>Mengubah ribuan baris data transaksi penjualan menjadi laporan naratif yang siap dibaca pimpinan perusahaan.</td>
+              </tr>
+              <tr>
+                <th scope="row">Customer Support &amp; Order Tracker</th>
+                <td>Tools query status pengiriman ekspedisi, pengecekan inventori produk, dan validasi struk belanja.</td>
+                <td>Menjawab pertanyaan pelanggan secara akurat 24 jam sehari tanpa bantuan staf operasional manual.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-      <h3>2. Mengubah Format Teks</h3>
-      <ul>
-        <li>Dari paragraf → poin</li>
-        <li>Dari poin → paragraf</li>
-        <li>Dari bahasa formal → santai</li>
-      </ul>
+      <!-- Bagian Keenam -->
+      <div class="materi-section">
+        <h2>Bagian Keenam — Persiapan Sebelum Memulai</h2>
+        <p>Setelah memahami konsep dan filosofi Google ADK, pastikan komputer Anda telah memenuhi kebutuhan teknis berikut:</p>
+        <ul>
+          <li>Komputer atau laptop bersistem operasi Windows (bisa juga Mac atau Linux).</li>
+          <li>Python versi 3.10 atau versi yang lebih baru (misalnya Python 3.11 atau 3.12).</li>
+          <li>Koneksi internet yang stabil untuk mengunduh paket pustaka dan berkomunikasi dengan API Gemini.</li>
+          <li>Aplikasi terminal Command Prompt (cmd) atau PowerShell bawaan Windows.</li>
+          <li>Akun Google aktif.</li>
+          <li>Gemini API key dari Google AI Studio.</li>
+        </ul>
+        <p>
+          Tutorial utama menggunakan bahasa pemrograman Python karena sintaksisnya yang bersih dan menjadi standar de-facto dalam pengembangan AI Engineering modern.
+        </p>
+      </div>
 
-      <h3>3. Membuat Template</h3>
-      <ul>
-        <li>Template laporan</li>
-        <li>Template email</li>
-        <li>Template proposal</li>
-      </ul>
+      <!-- Bagian Ketujuh -->
+      <div class="materi-section">
+        <h2>Bagian Ketujuh — Memeriksa Instalasi Python Melalui Terminal</h2>
+        <p>
+          Kita mulai menggunakan Command Prompt agar seluruh perintah dapat diikuti dan dibaca dengan jelas melalui screen reader (NVDA / JAWS).
+        </p>
+        <div class="step-box">
+          <h4>Langkah-Langkah Membuka Terminal:</h4>
+          <ol class="mb-0">
+            <li>Tekan tombol <strong>Windows + R</strong> pada keyboard untuk membuka dialog Run.</li>
+            <li>Ketik <code>cmd</code> lalu tekan <strong>Enter</strong>.</li>
+            <li>Jendela Command Prompt hitam akan terbuka dan fokus siap menerima teks.</li>
+          </ol>
+        </div>
+        <p>Periksa versi Python Anda dengan mengetikkan perintah berikut lalu tekan Enter:</p>
+        <pre><code>python --version</code></pre>
+        <p>
+          Jika Python sudah terinstal, terminal akan menampilkan versinya, misalnya <code>Python 3.12.5</code>. Angka tersebut hanya contoh; versi di komputer Anda bisa berbeda asalkan 3.10 atau lebih baru.
+        </p>
+        <p>Selanjutnya, periksa pengelola paket pip dengan perintah:</p>
+        <pre><code>python -m pip --version</code></pre>
+        <p>
+          Jika kedua perintah berhasil menampilkan versi, Anda siap melanjutkan.
+        </p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Troubleshooting:</strong> Jika muncul pesan <em>"python is not recognized"</em>, coba ketik <code>py --version</code>. Jika <code>py</code> berhasil, gunakan <code>py</code> untuk menggantikan kata <code>python</code> pada langkah-langkah berikutnya. Jika tetap gagal, Anda perlu menginstal Python dari python.org dan memastikan opsi <strong>"Add python.exe to PATH"</strong> dicentang.
+          </p>
+        </div>
+      </div>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Ringkas dokumen berikut menjadi 5 poin utama. Gunakan bahasa sederhana.”</p>
+      <!-- Bagian Kedelapan -->
+      <div class="materi-section">
+        <h2>Bagian Kedelapan — Membuat Folder Proyek dan Lingkungan Virtual (venv)</h2>
+        <p>
+          Kita akan menyimpan seluruh proyek latihan di folder Documents komputer Anda agar rapi.
+        </p>
+        <p>Jalankan perintah berikut satu per satu di Command Prompt:</p>
+        <pre><code>cd %USERPROFILE%\Documents
+mkdir belajar-google-adk
+cd belajar-google-adk</code></pre>
+        <p>
+          Sekarang kita perlu membuat lingkungan Python terpisah atau <em>virtual environment</em> (<code>.venv</code>). Tujuannya agar pustaka proyek Google ADK tidak bercampur dan tidak mengganggu proyek Python lainnya di komputer.
+        </p>
+        <p>Jalankan perintah pembuatan environment berikut:</p>
+        <pre><code>python -m venv .venv</code></pre>
+        <p>
+          Tunggu beberapa saat sampai proses selesai. Jika tidak ada pesan kesalahan, aktifkan lingkungan tersebut dengan mengetik:
+        </p>
+        <pre><code>.venv\Scripts\activate.bat</code></pre>
+        <p>
+          Setelah aktif, screen reader biasanya akan membacakan tanda <code>(.venv)</code> di bagian paling awal dari baris direktori terminal Anda.
+        </p>
+      </div>
 
-      <h2>Bagian 6 — AI untuk Pencarian Informasi</h2>
-      <p>Menurut OpenAI Use Cases, AI dapat:</p>
-      <ul>
-        <li>Menjawab pertanyaan cepat</li>
-        <li>Menjelaskan konsep</li>
-        <li>Memberikan referensi</li>
-        <li>Memberikan contoh</li>
-      </ul>
-      <p>AI dapat menggantikan:</p>
-      <ul>
-        <li>Browsing manual</li>
-        <li>Membaca artikel panjang</li>
-        <li>Mencari definisi</li>
-      </ul>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Jelaskan perbedaan AI, Machine Learning, dan Deep Learning dalam 3 paragraf.”</p>
+      <!-- Bagian Kesembilan -->
+      <div class="materi-section">
+        <h2>Bagian Kesembilan — Menginstal Google ADK</h2>
+        <p>
+          Pastikan virtual environment masih aktif (terdapat tanda <code>(.venv)</code>). Pertama, perbarui pip ke versi terkini:
+        </p>
+        <pre><code>python -m pip install --upgrade pip</code></pre>
+        <p>
+          Setelah selesai, pasang pustaka resmi Google ADK dengan mengetikkan:
+        </p>
+        <pre><code>python -m pip install google-adk</code></pre>
+        <p>
+          Proses instalasi membutuhkan koneksi internet dan memerlukan waktu 1 hingga 3 menit. Untuk memeriksa apakah instalasi berhasil, jalankan:
+        </p>
+        <pre><code>python -m pip show google-adk</code></pre>
+        <p>
+          Jika informasi paket <code>google-adk</code> (nama, versi, rangkuman pembuat) muncul di layar, berarti paket telah terpasang dengan sukses.
+        </p>
+      </div>
 
-      <h2>Bagian 7 — AI untuk Pekerjaan Kreatif &amp; Ideasi</h2>
-      <p>AI dapat membantu:</p>
+      <!-- Bagian Kesepuluh -->
+      <div class="materi-section">
+        <h2>Bagian Kesepuluh — Membuat Gemini API Key di Google AI Studio</h2>
+        <p>
+          Google ADK membutuhkan akses ke model AI untuk memproses instruksi dan membuat keputusan pemanggilan fungsi. Kita akan menggunakan Google Gemini API.
+        </p>
+        <div class="step-box">
+          <h4>Langkah-Langkah untuk Pengguna Screen Reader:</h4>
+          <ol class="mb-0">
+            <li>Buka browser (Google Chrome, Microsoft Edge, atau Firefox).</li>
+            <li>Akses alamat URL: <strong>https://aistudio.google.com/app/apikey</strong></li>
+            <li>Masuk (Login) menggunakan akun Google Anda.</li>
+            <li>Gunakan tombol <strong>Tab</strong> atau navigasi link/button screen reader untuk mencari tombol bernama <strong>"Create API key"</strong> atau <strong>"Get API key"</strong>.</li>
+            <li>Ikuti petunjuk di layar hingga API key berhasil dibuat.</li>
+            <li>Tekan tombol <strong>"Copy"</strong> untuk menyalin teks API key tersebut ke clipboard komputer Anda.</li>
+          </ol>
+        </div>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Penting tentang Keamanan:</strong> API key adalah informasi rahasia. Jangan membagikannya kepada orang lain, memasukkannya ke kode yang dipublikasikan di GitHub, atau mengirimkannya dalam percakapan publik.
+          </p>
+        </div>
+      </div>
 
-      <h3>1. Membuat Ide Konten</h3>
-      <ul>
-        <li>Ide video</li>
-        <li>Ide artikel</li>
-        <li>Ide caption</li>
-        <li>Ide kampanye</li>
-      </ul>
+      <!-- Bagian Kesebelas -->
+      <div class="materi-section">
+        <h2>Bagian Kesebelas — Membuat &amp; Memahami Struktur Proyek Google ADK</h2>
+        <p>
+          Google ADK menyediakan utilitas perintah otomatis melalui terminal untuk membuat kerangka dan susunan file proyek AI Agent secara instan.
+        </p>
 
-      <h3>2. Membuat Naskah</h3>
-      <ul>
-        <li>Naskah video</li>
-        <li>Naskah podcast</li>
-        <li>Naskah presentasi</li>
-      </ul>
+        <div class="step-box">
+          <h4>Cara 1: Membuat Struktur Proyek Secara Otomatis (Direkomendasikan)</h4>
+          <p>
+            Pastikan jendela Command Prompt Anda berada di folder induk <code>belajar-google-adk</code> dan Virtual Environment telah aktif (terdapat tanda <code>(.venv)</code>).
+          </p>
+          <p>Ketik perintah berikut lalu tekan <strong>Enter</strong>:</p>
+          <pre><code>adk create asisten_saya</code></pre>
+          <p class="mb-0">
+            Perintah ini akan secara otomatis membuat folder baru bernama <code>asisten_saya</code> beserta seluruh file kerangka yang diperlukan. Jika muncul pertanyaan pemilihan model, Anda dapat menekan Enter untuk memilih konfigurasi default.
+          </p>
+        </div>
 
-      <h3>3. Membuat Deskripsi Produk</h3>
-      <ul>
-        <li>Untuk toko online</li>
-        <li>Untuk katalog</li>
-        <li>Untuk media sosial</li>
-      </ul>
+        <div class="step-box">
+          <h4>Cara 2: Membuat Struktur Proyek Secara Manual</h4>
+          <p>
+            Jika karena alasan tertentu perintah <code>adk create</code> mengalami kendala, Anda dapat membuat susunan folder dan filenya secara manual dengan menjalankan perintah berikut di Command Prompt:
+          </p>
+          <pre><code>mkdir asisten_saya
+cd asisten_saya
+type nul > agent.py
+type nul > .env
+type nul > __init__.py</code></pre>
+          <p class="mb-0">
+            Perintah di atas akan membuat folder <code>asisten_saya</code> dan tiga file kosong: <code>agent.py</code>, <code>.env</code>, dan <code>__init__.py</code>.
+          </p>
+        </div>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan 10 ide konten edukasi tentang AI untuk pemula tunanetra.”</p>
+        <h3 class="h5 fw-bold mt-4">Mengenal Struktur File yang Dihasilkan</h3>
+        <p>Susunan file di komputer Anda akan terlihat seperti ini:</p>
+        <pre><code>belajar-google-adk/
+│
+├── .venv/                      (Folder lingkungan Python terisolasi)
+│
+└── asisten_saya/               (Folder proyek AI Agent)
+    ├── agent.py                (File utama tempat kita menulis logika, instruksi, dan tools)
+    ├── .env                    (File konfigurasi rahasia untuk menyimpan GOOGLE_API_KEY)
+    └── __init__.py             (File Python penanda paket agar modul agen dapat diimpor)</code></pre>
+        <p>
+          Berikut adalah fungsi masing-masing file:
+        </p>
+        <ul>
+          <li><strong>Folder <code>asisten_saya/</code>:</strong> Wadah direktori utama agen. Nama folder ini akan digunakan sebagai nama agent saat kita menjalankannya.</li>
+          <li><strong>File <code>agent.py</code>:</strong> Berisi kode Python untuk mendefinisikan objek <code>root_agent</code>, model Gemini yang dipilih, instruksi perilaku AI, serta function tools.</li>
+          <li><strong>File <code>.env</code>:</strong> Tempat menyimpan Gemini API Key rahasia agar aman dan tidak tercampur dalam kode program.</li>
+          <li><strong>File <code>__init__.py</code>:</strong> File khusus Python yang berisi baris kode <code>from . import agent</code> agar modul agent dapat dikenali oleh Google ADK.</li>
+        </ul>
 
-      <h2>Bagian 8 — Aplikasi AI untuk Produktivitas</h2>
+        <h3 class="h5 fw-bold mt-4">Bentuk Kode Dasar pada agent.py</h3>
+        <p>
+          Di dalam file <code>agent.py</code>, Google ADK menggunakan kelas <code>Agent</code> dari pustaka Google ADK dengan pola sederhana:
+        </p>
+        <pre><code>from google.adk.agents import Agent
 
-      <h3>1. Microsoft Copilot</h3>
-      <ul>
-        <li>Menulis email</li>
-        <li>Merangkum dokumen</li>
-        <li>Membuat presentasi</li>
-        <li>Membuat ringkasan rapat</li>
-      </ul>
+root_agent = Agent(
+    name="asisten_saya",
+    model="gemini-flash-latest",
+    description="Asisten AI untuk membantu pengguna belajar.",
+    instruction="""
+    Anda adalah asisten AI yang ramah dan profesional.
+    Gunakan bahasa Indonesia yang jelas dan mudah dipahami.
+    Jelaskan konsep pemrograman untuk pemula secara bertahap.
+    """
+)</code></pre>
 
-      <h3>2. Google Gemini / Workspace AI</h3>
-      <ul>
-        <li>Menulis dokumen</li>
-        <li>Membuat ringkasan</li>
-        <li>Membuat ide konten</li>
-      </ul>
+        <p>Mari kita bedah fungsi masing-masing komponen kode di atas:</p>
+        <div class="table-responsive">
+          <table class="table-custom" aria-label="Tabel Komponen Kode Agent">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 35%;">Bagian Kode</th>
+                <th scope="col" style="width: 65%;">Fungsi &amp; Penjelasannya</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><code>from google.adk.agents import Agent</code></th>
+                <td>Mengimpor kelas utama untuk membangun agent dari pustaka Google ADK.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>root_agent</code></th>
+                <td>Variabel utama yang wajib dikenali oleh ADK sebagai pintu masuk (entry point) AI Agent proyek.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>name</code></th>
+                <td>Nama unik penanda agent (misal: <code>social_media_assistant</code>).</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>model</code></th>
+                <td>Model AI yang digunakan, misalnya <code>gemini-flash-latest</code> yang cepat dan efisien.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>description</code></th>
+                <td>Ringkasan tujuan agent yang membantu model mengenali lingkup kemampuannya.</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>instruction</code></th>
+                <td>Aturan perilaku, batasan logika, dan karakter yang wajib ditaati oleh agent (seperti SOP atau deskripsi kerja pegawai baru).</td>
+              </tr>
+              <tr>
+                <th scope="row"><code>tools</code></th>
+                <td>Daftar fungsi Python yang didaftarkan ke agent agar bisa dipanggil saat dibutuhkan.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-      <h3>3. Notion AI</h3>
-      <ul>
-        <li>Membuat catatan</li>
-        <li>Merangkum rapat</li>
-        <li>Membuat rencana kerja</li>
-      </ul>
+      <!-- Bagian Kedua Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Belas — Mengatur API Key pada File .env dengan Notepad</h2>
+        <p>
+          Kita akan menggunakan teks editor bawaan Windows yaitu Notepad agar mudah dioperasikan dengan pembaca layar (screen reader).
+        </p>
+        <p>
+          File <code>.env</code> berfungsi menyimpan variabel lingkungan yang sensitif sehingga terpisah dari kode program utama. Format konfigurasinya adalah:
+        </p>
+        <pre><code>GOOGLE_API_KEY="TEMPELKAN_API_KEY_ANDA_DI_SINI"</code></pre>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Tips Aksesibilitas:</strong> Simpan file dengan menekan <code>Ctrl + S</code>. Pastikan nama filenya adalah <code>.env</code> dan bukan <code>.env.txt</code>. Jangan menghapus tanda kutip ganda yang mengapit API key Anda.
+          </p>
+        </div>
+      </div>
 
-      <h3>4. ChatGPT</h3>
-      <ul>
-        <li>Menulis</li>
-        <li>Merangkum</li>
-        <li>Menjelaskan</li>
-        <li>Membuat ide</li>
-      </ul>
+      <!-- Bagian Ketiga Belas -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga Belas — Proyek Utama: Membangun Social Media Management Assistant</h2>
+        <p>
+          Sekarang kita masuk ke proyek inti: <strong>Social Media Management Assistant</strong>.
+        </p>
+        <p>
+          Sebuah tim media sosial (terdiri dari Admin, Penulis Konten/Copywriter, Desainer, Video Editor, dan Manajer) sering kali menghadapi kesulitan dalam menyinkronkan tugas dan mengevaluasi konten:
+        </p>
+        <pre><code>Tim Media Sosial
+(Admin, Penulis Konten, Desainer, Editor, Manajer)
+       │
+       v
+AI Assistant — Google ADK
+(Memahami instruksi, memanggil tools, dan menganalisis data)
+       │
+       ├── Monitoring Konten (Jadwal &amp; status pekerjaan)
+       │
+       ├── Pencatatan Konten Baru (Registrasi materi kerja)
+       │
+       ├── Update Progres (Perubahan alur review &amp; rilis)
+       │
+       ├── Analisis Kinerja (Reach, engagement rate, &amp; interaksi)
+       │
+       └── Rekomendasi AI (Saran perbaikan berbasis data)</code></pre>
 
-      <h3>5. Grammarly</h3>
-      <ul>
-        <li>Memperbaiki tata bahasa</li>
-      </ul>
+        <p>Versi pertama asisten ini akan memiliki lima fitur utama:</p>
+        <div class="table-responsive">
+          <table class="table-custom" aria-label="Tabel Fitur Utama Asisten Media Sosial">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 30%;">Fitur Utama</th>
+                <th scope="col" style="width: 70%;">Fungsi &amp; Manfaat Operasional</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Monitoring Konten</th>
+                <td>Menampilkan daftar seluruh materi konten dan status pengerjaannya saat ini.</td>
+              </tr>
+              <tr>
+                <th scope="row">Pencatatan Konten</th>
+                <td>Menambahkan konten baru ke dalam daftar kerja tim.</td>
+              </tr>
+              <tr>
+                <th scope="row">Update Progres</th>
+                <td>Mengubah status alur kerja konten secara akurat.</td>
+              </tr>
+              <tr>
+                <th scope="row">Analisis Performa</th>
+                <td>Menghitung rasio engagement rate berdasarkan data metrik aktual.</td>
+              </tr>
+              <tr>
+                <th scope="row">Rekomendasi AI</th>
+                <td>Memberikan saran prioritas kerja berdasarkan jadwal dan status tanpa halusinasi.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-      <p>Semua aplikasi ini direkomendasikan oleh:</p>
-      <ul>
-        <li>Google AI Essentials</li>
-        <li>Microsoft Learn AI</li>
-        <li>OpenAI Best Practices</li>
-      </ul>
+      <!-- Bagian Keempat Belas -->
+      <div class="materi-section">
+        <h2>Bagian Keempat Belas — Menyiapkan Proyek social_media_assistant</h2>
+        <p>
+          Buka Command Prompt Anda, pastikan berada di folder <code>belajar-google-adk</code> dan virtual environment aktif:
+        </p>
+        <pre><code>cd %USERPROFILE%\Documents\belajar-google-adk
+.venv\Scripts\activate.bat
+adk create social_media_assistant
+cd social_media_assistant</code></pre>
 
-      <h2>Bagian 9 — Batasan &amp; Etika Penggunaan AI untuk Produktivitas</h2>
-      <p>Menurut UNESCO AI Ethics (2023):</p>
+        <p>Sekarang, buka file konfigurasi <code>.env</code> dengan Notepad:</p>
+        <pre><code>notepad .env</code></pre>
+        <p>Masukkan baris konfigurasi berikut (ganti dengan API key asli Anda):</p>
+        <pre><code>GOOGLE_API_KEY="API_KEY_GOOGLE_AI_STUDIO_ANDA"</code></pre>
+        <p>Simpan menggunakan <strong>Ctrl + S</strong>, kemudian tutup Notepad (<strong>Alt + F4</strong>).</p>
 
-      <h3>1. Jangan masukkan data sensitif</h3>
-      <p>Seperti:</p>
-      <ul>
-        <li>Nomor rekening</li>
-        <li>Alamat lengkap</li>
-        <li>Data pribadi orang lain</li>
-      </ul>
+        <p>Selanjutnya, periksa file <code>__init__.py</code> dengan Notepad:</p>
+        <pre><code>notepad __init__.py</code></pre>
+        <p>Pastikan isi filenya adalah:</p>
+        <pre><code>from . import agent</code></pre>
+        <p>Simpan dan tutup Notepad. File ini memastikan Google ADK dapat mengenali dan mengimpor modul agen dengan lancar.</p>
+      </div>
 
-      <h3>2. Verifikasi hasil AI</h3>
-      <p>AI bisa salah (hallucination).</p>
+      <!-- Bagian Kelima Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kelima Belas — Merancang Database Sementara dan Logika Tools</h2>
+        <p>
+          Untuk tahap pembelajaran, kita menggunakan data contoh yang tersimpan di memori Python (List of Dictionaries).
+        </p>
+        <p>Empat status alur kerja konten yang kita tetapkan secara konsisten adalah:</p>
+        <ul>
+          <li><code>belum_dikerjakan</code> — Rencana ide konten baru yang belum disentuh oleh tim kreatif.</li>
+          <li><code>sedang_dikerjakan</code> — Konten yang sedang ditulis naskahnya atau dibuat desain visualnya.</li>
+          <li><code>menunggu_persetujuan</code> — Konten selesai yang menunggu peninjauan manajer atau klien.</li>
+          <li><code>sudah_dipublikasikan</code> — Konten yang sudah tayang di media sosial dan memiliki metrik tayang.</li>
+        </ul>
 
-      <h3>3. Jangan gunakan AI untuk menyontek</h3>
-      <p>AI membantu, bukan menggantikan usaha.</p>
+        <h3>Rumus Analisis Engagement Rate</h3>
+        <p>
+          Tingkat keterlibatan dihitung menggunakan rumus baku:
+        </p>
+        <div class="step-box">
+          <p class="mb-0 fw-bold">
+            Engagement Rate (%) = (Total Interaksi ÷ Total Reach) × 100%
+          </p>
+        </div>
+        <p>
+          Misalnya konten ketiga di database memiliki reach 1.000 akun dan total interaksi (like + comment + share) sebesar 120, maka Engagement Rate-nya adalah: <code>(120 / 1000) * 100% = 12%</code>.
+        </p>
+      </div>
 
-      <h3>4. Gunakan AI sebagai alat bantu</h3>
-      <p>Bukan sebagai pengganti kemampuan manusia.</p>
+      <!-- Bagian Keenam Belas -->
+      <div class="materi-section">
+        <h2>Bagian Keenam Belas — Menulis Kode Lengkap agent.py</h2>
+        <p>
+          Buka file <code>agent.py</code> menggunakan Notepad:
+        </p>
+        <pre><code>notepad agent.py</code></pre>
+        <p>
+          Hapus seluruh kode bawaan yang ada (tekan <strong>Ctrl + A</strong> lalu <strong>Delete</strong>), kemudian salin dan tempelkan seluruh kode terintegrasi berikut:
+        </p>
 
-      <h2>Bagian 10 — Contoh Prompt Siap Pakai</h2>
+        <pre><code>from google.adk.agents import Agent
 
-      <h3>1. Prompt Menulis</h3>
-      <p>“Buatkan laporan kegiatan pelatihan AI selama 1 hari. Gunakan bahasa formal dan 3 paragraf.”</p>
 
-      <h3>2. Prompt Merangkum</h3>
-      <p>“Ringkas teks berikut menjadi 5 poin utama.”</p>
+# =====================================================================
+# BAGIAN 1: DATABASE KONTEN SEMENTARA (IN-MEMORY)
+# =====================================================================
+konten_media_sosial = [
+    {
+        "id": 1,
+        "judul": "Edukasi aksesibilitas digital",
+        "platform": "Instagram",
+        "status": "sedang_dikerjakan",
+        "penanggung_jawab": "Andi",
+        "jadwal": "2026-10-16",
+        "reach": 0,
+        "interaksi": 0,
+    },
+    {
+        "id": 2,
+        "judul": "Promosi program pelatihan AI",
+        "platform": "Facebook",
+        "status": "menunggu_persetujuan",
+        "penanggung_jawab": "Siti",
+        "jadwal": "2026-10-15",
+        "reach": 0,
+        "interaksi": 0,
+    },
+    {
+        "id": 3,
+        "judul": "Informasi kegiatan komunitas Difabelajar",
+        "platform": "Instagram",
+        "status": "sudah_dipublikasikan",
+        "penanggung_jawab": "Rina",
+        "jadwal": "2026-10-14",
+        "reach": 1000,
+        "interaksi": 120,
+    }
+]
 
-      <h3>3. Prompt Manajemen Waktu</h3>
-      <p>“Buatkan jadwal harian untuk pekerja remote.”</p>
 
-      <h3>4. Prompt Ide Konten</h3>
-      <p>“Buatkan 10 ide konten edukasi tentang teknologi untuk tunanetra.”</p>
+# =====================================================================
+# BAGIAN 2: FUNCTION TOOL - MONITORING KONTEN
+# =====================================================================
+def lihat_konten() -> list:
+    """Mengembalikan daftar seluruh konten media sosial yang sedang dikelola
+    beserta ID, judul, platform, penanggung jawab, jadwal, dan status progresnya."""
+    return konten_media_sosial
 
-      <h2>Latihan Praktik</h2>
 
-      <h3>Latihan 1 — Menulis</h3>
-      <p>Gunakan AI untuk menulis email profesional.</p>
+# =====================================================================
+# BAGIAN 3: FUNCTION TOOL - PENAMBAHAN KONTEN BARU
+# =====================================================================
+def tambah_konten(judul: str, platform: str, penanggung_jawab: str, jadwal: str) -> dict:
+    """Menambahkan rencana materi konten baru ke dalam daftar kerja tim media sosial.
+    Status awal secara otomatis diatur menjadi 'belum_dikerjakan'."""
+    id_baru = len(konten_media_sosial) + 1
+    konten_baru = {
+        "id": id_baru,
+        "judul": judul,
+        "platform": platform,
+        "status": "belum_dikerjakan",
+        "penanggung_jawab": penanggung_jawab,
+        "jadwal": jadwal,
+        "reach": 0,
+        "interaksi": 0
+    }
+    konten_media_sosial.append(konten_baru)
+    return konten_baru
 
-      <h3>Latihan 2 — Merangkum</h3>
-      <p>Ringkas artikel berita menjadi 5 poin.</p>
 
-      <h3>Latihan 3 — Rencana Harian</h3>
-      <p>Minta AI membuat jadwal harian Anda.</p>
+# =====================================================================
+# BAGIAN 4: FUNCTION TOOL - PEMBARUAN PROGRES STATUS KONTEN
+# =====================================================================
+def update_status(konten_id: int, status_baru: str) -> str:
+    """Memperbarui status pekerjaan konten berdasarkan ID konten.
+    Pilihan status yang valid: belum_dikerjakan, sedang_dikerjakan, menunggu_persetujuan, sudah_dipublikasikan."""
+    status_valid = ["belum_dikerjakan", "sedang_dikerjakan", "menunggu_persetujuan", "sudah_dipublikasikan"]
+    
+    status_bersih = status_baru.strip().lower()
+    if status_bersih not in status_valid:
+        return f"Gagal: Status '{status_baru}' tidak valid. Pilihan status yang diterima: {', '.join(status_valid)}"
+    
+    for item in konten_media_sosial:
+        if item["id"] == konten_id:
+            status_lama = item["status"]
+            item["status"] = status_bersih
+            return f"Sukses: Status Konten ID {konten_id} ('{item['judul']}') berhasil diubah dari '{status_lama}' menjadi '{status_bersih}'."
+            
+    return f"Gagal: Konten dengan ID {konten_id} tidak ditemukan di database."
 
-      <h3>Latihan 4 — Ide Konten</h3>
-      <p>Minta AI membuat 10 ide konten edukasi.</p>
+
+# =====================================================================
+# BAGIAN 5: FUNCTION TOOL - ANALISIS KINERJA & ENGAGEMENT RATE
+# =====================================================================
+def analisis_performa() -> list:
+    """Menganalisis kinerja seluruh konten yang telah dipublikasikan dengan
+    menghitung rasio keterlibatan audiens atau engagement rate (interaksi / reach * 100%)."""
+    hasil = []
+    for item in konten_media_sosial:
+        reach = item.get("reach", 0)
+        interaksi = item.get("interaksi", 0)
+        
+        if reach > 0:
+            er = round((interaksi / reach) * 100, 2)
+            hasil.append({
+                "id": item["id"],
+                "judul": item["judul"],
+                "platform": item["platform"],
+                "status": item["status"],
+                "reach": reach,
+                "interaksi": interaksi,
+                "engagement_rate": f"{er}%",
+                "keterangan": "Sudah memiliki data performa aktual"
+            })
+        else:
+            hasil.append({
+                "id": item["id"],
+                "judul": item["judul"],
+                "platform": item["platform"],
+                "status": item["status"],
+                "reach": 0,
+                "interaksi": 0,
+                "engagement_rate": "0%",
+                "keterangan": "Belum memiliki data performa atau belum dipublikasikan"
+            })
+    return hasil
+
+
+# =====================================================================
+# BAGIAN 6: INISIALISASI AGENT UTAMA GOOGLE ADK
+# =====================================================================
+root_agent = Agent(
+    name="social_media_assistant",
+    model="gemini-flash-latest",
+    description="Asisten AI cerdas untuk memantau, mencatat, memperbarui status, dan menganalisis performa konten media sosial tim Difabelajar.",
+    instruction="""
+    Anda adalah Social Media Management Assistant yang profesional, ramah, dan sangat teliti.
+    Tugas Anda adalah mendampingi tim media sosial (Admin, Copywriter, Desainer, Editor, dan Manajer).
+
+    Panduan kerja yang WAJIB dipatuhi:
+    1. Berikan jawaban dalam bahasa Indonesia yang ringkas, runtut, dan mudah dipahami oleh pengguna pembaca layar (screen reader).
+    2. Jika pengguna bertanya tentang daftar konten, progres tim, atau jadwal rilis, PANGGIL tool 'lihat_konten'.
+    3. Jika pengguna meminta menambahkan postingan atau rencana konten baru, PANGGIL tool 'tambah_konten'.
+    4. Jika pengguna melaporkan perubahan status suatu konten, PANGGIL tool 'update_status'.
+    5. Jika pengguna meminta analisis statistik atau perhitungan engagement rate, PANGGIL tool 'analisis_performa'.
+    6. Saat memberikan saran atau rekomendasi prioritas kerja:
+       - Prioritaskan konten dengan status 'menunggu_persetujuan' dan konten yang dijadwalkan segera tayang.
+       - Ingatkan penanggung jawab untuk konten yang masih berstatus 'belum_dikerjakan'.
+       - Bedakan secara tegas antara konten yang sudah memiliki data performa aktual dengan konten yang belum memiliki data.
+       - JANGAN PERNAH mengarang angka reach atau interaksi jika data belum tersedia di database.
+    7. Jangan pernah menyatakan telah mengubah atau menambahkan data sebelum fungsi tool selesai dijalankan.
+    """,
+    tools=[lihat_konten, tambah_konten, update_status, analisis_performa]
+)</code></pre>
+
+        <p>Simpan file menggunakan <strong>Ctrl + S</strong>, kemudian tutup Notepad.</p>
+      </div>
+
+      <!-- Bagian Ketujuh Belas -->
+      <div class="materi-section">
+        <h2>Bagian Ketujuh Belas — Menjalankan AI Agent Melalui Terminal</h2>
+        <p>
+          Ingat: Dalam pola penggunaan CLI Google ADK, perintah <code>adk run</code> dijalankan dari direktori induk yang menaungi folder agent.
+        </p>
+        <p>Jika Anda saat ini berada di dalam folder <code>social_media_assistant</code>, kembalilah satu tingkat ke atas:</p>
+        <pre><code>cd ..</code></pre>
+        <p>Sekarang jalankan AI Assistant Anda:</p>
+        <pre><code>adk run social_media_assistant</code></pre>
+        <p>
+          Jika konfigurasi berhasil dan API key valid, terminal akan menginisialisasi sesi dan menampilkan prompt siap berbicara.
+        </p>
+      </div>
+
+      <!-- Bagian Kedelapan Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kedelapan Belas — Menguji Fitur AI Assistant dalam 5 Skenario Nyata</h2>
+        <p>
+          Kirimkan perintah-perintah berikut satu per satu ke terminal AI Assistant untuk membuktikan bahwa Function Tools bekerja dengan baik:
+        </p>
+
+        <div class="step-box">
+          <h4>Pengujian 1 — Monitoring Konten Tim</h4>
+          <p><strong>Tujuan:</strong> Menguji apakah model AI memanggil tool <code>lihat_konten</code>.</p>
+          <pre><code>Tampilkan semua konten media sosial yang sedang dikelola. Kelompokkan berdasarkan status dan sebutkan penanggung jawabnya.</code></pre>
+        </div>
+
+        <div class="step-box">
+          <h4>Pengujian 2 — Menambahkan Konten Baru</h4>
+          <p><strong>Tujuan:</strong> Menguji tool penambahan data <code>tambah_konten</code>.</p>
+          <pre><code>Tambahkan konten berjudul Tips Produktivitas Digital, platform Instagram, penanggung jawab Budi, jadwal 2026-10-20.</code></pre>
+        </div>
+
+        <div class="step-box">
+          <h4>Pengujian 3 — Memperbarui Progres Pekerjaan</h4>
+          <p><strong>Tujuan:</strong> Menguji pembaruan status konten dengan <code>update_status</code>.</p>
+          <pre><code>Ubah status konten ID 1 menjadi menunggu_persetujuan.</code></pre>
+        </div>
+
+        <div class="step-box">
+          <h4>Pengujian 4 — Analisis Performa &amp; Engagement Rate</h4>
+          <p><strong>Tujuan:</strong> Menguji perhitungan metrik statistik dengan <code>analisis_performa</code>.</p>
+          <pre><code>Analisis engagement rate seluruh konten. Jelaskan konten mana yang sudah memiliki data dan mana yang belum.</code></pre>
+        </div>
+
+        <div class="step-box">
+          <h4>Pengujian 5 — Rekomendasi Prioritas Kerja Berbasis Data</h4>
+          <p><strong>Tujuan:</strong> Menguji penalaran strategis AI berdasarkan fakta data.</p>
+          <pre><code>Berdasarkan data yang tersedia, apa yang harus diprioritaskan tim media sosial hari ini?</code></pre>
+        </div>
+
+        <p>Untuk mengakhiri sesi terminal, tekan kombinasi tombol <strong>Ctrl + C</strong>.</p>
+      </div>
+
+      <!-- Bagian Kesembilan Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kesembilan Belas — Bagaimana AI Memberikan Rekomendasi Berbasis Data?</h2>
+        <p>
+          Saat Anda meminta saran prioritas kerja, AI Assistant menggunakan data nyata dari status dan jadwal untuk menyusun rekomendasi:
+        </p>
+        <ul>
+          <li>Memeriksa konten yang masih berstatus <code>menunggu_persetujuan</code> agar segera diperiksa oleh manajer.</li>
+          <li>Memastikan materi untuk jadwal terdekat sudah siap tayang tepat waktu.</li>
+          <li>Mengingatkan penanggung jawab konten yang masih <code>belum_dikerjakan</code>.</li>
+          <li>Meminta data performa aktual sebelum menyimpulkan efektivitas suatu kampanye.</li>
+        </ul>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Integritas Data vs Halusinasi:</strong> Ada perbedaan penting antara analisis berbasis data nyata dan dugaan liar AI. Jika data reach atau interaksi belum ada, AI wajib menyatakan keterbatasan tersebut secara transparan, bukan membuat angka palsu.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Kedua Puluh -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Puluh — Menjalankan Antarmuka Web (ADK Web)</h2>
+        <p>
+          Google ADK juga menyediakan antarmuka web untuk pengembangan visual dan inspeksi alur kerja (debugging).
+        </p>
+        <p>Dari folder induk <code>belajar-google-adk</code>, jalankan perintah:</p>
+        <pre><code>adk web --port 8000</code></pre>
+        <p>Langkah-langkah berikutnya:</p>
+        <ol>
+          <li>Buka web browser dan kunjungi alamat: <code>http://localhost:8000</code></li>
+          <li>Pilih agent <strong>social_media_assistant</strong> pada antarmuka yang muncul.</li>
+          <li>Temukan kotak input percakapan dan kirim pertanyaan Anda.</li>
+        </ol>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Catatan Aksesibilitas Pembaca Layar:</strong> Antarmuka web dapat mengalami perubahan dan belum tentu seluruh komponen grafisnya nyaman dinavigasi dengan screen reader. Untuk efisiensi dan kejelasan, mode terminal <code>adk run</code> sangat direkomendasikan bagi pengguna tunanetra.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Kedua Puluh Satu -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Puluh Satu — Mengatasi Masalah yang Sering Muncul (Troubleshooting)</h2>
+        <div class="step-box">
+          <h4>Masalah 1: "adk is not recognized"</h4>
+          <p class="mb-0">
+            <strong>Solusi:</strong> Virtual environment belum aktif. Jalankan perintah <code>.venv\Scripts\activate.bat</code> dan pastikan tulisan <code>(.venv)</code> muncul di awal baris terminal Anda.
+          </p>
+        </div>
+        <div class="step-box">
+          <h4>Masalah 2: API key tidak ditemukan</h4>
+          <p class="mb-0">
+            <strong>Solusi:</strong> Periksa apakah file <code>.env</code> berada di dalam folder <code>social_media_assistant</code>, apakah namanya tepat <code>.env</code> (bukan <code>.env.txt</code>), dan baris <code>GOOGLE_API_KEY</code> terisi dengan benar.
+          </p>
+        </div>
+        <div class="step-box">
+          <h4>Masalah 3: Model tidak tersedia atau kuota habis</h4>
+          <p class="mb-0">
+            <strong>Solusi:</strong> Periksa nama model pada file <code>agent.py</code> (misalnya <code>gemini-flash-latest</code>) atau gunakan akun Google AI Studio lain jika kuota penggunaan gratis telah melampaui batas harian.
+          </p>
+        </div>
+        <div class="step-box">
+          <h4>Masalah 4: Gagal terhubung ke API</h4>
+          <p class="mb-0">
+            <strong>Solusi:</strong> Periksa kestabilan koneksi internet komputer Anda dan pastikan tidak ada firewall yang memblokir akses ke domain API Google.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Kedua Puluh Dua -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Puluh Dua — Batasan Prototipe dan Roadmap Pengembangan</h2>
+        <p>
+          Aplikasi yang telah kita bangun merupakan fondasi pembelajaran AI Engineering yang kuat. Untuk mengembangkannya menjadi sistem produksi profesional, berikut perbandingannya:
+        </p>
+        <div class="table-responsive">
+          <table class="table-custom" aria-label="Tabel Batasan Prototipe dan Pengembangan Masa Depan">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 25%;">Aspek Sistem</th>
+                <th scope="col" style="width: 35%;">Kondisi Prototipe Hari Ini</th>
+                <th scope="col" style="width: 40%;">Pengembangan Profesional Masa Depan</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Penyimpanan</th>
+                <td>Memori sementara Python</td>
+                <td>Database relasional permanen (SQLite atau PostgreSQL)</td>
+              </tr>
+              <tr>
+                <th scope="row">Data Media Sosial</th>
+                <td>Data contoh di dalam kode</td>
+                <td>Integrasi API resmi Meta Graph (Instagram/Facebook) &amp; TikTok API</td>
+              </tr>
+              <tr>
+                <th scope="row">Monitoring Tim</th>
+                <td>Percakapan teks terminal</td>
+                <td>Dashboard website interaktif dan laporan otomatis</td>
+              </tr>
+              <tr>
+                <th scope="row">Hak Akses &amp; User</th>
+                <td>Belum ada autentikasi</td>
+                <td>Sistem login dan hak akses bertingkat (Admin, Editor, Manajer)</td>
+              </tr>
+              <tr>
+                <th scope="row">Publikasi Konten</th>
+                <td>Belum dapat menerbitkan postingan</td>
+                <td>Auto-publishing terjadwal dengan izin persetujuan manusia</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Roadmap 4 Tahap Menjadi Aplikasi Profesional:</h3>
+        <ol>
+          <li><strong>Tahap 1 — AI Agent Dasar:</strong> Pembuatan tools monitoring, tambah konten, update status, dan analisis engagement rate sederhana (tahap yang telah kita selesaikan hari ini!).</li>
+          <li><strong>Tahap 2 — Database dan Dashboard:</strong> Menyimpan data secara permanen di SQLite/PostgreSQL, membuat login, dan menampilkan kalender konten tim.</li>
+          <li><strong>Tahap 3 — Integrasi Platform:</strong> Mengambil insights dari API resmi platform media sosial, memantau jadwal tayang, dan mengirim notifikasi jika ada konten yang tertunda.</li>
+          <li><strong>Tahap 4 — Analisis AI Tingkat Lanjut:</strong> Mengidentifikasi pola tren audiens, membandingkan performa antarkampanye, dan merekomendasikan jam tayang dengan engagement tertinggi.</li>
+        </ol>
+      </div>
+
+      <!-- Bagian Kedua Puluh Tiga -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Puluh Tiga — Produk yang Dihasilkan</h2>
+        <p>
+          Pada akhir pertemuan ini, peserta telah berhasil menciptakan produk nyata:
+        </p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Social Media Management Assistant Berbasis Google ADK</strong> — Sebuah sistem AI Agent fungsional yang mampu memahami bahasa alami, menjalankan Function Tools Python, mengelola data alur kerja konten, menghitung engagement rate, dan memberikan rekomendasi operasional berbasis data tanpa halusinasi.
+          </p>
+        </div>
+        <p>Dengan alur kerja terstruktur:</p>
+        <pre><code>Pengguna (Tim Media Sosial)
+       │
+       v
+Instruksi Alami ("Tampilkan semua konten yang sedang dikerjakan")
+       │
+       v
+Google ADK (Agent Logic)
+       │
+       v
+Memilih &amp; Mengeksekusi Function Tool (lihat_konten)
+       │
+       v
+Data Diproses oleh Model Gemini
+       │
+       v
+Jawaban Terstruktur &amp; Ramah Dibaca Screen Reader</code></pre>
+
+        <p>
+          Pola pengembangan AI Agent dengan Function Tools ini dapat langsung diterapkan untuk berbagai use-case lainnya, seperti:
+        </p>
+        <ul>
+          <li>AI Assistant Pengelolaan Tugas dan Kalender Siswa Tunanetra</li>
+          <li>AI Customer Service Otomatis dengan Pengecekan Stok Barang</li>
+          <li>AI Asisten Keuangan Pribadi dengan Analisis Pengeluaran Harian</li>
+          <li>AI Asisten Perpustakaan dan Pencarian Buku Digital</li>
+        </ul>
+      </div>
+
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/11loTdwZRX0QquxqXkjqa_zs9JA2MU8rM/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic8.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <!-- Navigasi Modul -->
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="#"
+         class="btn-custom" aria-label="Download Materi" target="_blank" rel="noopener">
+        Download Materi
+      </a>
+      <a href="../topic8.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali ke Daftar Topik">
+        Kembali
+      </a>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
+    &copy; 2026 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
