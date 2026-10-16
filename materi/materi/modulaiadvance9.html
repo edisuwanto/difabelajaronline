@@ -21,9 +21,15 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 9 - AI untuk Pekerjaan Kreatif</title>
-  <meta name="description" content="Modul AI untuk Pekerjaan Kreatif di Difabelajar. Pelajari cara menggunakan AI untuk ide, naskah, desain, audio, dan video secara aksesibel.">
+
+  <title>Introduction to Hermes Agent: Mastering Autonomous AI with Tools, Memory, and Skills</title>
+
+  <meta name="description" content="Modul AI Engineering Topik 9: Introduction to Hermes Agent – Membangun Autonomous AI Agent dengan Tools, Persistent Memory, Skills, dan Multi-Step Execution. Lengkap dengan panduan terminal ramah screen reader bagi tunanetra.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -34,6 +40,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -44,20 +51,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -74,6 +89,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -83,12 +99,85 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
+      color: #7ec3e6;
+    }
+
+    .materi-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
+    }
+
+    pre {
+      background: #e9ecef;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode pre {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    code {
+      font-family: Consolas, 'Courier New', monospace;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark-mode table {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    th, td {
+      padding: 0.85rem 1.1rem;
+      border: 1px solid #dee2e6;
+      text-align: left;
+    }
+
+    body.dark-mode th, body.dark-mode td {
+      border-color: #4a5568;
+    }
+
+    th {
+      background-color: #e3f2fd;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    body.dark-mode th {
+      background-color: #1f3b54;
       color: #7ec3e6;
     }
 
@@ -104,6 +193,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -126,6 +216,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -133,271 +224,769 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      AI untuk Pekerjaan Kreatif<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul 9 — Artificial Intelligence Fundamental</span>
+      INTRODUCTION TO HERMES AGENT<br>
     </h1>
 
-    <section aria-labelledby="modul2-title">
-      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
-      <ul>
-        <li>Memahami bagaimana AI membantu proses kreatif</li>
-        <li>Menggunakan AI untuk membuat ide, naskah, desain, audio, dan video</li>
-        <li>Menggunakan AI untuk membuat konten tanpa kemampuan visual</li>
-        <li>Menggunakan AI untuk meningkatkan kualitas karya kreatif</li>
-        <li>Mengetahui batasan dan etika penggunaan AI dalam kreativitas</li>
-      </ul>
+    <div class="step-box mb-4">
+      <p class="mt-2 mb-0">
+        Pada pertemuan ini kita melangkah lebih jauh dari sekadar model bahasa percakapan menuju sistem kecerdasan otonom nyata menggunakan <strong>Hermes Agent</strong>. Kita akan mengeksplorasi bagaimana agent merencanakan tindakan, memanggil tools sistem file dan terminal, memanfaatkan persistent memory lintas sesi, mengaktifkan skills terarah, serta menerapkan prinsip keamanan human-in-the-loop yang aksesibel bagi pengguna screen reader.
+      </p>
+    </div>
 
-      <h2>Bagian 1 — Mengapa AI Sangat Penting untuk Pekerjaan Kreatif?</h2>
-      <p>Menurut Google AI for Creators, AI dapat:</p>
-      <ul>
-        <li>mempercepat proses kreatif</li>
-        <li>menghasilkan ide baru</li>
-        <li>membantu brainstorming</li>
-        <li>membuat konten visual dari teks</li>
-        <li>membuat audio dan video otomatis</li>
-      </ul>
+    <section aria-labelledby="modul9-title">
 
-      <p>Menurut Microsoft Copilot Creative, AI membantu kreator:</p>
-      <ul>
-        <li>menulis naskah</li>
-        <li>membuat desain</li>
-        <li>membuat storyboard</li>
-        <li>membuat konten media sosial</li>
-      </ul>
-
-      <p>Menurut UNESCO AI &amp; Creativity (2023), AI membuka peluang besar bagi penyandang disabilitas untuk berkarya tanpa batasan visual.</p>
-
-      <p><strong>Analogi untuk pengguna screen reader:</strong><br>
-      AI seperti partner kreatif yang bisa menggambar, menulis, membuat musik, dan membuat video berdasarkan instruksi Anda.</p>
-
-      <h2>Bagian 2 — Area Pekerjaan Kreatif yang Bisa Dibantu AI</h2>
-      <p>AI dapat membantu dalam 5 area utama:</p>
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul9-title">Tujuan Pembelajaran</h2>
+      <p>Setelah mengikuti pertemuan ini, peserta diharapkan mampu:</p>
       <ol>
-        <li>Ideasi (pencarian ide)</li>
-        <li>Penulisan kreatif</li>
-        <li>Desain visual</li>
-        <li>Audio &amp; musik</li>
-        <li>Video &amp; storytelling</li>
+        <li>Memahami apa itu Hermes Agent.</li>
+        <li>Memahami perbedaan chatbot dan autonomous AI Agent.</li>
+        <li>Memahami arsitektur dasar Hermes Agent.</li>
+        <li>Memahami konsep model, tools, memory, dan skills.</li>
+        <li>Menjalankan Hermes Agent di lingkungan lokal.</li>
+        <li>Berinteraksi dengan Hermes melalui antarmuka terminal yang aksesibel.</li>
+        <li>Memahami bagaimana agent merencanakan dan menjalankan tools.</li>
+        <li>Memahami konsep dan cara kerja persistent memory lintas sesi.</li>
+        <li>Memahami keamanan, batasan hak akses, dan persetujuan tindakan agent (human-in-the-loop).</li>
+        <li>Merancang use case Hermes Agent untuk kegiatan nyata sehari-hari dan AI Engineering.</li>
       </ol>
-      <p>Mari kita bahas satu per satu.</p>
 
-      <h2>Bagian 3 — AI untuk Ideasi (Pencarian Ide)</h2>
-      <p>Menurut OpenAI Creative Use Cases, AI sangat efektif untuk:</p>
-      <ul>
-        <li>brainstorming</li>
-        <li>membuat konsep</li>
-        <li>membuat tema</li>
-        <li>membuat judul</li>
-        <li>membuat alur cerita</li>
-      </ul>
+      <!-- Bagian Kesatu -->
+      <div class="materi-section">
+        <h2>Bagian Kesatu — Mengapa Kita Belajar Hermes Agent?</h2>
+        <p>
+          Pada Pertemuan 6 kita telah mempelajari evolusi kecerdasan buatan dari sekadar chatbot hingga autonomous AI Agent:
+        </p>
+        <pre><code>Chatbot
+   │
+   v
+AI Assistant
+   │
+   v
+AI Agent</code></pre>
+        <p>
+          Namun pada pertemuan sebelumnya konsep tersebut sebagian besar masih bersifat teori dan eksperimen terbatas. Sekarang kita ingin melihat secara nyata: <strong>Bagaimana jika kita benar-benar menggunakan sebuah AI Agent yang memiliki otonomi tugas di komputer kita?</strong>
+        </p>
+        <p>
+          Bayangkan kita memberikan sebuah instruksi multi-tahap kepada AI:
+        </p>
+        <pre><code>1. Buatkan folder untuk proyek AI saya.
+2. Buat file README di dalam folder tersebut.
+3. Isi README dengan struktur proyek yang rapi.
+4. Jelaskan apa saja yang sudah dibuat dan laporkan hasilnya.</code></pre>
+        <p>
+          Jika perintah di atas diberikan kepada <strong>Chatbot biasa</strong>, AI hanya akan menghasilkan blok teks atau memberikan instruksi kode kepada kita agar kita menjalankannya sendiri secara manual. Chatbot biasa tidak dapat menyentuh sistem file di komputer kita.
+        </p>
+        <p>
+          Sebaliknya, sebuah <strong>AI Agent</strong> yang memiliki akses terhadap komputer dapat — dengan persetujuan dan izin keamanan yang sesuai — menggunakan <em>tools</em> untuk melakukan seluruh pekerjaan tersebut dari awal hingga tuntas.
+        </p>
+        <p>Konsep kerjanya:</p>
+        <pre><code>Tujuan
+  │
+  v
+AI Agent
+  │
+  ├─── Tool
+  │
+  ├─── Memory
+  │
+  └─── Skill
+  │
+  v
+Tindakan
+  │
+  v
+Hasil</code></pre>
+        <p>
+          Inilah inti keunggulan yang akan kita pelajari dan buktikan dalam pertemuan ini.
+        </p>
+      </div>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan 20 ide konten edukasi tentang teknologi untuk tunanetra.”</p>
+      <!-- Bagian Kedua -->
+      <div class="materi-section">
+        <h2>Bagian Kedua — Apa Itu Hermes Agent?</h2>
+        <p>
+          <strong>Hermes Agent</strong> adalah agen kecerdasan buatan mandiri (autonomous AI Agent) yang dikembangkan oleh <strong>Nous Research</strong>.
+        </p>
+        <p>
+          Salah satu karakteristik paling penting dari Hermes Agent adalah kemampuannya menggunakan berbagai <em>tools</em>, mempertahankan <em>memory</em> lintas sesi, memanfaatkan modul <em>skills</em>, dan menyelesaikan pekerjaan kompleks dalam beberapa langkah mandiri (<em>multi-step task execution</em>). Hermes juga dirancang fleksibel dengan dukungan terhadap berbagai provider model AI serta berbagai kanal interaksi.
+        </p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Definisi Sederhana:</strong> Hermes Agent adalah AI yang tidak hanya bisa diajak berbicara atau ditanyai pendapat, melainkan AI yang diberi seperangkat alat (tools) dan memori sehingga mampu menyelesaikan pekerjaan nyata di komputer.
+          </p>
+        </div>
+        <p>Perhatikan perbandingan mendasar antara Chatbot dan Hermes Agent:</p>
+        <pre><code>Alur Chatbot Konvensional:
+Pertanyaan
+   │
+   v
+AI
+   │
+   v
+Jawaban Teks
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan 10 ide nama brand kopi inklusif.”</p>
+Alur Hermes Agent:
+Tujuan (Goal)
+   │
+   v
+AI Agent
+   │
+   v
+Menganalisis tugas (Planning & Reasoning)
+   │
+   v
+Memilih tools yang tepat
+   │
+   v
+Menjalankan langkah (Execution)
+   │
+   v
+Mengevaluasi hasil (Observation & Reflection)
+   │
+   v
+Laporan Akhir / Solusi Tuntas</code></pre>
+      </div>
 
-      <h2>Bagian 4 — AI untuk Penulisan Kreatif</h2>
-      <p>AI dapat menulis:</p>
-      <ul>
-        <li>cerita pendek</li>
-        <li>puisi</li>
-        <li>naskah video</li>
-        <li>naskah podcast</li>
-        <li>dialog karakter</li>
-        <li>skenario film pendek</li>
-      </ul>
+      <!-- Bagian Ketiga -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga — Analogi Sederhana untuk Pengguna Tunanetra: Asisten Pribadi Multi-Tools</h2>
+        <p>
+          Untuk memudahkan pemahaman peserta — khususnya pengguna screen reader tunanetra — bayangkan Anda memiliki seorang asisten pribadi di meja kerja Anda.
+        </p>
+        <p>
+          Suatu pagi, Anda memberikan arahan kepada asisten tersebut:
+        </p>
+        <pre><code>"Tolong siapkan materi pembelajaran Python untuk sesi besok pagi."</code></pre>
+        <p>Asisten pribadi tersebut dilengkapi dengan berbagai fasilitas kerja:</p>
+        <pre><code>Otak (Kemampuan berpikir dan bernalar)
+  +
+Buku (Sumber referensi dan pengetahuan)
+  +
+Komputer (Alat untuk membuat file dan menjalankan script)
+  +
+Kalkulator (Alat untuk menghitung data eksak)
+  +
+Catatan / Buku Agenda (Memori riwayat preferensi Anda)</code></pre>
+        <p>
+          Asisten tersebut tidak hanya mengucapkan "Baik, saya mengerti", tetapi secara otonom membagi langkah kerjanya menggunakan alat yang tepat sesuai kebutuhan:
+        </p>
+        <pre><code>Mencari informasi relevan
+       │
+       v
+Membaca dokumen referensi
+       │
+       v
+Menulis materi pembelajaran
+       │
+       v
+Menyimpan file materi ke disk</code></pre>
+        <p>
+          Hermes Agent bekerja dengan prinsip yang persis sama. Model AI bertindak sebagai otak yang menentukan langkah bernalar, sedangkan tools komputer menjadi tangan dan alat bantu yang mengeksekusi pekerjaan secara nyata.
+        </p>
+      </div>
 
-      <p>Menurut Google AI for Writers, AI dapat menyesuaikan:</p>
-      <ul>
-        <li>gaya bahasa</li>
-        <li>tone (formal, santai, lucu, dramatis)</li>
-        <li>panjang tulisan</li>
-        <li>target audiens</li>
-      </ul>
+      <!-- Bagian Keempat -->
+      <div class="materi-section">
+        <h2>Bagian Keempat — Empat Komponen Kunci: Model, Tools, Memory, dan Skills</h2>
+        <p>
+          Untuk menguasai Hermes Agent, kita harus memahami empat pilar arsitektur utamanya:
+        </p>
+        <pre><code>1. Model
+2. Tools
+3. Memory
+4. Skills</code></pre>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Tulis cerita pendek tentang siswa tunanetra yang belajar AI. Gaya: inspiratif, emosional, 3 paragraf.”</p>
+        <h3>1. Model (Otak Bahasa)</h3>
+        <p>
+          Model adalah otak bahasa utama (LLM) yang digunakan agent untuk memahami instruksi alami, merencanakan logika, dan menghasilkan respons. Hermes mendukung berbagai model dan provider (baik model lokal open-weights maupun cloud API), sehingga pengguna tidak terkunci pada satu penyedia layanan tertentu.
+        </p>
+        <pre><code>Hermes Agent ───> Model AI (Otak Penalaran)</code></pre>
 
-      <h2>Bagian 5 — AI untuk Desain Visual (Tanpa Harus Melihat)</h2>
-      <p>Menurut Adobe Firefly Documentation, AI dapat membuat gambar dari teks (text-to-image) dengan:</p>
-      <ul>
-        <li>gaya tertentu</li>
-        <li>warna tertentu</li>
-        <li>suasana tertentu</li>
-      </ul>
+        <h3>2. Tools (Kapasitas Tindakan Nyata)</h3>
+        <p>
+          Tools adalah perangkat atau kapabilitas tambahan yang diberikan kepada agent agar dapat berinteraksi dengan lingkungan luar. Contoh tools bawaan meliputi:
+        </p>
+        <ul>
+          <li><strong>Terminal / Bash:</strong> Menjalankan perintah command line di sistem operasi.</li>
+          <li><strong>File System:</strong> Membaca, membuat, mengedit, dan mengorganisasi file atau folder.</li>
+          <li><strong>Web & Browser:</strong> Mengakses dokumentasi online atau halaman web.</li>
+          <li><strong>Code Execution:</strong> Menjalankan script Python untuk kalkulasi atau pengolahan data.</li>
+          <li><strong>Search Engine:</strong> Mencari informasi terbaru secara online.</li>
+        </ul>
 
-      <p>Ini sangat membantu tunanetra karena:</p>
-      <ul>
-        <li>Anda tidak perlu menggambar</li>
-        <li>Anda cukup memberi instruksi</li>
-        <li>Orang lain bisa melihat hasilnya</li>
-        <li>AI bisa memberikan deskripsi gambar</li>
-      </ul>
+        <h3>3. Memory (Penyimpanan Konteks Lintas Sesi)</h3>
+        <p>
+          Memory memungkinkan agent mengingat informasi penting, preferensi pengguna, dan riwayat tugas sebelumnya meskipun terminal ditutup dan dibuka kembali pada hari berikutnya. Hermes Agent dilengkapi sistem persistent memory lintas sesi sehingga pekerjaan jangka panjang dapat diteruskan tanpa kehilangan konteks.
+        </p>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan poster pelatihan AI untuk tunanetra, warna biru, gaya modern.”</p>
+        <h3>4. Skills (Prosedur Keahlian Khusus)</h3>
+        <p>
+          Skill adalah serangkaian instruksi kerja atau prosedur terstandarisasi yang dapat dipanggil agent untuk menyelesaikan domain tugas tertentu secara rapi, seperti analisis dataset CSV, audit keamanan kode, pembuatan dokumen laporan, atau perancangan arsitektur database.
+        </p>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan logo sederhana untuk brand kopi inklusif bernama Blind Barista.”</p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Formula Autonomous AI Agent:</strong><br>
+            <code>Model + Tools + Memory + Skills = Autonomous AI Agent yang Andal</code>
+          </p>
+        </div>
+      </div>
 
-      <h2>Bagian 6 — AI untuk Audio &amp; Musik</h2>
-      <p>Menurut Google MusicLM Research dan ElevenLabs, AI dapat:</p>
-      <ul>
-        <li>membuat musik dari teks</li>
-        <li>membuat suara narasi</li>
-        <li>membuat efek suara</li>
-        <li>meniru gaya suara tertentu</li>
-      </ul>
+      <!-- Bagian Kelima -->
+      <div class="materi-section">
+        <h2>Bagian Kelima — Hermes Bukan Sekadar Chatbot: Task Execution Nyata</h2>
+        <p>
+          Mari kita cermati perbedaan nyata perilaku chatbot biasa dengan Hermes Agent saat dihadapkan pada tugas yang sama:
+        </p>
 
-      <p>Ini sangat berguna untuk:</p>
-      <ul>
-        <li>podcast</li>
-        <li>video edukasi</li>
-        <li>konten audio</li>
-        <li>narasi buku</li>
-      </ul>
+        <h3>Skenario Chatbot Konvensional</h3>
+        <pre><code>Pengguna : "Apa itu Python?"
+AI       : "Python adalah bahasa pemrograman tingkat tinggi..."
+(Selesai — tidak ada tindakan apa pun pada komputer Anda)</code></pre>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan naskah narasi audio berdurasi 1 menit tentang pentingnya inklusi digital.”</p>
+        <h3>Skenario Hermes Agent (Task Execution)</h3>
+        <pre><code>Pengguna : "Analisis file data ini dan buatkan ringkasannya dalam bentuk file baru."
 
-      <h2>Bagian 7 — AI untuk Video &amp; Storytelling</h2>
-      <p>Menurut Runway ML Documentation, AI dapat:</p>
-      <ul>
-        <li>membuat video dari teks</li>
-        <li>membuat storyboard</li>
-        <li>mengedit video otomatis</li>
-        <li>menambahkan subtitle otomatis</li>
-      </ul>
+Hermes Agent mengeksekusi tahapan:
+1. Membuka folder dan menemukan file target.
+2. Membaca isi file data tersebut menggunakan File Tool.
+3. Menjalankan analisis dan kalkulasi data.
+4. Menulis file baru ringkasan_data.txt ke direktori kerja.
+5. Memeriksa kembali isi file dan melaporkan hasil kepada pengguna.</code></pre>
+        <p>
+          Dengan demikian, perbedaan intinya terletak pada <strong>Task Execution</strong>: agent dapat mengubah ide dan tujuan menjadi rangkaian tindakan nyata yang selesai dikerjakan.
+        </p>
+      </div>
 
-      <p>Menurut Microsoft Copilot Video, AI dapat:</p>
-      <ul>
-        <li>membuat ringkasan video</li>
-        <li>membuat naskah video</li>
-        <li>membuat ide shotlist</li>
-      </ul>
+      <!-- Bagian Keenam -->
+      <div class="materi-section">
+        <h2>Bagian Keenam — Panduan Instalasi Menggunakan Command Prompt (CMD) untuk Pengguna Screen Reader</h2>
+        <p>
+          Hermes Agent memiliki keunggulan aksesibilitas tinggi karena seluruh operasinya berjalan di antarmuka berbasis teks. Bagi tunanetra pengguna pembaca layar (seperti NVDA atau JAWS), <strong>Command Prompt (CMD)</strong> adalah lingkungan konsol yang paling ringan, stabil, dan ramah dengan screen reader di sistem operasi Windows karena output teksnya linier dan tidak terganggu oleh formatting grafis yang rumit.
+        </p>
+        <p>
+          Berikut adalah panduan instalasi resmi langkah demi langkah khusus menggunakan <strong>Command Prompt (CMD) saja</strong> yang ramah screen reader:
+        </p>
 
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan shotlist video 1 menit tentang pelatihan teknologi untuk tunanetra.”</p>
+        <div class="step-box">
+          <p class="mb-1"><strong>Langkah 1: Membuka Command Prompt (CMD) di Windows</strong></p>
+          <ol class="mb-0">
+            <li>Tekan kombinasi tombol <code>Windows + R</code> pada keyboard untuk membuka kotak dialog <em>Run</em>.</li>
+            <li>Ketikkan teks <code>cmd</code> lalu tekan tombol <code>Enter</code>.</li>
+            <li>Dengarkan umpan balik suara dari screen reader Anda. Screen reader akan membacakan judul jendela dan prompt aktif, misalnya: <code>C:\Users\NamaAnda&gt;</code>. Ini menandakan terminal Command Prompt telah aktif dan siap menerima perintah.</li>
+          </ol>
+        </div>
 
-      <h2>Bagian 8 — Contoh Alur Kerja Kreatif Menggunakan AI</h2>
-      <p>Berikut contoh alur kerja kreatif lengkap:</p>
-      <ol>
-        <li><strong>Ideasi</strong><br>“Buatkan 10 ide konten tentang AI untuk pemula.”</li>
-        <li><strong>Penulisan Naskah</strong><br>“Tulis naskah video 1 menit berdasarkan ide nomor 3.”</li>
-        <li><strong>Desain Visual</strong><br>“Buatkan poster untuk video tersebut, gaya modern.”</li>
-        <li><strong>Audio</strong><br>“Buatkan narasi audio dengan tone inspiratif.”</li>
-        <li><strong>Video</strong><br>“Buatkan storyboard untuk video 1 menit.”</li>
-      </ol>
-      <p>AI membantu seluruh proses dari awal sampai akhir.</p>
+        <div class="step-box">
+          <p class="mb-1"><strong>Langkah 2: Menjalankan Perintah Instalasi Hermes Agent Langsung dari CMD</strong></p>
+          <p class="mb-2">
+            Nous Research menyediakan script installer terpadu. Kita dapat mengeksekusinya langsung dari dalam Command Prompt (CMD) menggunakan satu baris perintah otomatis dengan parameter <code>-ExecutionPolicy Bypass</code>, sehingga Anda <strong>tidak perlu membuka PowerShell terpisah</strong> dan <strong>tidak perlu mengubah kebijakan keamanan sistem secara manual</strong>:
+          </p>
+          <pre><code>powershell -ExecutionPolicy Bypass -Command "iex (irm https://hermes-agent.nousresearch.com/install.ps1)"</code></pre>
+          <p class="mb-2"><strong>Panduan Keyboard Pengguna Screen Reader:</strong></p>
+          <ol class="mb-2">
+            <li>Salin perintah di atas ke clipboard dengan menekan tombol <code>Ctrl + C</code>.</li>
+            <li>Pindah kembali ke jendela Command Prompt dengan menekan <code>Alt + Tab</code>.</li>
+            <li>Tempelkan perintah ke CMD dengan menekan <code>Ctrl + V</code> (pada Windows 10/11) atau tekan <code>Alt + Spasi</code>, tekan tombol panah bawah ke menu <em>Edit</em>, lalu tekan <em>Paste</em>.</li>
+            <li>Tekan tombol <code>Enter</code> untuk memulai proses unduh dan instalasi otomatis.</li>
+          </ol>
+          <p class="mb-0">
+            <em>Catatan:</em> Installer ini akan otomatis menyiapkan runtime Python portabel mandiri (melalui uv), dependensi internal, dan binary command Hermes di folder lokal pengguna tanpa merusak konfigurasi Python yang sudah ada sebelumnya di komputer Anda.
+          </p>
+        </div>
 
-      <h2>Bagian 9 — Aplikasi AI untuk Pekerjaan Kreatif</h2>
-      <p><strong>1. ChatGPT / Copilot / Gemini</strong></p>
-      <ul>
-        <li>ide</li>
-        <li>naskah</li>
-        <li>storytelling</li>
-      </ul>
+        <div class="step-box">
+          <p class="mb-1"><strong>Langkah 3: Memantau Proses Instalasi dengan Screen Reader di CMD</strong></p>
+          <p class="mb-2">
+            Proses instalasi membutuhkan waktu sekitar 3 hingga 10 menit tergantung kecepatan koneksi internet Anda. Selama proses berjalan, teks log instalasi akan terus bertambah di layar terminal.
+          </p>
+          <ul class="mb-2">
+            <li><strong>Pengguna NVDA:</strong>
+              <ul>
+                <li>Tekan tombol <code>NVDA + Panah Atas</code> untuk membacakan baris teks yang baru saja muncul di terminal CMD.</li>
+                <li>Gunakan Review Cursor Numpad (pastikan tombol NumLock dalam keadaan mati): tekan <code>Numpad 7</code> untuk membaca baris atas, <code>Numpad 8</code> untuk membaca baris saat ini, dan <code>Numpad 9</code> untuk membaca baris bawah.</li>
+                <li>Tekan <code>NVDA + B</code> jika ingin screen reader membacakan seluruh teks jendela terminal dari atas ke bawah.</li>
+              </ul>
+            </li>
+            <li><strong>Pengguna JAWS:</strong>
+              <ul>
+                <li>Tekan tombol <code>Insert + Panah Atas</code> untuk membacakan baris teks aktif saat ini.</li>
+                <li>Aktifkan JAWS Cursor dengan menekan tombol <code>Minus di Numpad</code>, lalu gunakan <code>Panah Atas</code> dan <code>Panah Bawah</code> untuk menelusuri riwayat teks instalasi baris demi baris. Tekan <code>Plus di Numpad</code> untuk kembali ke kursor PC normal.</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="mb-0">
+            <strong>Tanda Instalasi Selesai:</strong> Terminal CMD berhenti mengalirkan teks baru dan prompt perintah kembali muncul di baris paling akhir, misalnya: <code>C:\Users\NamaAnda&gt;</code>.
+          </p>
+        </div>
 
-      <p><strong>2. Adobe Firefly</strong></p>
-      <ul>
-        <li>desain visual</li>
-        <li>poster</li>
-        <li>logo</li>
-      </ul>
+        <div class="step-box">
+          <p class="mb-1"><strong>Langkah 4: Menutup dan Membuka Kembali Command Prompt (Refresh PATH)</strong></p>
+          <p class="mb-2">
+            Setelah instalasi selesai, installer telah menambahkan path program Hermes ke variabel lingkungan sistem. Agar Command Prompt dapat langsung mengenali perintah <code>hermes</code>, Anda perlu menyegarkan terminal dengan cara menutup dan membukanya kembali:
+          </p>
+          <ol class="mb-0">
+            <li>Ketikkan perintah <code>exit</code> pada jendela CMD lalu tekan <code>Enter</code> untuk menutup jendela tersebut.</li>
+            <li>Tekan tombol <code>Windows + R</code>, ketikkan <code>cmd</code>, lalu tekan <code>Enter</code> untuk membuka jendela Command Prompt yang baru.</li>
+          </ol>
+        </div>
 
-      <p><strong>3. Microsoft Designer</strong></p>
-      <ul>
-        <li>desain cepat</li>
-        <li>poster</li>
-        <li>banner</li>
-      </ul>
+        <div class="step-box">
+          <p class="mb-1"><strong>Langkah 5: Memverifikasi Keberhasilan Instalasi di CMD</strong></p>
+          <p class="mb-2">
+            Di jendela Command Prompt yang baru terbuka, ketikkan perintah verifikasi berikut lalu tekan <code>Enter</code>:
+          </p>
+          <pre><code>hermes --version</code></pre>
+          <p class="mb-0">
+            Screen reader Anda akan membacakan nomor versi Hermes yang terpasang (misalnya: <code>hermes 0.x.x</code>). Jika pembaca layar membacakan nomor versi tersebut tanpa pesan kesalahan, selamat! Hermes Agent telah berhasil terinstal 100% menggunakan CMD dan siap digunakan.
+          </p>
+        </div>
+      </div>
 
-      <p><strong>4. ElevenLabs</strong></p>
-      <ul>
-        <li>suara narasi</li>
-        <li>voice cloning</li>
-      </ul>
+      <!-- Bagian Ketujuh -->
+      <div class="materi-section">
+        <h2>Bagian Ketujuh — Panduan Setting Awal dan Konfigurasi Penggunaan Hermes Agent</h2>
+        <p>
+          Setelah proses instalasi berhasil, langkah berikutnya adalah melakukan <strong>Setting Awal (Initial Configuration)</strong> sebelum menggunakan agent untuk bekerja.
+        </p>
 
-      <p><strong>5. Runway ML / Pika Labs</strong></p>
-      <ul>
-        <li>video AI</li>
-        <li>efek visual</li>
-      </ul>
+        <div class="step-box">
+          <p class="mb-1"><strong>Tahap 1: Mempersiapkan Direktori Kerja Proyek</strong></p>
+          <p class="mb-2">
+            Sangat disarankan untuk selalu menjalankan agent di dalam folder khusus proyek AI Anda agar file yang dibuat atau dianalisis terorganisasi rapi. Di jendela terminal, ketikkan:
+          </p>
+          <pre><code>mkdir proyek_hermes
+cd proyek_hermes</code></pre>
+          <p class="mb-0">
+            Perintah ini membuat folder baru bernama <code>proyek_hermes</code> dan memindahkan posisi terminal Anda ke dalam folder tersebut.
+          </p>
+        </div>
 
-      <p>Semua aplikasi ini direkomendasikan oleh:</p>
-      <ul>
-        <li>Google AI for Creators</li>
-        <li>Microsoft Copilot Creative</li>
-        <li>OpenAI Creative Guide</li>
-      </ul>
+        <div class="step-box">
+          <p class="mb-1"><strong>Tahap 2: Menjalankan Hermes untuk Pertama Kali (Setup Wizard)</strong></p>
+          <p class="mb-2">
+            Ketikkan perintah utama di terminal lalu tekan <code>Enter</code>:
+          </p>
+          <pre><code>hermes</code></pre>
+          <p class="mb-2">
+            Pada peluncuran pertama kali, Hermes akan mendeteksi bahwa konfigurasi model belum ada, dan akan secara otomatis membuka <em>Setup Wizard</em> interaktif langsung di terminal.
+          </p>
+        </div>
 
-      <h2>Bagian 10 — Etika &amp; Batasan AI dalam Kreativitas</h2>
-      <p>Menurut UNESCO AI Ethics (2023):</p>
+        <div class="step-box">
+          <p class="mb-1"><strong>Tahap 3: Memilih Provider Model dan Memasukkan API Key</strong></p>
+          <ol class="mb-2">
+            <li><strong>Memilih Provider AI:</strong> Terminal akan menampilkan daftar pilihan model (seperti Nous Portal, OpenRouter, Anthropic, OpenAI, atau Model Lokal Ollama). Navigasi pilihan menggunakan <code>Panah Bawah</code> atau <code>Panah Atas</code>, lalu tekan <code>Enter</code> pada opsi yang Anda gunakan. Screen reader akan membacakan opsi yang sedang disorot.</li>
+            <li><strong>Memasukkan API Key:</strong> Wizard akan menampilkan prompt input bertuliskan <em>Enter your API Key:</em>. Salin API key Anda dari browser/catatan, kembali ke terminal, tekan <code>Ctrl + V</code> untuk menempelkan, lalu tekan <code>Enter</code>. (Demi alasan keamanan, karakter kunci mungkin tidak dibacakan satu per satu oleh screen reader).</li>
+            <li><strong>Memilih Model Default:</strong> Pilih model penalaran utama yang diinginkan (misalnya <code>Hermes 3</code> atau model kompatibel lainnya), lalu tekan <code>Enter</code>.</li>
+          </ol>
+        </div>
 
-      <p><strong>1. Jangan mengklaim karya AI sebagai karya pribadi tanpa modifikasi</strong><br>
-      AI adalah alat bantu, bukan pengganti kreativitas manusia.</p>
+        <div class="step-box">
+          <p class="mb-1"><strong>Tahap 4: Mengatur Kebijakan Persetujuan Keamanan (Safety Approval Profile)</strong></p>
+          <p class="mb-2">
+            Hermes Agent akan menanyakan preferensi konfirmasi saat menjalankan tools (seperti perintah terminal atau pembuatan file).
+          </p>
+          <p class="mb-0">
+            <strong>Rekomendasi untuk Pemula:</strong> Pilih mode <em>"Ask for Approval"</em> (Minta Persetujuan). Dengan pengaturan ini, setiap kali agent hendak mengeksekusi perintah shell atau mengubah file di komputer, terminal akan membunyikan prompt konfirmasi berupa pertanyaan: <code>Execute tool [nama_tool]? (y/n)</code>. Pengguna cukup menekan tombol <code>y</code> lalu <code>Enter</code> untuk mengizinkan, atau <code>n</code> lalu <code>Enter</code> untuk menolak. Hal ini menjamin kendali penuh selalu berada di tangan Anda!
+          </p>
+        </div>
 
-      <p><strong>2. Jangan gunakan AI untuk membuat deepfake berbahaya</strong><br>
-      Terutama yang meniru wajah atau suara orang tanpa izin.</p>
+        <div class="step-box">
+          <p class="mb-1"><strong>Tahap 5: Perintah Dasar dan Navigasi Sesi</strong></p>
+          <p class="mb-2">
+            Setelah setup awal selesai, prompt interaktif Hermes siap menerima instruksi Anda. Beberapa perintah navigasi penting yang perlu dihafal:
+          </p>
+          <ul class="mb-0">
+            <li><code>/help</code> — Menampilkan panduan bantuan dan daftar perintah internal.</li>
+            <li><code>/clear</code> — Membersihkan tampilan layar terminal (sangat membantu jika screen reader terasa lambat karena riwayat teks terlalu panjang).</li>
+            <li><code>/exit</code> atau tombol <code>Ctrl + C</code> — Keluar dari sesi interaktif Hermes dan kembali ke prompt Command Prompt (CMD) standar.</li>
+          </ul>
+        </div>
+      </div>
 
-      <p><strong>3. Periksa hak cipta</strong><br>
-      Beberapa gambar atau gaya mungkin menyerupai karya artis tertentu.</p>
+      <!-- Bagian Kedelapan -->
+      <div class="materi-section">
+        <h2>Bagian Kedelapan — Memberikan Tugas kepada Agent: Dari Teks Menuju Tindakan</h2>
+        <p>
+          Sekarang kita akan menguji kapabilitas sejati Hermes sebagai agen otonom dengan memberikan perintah yang membutuhkan aksi nyata ke sistem file:
+        </p>
+        <pre><code>Instruksi Pengguna:
+"Buat sebuah file bernama catatan_python.txt yang berisi tiga konsep dasar Python:
+variabel, fungsi, dan perulangan. Jelaskan masing-masing secara ringkas."</code></pre>
+        <p>
+          Jika konfigurasi tools mengizinkan akses file, Hermes tidak sekadar mencetak teks penjelasan di terminal. Hermes akan menjalankan alur kerja internal:
+        </p>
+        <pre><code>Instruksi Pengguna
+       │
+       v
+Hermes Agent
+       │
+       v
+Memahami tujuan instruksi
+       │
+       v
+Memilih tool (File Creation Tool)
+       │
+       v
+Menjalankan tindakan menulis ke file catatan_python.txt
+       │
+       v
+Memeriksa status dan integritas file hasil
+       │
+       v
+Melaporkan bahwa file berhasil dibuat beserta lokasinya</code></pre>
+        <p>
+          Inilah pembeda fundamental antara <strong>Generate Text</strong> (hanya mengetik jawaban) dan <strong>Execute Task</strong> (menyelesaikan pekerjaan secara nyata di sistem).
+        </p>
+      </div>
 
-      <p><strong>4. Gunakan AI secara bertanggung jawab</strong><br>
-      AI membantu, tetapi kreativitas manusia tetap utama.</p>
+      <!-- Bagian Kesembilan -->
+      <div class="materi-section">
+        <h2>Bagian Kesembilan — Konsep dan Mekanisme Tool Calling</h2>
+        <p>
+          Pada Pertemuan 6 kita telah membahas teori di balik <em>Tool Calling</em>. Pada Hermes Agent, kita melihat implementasinya bekerja secara otomatis di depan mata kita.
+        </p>
+        <p>Misalnya kita meminta instruksi investigasi:</p>
+        <pre><code>"Hitung jumlah file Python yang ada di dalam folder proyek ini dan sebutkan nama-namanya."</code></pre>
+        <p>
+          Tanpa kemampuan tools, sebuah chatbot hanya bisa menerka-nerka atau meminta pengguna untuk menjalankan perintah <code>dir</code> sendiri. Tetapi Hermes Agent menjalankan alur berikut:
+        </p>
+        <pre><code>Pengguna
+   │
+   v
+Hermes Agent
+   │
+   ├── [Perlu informasi isi folder lokal]
+   │
+   v
+Tool File System / Terminal (dir atau ls *.py)
+   │
+   v
+Hasil output nyata dari sistem operasi
+   │
+   v
+Hermes Agent (Menganalisis daftar file yang didapat)
+   │
+   v
+Jawaban akurat berdasarkan fakta sistem</code></pre>
+        <p>
+          Agent tidak perlu menebak (<em>hallucinate</em>). Ia memanggil tool yang relevan untuk memperoleh informasi faktual secara real-time.
+        </p>
+      </div>
 
-      <h2>Bagian 11 — Contoh Prompt Siap Pakai</h2>
+      <!-- Bagian Kesepuluh -->
+      <div class="materi-section">
+        <h2>Bagian Kesepuluh — Multi-Step Reasoning dan Task Decomposition</h2>
+        <p>
+          Ciri khas utama sistem cerdas otonom adalah <strong>Multi-Step Reasoning</strong> yang didukung oleh konsep <strong>Task Decomposition</strong> (pemecahan tugas).
+        </p>
+        <p>
+          Ketika kita memberikan satu instruksi besar, misalnya:
+        </p>
+        <pre><code>"Buatkan ringkasan komprehensif mengenai proyek Python saya."</code></pre>
+        <p>
+          Hermes secara mandiri menguraikan instruksi tersebut menjadi serangkaian subtugas teratur:
+        </p>
+        <pre><code>Langkah 1: Menelusuri seluruh file dalam direktori proyek.
+Langkah 2: Membaca file konfigurasi dan file utama (seperti README.md, main.py).
+Langkah 3: Mengidentifikasi dependensi, arsitektur modul, dan struktur kode.
+Langkah 4: Mensintesis temuan menjadi dokumen ringkasan yang terstruktur.
+Langkah 5: Menyajikan laporan kepada pengguna atau menyimpannya dalam berkas ringkasan.</code></pre>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Konsep Kunci:</strong> <em>Task Decomposition</em> adalah prinsip di mana sebuah masalah besar dipecah menjadi langkah-langkah atomik yang dapat dieksekusi satu per satu dengan validasi hasil di setiap tahap.
+          </p>
+        </div>
+      </div>
 
-      <p><strong>1. Prompt Ide Konten</strong><br>
-      “Buatkan 15 ide konten edukasi tentang teknologi untuk tunanetra.”</p>
+      <!-- Bagian Kesebelas -->
+      <div class="materi-section">
+        <h2>Bagian Kesebelas — Persistent Memory: Menjaga Konteks Lintas Sesi</h2>
+        <p>
+          Model bahasa biasa bersifat <em>stateless</em> (lupa segera setelah sesi chat berakhir). Namun Hermes Agent mendukung sistem <strong>Persistent Memory</strong>.
+        </p>
+        <p>Bayangkan percakapan kita hari ini:</p>
+        <pre><code>Hari ini:
+Pengguna : "Saya sedang mengembangkan aplikasi asistif AI untuk teman-teman tunanetra bernama Difabelajar."
+Hermes   : "Dipahami, konteks proyek Difabelajar telah disimpan ke memori."</code></pre>
+        <p>Keesokan harinya, terminal ditutup lalu dibuka kembali di komputer yang sama:</p>
+        <pre><code>Keesokan harinya:
+Pengguna : "Lanjutkan perancangan modul aplikasi saya kemarin."</code></pre>
+        <p>
+          Dengan persistent memory, agent langsung mengenali bahwa aplikasi yang dimaksud adalah <em>Difabelajar</em> untuk asistif tunanetra, modul apa saja yang sudah dibahas, serta pendekatan teknis yang disepakati sebelumnya.
+        </p>
+        <pre><code>Sesi 1 (Penyampaian Informasi & Proyek)
+      │
+      v
+Persistent Memory Store (Tersimpan di Disk)
+      │
+      v
+Sesi 2 (Hari Berikutnya — Pemanggilan Konteks)
+      │
+      v
+Sesi Lanjutan Berkesinambungan</code></pre>
+      </div>
 
-      <p><strong>2. Prompt Naskah Video</strong><br>
-      “Tulis naskah video 1 menit tentang pentingnya literasi digital.”</p>
+      <!-- Bagian Kedua Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Belas — Skills: Memberikan Prosedur Khusus kepada Agent</h2>
+        <p>
+          Fitur unggulan lainnya dalam Hermes adalah <strong>Skills</strong>. Skill adalah modul prosedur khusus yang memberi tahu agent cara baku menyelesaikan tugas tertentu dengan standar operasional yang baku.
+        </p>
+        <p>Contoh skenario skill:</p>
+        <pre><code>Skill: Analisis Data CSV Peserta
+Input   : File nilai_peserta.csv
+Proses  : Hitung rata-rata, nilai tertinggi, dan sebaran kompetensi
+Output  : Laporan tabel analitik dan rekomendasi belajar</code></pre>
+        <p>Dengan konsep modular ini, kita dapat membayangkan Hermes Agent sebagai pusat komando yang dipersenjatai dengan ragam skill:</p>
+        <pre><code>Hermes Agent
+   │
+   ├─── Skill Analisis Data
+   │
+   ├─── Skill Pembuatan Laporan
+   │
+   ├─── Skill Python & Code Review
+   │
+   └─── Skill Web Research & Verifikasi Sumber</code></pre>
+        <p>
+          Ketika sebuah skill diaktifkan, agent mengikuti pedoman terstruktur sehingga hasil pekerjaan konsisten dan tidak melenceng.
+        </p>
+      </div>
 
-      <p><strong>3. Prompt Desain</strong><br>
-      “Buatkan konsep poster pelatihan AI, warna biru, gaya modern.”</p>
+      <!-- Bagian Ketiga Belas -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga Belas — Contoh Use Case Nyata AI Engineering</h2>
+        <p>
+          Hermes Agent dapat diadopsi untuk berbagai skenario profesional di bidang AI Engineering:
+        </p>
 
-      <p><strong>4. Prompt Audio</strong><br>
-      “Buatkan naskah narasi audio dengan tone inspiratif.”</p>
+        <h3>1. Coding Assistant</h3>
+        <pre><code>Tugas  : "Periksa kode kalkulator.py saya, temukan potensi bug, dan perbaiki."
+Aksi   : Membaca file ──> Menemukan kesalahan pembagian dengan nol ──> 
+         Menjelaskan masalah ──> Menyajikan perbaikan aman.</code></pre>
 
-      <p><strong>5. Prompt Storyboard</strong><br>
-      “Buatkan storyboard 6 scene untuk video edukasi AI.”</p>
+        <h3>2. Data Assistant</h3>
+        <pre><code>Tugas  : "Analisis log kehadiran peserta pelatihan bulan ini."
+Aksi   : Membaca berkas log ──> Menghitung persentase kehadiran ──> 
+         Mengidentifikasi pola absensi ──> Menyusun laporan evaluasi.</code></pre>
 
-      <h2>Latihan Praktik</h2>
+        <h3>3. Research Assistant</h3>
+        <pre><code>Tugas  : "Buat ringkasan perbandingan arsitektur Transformer dan SSM (Mamba)."
+Aksi   : Menelusuri sumber rujukan ──> Membaca paper penting ──> 
+         Mengekstraksi poin utama ──> Menyusun naskah perbandingan komprehensif.</code></pre>
 
-      <p><strong>Latihan 1 — Ideasi</strong><br>
-      Minta AI membuat 10 ide konten kreatif.</p>
+        <h3>4. File & Project Assistant</h3>
+        <pre><code>Tugas  : "Rapikan direktori materi saya berdasarkan ekstensi dan topik."
+Aksi   : Memeriksa isi direktori ──> Mengkategorikan dokumen ──> 
+         Memindahkan file sesuai kelompok (dengan persetujuan pengguna).</code></pre>
+      </div>
 
-      <p><strong>Latihan 2 — Naskah</strong><br>
-      Pilih satu ide, lalu minta AI membuat naskahnya.</p>
+      <!-- Bagian Keempat Belas -->
+      <div class="materi-section">
+        <h2>Bagian Keempat Belas — Keamanan AI Agent dan Human-in-the-Loop</h2>
+        <p>
+          Bagian ini adalah salah satu materi paling krusial bagi calon AI Engineer. Karena AI Agent memiliki akses ke sistem nyata komputer, potensi bahayanya jauh lebih besar daripada chatbot biasa jika tidak dikendalikan dengan benar.
+        </p>
+        <pre><code>Potensi Risiko jika Tanpa Batasan:
+AI + Akses Terminal Bebas + Akses File Penuh + Akses Internet Bebas
+(Bila terjadi kesalahan atau prompt injection, file penting bisa terhapus!)</code></pre>
 
-      <p><strong>Latihan 3 — Desain</strong><br>
-      Minta AI membuat konsep poster berdasarkan naskah.</p>
+        <p>Untuk memastikan keselamatan sistem, arsitektur AI Agent menerapkan lima pilar pengamanan:</p>
+        <ol>
+          <li><strong>Permission (Izin):</strong> Agent hanya dapat mengakses direktori dan tool yang diizinkan secara eksplisit.</li>
+          <li><strong>Approval (Persetujuan):</strong> Untuk tindakan berisiko (seperti menghapus file atau mengeksekusi shell script), sistem meminta konfirmasi manual pengguna terlebih dahulu.</li>
+          <li><strong>Sandbox (Isolasi):</strong> Perintah dieksekusi dalam lingkungan virtual atau container terbatas.</li>
+          <li><strong>Logging (Pencatatan):</strong> Setiap perintah, argumen tool, dan output tercatat rapi dalam berkas log untuk audit.</li>
+          <li><strong>Human-in-the-Loop:</strong> Manusia tetap memegang kendali tertinggi (otoritas keputusan akhir).</li>
+        </ol>
 
-      <p><strong>Latihan 4 — Audio</strong><br>
-      Minta AI membuat naskah narasi audio.</p>
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Prinsip Emas Keamanan Agent:</strong><br>
+            <em>Semakin besar kemampuan tindakan yang dimiliki sebuah agent, semakin ketat dan transparan sistem kontrol keamanan yang wajib diterapkan.</em>
+          </p>
+        </div>
+      </div>
 
-      <p><strong>Latihan 5 — Storyboard</strong><br>
-      Minta AI membuat storyboard video.</p>
+      <!-- Bagian Kelima Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kelima Belas — Aksesibilitas Hermes Agent untuk Pengguna Screen Reader</h2>
+        <p>
+          Salah satu daya tarik terbesar Hermes Agent bagi pembelajar tunanetra adalah bahwa antarmuka intinya berbasis <strong>Terminal dan Teks Murni (CLI)</strong>.
+        </p>
+        <p>Alur interaksi aksesibel:</p>
+        <pre><code>Keyboard (Input Perintah Bersih)
+   │
+   v
+Terminal (Command Prompt / CMD)
+   │
+   v
+Hermes Agent (Memproses & Eksekusi)
+   │
+   v
+Teks Output Terstruktur
+   │
+   v
+Screen Reader (NVDA / JAWS / Orca membacakan setiap baris secara akurat)</code></pre>
+        <p>
+          Banyak antarmuka AI berbasis grafis modern (GUI) memiliki tombol tanpa label (<em>unlabeled buttons</em>), kanvas visual yang tidak terbaca screen reader, atau animasi yang membingungkan. Sebaliknya, antarmuka terminal memberikan kendali navigasi penuh dengan tombol panah, review cursor, serta pembacaan baris demi baris yang sangat efisien dan mandiri bagi tunanetra.
+        </p>
+      </div>
+
+      <!-- Bagian Keenam Belas -->
+      <div class="materi-section">
+        <h2>Bagian Keenam Belas — Panduan Praktik Terbimbing di Kelas</h2>
+        <p>
+          Dalam sesi praktik di kelas, hindari langsung memberikan tugas yang berisiko tinggi seperti mengubah atau menghapus berkas sistem. Terapkan prinsip <em>Read-Only First</em>:
+        </p>
+
+        <h3>Praktik 1: Eksplorasi Aman (Read-Only)</h3>
+        <pre><code>"Jelaskan struktur folder proyek Python saya saat ini tanpa mengubah file apa pun."</code></pre>
+        <p>Perhatikan bagaimana agent memanggil tool pembaca direktori dan memetakan struktur file tanpa menyentuh konten.</p>
+
+        <h3>Praktik 2: Membaca dan Meringkas Dokumen</h3>
+        <pre><code>"Baca file README.md di folder ini, lalu buatkan ringkasan 3 poin utama tentang tujuan proyek tersebut."</code></pre>
+
+        <h3>Praktik 3: Audit Kode Pasif</h3>
+        <pre><code>"Periksa file main.py, analisis apakah ada fungsi yang belum memiliki penanganan error, dan jelaskan cara perbaikannya tanpa mengubah file aslinya."</code></pre>
+
+        <p>
+          Setelah peserta menguasai pola observasi tindakan agent yang aman, barulah peserta diperkenalkan pada pemberian izin pembuatan file baru di bawah supervisi instruktur.
+        </p>
+      </div>
+
+      <!-- Bagian Ketujuh Belas -->
+      <div class="materi-section">
+        <h2>Bagian Ketujuh Belas — Eksperimen Agent: Perencanaan Sebelum Eksekusi</h2>
+        <p>
+          Sebagai latihan berpikir kritis (<em>agentic thinking</em>), berikan instruksi kepada Hermes yang menguji kemampuan perencanaannya tanpa eksekusi langsung:
+        </p>
+        <pre><code>Instruksi Eksperimen:
+"Buatkan daftar rencana 5 langkah untuk membangun sebuah aplikasi AI Assistant penerjemah sederhana.
+PENTING: Jangan menjalankan perintah sistem atau mengubah file apa pun sekarang!"</code></pre>
+        <p>
+          Amati bagaimana agent menyusun urutan logika. Setelah agent selesai merespons, tanyakan tindak lanjut:
+        </p>
+        <pre><code>"Jelaskan tools apa saja yang kemungkinan akan kamu butuhkan untuk menyelesaikan rencana tersebut secara mandiri?"</code></pre>
+        <p>
+          Latihan ini melatih peserta untuk membedakan secara tegas antara fase <strong>Planning (Perencanaan)</strong> dan fase <strong>Execution (Eksekusi)</strong>.
+        </p>
+      </div>
+
+      <!-- Bagian Kedelapan Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kedelapan Belas — Tugas Mandiri: Merancang Arsitektur AI Agent</h2>
+        <p>
+          Buatlah rancangan arsitektur sebuah AI Agent untuk mempermudah kegiatan sehari-hari atau pekerjaan profesional Anda. Pilihlah salah satu tema berikut:
+        </p>
+        <ol>
+          <li>AI Coding Assistant</li>
+          <li>AI Data Assistant</li>
+          <li>AI Research Assistant</li>
+          <li>AI File & Folder Assistant</li>
+          <li>AI Learning / Study Assistant</li>
+          <li>AI Business & Office Assistant</li>
+        </ol>
+
+        <p>Tuliskan rancangan Anda dengan struktur format wajib berikut:</p>
+        <pre><code>Nama Agent : [Nama unik agen Anda]
+Tujuan     : [Sasaran utama yang ingin diselesaikan]
+Model      : [Model bahasa yang dipilih, misal: Hermes 3 / Llama 3 / Claude / GPT]
+Tools      : [Alat yang dibutuhkan, misal: File, Terminal, Python, Web Search]
+Memory     : [Informasi apa yang harus diingat lintas sesi percakapan]
+Skills     : [Prosedur khusus yang dikuasai agen]
+Tugas      : [Contoh instruksi operasional yang diberikan pengguna]
+Output     : [Bentuk hasil akhir yang disajikan kepada pengguna]</code></pre>
+
+        <p><strong>Contoh Pengisian yang Baik:</strong></p>
+        <pre><code>Nama Agent : AI Learning Assistant
+Tujuan     : Membantu peserta tunanetra belajar pemrograman Python secara bertahap dan terstruktur.
+Model      : Nous Hermes 3 / Llama-3-8B
+Tools      : Terminal lokal, File reader/writer, Python REPL runner.
+Memory     : Riwayat materi yang sudah dipelajari, catatan kesalahan sintaks yang sering dilakukan peserta, dan preferensi penjelasan suara.
+Skills     : Modul penjelasan ramah screen reader, generator latihan soal adaptif, dan pemeriksa kode ramah pemula.
+Tugas      : Membaca kode latihan peserta, mendeteksi baris eror, lalu membuatkan latihan perbaikan bertahap.
+Output     : Penjelasan naratif yang mudah dibaca screen reader dan berkas kode perbaikan yang bersih dari error.</code></pre>
+      </div>
+
+      <!-- Bagian Kesembilan Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kesembilan Belas — Kesimpulan dan Jembatan Menuju Pertemuan 10</h2>
+        <p>
+          Pada pertemuan ini kita telah membuktikan secara nyata bahwa AI Agent bukan lagi sekadar wacana teoritis. Spektrum perkembangan kecerdasan buatan dapat dirangkum sebagai berikut:
+        </p>
+        <pre><code>Chatbot
+   │
+   v
+AI Assistant
+   │
+   v
+AI Assistant + Tools
+   │
+   v
+AI Agent
+   │
+   v
+Autonomous AI Agent (Hermes Agent)</code></pre>
+        <p>
+          Nilai paling mendasar yang kita pelajari hari ini bukanlah sekadar menghafal baris perintah <code>hermes</code>, melainkan mengadopsi <strong>Pola Pikir AI Engineer (Agentic Mindset)</strong> dalam memecahkan masalah:
+        </p>
+        <pre><code>TUJUAN (Goal Definition)
+   │
+   v
+PLAN (Perencanaan & Dekomposisi Tugas)
+   │
+   v
+TOOLS (Pemilihan Alat yang Tepat)
+   │
+   v
+EXECUTION (Tindakan Nyata Berizin)
+   │
+   v
+CHECK (Observasi & Evaluasi Mandiri)
+   │
+   v
+RESULT (Hasil Tuntas & Akuntabel)</code></pre>
+        <p>
+          Pada <strong>Pertemuan 10</strong> yang akan datang, kita akan memadukan seluruh pondasi yang telah kita bangun — mulai dari logika Python, arsitektur model, AI Assistant, hingga autonomous agent — untuk melangkah ke tahap puncak: <strong>Membangun Aplikasi AI Nyata Menggunakan Platform Antigravity</strong>. Dengan demikian, perjalanan kursus Anda akan diakhiri bukan sekadar dengan wawasan konsep, melainkan dengan karya aplikasi AI konkret yang siap digunakan dan dibanggakan!
+        </p>
+      </div>
+
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/1BBnhezfq_Vq6q5G49Yr-PkZaE0NQxpSY/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic9.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <!-- Navigasi Modul -->
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1Shodd4lrqY-bc1kOFI2okb3pjL51GzfU/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi " target="_blank" rel="noopener">
+        Download Materi
+      </a>
+      <a href="../topic9.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali ">
+        Kembali
+      </a>
     </div>
   </main>
 
@@ -405,8 +994,10 @@
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');

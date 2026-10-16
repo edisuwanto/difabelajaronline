@@ -21,9 +21,15 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modul Topik 10 - AI untuk Pekerjaan Profesional</title>
-  <meta name="description" content="Modul AI untuk Pekerjaan Profesional di Difabelajar. Pelajari pemanfaatan AI untuk dokumen, komunikasi bisnis, data, rapat, presentasi, dan manajemen proyek secara aksesibel.">
+
+  <title>Building Applications with Google Antigravity: The Capstone of Agentic AI Engineering</title>
+
+  <meta name="description" content="Modul AI Engineering Topik 10: Building Applications with Google Antigravity – Membangun Aplikasi Nyata dengan Pendekatan Agentic Development, Multi-Step Execution, Artifacts, dan Aksesibilitas Screen Reader.">
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -34,6 +40,7 @@
       --text-dark: #f5f9fc;
       --primary: #176ca6;
     }
+
     body {
       background: var(--bg-light);
       color: var(--text-light);
@@ -44,20 +51,28 @@
       opacity: 0;
       animation: fadeIn 1s ease-in-out forwards;
     }
+
     body.dark-mode {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
-    @keyframes fadeIn { to { opacity: 1; } }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .skip-link {
       position: absolute;
       left: -999px;
+      top: auto;
       width: 1px;
       height: 1px;
       overflow: hidden;
       z-index: 100;
     }
+
     .skip-link:focus {
       left: 1rem;
       top: 1rem;
@@ -74,6 +89,7 @@
       text-align: center;
       margin: 2rem 0 1rem 0;
     }
+
     .logo-container img {
       width: 90px;
       height: 90px;
@@ -83,13 +99,50 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: var(--primary);
     }
+
     body.dark-mode h1,
     body.dark-mode h2,
-    body.dark-mode h3 {
+    body.dark-mode h3,
+    body.dark-mode h4 {
       color: #7ec3e6;
+    }
+
+    .materi-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .step-box {
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      background: rgba(23, 108, 166, 0.06);
+      border-radius: 0 8px 8px 0;
+    }
+
+    body.dark-mode .step-box {
+      background: rgba(126, 195, 230, 0.08);
+      border-left-color: #7ec3e6;
+    }
+
+    pre {
+      background: #e9ecef;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    body.dark-mode pre {
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    code {
+      font-family: Consolas, 'Courier New', monospace;
     }
 
     .btn-custom {
@@ -104,6 +157,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       transition: background .3s, box-shadow .3s, transform .3s;
     }
+
     .btn-custom:hover, .btn-custom:focus {
       background: #114d77;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -126,6 +180,7 @@
       letter-spacing: 0.5px;
       transition: color 0.5s;
     }
+
     body.dark-mode footer {
       color: #7ec3e6;
     }
@@ -133,224 +188,557 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <button class="btn btn-sm btn-outline-primary toggle-mode" aria-label="Toggle Dark Mode">
+  <!-- Skip Link untuk aksesibilitas -->
+  <a href="#main-content" class="skip-link">
+    Lewati ke konten utama
+  </a>
+
+  <!-- Tombol Dark Mode -->
+  <button class="btn btn-sm btn-outline-primary toggle-mode"
+          aria-label="Toggle Dark Mode">
     🌙 Mode
   </button>
 
+  <!-- Logo Difabelajar -->
   <div class="logo-container">
-    <img src="assets/logodifabelajar.jpeg" alt="Logo Difabelajar" />
+    <img src="assets/logodifabelajar.jpeg"
+         alt="Logo Difabelajar" />
   </div>
 
   <main id="main-content" tabindex="-1" class="container">
+
+    <!-- Judul Materi -->
     <h1>
-      AI untuk Pekerjaan Profesional<br>
-      <span style="font-size:1.1rem;font-weight:400;">Modul 10 — Artificial Intelligence Fundamental</span>
+      BUILDING APPLICATIONS WITH GOOGLE ANTIGRAVITY<br>
     </h1>
 
-    <section aria-labelledby="modul2-title">
-      <h2 id="modul2-title">Tujuan Pembelajaran</h2>
-      <p>Setelah mempelajari modul ini, peserta mampu:</p>
-      <ul>
-        <li>Memahami bagaimana AI digunakan dalam dunia kerja profesional</li>
-        <li>Menggunakan AI untuk meningkatkan efisiensi kerja</li>
-        <li>Menggunakan AI untuk menulis laporan, email, proposal, dan dokumen profesional</li>
-        <li>Menggunakan AI untuk analisis data dasar</li>
-        <li>Menggunakan AI untuk rapat, presentasi, dan komunikasi bisnis</li>
-        <li>Mengetahui batasan dan etika penggunaan AI di lingkungan kerja</li>
-      </ul>
-      <h2>Bagian 1 — Mengapa AI Penting dalam Dunia Kerja?</h2>
-      <p>Menurut McKinsey Global Institute (2023):</p>
-      <ul>
-        <li>AI dapat mengotomatisasi 30–45% tugas administratif</li>
-        <li>AI meningkatkan produktivitas pekerja hingga 40%</li>
-        <li>AI mempercepat penulisan dokumen hingga 60%</li>
-      </ul>
-      <p>Menurut Harvard Business Review (2024):</p>
-      <ul>
-        <li>AI membantu profesional mengambil keputusan lebih cepat</li>
-        <li>AI mengurangi beban kerja repetitif</li>
-        <li>AI meningkatkan kualitas komunikasi bisnis</li>
-      </ul>
-      <p>Menurut UNESCO (2023):</p>
-      <ul>
-        <li>AI membuka peluang kerja inklusif bagi penyandang disabilitas</li>
-        <li>AI membantu akses informasi dan komunikasi profesional</li>
-      </ul>
-      <p><strong>Analogi untuk pengguna screen reader:</strong><br>
-      AI seperti asisten kantor digital yang membantu Anda menulis, merangkum, menganalisis, dan mengorganisir pekerjaan.</p>
-      <h2>Bagian 2 — Area Pekerjaan Profesional yang Bisa Dibantu AI</h2>
-      <p>AI dapat membantu dalam 6 area utama:</p>
+    <div class="step-box mb-4">
+      <p class="mt-2 mb-0">
+        Pertemuan ini menjadi penutup resmi dari seluruh rangkaian kurikulum AI Engineering. Jika sebelumnya kita telah mengenal konsep AI Agent secara lokal melalui Hermes Agent, kini saatnya kita memanfaatkan pendekatan <strong>agentic development</strong> untuk membangun aplikasi secara utuh menggunakan <strong>Google Antigravity</strong>. Antigravity menempatkan AI Agent sebagai rekan kerja (virtual pair programmer) yang mampu bekerja pada kode, file, terminal, pengujian, dan browser secara mandiri namun tetap berada di bawah kendali penuh manusia.
+      </p>
+    </div>
+
+    <section aria-labelledby="modul10-title">
+
+      <!-- Tujuan Pembelajaran -->
+      <h2 id="modul10-title">A. Tujuan Pembelajaran</h2>
+      <p>Setelah mengikuti pertemuan penutup ini, peserta diharapkan mampu:</p>
       <ol>
-        <li>Penulisan profesional</li>
-        <li>Komunikasi bisnis</li>
-        <li>Analisis data dasar</li>
-        <li>Manajemen rapat &amp; notulen</li>
-        <li>Pembuatan presentasi</li>
-        <li>Manajemen proyek &amp; tugas</li>
+        <li>Memahami konsep dasar Google Antigravity dan arsitektur agentic development.</li>
+        <li>Memahami perbedaan mendasar antara AI chatbot, AI coding assistant, dan autonomous AI coding agent.</li>
+        <li>Memberikan instruksi spesifikasi pembangunan aplikasi kepada AI Agent secara efektif dan terstruktur.</li>
+        <li>Membuat struktur aplikasi modern menggunakan kapabilitas multi-file Antigravity.</li>
+        <li>Meminta AI Agent membuat kode, melakukan refactoring, dan memperbaiki error.</li>
+        <li>Menguji fungsionalitas dan integritas aplikasi yang dibangun oleh agent.</li>
+        <li>Memberikan instruksi perbaikan iteratif (iterative prompt) kepada agent secara presisi.</li>
+        <li>Memahami pentingnya tata kelola keamanan dan kontrol saat AI Agent menjalankan perintah sistem.</li>
+        <li>Memahami konsep <em>artifacts</em>, <em>tools</em>, <em>workspace</em>, dan siklus tugas agent.</li>
+        <li>Menerapkan prinsip aksesibilitas web bagi pengguna pembaca layar (screen reader) sejak awal perancangan.</li>
       </ol>
-      <p>Mari kita bahas satu per satu.</p>
-      <h2>Bagian 3 — AI untuk Penulisan Profesional</h2>
-      <p>Menurut Microsoft Copilot, AI dapat menulis:</p>
-      <ul>
-        <li>laporan kegiatan</li>
-        <li>proposal proyek</li>
-        <li>dokumen resmi</li>
-        <li>SOP (Standard Operating Procedure)</li>
-        <li>email profesional</li>
-        <li>ringkasan rapat</li>
-        <li>memo internal</li>
-      </ul>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan laporan kegiatan pelatihan AI selama 1 hari.</p>
-      <p>Gunakan bahasa formal, 3 paragraf.”</p>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan SOP sederhana untuk proses pendaftaran peserta pelatihan.”</p>
-      <h2>Bagian 4 — AI untuk Komunikasi Bisnis</h2>
-      <p>AI dapat membantu:</p>
-      <ul>
-        <li>menulis email profesional</li>
-        <li>menulis pesan WhatsApp bisnis</li>
-        <li>menulis pengumuman resmi</li>
-        <li>menulis undangan rapat</li>
-        <li>menulis balasan cepat</li>
-      </ul>
-      <p>Menurut Google Workspace AI, AI dapat menghemat 30% waktu komunikasi.</p>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan email profesional untuk meminta jadwal pertemuan dengan klien.”</p>
-      <h2>Bagian 5 — AI untuk Analisis Data Dasar</h2>
-      <p>AI dapat membantu:</p>
-      <ul>
-        <li>membaca tabel</li>
-        <li>menjelaskan data</li>
-        <li>membuat ringkasan data</li>
-        <li>membuat insight sederhana</li>
-        <li>membuat rekomendasi awal</li>
-      </ul>
-      <p>Menurut OpenAI Enterprise, AI dapat:</p>
-      <ul>
-        <li>menjelaskan data dalam bahasa sederhana</li>
-        <li>membuat analisis tanpa rumus rumit</li>
-        <li>membantu pemula memahami data</li>
-      </ul>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Jelaskan data berikut dalam bahasa sederhana dan buat 3 insight utama.”</p>
-      <h2>Bagian 6 — AI untuk Rapat &amp; Notulen</h2>
-      <p>Menurut Microsoft Teams + Copilot, AI dapat:</p>
-      <ul>
-        <li>membuat ringkasan rapat</li>
-        <li>membuat daftar keputusan</li>
-        <li>membuat daftar tugas</li>
-        <li>membuat follow-up email</li>
-      </ul>
-      <p>Ini sangat membantu tunanetra karena:</p>
-      <ul>
-        <li>tidak perlu membaca catatan panjang</li>
-        <li>cukup mendengarkan ringkasan</li>
-        <li>bisa langsung tahu poin penting</li>
-      </ul>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan ringkasan rapat berikut menjadi 5 poin utama.”</p>
-      <h2>Bagian 7 — AI untuk Presentasi</h2>
-      <p>AI dapat membantu:</p>
-      <ul>
-        <li>membuat outline presentasi</li>
-        <li>membuat naskah presentasi</li>
-        <li>membuat poin-poin slide</li>
-        <li>membuat contoh visual (untuk tim yang melihat)</li>
-      </ul>
-      <p>Menurut Microsoft Copilot for PowerPoint, AI dapat membuat presentasi lengkap dari teks.</p>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan outline presentasi 10 slide tentang pentingnya literasi digital.”</p>
-      <h2>Bagian 8 — AI untuk Manajemen Proyek &amp; Tugas</h2>
-      <p>AI dapat membantu:</p>
-      <ul>
-        <li>membuat timeline proyek</li>
-        <li>membuat daftar tugas</li>
-        <li>membuat prioritas kerja</li>
-        <li>membuat rencana mingguan</li>
-        <li>membuat checklist</li>
-      </ul>
-      <p>Menurut Google Workspace AI, AI dapat membantu mengatur pekerjaan tim.</p>
-      <p><strong>Contoh Prompt:</strong><br>
-      “Buatkan rencana kerja 1 bulan untuk proyek pelatihan teknologi.”</p>
-      <h2>Bagian 9 — Aplikasi AI untuk Pekerjaan Profesional</h2>
-      <p><strong>1. Microsoft Copilot (Word, Excel, PowerPoint, Outlook, Teams)</strong></p>
-      <ul>
-        <li>menulis</li>
-        <li>merangkum</li>
-        <li>membuat presentasi</li>
-        <li>membuat notulen</li>
-      </ul>
-      <p><strong>2. Google Gemini for Workspace</strong></p>
-      <ul>
-        <li>menulis dokumen</li>
-        <li>membuat email</li>
-        <li>membuat ringkasan</li>
-      </ul>
-      <p><strong>3. Notion AI</strong></p>
-      <ul>
-        <li>catatan rapat</li>
-        <li>manajemen proyek</li>
-        <li>ringkasan</li>
-      </ul>
-      <p><strong>4. ChatGPT</strong></p>
-      <ul>
-        <li>penulisan</li>
-        <li>ide</li>
-        <li>analisis ringan</li>
-      </ul>
-      <p><strong>5. Grammarly</strong></p>
-      <ul>
-        <li>perbaikan tata bahasa</li>
-      </ul>
-      <p>Semua aplikasi ini direkomendasikan oleh:</p>
-      <ul>
-        <li>Microsoft Learn AI</li>
-        <li>Google AI Essentials</li>
-        <li>OpenAI Business Use Cases</li>
-      </ul>
-      <h2>Bagian 10 — Etika &amp; Batasan AI dalam Pekerjaan Profesional</h2>
-      <p>Menurut UNESCO AI Ethics (2023):</p>
-      <p><strong>1. Jangan masukkan data sensitif</strong></p>
-      <p>Seperti:</p>
-      <ul>
-        <li>nomor rekening</li>
-        <li>data klien</li>
-        <li>dokumen rahasia perusahaan</li>
-      </ul>
-      <p><strong>2. Verifikasi hasil AI</strong></p>
-      <p>AI bisa salah (hallucination).</p>
-      <p><strong>3. Jangan gunakan AI untuk memalsukan dokumen</strong></p>
-      <p>Termasuk tanda tangan atau sertifikat.</p>
-      <p><strong>4. AI adalah alat bantu, bukan pengganti profesional</strong></p>
-      <p>Keputusan akhir tetap pada manusia.</p>
-      <h2>Bagian 11 — Contoh Prompt Siap Pakai</h2>
-      <p><strong>1. Prompt Laporan</strong></p>
-      <p>“Buatkan laporan kegiatan pelatihan selama 2 hari, bahasa formal.”</p>
-      <p><strong>2. Prompt Email</strong></p>
-      <p>“Buatkan email profesional untuk mengirim proposal ke klien.”</p>
-      <p><strong>3. Prompt Analisis</strong></p>
-      <p>“Jelaskan data berikut dalam bahasa sederhana.”</p>
-      <p><strong>4. Prompt Rapat</strong></p>
-      <p>“Ringkas catatan rapat berikut menjadi 5 poin.”</p>
-      <p><strong>5. Prompt Presentasi</strong></p>
-      <p>“Buatkan outline presentasi 10 slide tentang AI untuk pemula.”</p>
-      <h2>Latihan Praktik</h2>
-      <p>Latihan 1 — Menulis Dokumen</p>
-      <p>Gunakan AI untuk membuat laporan kegiatan.</p>
-      <p>Latihan 2 — Email Profesional</p>
-      <p>Gunakan AI untuk menulis email ke klien.</p>
-      <p>Latihan 3 — Ringkasan Rapat</p>
-      <p>Gunakan AI untuk merangkum catatan rapat.</p>
-      <p>Latihan 4 — Presentasi</p>
-      <p>Gunakan AI untuk membuat outline presentasi.</p>
+
+      <!-- Bagian Kesatu -->
+      <div class="materi-section">
+        <h2>Bagian Kesatu — Pengenalan Google Antigravity dan Era Agentic Development</h2>
+        <p>
+          <strong>Google Antigravity</strong> adalah lingkungan pengembangan perangkat lunak mutakhir yang menempatkan AI Agent bukan sekadar sebagai alat tanya-jawab, melainkan sebagai <em>rekan kerja programmer</em> (pair programmer virtual).
+        </p>
+        <p>
+          Dalam lanskap teknologi saat ini, Antigravity hadir dalam berbagai bentuk ekosistem yang terintegrasi, termasuk <strong>Antigravity 2.0</strong>, <strong>Antigravity IDE</strong>, antarmuka baris perintah <strong>CLI (Command Line Interface)</strong>, serta <strong>SDK</strong>. Antigravity dirancang khusus agar AI Agent dapat beroperasi langsung pada basis kode proyek, terminal sistem, manipulasi berkas lokal, pengujian web, dan penelusuran browser secara mandiri.
+        </p>
+
+        <p>Mari kita cermati pergeseran paradigma cara membuat aplikasi:</p>
+        <pre><code>1. Editor Tradisional:
+Programmer mengetik seluruh baris kode secara manual dari awal sampai selesai.
+
+2. AI Coding Assistant Sederhana:
+Programmer menulis kode, kemudian AI bertindak seperti autocomplete untuk melengkapi baris berikutnya.
+
+3. Agentic Development (Google Antigravity):
+Programmer menetapkan TUJUAN (Goal) dan SPESIFIKASI.
+Agent menganalisis proyek, membuat rencana langkah kerja, mengedit banyak file sekaligus,
+menjalankan terminal untuk install dependensi, menjalankan server, dan menguji aplikasi di browser.</code></pre>
+
+        <p>
+          Bayangkan kita memberikan sebuah instruksi pengembangan aplikasi:
+        </p>
+        <pre><code>"Buatkan aplikasi toko online sederhana yang memiliki daftar produk, pencarian produk,
+detail produk, dan tombol pemesanan langsung melalui WhatsApp."</code></pre>
+
+        <p>
+          Seorang programmer manusia biasanya akan memecah pekerjaan tersebut menjadi delapan tahapan:
+        </p>
+        <ol>
+          <li>Membuat folder proyek dan konfigurasi awal.</li>
+          <li>Menyusun struktur berkas (HTML, CSS, JavaScript, Data).</li>
+          <li>Merancang tata letak antarmuka halaman.</li>
+          <li>Menyusun database atau dataset produk lokal.</li>
+          <li>Mengimplementasikan logika algoritma pencarian.</li>
+          <li>Menyusun generator tautan pesan WhatsApp dinamis.</li>
+          <li>Menjalankan server dan menguji fungsionalitas aplikasi.</li>
+          <li>Mendeteksi bug dan memperbaiki kesalahan kode.</li>
+        </ol>
+
+        <p>
+          Dengan pendekatan <strong>agentic development</strong>, sebagian besar pekerjaan teknis di atas dapat didelegasikan kepada AI Agent. Namun, ada satu prinsip etika dan profesionalisme yang wajib diingat oleh setiap AI Engineer:
+        </p>
+
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Prinsip Emas AI Engineering:</strong><br>
+            <em>AI Agent membantu mempercepat pekerjaan programmer, bukan menggantikan tanggung jawab programmer. Sebagai manusia pengembang, kita tetap berkewajiban memahami logika kode yang dihasilkan, memverifikasi kualitasnya, menguji aksesibilitasnya, serta memastikan keamanannya.</em>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Kedua -->
+      <div class="materi-section">
+        <h2>Bagian Kedua — Perbedaan Chatbot, Coding Assistant, dan Coding Agent</h2>
+        <p>
+          Dalam dunia rekayasa kecerdasan buatan, ketiga istilah ini sering kali disalahartikan sebagai hal yang sama. Padahal, ketiganya memiliki kapabilitas dan batasan operasional yang sangat berbeda:
+        </p>
+
+        <h3>1. AI Chatbot</h3>
+        <p>
+          Chatbot hanya berfungsi dalam jendela obrolan (chat window). Ia hanya menghasilkan teks penjelasan atau jawaban percakapan. Chatbot tidak memiliki akses ke direktori kerja Anda dan tidak dapat memodifikasi file apa pun di komputer.
+        </p>
+        <pre><code>Pengguna : "Apa itu Python?"
+Chatbot  : "Python adalah bahasa pemrograman tingkat tinggi..."
+(Selesai — tidak ada perubahan berkas atau proyek)</code></pre>
+
+        <h3>2. AI Coding Assistant</h3>
+        <p>
+          Coding Assistant membantu membuatkan potongan kode (code snippet) berdasarkan prompt kita. Namun, pengguna masih harus menyalin (copy) kode tersebut secara manual, membuka file di editor, lalu menempelkannya (paste) ke posisi yang tepat.
+        </p>
+        <pre><code>Pengguna  : "Buat fungsi Python untuk menghitung luas persegi panjang."
+Assistant : Menghasilkan potongan kode fungsi def hitung_luas(p, l): return p * l
+(Programmer masih harus memasukkan kode ke berkas proyek secara mandiri)</code></pre>
+
+        <h3>3. Autonomous Coding Agent</h3>
+        <p>
+          Coding Agent memiliki wewenang untuk bertindak langsung di dalam repositori proyek menggunakan tools komputer. Agent dapat membaca file yang sudah ada, membuat file baru, memodifikasi beberapa berkas sekaligus, menjalankan unit test di terminal, dan memperbaiki syntax error jika terjadi kegagalan.
+        </p>
+        <pre><code>Pengguna : "Buat fungsi hitung_luas, masukkan ke file kalkulator.py,
+            jalankan pengujian program, dan perbaiki jika terdapat error."
+Agent    : Menganalisis file -> Membuat/mengedit kalkulator.py ->
+            Menjalankan 'python kalkulator.py' di terminal ->
+            Memeriksa output -> Melaporkan bahwa pengujian sukses 100%.</code></pre>
+
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Ringkasan Evolusi:</strong> Dari sekadar <em>Menjawab Pertanyaan</em> (Chatbot) $\rightarrow$ <em>Menyarankan Potongan Kode</em> (Assistant) $\rightarrow$ hingga <em>Mengeksekusi Proyek Secara Mandiri</em> (Agent).
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Ketiga -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga — Komponen Utama Arsitektur Antigravity</h2>
+        <p>
+          Di dalam ekosistem Antigravity, terdapat beberapa komponen inti yang bekerja sama secara harmonis:
+        </p>
+
+        <pre><code>Arsitektur Antigravity:
+[ Pengguna / AI Engineer ]
+            │ (Memberikan Tujuan & Spesifikasi)
+            v
+       [ AGENT ] ◄────────┐
+            │             │ (Mengevaluasi Hasil & Error)
+            ├───> [ MODEL (Otak Penalaran) ]
+            ├───> [ TOOLS (Terminal, File, Browser, Editor) ]
+            └───> [ ARTIFACTS (Rencana, Diff Kode, Laporan) ]
+            │
+            v
+   [ Workspace / Proyek Aplikasi ]</code></pre>
+
+        <h3>1. Agent</h3>
+        <p>
+          Sistem AI multi-langkah yang menerima instruksi tingkat tinggi dari pengguna, merumuskan dekomposisi rencana, memilih tools yang relevan, serta mengeksekusi tahapan kerja hingga tujuan tercapai.
+        </p>
+
+        <h3>2. Model</h3>
+        <p>
+          Fondasi model kecerdasan buatan (seperti keluarga model Gemini tercanggih) yang bertugas memahami bahasa alami, menganalisis struktur kode yang kompleks, dan merencanakan sintaks pemrograman yang aman.
+        </p>
+
+        <h3>3. Tools</h3>
+        <p>
+          Seperangkat fungsi yang diberikan kepada agent agar mampu berinteraksi dengan dunia luar:
+        </p>
+        <ul>
+          <li><strong>File Tools:</strong> Membaca berkas proyek, membuat berkas baru, dan menyunting baris kode spesifik.</li>
+          <li><strong>Terminal Tools:</strong> Menjalankan perintah shell/powershell untuk menginstal pustaka (libraries), build, atau running server.</li>
+          <li><strong>Browser Tools:</strong> Membuka halaman web aplikasi secara otomatis untuk menguji tampilan, fungsionalitas tombol, dan memeriksa console error.</li>
+          <li><strong>Search Tools:</strong> Menelusuri dokumentasi API terbaru di internet jika diperlukan referensi tambahan.</li>
+        </ul>
+
+        <h3>4. Artifacts</h3>
+        <p>
+          Dokumentasi kerja terstruktur yang dihasilkan oleh agent untuk disajikan kepada pengguna. Dokumentasi Antigravity menjelaskan bahwa artifacts dapat berupa rencana kerja (task list/plan), perbedaan perubahan kode (<em>code diff</em>), diagram arsitektur mermaid, hingga screenshot status aplikasi.
+        </p>
+        <p>
+          <strong>Nilai Plus untuk Pengguna Screen Reader:</strong> Artifacts memungkinkan programmer tunanetra memeriksa secara akurat apa saja berkas yang diubah oleh agent baris demi baris tanpa harus bingung mencari perbedaan secara visual.
+        </p>
+      </div>
+
+      <!-- Bagian Keempat -->
+      <div class="materi-section">
+        <h2>Bagian Keempat — Proyek Praktik: Prototype AI Assistant Toko Online</h2>
+        <p>
+          Pada sesi pertemuan ke-10 ini, kita tidak dituntut untuk menyelesaikan seluruh sistem e-commerce raksasa dalam sekali duduk. Sebagai gantinya, kita akan membangun sebuah <strong>Prototype Fungsional Toko Online</strong> dalam durasi 60 menit yang akan menjadi pondasi kokoh untuk pengerjaan <em>Final Project</em> Anda.
+        </p>
+
+        <p>Prototype yang kita bangun wajib memenuhi delapan spesifikasi fitur utama:</p>
+        <ol>
+          <li><strong>Identitas Toko:</strong> Menampilkan nama toko yang representatif (contoh: <em>"Toko Sam'an"</em>) beserta deskripsi produk.</li>
+          <li><strong>Katalog Produk:</strong> Menampilkan daftar barang dengan nama, harga, dan deskripsi singkat yang rapi.</li>
+          <li><strong>Fitur Pencarian Cepat:</strong> Pengguna dapat memfilter produk berdasarkan kata kunci secara instan.</li>
+          <li><strong>Detail Produk:</strong> Informasi lengkap mengenai spesifikasi barang yang dipilih.</li>
+          <li><strong>AI Assistant Sederhana:</strong> Fitur cerdas berbasis aturan/AI yang dapat menjawab pertanyaan seputar harga dan rekomendasi produk.</li>
+          <li><strong>Integrasi Transaksi WhatsApp:</strong> Tombol pemesanan yang otomatis memformat pesan order ke nomor WhatsApp toko.</li>
+          <li><strong>Desain Responsif:</strong> Tampilan rapi dan nyaman digunakan baik di layar ponsel maupun komputer desktop.</li>
+          <li><strong>Aksesibilitas Penuh (Screen Reader Friendly):</strong> Seluruh kontrol dapat diakses dengan keyboard dan memiliki label suara yang jelas.</li>
+        </ol>
+
+        <p>Contoh data produk latihan:</p>
+        <pre><code>1. Kopi Arabika Gayo  — Harga: Rp50.000 (Aroma harum, rasa sedikit asam segar)
+2. Kopi Robusta Temanggung — Harga: Rp40.000 (Rasa mantap, pahit pekat khas)
+3. Cokelat Bubuk Organik — Harga: Rp35.000 (Manis pas, cocok untuk minuman hangat)</code></pre>
+
+        <p>AI Assistant di dalam toko online dapat menjawab kebutuhan pelanggan, misalnya:</p>
+        <pre><code>Pelanggan : "Berapa harga Kopi Arabika?"
+Assistant : "Harga Kopi Arabika Gayo adalah Rp50.000 per kemasan 250 gram."
+
+Pelanggan : "Produk apa saja yang harganya di bawah 45 ribu?"
+Assistant : "Kami memiliki Kopi Robusta Temanggung (Rp40.000) dan Cokelat Bubuk Organik (Rp35.000)."</code></pre>
+      </div>
+
+      <!-- Bagian Kelima -->
+      <div class="materi-section">
+        <h2>Bagian Kelima — Teknik Merumuskan Prompt Spesifikasi untuk AI Agent</h2>
+        <p>
+          Kunci sukses utama seorang AI Engineer ketika bekerja dengan coding agent terletak pada <strong>kualitas dan kejelasan instruksi (prompting)</strong>.
+        </p>
+        <p>
+          Hindari memberikan prompt yang terlalu singkat dan ambigu seperti:
+        </p>
+        <pre><code>Prompt Buruk:
+"Buatkan saya toko online." (Terlalu umum, agent akan menebak-nebak dan hasilnya sering mengecewakan)</code></pre>
+
+        <p>
+          Gunakan instruksi spesifikasi yang kaya konteks, terperinci, dan menyebutkan aturan aksesibilitas sejak awal:
+        </p>
+
+        <pre><code>Prompt Komprehensif Siap Pakai:
+
+Buat aplikasi web toko online sederhana satu halaman (single page web application).
+
+Nama Aplikasi:
+Toko Sam'an — Kopi & Minuman Tradisional
+
+Tujuan:
+Menampilkan katalog produk lokal dan membantu pembeli menemukan produk serta
+memesan dengan cepat melalui WhatsApp.
+
+Fitur Wajib:
+1. Header toko dengan identitas yang jelas.
+2. Form pencarian produk interaktif dengan filter langsung.
+3. Daftar kartu produk yang menampilkan nama, harga, deskripsi, dan tombol order.
+4. Kotak AI Assistant sederhana yang dapat menjawab pertanyaan seputar katalog.
+5. Tombol pemesanan WhatsApp yang otomatis membuat format teks:
+   "Halo Toko Sam'an, saya ingin memesan [Nama Produk] seharga [Harga]."
+6. Modal atau tampilan detail produk.
+
+Data Produk:
+- Kopi Arabika Gayo, Rp50000
+- Kopi Robusta Temanggung, Rp40000
+- Cokelat Bubuk Organik, Rp35000
+
+Standar Aksesibilitas Screen Reader:
+1. Gunakan semantic HTML (header, main, section, footer).
+2. Semua input wajib memiliki elemen label yang terhubung (label for="...").
+3. Semua tombol wajib memiliki nama yang jelas (accessible name/aria-label).
+4. Navigasi heading terstruktur rapi (H1 untuk judul utama, H2 untuk bagian, H3 untuk produk).
+5. Seluruh fitur pencarian dan tombol harus 100% dapat dioperasikan menggunakan tombol Tab dan Enter di keyboard.
+6. Hasil pencarian dan jawaban AI Assistant wajib menggunakan atribut aria-live="polite" agar dibacakan otomatis oleh NVDA/JAWS.
+
+Teknologi:
+HTML5, CSS modern (atau Bootstrap 5), dan JavaScript murni yang ringan tanpa dependensi rumit.
+
+Setelah membuat kode:
+1. Buat seluruh file yang diperlukan di folder proyek.
+2. Jalankan server lokal untuk menguji aplikasi.
+3. Periksa apakah ada error di console browser.
+4. Buat laporan ringkas mengenai daftar berkas yang telah dibuat.</code></pre>
+      </div>
+
+      <!-- Bagian Keenam -->
+      <div class="materi-section">
+        <h2>Bagian Keenam — Framework Prompt Terstruktur untuk AI Engineering</h2>
+        <p>
+          Agar hasil kerja AI Agent selalu konsisten dan berkualitas tinggi di berbagai proyek di masa depan, gunakan formulasi standar berikut:
+        </p>
+
+        <pre><code>Framework Formula Prompt:
+1. TUJUAN         : Apa tujuan utama aplikasi yang ingin dicapai?
+2. FITUR          : Daftar kapabilitas fungsional yang harus ada.
+3. DATA           : Data awal atau entitas yang akan diproses aplikasi.
+4. TEKNOLOGI      : Bahasa pemrograman, framework, atau pustaka yang digunakan.
+5. ATURAN         : Batasan desain, penamaan berkas, dan batasan sistem.
+6. AKSESIBILITAS  : Kriteria navigasi keyboard, semantic markup, dan screen reader.
+7. PENGUJIAN      : Prosedur verifikasi dan pengujian yang harus dijalankan.
+8. HASIL AKHIR    : Format penyajian dan laporan yang diharapkan.</code></pre>
+
+        <div class="step-box">
+          <p class="mb-0">
+            <strong>Tips Produktivitas:</strong> Pola prompt ini dapat Anda simpan sebagai template standar. Setiap kali Anda ingin membangun aplikasi baru bersama AI Agent, Anda cukup mengisi bagian-bagian tersebut secara sistematis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bagian Ketujuh -->
+      <div class="materi-section">
+        <h2>Bagian Ketujuh — Memahami Alur Kerja Multi-Step Reasoning pada Agent</h2>
+        <p>
+          Salah satu keajaiban Antigravity adalah kemampuannya menyelesaikan pekerjaan melalui alur berpikir dan bertindak multi-langkah (<em>multi-step reasoning loop</em>).
+        </p>
+        <p>Ketika Anda menekan Enter untuk mengirimkan prompt spesifikasi, perhatikan alur siklus kerja yang dilakukan agent:</p>
+
+        <pre><code>INSTRUKSI PENGGUNA
+       │
+       v
+MEMAHAMI TUJUAN (Goal Understanding)
+       │
+       v
+MEMBUAT RENCANA KERJA (Planning & Task Decomposition)
+       │
+       v
+MENGGUNAKAN TOOLS SISTEM FILE (Membuat index.html, style.css, app.js)
+       │
+       v
+MENJALANKAN PROGRAM / SERVER (Terminal Execution)
+       │
+       v
+MEMERIKSA HASIL (Inspection via Browser / Test Runner)
+       │
+       ├── Ada Error? ──> [ MEMPERBAIKI KODE (Self-Debugging) ] ──┐
+       │                                                         │
+       v (Tidak Ada Error)                                       v
+HASIL AKHIR & LAPORAN ARTIFACTS ◄────────────────────────────────┘</code></pre>
+
+        <p>
+          Agent tidak hanya menghasilkan baris kode dalam satu kali tembak (<em>one-shot</em>). Jika saat menjalankan kode terjadi kesalahan sintaks atau port server terkunci, agent dapat membaca log error tersebut dan secara otonom memperbaikinya sebelum menyajikan hasil final kepada Anda.
+        </p>
+      </div>
+
+      <!-- Bagian Kedelapan -->
+      <div class="materi-section">
+        <h2>Bagian Kedelapan — Seni Memberikan Instruksi Perbaikan (Iterative Prompting)</h2>
+        <p>
+          Sebagai calon AI Engineer, jangan pernah berasumsi bahwa aplikasi hasil generasi pertama akan langsung 100% sempurna tanpa cela. Kualitas perangkat lunak sejati dibentuk melalui proses iterasi yang disiplin:
+        </p>
+
+        <div class="step-box">
+          <p class="mb-0 text-center">
+            <strong>Siklus Iterasi AI Engineering:</strong><br>
+            <code>Buat (Build) ──> Uji (Test) ──> Evaluasi (Evaluate) ──> Perbaiki (Refine) ──> Uji Ulang (Re-test)</code>
+          </p>
+        </div>
+
+        <h3>Contoh Kasus 1: Memperbaiki Aksesibilitas Tombol yang Bisu</h3>
+        <p>
+          Setelah menguji dengan NVDA, Anda menemukan bahwa tombol pencarian hanya dibacakan sebagai <em>"Button"</em> tanpa nama produk:
+        </p>
+        <pre><code>Instruksi Perbaikan:
+"Periksa seluruh elemen tombol pada file index.html dan app.js.
+Screen reader membacakan tombol pencarian dan tombol pemesanan tanpa accessible name.
+Tambahkan atribut aria-label yang jelas pada setiap tombol, contoh: aria-label='Pesan Kopi Arabika melalui WhatsApp'.
+Pastikan seluruh ikon visual disertai teks deskriptif yang ramah screen reader.
+Jalankan kembali aplikasi dan laporkan perubahannya."</code></pre>
+
+        <h3>Contoh Kasus 2: Menyempurnakan Logika Pencarian Produk</h3>
+        <pre><code>Instruksi Perbaikan:
+"Periksa fungsi pencarian produk di app.js.
+Fungsi saat ini bersifat case-sensitive sehingga kata 'kopi' huruf kecil tidak menemukan 'Kopi Arabika'.
+Ubah logika pencarian menggunakan toLowerCase() agar bersifat case-insensitive, dan tambahkan aria-live='polite'
+pada elemen penampung hasil agar jumlah produk yang ditemukan langsung dibacakan screen reader saat pengguna mengetik."</code></pre>
+      </div>
+
+      <!-- Bagian Kesembilan -->
+      <div class="materi-section">
+        <h2>Bagian Kesembilan — Penerapan Prinsip Aksesibilitas Web untuk Pengguna Screen Reader</h2>
+        <p>
+          Bagi developer tunanetra, aksesibilitas bukan sekadar fitur tambahan atau pekerjaan di akhir proyek. Aksesibilitas adalah fondasi utama sebuah aplikasi berkualitas tinggi.
+        </p>
+
+        <p>Tujuh pilar aksesibilitas yang wajib diperintahkan kepada AI Agent:</p>
+        <ol>
+          <li>
+            <strong>Dukungan Keyboard Penuh:</strong> Semua interaksi (klik produk, navigasi, input pencarian, tombol order) harus dapat dijangkau dan diaktifkan hanya menggunakan tombol <code>Tab</code>, <code>Shift + Tab</code>, dan <code>Enter / Spasi</code>.
+          </li>
+          <li>
+            <strong>Semantic HTML:</strong> Gunakan tag bermakna seperti <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, dan <code>&lt;footer&gt;</code>, bukan tumpukan tag <code>&lt;div&gt;</code> tanpa makna.
+          </li>
+          <li>
+            <strong>Struktur Heading Teratur:</strong> Gunakan <code>&lt;h1&gt;</code> untuk nama toko, <code>&lt;h2&gt;</code> untuk nama bagian (Katalog, Pencarian, Bantuan), dan <code>&lt;h3&gt;</code> untuk nama masing-masing produk agar mudah dinavigasi dengan tombol cepat <code>H</code> di NVDA/JAWS.
+          </li>
+          <li>
+            <strong>Label Input Eksplisit:</strong> Setiap kolom input pencarian wajib memiliki tag <code>&lt;label for="search-input"&gt;Cari Produk&lt;/label&gt;</code>.
+          </li>
+          <li>
+            <strong>Accessible Names pada Tombol:</strong> Jangan membuat tombol yang hanya berisi ikon gambar tanpa teks pendamping atau tanpa <code>aria-label</code>.
+          </li>
+          <li>
+            <strong>Warna Bukan Satu-Satunya Indikator:</strong> Status stok (misal: "Stok Tersedia" atau "Habis") harus dituliskan dalam teks jelas, tidak hanya ditandai dengan warna hijau atau merah.
+          </li>
+          <li>
+            <strong>Pemberitahuan Dinamis (Live Regions):</strong> Gunakan <code>aria-live="polite"</code> pada kotak jawaban AI Assistant agar pembaca layar otomatis menyuarakan respons baru tanpa memindahkan fokus kursor pengguna secara kasar.
+          </li>
+        </ol>
+      </div>
+
+      <!-- Bagian Kesepuluh -->
+      <div class="materi-section">
+        <h2>Bagian Kesepuluh — Prosedur dan Checklist Pengujian Aplikasi Secara Mandiri</h2>
+        <p>
+          Meskipun AI Agent dapat menjalankan pengujian otomatis, verifikasi langsung oleh pengguna tetap merupakan tahap akhir yang paling menentukan. Lakukan pengujian menggunakan checklist berikut:
+        </p>
+
+        <h3>1. Checklist Pengujian Fungsionalitas</h3>
+        <ul>
+          <li>[ ] Apakah aplikasi dapat dibuka di browser tanpa pesan error?</li>
+          <li>[ ] Apakah seluruh daftar produk muncul dengan data nama dan harga yang benar?</li>
+          <li>[ ] Ketika mengetikkan kata "kopi" pada kotak pencarian, apakah daftar produk tersaring secara akurat?</li>
+          <li>[ ] Ketika tombol pemesanan diklik, apakah browser membuka tautan WhatsApp dengan format pesan pemesanan yang rapi?</li>
+          <li>[ ] Apakah kotak AI Assistant memberikan jawaban yang relevan saat ditanyai harga produk?</li>
+        </ul>
+
+        <h3>2. Checklist Pengujian Aksesibilitas (Screen Reader & Keyboard)</h3>
+        <ul>
+          <li>[ ] Dapatkah Anda menavigasi seluruh halaman dari atas ke bawah hanya menggunakan tombol <code>Tab</code>?</li>
+          <li>[ ] Apakah screen reader (NVDA/JAWS) membacakan label yang jelas saat fokus berada di kotak pencarian?</li>
+          <li>[ ] Apakah setiap tombol memiliki accessible name yang menyebutkan tindakan dan nama produknya?</li>
+          <li>[ ] Dapatkah Anda berpindah antar bab menggunakan tombol cepat heading <code>H</code>?</li>
+          <li>[ ] Apakah jawaban baru dari AI Assistant otomatis terbaca oleh suara screen reader?</li>
+        </ul>
+
+        <h3>3. Checklist Pengujian Kode & Stabilitas</h3>
+        <ul>
+          <li>[ ] Apakah console browser (tekan <code>Ctrl + Shift + I</code> lalu pilih tab Console) bersih dari pesan error merah?</li>
+          <li>[ ] Jika server lokal dimatikan dan dijalankan kembali, apakah aplikasi tetap berfungsi stabil?</li>
+        </ul>
+      </div>
+
+      <!-- Bagian Kesebelas -->
+      <div class="materi-section">
+        <h2>Bagian Kesebelas — Keamanan AI Agent: Pengendalian Akses dan Human-in-the-Loop</h2>
+        <p>
+          Karena coding agent di Antigravity memiliki kemampuan mengeksekusi perintah terminal dan memodifikasi file di komputer Anda, kepatuhan terhadap prinsip keselamatan adalah hal mutlak:
+        </p>
+
+        <pre><code>Pedoman Keamanan Agentic:
+1. Batasi Cakupan Folder : Instruksikan agent hanya memodifikasi berkas di dalam direktori kerja proyek.
+2. Larang Akses Sistem  : Jangan izinkan agent menyentuh folder sistem operasi (Windows, System32, Registry).
+3. Proteksi Kunci Rahasia: Jangan pernah menuliskan API Key rahasia secara terang-terangan di kode frontend terbuka.
+4. Tinjau Approval Tool  : Manfaatkan fitur granular tool approval untuk menyetujui setiap perintah terminal berisiko.</code></pre>
+
+        <p>
+          Google Antigravity menerapkan prinsip <em>Secure Defaults</em> di mana setiap tindakan berisiko tinggi memerlukan otorisasi dari pengguna (konsep <strong>Human-in-the-Loop</strong>). Manusia tetaplah pemilik otoritas tertinggi atas sistem komputer.
+        </p>
+      </div>
+
+      <!-- Bagian Kedua Belas -->
+      <div class="materi-section">
+        <h2>Bagian Kedua Belas — Hubungan Antigravity dengan Pengerjaan Final Project</h2>
+        <p>
+          Prototype toko online sederhana yang kita buat pada pertemuan ini merupakan miniatur dari <strong>Final Project</strong> pelatihan difabelajar:
+        </p>
+
+        <div class="step-box">
+          <p class="mb-1"><strong>Gambaran Final Project:</strong></p>
+          <p class="mb-0">
+            Aplikasi Toko Online Inklusif yang dilengkapi katalog produk dinamis, pencarian cerdas, AI Assistant interaktif untuk konsultasi produk, keranjang belanja, serta integrasi pemesanan otomatis melalui WhatsApp.
+          </p>
+        </div>
+
+        <pre><code>Alur Lengkap Aplikasi Final Project:
+PENGGUNA (Layar & Screen Reader)
+      │
+      v
+APLIKASI TOKO ONLINE
+      │
+      ├───> KATALOG & FILTER PRODUK
+      │
+      ├───> KERANJANG BELANJA
+      │
+      └───> AI ASSISTANT INTERAKTIF
+      │
+      v
+FORMAT PEMESANAN OTOMATIS
+      │
+      v
+GATEWAY TRANSAKSI WHATSAPP TOKO</code></pre>
+
+        <p>
+          Pada pengembangan lanjutan pasca pelatihan, Anda dapat memperluas aplikasi ini dengan menghubungkan database (Firebase atau Supabase), gateway pembayaran otomatis, sistem autentikasi akun pengguna, dan integrasi WhatsApp Business API. Antigravity akan menjadi senjata andalan Anda untuk mengimplementasikan fitur-fitur tersebut dengan cepat.
+        </p>
+      </div>
+
+      <!-- Bagian Ketiga Belas -->
+      <div class="materi-section">
+        <h2>Bagian Ketiga Belas — Panduan Khusus Antigravity untuk Pengguna Screen Reader</h2>
+        <p>
+          Antigravity menyediakan berbagai antarmuka interaksi, termasuk versi <strong>Command Line Interface (CLI)</strong> dan <strong>Integrated Development Environment (IDE)</strong>.
+        </p>
+        <p>
+          Bagi pengguna tunanetra yang mengandalkan pembaca layar penuh, antarmuka berbasis <strong>CLI / Terminal</strong> sering kali memberikan kenyamanan navigasi superior karena bersifat berbasis teks murni, minim elemen visual yang membingungkan, dan dapat dikontrol penuh dengan kombinasi tombol navigasi keyboard.
+        </p>
+        <p>Tips efisiensi saat bekerja dengan agent:</p>
+        <ul>
+          <li><strong>Gunakan Review Cursor:</strong> Di NVDA, manfaatkan tombol numpad <code>7</code>, <code>8</code>, <code>9</code> untuk membaca riwayat teks output agent secara teliti tanpa menggeser fokus kursor ketik.</li>
+          <li><strong>Batasi Perintah Simultan:</strong> Berikan instruksi satu tujuan spesifik dalam satu giliran (turn), hindari menumpuk sepuluh tugas berbeda sekaligus agar log pekerjaan agent mudah dipahami.</li>
+          <li><strong>Manfaatkan Ringkasan Artifacts:</strong> Minta agent untuk menyajikan ringkasan hasil perubahan di akhir tugas dalam bentuk daftar poin (bullet points) agar screen reader dapat membacakannya secara ringkas dan padat.</li>
+        </ul>
+      </div>
+
+      <!-- Bagian Keempat Belas -->
+      <div class="materi-section">
+        <h2>Bagian Keempat Belas — Kesimpulan: Definisi Sejati Seorang AI Engineer</h2>
+        <p>
+          Sebagai penutup pelatihan, pesan terpenting yang harus melekat dalam sanubari setiap lulusan pelatihan ini adalah:
+        </p>
+
+        <div class="step-box">
+          <p class="fs-5 mb-2">
+            <strong>"Seorang AI Engineer bukanlah orang yang menyerahkan seluruh pekerjaan kepada AI secara pasif."</strong>
+          </p>
+          <p class="mb-0">
+            Seorang AI Engineer sejati adalah arsitek dan nakhoda yang memahami dengan jernih:
+          </p>
+          <ul class="mt-2 mb-0">
+            <li>Pekerjaan apa saja yang tepat dan aman untuk didelegasikan kepada AI Agent.</li>
+            <li>Bagaimana merumuskan instruksi spesifikasi yang presisi, kaya konteks, dan berstandar tinggi.</li>
+            <li>Bagaimana mengendalikan sistem keamanan dan batasan tindakan agent (Human-in-the-Loop).</li>
+            <li>Bagaimana memverifikasi, menguji, dan memastikan bahwa produk akhir yang dihasilkan benar, aman, inklusif, dan memberikan manfaat nyata bagi seluruh lapisan masyarakat!</li>
+          </ul>
+        </div>
+
+        <p class="mt-4">
+          Selamat atas pencapaian luar biasa Anda menyelesaikan sepuluh pertemuan pelatihan AI Engineering di Difabelajar! Teruslah berkarya, berinovasi, dan buktikan bahwa keterbatasan fisik tidak pernah membatasi kapasitas Anda untuk menjadi perekayasa teknologi masa depan yang handal!
+        </p>
+      </div>
+
     </section>
 
-    <div class="d-flex flex-column gap-3 align-items-center my-4">
-      <a href="https://drive.google.com/file/d/1AjfuEnSKmdf7dHLl6qbEUKLeEDoSFP6k/view?usp=sharing" class="btn-custom" target="_blank" rel="noopener">Download Materi Lengkap</a>
-      <a href="../topic10.html" class="btn btn-outline-primary rounded-pill px-4">Kembali</a>
+    <!-- Navigasi Modul -->
+    <div class="d-flex flex-column gap-3 align-items-center my-4" aria-label="Navigasi Modul">
+      <a href="https://drive.google.com/file/d/1yTQGrLQ-OZeB2Iml-6r__lOE_8vHbXLr/view?usp=sharing"
+         class="btn-custom" aria-label="Download Materi " target="_blank" rel="noopener">
+        Download Materi
+      </a>
+      <a href="../topic10.html" class="btn btn-outline-primary rounded-pill px-4" aria-label="Kembali ke Halaman Topik 10">
+        Kembali
+      </a>
     </div>
   </main>
 
@@ -358,8 +746,10 @@
     &copy; 2025 Difabelajar. Semua hak cipta dilindungi.
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Dark Mode Toggle
     const toggleBtn = document.querySelector('.toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
